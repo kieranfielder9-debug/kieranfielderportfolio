@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kieran Fielder — I write for humans and machines.</title>
+<meta name="description" content="Kieran Fielder — Prompt Engineer. Copywriter. Words for humans, prompts for machines."/>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23FF4D00"/><g stroke="white" stroke-width="12" stroke-linecap="round"><line x1="50" y1="20" x2="50" y2="80"/><line x1="24" y1="35" x2="76" y2="65"/><line x1="24" y1="65" x2="76" y2="35"/></g></svg>'/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Mr+Dafoe&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--paper:#FFFFFF;--ink:#0A0A0A;--body:#1C1C1C;--orange:#FF4D00;--orange-dark:#E04300;--border:#E4E4E4;--muted:#6E6E6E;--soft:#F7F7F6;--max:1200px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--body);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
+.page{display:none;opacity:0;transition:opacity .4s ease;min-height:100vh;padding-top:64px}
+.page.active{display:block}
+.page.visible{opacity:1}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.4s}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:var(--ink);cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .2s;padding:0 4px}
+.nav-logo:hover{color:var(--orange)}
+.nav-right{display:flex;align-items:center;gap:40px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links button{font-size:12px;font-weight:700;color:var(--ink);background:none;border:none;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
+.nav-links button:hover,.nav-links button.active{color:var(--orange)}
+.nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-sayhi:hover{background:var(--orange);color:#fff}
+
+.btn{display:inline-block;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:0;transition:background .22s,color .22s,border-color .22s;cursor:pointer;border:none;text-decoration:none}
+.btn-solid{background:var(--ink);color:#fff;border:1.5px solid var(--ink)}
+.btn-solid:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-full{width:100%;text-align:center;font-size:12px;padding:14px 24px}
+
+.section-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:56px;display:flex;align-items:center;gap:16px}
+.section-label::after{content:'';display:block;width:32px;height:1px;background:var(--border)}
+.kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;font-weight:700}
+.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border:1px solid rgba(10,10,10,.4);padding:4px 12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+hr.divider{border:none;border-top:1px solid var(--border)}
+.back-btn{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0;transition:color .2s;margin-bottom:48px;font-weight:700}
+.back-btn:hover{color:var(--orange)}
+.back-btn svg{width:14px;height:14px;transition:transform .2s}
+.back-btn:hover svg{transform:translateX(-3px)}
+
+footer{background:var(--ink);padding:88px 0 60px;margin-top:0}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.footer-sig{font-family:'Mr Dafoe',cursive;font-size:54px;color:#fff;display:block;line-height:1.1;margin-bottom:16px;transform:rotate(-4deg);transform-origin:left bottom}
+.footer-email{font-size:15px;color:#fff;text-decoration:none;font-weight:500;border-bottom:2px solid var(--orange);padding-bottom:2px;transition:color .2s}
+.footer-email:hover{color:var(--orange)}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:20px}
+.footer-copy{font-size:12px;color:#8E8E8E}
+
+.sayhi{display:inline-block;background:var(--ink);color:#fff;padding:17px 40px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.sayhi:hover{background:var(--orange);color:#fff}
+.sayhi-orange{background:var(--orange);color:var(--ink)}
+.sayhi-orange:hover{background:#fff;color:var(--ink)}
+
+/* HERO */
+#hero{min-height:calc(100vh - 64px);background:var(--orange);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
+.hero-eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);margin-bottom:40px;font-weight:700}
+h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:60px}
+.u-fl{position:relative;display:inline-block}
+.u-fl svg{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.24em;overflow:visible}
+.draw{stroke-dasharray:330;stroke-dashoffset:330;animation:drawIn .9s ease .6s forwards}
+@keyframes drawIn{to{stroke-dashoffset:0}}
+.quick-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px 40px;list-style:none}
+.quick-links button{background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding:2px 0;border-bottom:3px solid transparent;transition:border-color .2s}
+.quick-links button:hover{border-bottom-color:#fff}
+
+/* ABOUT */
+.about-section{padding:130px 0}
+.about-grid{display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:center}
+.sig-panel{background:var(--orange);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative}
+.sig-big{font-family:'Mr Dafoe',cursive;font-size:62px;color:#fff;transform:rotate(-7deg);line-height:1.1;text-align:center;padding:0 24px}
+.sig-note{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.08em;color:var(--ink)}
+.roles{font-size:clamp(22px,2.6vw,30px);font-weight:700;color:var(--ink);margin-bottom:26px;line-height:1.3}
+.about-text p{font-size:17px;line-height:1.75;margin-bottom:18px;max-width:540px}
+.about-text .sayhi{margin-top:14px}
+
+/* SERVICES */
+.services-section{padding:0 0 130px}
+h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:56px}
+h2.serif em{font-style:italic}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.service-card{border:1px solid var(--border);padding:52px 44px;transition:border-color .25s;position:relative;background:var(--paper)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--orange);transition:width .35s ease}
+.service-card:hover{border-color:var(--ink)}
+.service-card:hover::before{width:100%}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--border);line-height:1;margin-bottom:24px;display:block}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--ink);margin-bottom:16px}
+.service-card p{font-size:15px;color:var(--body)}
+
+/* THE GOODS — tile grid */
+.goods-section{padding:0 0 130px}
+.goods-sub{font-size:16px;color:var(--muted);max-width:480px;margin:-32px 0 48px}
+.tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{position:relative;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);padding:0;cursor:pointer;background:var(--paper);display:block;width:100%;text-decoration:none}
+.tile svg{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .5s ease}
+.tile:hover svg{transform:scale(1.05)}
+.tile-label{position:absolute;left:14px;bottom:14px;background:var(--ink);color:#fff;padding:11px 16px;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;text-align:left;max-width:calc(100% - 28px)}
+.tile:hover .tile-label,.tile:focus-visible .tile-label{opacity:1;transform:none}
+.tile-label strong{display:block;font-size:14px;font-weight:700;line-height:1.35}
+.tile-label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
+@media (hover:none){.tile-label{opacity:1;transform:none}}
+
+/* MARQUEE */
+.marquee{background:var(--orange);overflow:hidden;padding:20px 0}
+.marquee-track{display:flex;width:max-content;animation:marq 30s linear infinite}
+.marquee-group{display:flex;align-items:center;flex-shrink:0}
+.marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}}
+
+/* WORK PAGE */
+.page-header{padding-top:64px;padding-bottom:48px}
+h1.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,76px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:20px}
+h1.page-title em{font-style:italic}
+.page-sub{font-size:17px;color:var(--muted);max-width:480px}
+.project-card{display:grid;grid-template-columns:160px 1fr 56px;align-items:center;gap:48px;padding:52px 0;border-bottom:1px solid var(--border);position:relative;transition:padding-left .3s ease;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;width:100%;text-align:left;font-family:'DM Sans',sans-serif}
+.project-card::before{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--orange);transition:height .35s ease}
+.project-card:hover{padding-left:20px}
+.project-card:hover::before{height:100%}
+.project-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--border);line-height:1;display:block;margin-bottom:10px}
+.project-type{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.project-body h2{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,34px);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:14px}
+.project-body h2 em{font-style:italic}
+.project-body p{font-size:15px;color:var(--body);max-width:520px;margin-bottom:20px}
+.arrow-circle{width:48px;height:48px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .22s,border-color .22s,transform .22s}
+.project-card:hover .arrow-circle{background:var(--orange);border-color:var(--orange);transform:rotate(45deg)}
+.arrow-circle svg{width:18px;height:18px;stroke:var(--muted);transition:stroke .22s}
+.project-card:hover .arrow-circle svg{stroke:#fff}
+.work-category-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:40px 0 0;margin-bottom:0;display:flex;align-items:center;gap:16px;font-weight:700}
+.work-category-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.work-category-label:first-of-type{padding-top:0}
+.more-work{margin-top:72px;border:1px dashed var(--border);padding:40px 44px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.more-work p{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--muted);font-style:italic}
+.more-work span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.work-section-wrapper{padding:0 0 140px}
+
+/* CASE PAGES */
+.case-hero{padding-top:64px;padding-bottom:0}
+.breadcrumb{display:flex;align-items:center;gap:12px;margin-bottom:52px}
+.bc-sep{color:var(--border)}
+.bc-cur{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.case-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:flex;align-items:center;gap:16px;font-weight:700}
+.case-eyebrow::after{content:'';display:block;width:32px;height:1px;background:var(--border)}
+h1.case-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,72px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:24px}
+h1.case-title em{font-style:italic}
+.case-subtitle{font-size:18px;color:var(--muted);max-width:580px;margin-bottom:56px;line-height:1.55}
+.meta-strip{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.meta-item{flex:1;padding:28px 32px;border-right:1px solid var(--border)}
+.meta-item:last-child{border-right:none}
+.meta-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.meta-value{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--ink)}
+.case-body{padding:72px 0 120px}
+.case-layout{display:grid;grid-template-columns:1fr 280px;gap:80px;align-items:start}
+.case-section{margin-bottom:64px}
+h2.case-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:20px}
+h2.case-h2 em{font-style:italic}
+.case-content p{font-size:16px;color:var(--body);line-height:1.75;margin-bottom:18px}
+.email-preview{background:var(--soft);border:1px solid var(--border);padding:28px 32px;margin-top:16px}
+.email-subject{font-weight:700;font-size:14px;color:var(--orange);margin-bottom:12px}
+.email-body{font-size:14px;color:var(--body);line-height:1.65}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.result-card{border:1px solid var(--border);padding:28px;position:relative}
+.result-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
+.result-card strong{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.result-card span{font-size:13px;color:var(--muted)}
+.reflection-box{border:1px solid var(--border);border-left:3px solid var(--orange);padding:36px 40px;background:var(--soft);margin-top:8px}
+.reflection-box p{font-size:15px;color:var(--body);line-height:1.8;margin-bottom:14px}
+.reflection-box p:last-child{margin-bottom:0}
+.case-sidebar{position:sticky;top:96px}
+.sidebar-block{border:1px solid var(--border);padding:28px;margin-bottom:20px}
+.sidebar-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
+.sidebar-tags{display:flex;flex-wrap:wrap;gap:8px}
+.next-strip{border-top:1px solid var(--border);padding:64px 0}
+.next-inner{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.next-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:700}
+.next-title-txt{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--ink);font-style:italic}
+.next-arrow{width:52px;height:52px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;background:none;transition:background .22s,border-color .22s,transform .22s}
+.next-arrow:hover{background:var(--orange);border-color:var(--orange);transform:rotate(45deg)}
+.next-arrow svg{width:20px;height:20px;stroke:var(--muted);transition:stroke .22s}
+.next-arrow:hover svg{stroke:#fff}
+.script-block{background:#0A0A0A;color:#F2F1EC;padding:44px 48px;margin-top:16px;overflow-x:auto}
+.script-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:24px;font-weight:700}
+.script-line{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;line-height:1.55;color:#F2F1EC;margin-bottom:12px}
+.prompt-box{background:var(--soft);border:1px solid var(--border);border-left:3px solid var(--orange);padding:28px 32px;margin-top:16px;font-family:'DM Sans',sans-serif;font-size:13px;white-space:pre-wrap;overflow-x:auto}
+.collapsible{background:var(--ink);color:#fff;cursor:pointer;padding:14px 24px;width:100%;border:none;text-align:left;font-size:14px;font-weight:500;letter-spacing:.04em;margin-top:24px;font-family:'DM Sans',sans-serif;transition:background .22s}
+.collapsible:hover{background:var(--orange)}
+.collapsible-content{padding:0;max-height:0;overflow:hidden;transition:max-height .5s ease-out;background:transparent}
+.collapsible-content.open{max-height:3000px;padding:16px 0 0 0}
+.ad-preview{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:16px;max-width:420px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.ad-url{font-size:12px;color:#1a73e8;margin-bottom:8px}
+.ad-headline{font-size:18px;color:#1a0dab;font-weight:400;margin-bottom:4px}
+.ad-description{font-size:14px;color:#4d5156;line-height:1.4}
+.verify-table{width:100%;border-collapse:collapse;margin-top:16px}
+.verify-table th,.verify-table td{border:1px solid var(--border);padding:12px 16px;text-align:left;vertical-align:top}
+.verify-table th{background:var(--soft);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.verify-table td{font-size:14px}
+.scroll-target{scroll-margin-top:84px}
+
+@media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:48px}.sig-panel{max-width:420px}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.project-card{grid-template-columns:1fr;gap:20px;padding:40px 0}.arrow-circle{display:none}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
+@media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <button class="nav-logo" onclick="go('home')">Kieran Fielder</button>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><button id="nb-about" onclick="go('home','about')">Who?</button></li>
+        <li><button id="nb-work" onclick="go('work','work-scroll-anchor')">The Goods</button></li>
+      </ul>
+      <a class="nav-sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="p-home" class="page">
+
+  <section id="hero">
+    <div class="wrap">
+      <p class="hero-eyebrow">Available for briefs — yes, right now</p>
+      <h1 class="display">I write for humans<br>and <span class="u-fl">machines.<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
+      <ul class="quick-links">
+        <li><button onclick="go('home','about')">Who?</button></li>
+        <li><button onclick="go('work','work-scroll-anchor')">The Goods</button></li>
+        <li><button onclick="go('work','anchor-prompt')">Robot Whispering</button></li>
+        <li><button onclick="go('work','anchor-copy')">Human Words</button></li>
+        <li><button onclick="go('home','contact')">Say Hi</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about" class="about-section scroll-target">
+    <div class="wrap">
+      <div class="section-label">Who?</div>
+      <div class="about-grid reveal">
+        <div class="sig-panel">
+          <span class="sig-big">Kieran<br>Fielder</span>
+          <span class="sig-note">(my actual signature, more or less)</span>
+        </div>
+        <div class="about-text">
+          <p class="roles">Prompt Engineer. Copywriter.</p>
+          <p>Two jobs that are secretly the same job: writing words that make people act, and writing instructions that make AI behave.</p>
+          <p>I write conversion copy for fintech, automotive, and trade brands — emails, ads, product pages, brand stories. And I engineer the prompts that turn large language models into reliable, on-brand, fact-checked writers instead of confident liars.</p>
+          <p>Based in the UK. Currently taking briefs.</p>
+          <a class="sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="wrap">
+      <div class="section-label">What I do</div>
+      <h2 class="serif reveal">Two crafts.<br><em>One obsession with words.</em></h2>
+      <div class="services-grid reveal d1">
+        <div class="service-card">
+          <span class="service-num">01</span>
+          <p class="kicker">Prompt Engineering</p>
+          <h3>Robot Whispering</h3>
+          <p>Designing, testing, and refining prompts that unlock the full potential of large language models, making AI outputs reliably excellent, on-brand, and production-ready.</p>
+          <div class="tags" style="margin-top:28px"><span class="tag">LLM Optimisation</span><span class="tag">Chain-of-Thought</span><span class="tag">Few-Shot Learning</span><span class="tag">RAG Systems</span></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">02</span>
+          <p class="kicker">Copywriting</p>
+          <h3>Human Words</h3>
+          <p>Conversion-focused, voice-consistent copy for brands in finance, tech, SaaS, and media. Authentic, brand-representative, and built to connect.</p>
+          <div class="tags" style="margin-top:28px"><span class="tag">Email Marketing</span><span class="tag">Product Copy</span><span class="tag">Brand Story</span><span class="tag">Direct Response</span><span class="tag">Google Ads</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="goods-section">
+    <div class="wrap">
+      <div class="section-label">The Goods</div>
+      <h2 class="serif reveal">Five projects.<br><em>Zero filler.</em></h2>
+      <p class="goods-sub">Pick a tile. Every project comes with the full thinking — brief, drafts, audits and all.</p>
+      <div class="tile-grid reveal d1">
+
+        <button class="tile" onclick="go('case-yt')">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="400" fill="#0A0A0A"/>
+            <g fill="#FFFFFF" opacity=".92"><rect x="20" y="16" width="24" height="14"/><rect x="68" y="16" width="24" height="14"/><rect x="116" y="16" width="24" height="14"/><rect x="164" y="16" width="24" height="14"/><rect x="212" y="16" width="24" height="14"/><rect x="260" y="16" width="24" height="14"/><rect x="308" y="16" width="24" height="14"/><rect x="356" y="16" width="24" height="14"/><rect x="20" y="370" width="24" height="14"/><rect x="68" y="370" width="24" height="14"/><rect x="116" y="370" width="24" height="14"/><rect x="164" y="370" width="24" height="14"/><rect x="212" y="370" width="24" height="14"/><rect x="260" y="370" width="24" height="14"/><rect x="308" y="370" width="24" height="14"/><rect x="356" y="370" width="24" height="14"/></g>
+            <g fill="#FFFFFF" opacity=".3"><circle cx="52" cy="260" r="4"/><circle cx="74" cy="260" r="4"/><circle cx="96" cy="260" r="4"/><circle cx="118" cy="260" r="4"/><circle cx="52" cy="282" r="4"/><circle cx="74" cy="282" r="4"/><circle cx="96" cy="282" r="4"/><circle cx="118" cy="282" r="4"/><circle cx="52" cy="304" r="4"/><circle cx="74" cy="304" r="4"/><circle cx="96" cy="304" r="4"/><circle cx="118" cy="304" r="4"/></g>
+            <circle cx="200" cy="196" r="112" fill="none" stroke="#FF4D00" stroke-width="14"/>
+            <circle cx="200" cy="196" r="80" fill="#FF4D00"/>
+            <path d="M183 162 L243 196 L183 230 Z" fill="#FFFFFF"/>
+            <g stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".9"><line x1="46" y1="196" x2="70" y2="196"/><line x1="330" y1="196" x2="354" y2="196"/><line x1="58" y1="160" x2="76" y2="166"/><line x1="324" y1="226" x2="342" y2="232"/></g>
+            <rect x="64" y="334" width="272" height="6" fill="#FFFFFF" opacity=".35"/>
+            <rect x="64" y="334" width="168" height="6" fill="#FF4D00"/>
+            <circle cx="232" cy="337" r="9" fill="#FFFFFF"/>
+          </svg>
+          <span class="tile-label"><strong>Educational YouTube Script</strong><span>Robot Whispering</span></span>
+        </button>
+
+        <button class="tile" onclick="go('case-pulse')">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="400" fill="#FF4D00"/>
+            <polyline points="0,118 96,118 128,118 156,76 192,156 224,92 248,118 400,118" fill="none" stroke="#FFFFFF" stroke-width="6" opacity=".4"/>
+            <circle cx="312" cy="92" r="50" fill="#FFFFFF"/>
+            <text x="312" y="94" text-anchor="middle" dominant-baseline="central" font-family="'DM Sans',Arial,sans-serif" font-weight="700" font-size="54" fill="#0A0A0A">£</text>
+            <polyline points="0,252 92,252 130,252 162,168 200,332 238,196 262,252 400,252" fill="none" stroke="#0A0A0A" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="200" cy="332" r="10" fill="#FFFFFF"/>
+            <g fill="#0A0A0A"><rect x="44" y="356" width="36" height="8"/><rect x="92" y="356" width="14" height="8"/><rect x="118" y="356" width="24" height="8"/></g>
+          </svg>
+          <span class="tile-label"><strong>Pulse Financials Launch Email</strong><span>Human Words</span></span>
+        </button>
+
+        <button class="tile" onclick="go('case-hyundai')">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="400" fill="#FFFFFF"/>
+            <path d="M60 60h12M66 54v12M330 320h12M336 314v12M320 84h12M326 78v12M70 330h12M76 324v12" stroke="#DDDDDD" stroke-width="3" fill="none"/>
+            <g fill="#0A0A0A"><rect x="140" y="156" width="120" height="22"/><rect x="118" y="178" width="164" height="22"/><rect x="96" y="200" width="208" height="22"/><rect x="60" y="222" width="282" height="44"/><rect x="76" y="184" width="34" height="12"/><rect x="98" y="196" width="12" height="10"/></g>
+            <rect x="146" y="182" width="46" height="16" fill="#FFFFFF"/><rect x="204" y="182" width="46" height="16" fill="#FFFFFF"/>
+            <rect x="60" y="244" width="282" height="10" fill="#FF4D00"/>
+            <rect x="322" y="222" width="20" height="11" fill="#FF4D00"/>
+            <rect x="60" y="222" width="12" height="11" fill="#FF4D00"/>
+            <rect x="104" y="266" width="44" height="44" fill="#0A0A0A"/><rect x="116" y="278" width="20" height="20" fill="#FF4D00"/>
+            <rect x="252" y="266" width="44" height="44" fill="#0A0A0A"/><rect x="264" y="278" width="20" height="20" fill="#FF4D00"/>
+            <rect x="14" y="226" width="30" height="10" fill="#FF4D00"/><rect x="2" y="248" width="42" height="10" fill="#0A0A0A"/><rect x="22" y="204" width="22" height="10" fill="#FF4D00"/>
+            <g fill="#0A0A0A"><rect x="60" y="324" width="36" height="6"/><rect x="112" y="324" width="36" height="6"/><rect x="164" y="324" width="36" height="6"/><rect x="216" y="324" width="36" height="6"/><rect x="268" y="324" width="36" height="6"/><rect x="320" y="324" width="22" height="6"/></g>
+          </svg>
+          <span class="tile-label"><strong>Hyundai IONIQ 5 N</strong><span>Human Words</span></span>
+        </button>
+
+        <button class="tile" onclick="go('case-wholesaler')">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="400" fill="#FFFFFF"/>
+            <path d="M36 122 C110 44 290 44 364 114" fill="none" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 14"/>
+            <g fill="#FF4D00"><path d="M47 110 L65 110 L56 128 Z"/><path d="M121 70 L139 70 L130 88 Z"/><path d="M193 58 L211 58 L202 76 Z"/><path d="M265 68 L283 68 L274 86 Z"/><path d="M339 104 L357 104 L348 122 Z"/><circle cx="56" cy="106" r="11"/><circle cx="130" cy="66" r="11"/><circle cx="202" cy="54" r="11"/><circle cx="274" cy="64" r="11"/><circle cx="348" cy="100" r="11"/></g>
+            <g fill="#FFFFFF"><circle cx="56" cy="106" r="4"/><circle cx="130" cy="66" r="4"/><circle cx="202" cy="54" r="4"/><circle cx="274" cy="64" r="4"/><circle cx="348" cy="100" r="4"/></g>
+            <g fill="#FFFFFF" stroke="#0A0A0A" stroke-width="6"><rect x="88" y="246" width="104" height="84"/><rect x="208" y="246" width="104" height="84"/><rect x="148" y="156" width="104" height="84"/></g>
+            <g stroke="#0A0A0A" stroke-width="4"><line x1="88" y1="272" x2="192" y2="272"/><line x1="208" y1="272" x2="312" y2="272"/><line x1="148" y1="182" x2="252" y2="182"/></g>
+            <g fill="#FF4D00"><rect x="130" y="246" width="20" height="84"/><rect x="250" y="246" width="20" height="84"/><rect x="190" y="156" width="20" height="84"/></g>
+            <rect x="76" y="338" width="248" height="6" fill="#0A0A0A"/>
+          </svg>
+          <span class="tile-label"><strong>UK Wholesaler Brand Story</strong><span>Human Words</span></span>
+        </button>
+
+        <button class="tile" onclick="go('case-ad')">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="400" fill="#0A0A0A"/>
+            <path d="M40 360 C80 330 120 332 160 356" fill="none" stroke="#FFFFFF" stroke-width="3" opacity=".35" stroke-dasharray="1 10" stroke-linecap="round"/>
+            <circle cx="200" cy="200" r="128" fill="#FFFFFF"/>
+            <circle cx="200" cy="200" r="92" fill="none" stroke="#0A0A0A" stroke-width="10"/>
+            <circle cx="200" cy="200" r="62" fill="#FF4D00"/>
+            <g stroke="#0A0A0A" stroke-width="13" stroke-linecap="round"><line x1="128" y1="200" x2="272" y2="200"/><line x1="164" y1="138" x2="236" y2="262"/><line x1="164" y1="262" x2="236" y2="138"/></g>
+            <circle cx="200" cy="200" r="15" fill="#0A0A0A"/>
+            <g fill="#FF4D00"><circle cx="312" cy="200" r="7"/><circle cx="279" cy="279" r="7"/><circle cx="200" cy="312" r="7"/><circle cx="121" cy="279" r="7"/><circle cx="88" cy="200" r="7"/><circle cx="121" cy="121" r="7"/><circle cx="200" cy="88" r="7"/><circle cx="279" cy="121" r="7"/></g>
+            <g fill="#FF4D00"><circle cx="346" cy="64" r="13"/><circle cx="330" cy="112" r="13"/><circle cx="350" cy="160" r="13"/></g>
+            <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".7"><line x1="318" y1="58" x2="306" y2="56"/><line x1="304" y1="106" x2="292" y2="104"/><line x1="322" y1="156" x2="310" y2="154"/></g>
+          </svg>
+          <span class="tile-label"><strong>Vault Savings Google Ad</strong><span>Human Words</span></span>
+        </button>
+
+        <a class="tile" href="mailto:kieranfielder9@gmail.com">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="400" fill="#FF4D00"/>
+            <path d="M204 92 C290 86 330 150 322 208 C312 280 244 322 174 312 C102 302 70 238 84 176 C100 110 168 88 226 96 C300 106 328 170 318 224" fill="none" stroke="#0A0A0A" stroke-width="9" stroke-linecap="round" opacity=".95"/>
+            <text x="200" y="214" text-anchor="middle" dominant-baseline="central" font-family="'DM Sans',Arial,sans-serif" font-weight="700" font-size="150" fill="#FFFFFF">?</text>
+            <g stroke="#0A0A0A" stroke-width="8" stroke-linecap="round"><g transform="translate(60,62)"><line x1="0" y1="-16" x2="0" y2="16"/><line x1="-14" y1="-8" x2="14" y2="8"/><line x1="-14" y1="8" x2="14" y2="-8"/></g><g transform="translate(342,334) scale(.8)"><line x1="0" y1="-16" x2="0" y2="16"/><line x1="-14" y1="-8" x2="14" y2="8"/><line x1="-14" y1="8" x2="14" y2="-8"/></g></g>
+          </svg>
+          <span class="tile-label"><strong>Your Brief Here</strong><span>Say Hi</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group"><span class="txt">Words for humans</span><span class="sq"></span><span class="txt">Prompts for machines</span><span class="sq"></span><span class="txt">Copy that converts</span><span class="sq"></span><span class="txt">Scripts that teach</span><span class="sq"></span><span class="txt">Ads that get clicked</span><span class="sq"></span><span class="txt">Stories that stick</span><span class="sq"></span></div>
+      <div class="marquee-group"><span class="txt">Words for humans</span><span class="sq"></span><span class="txt">Prompts for machines</span><span class="sq"></span><span class="txt">Copy that converts</span><span class="sq"></span><span class="txt">Scripts that teach</span><span class="sq"></span><span class="txt">Ads that get clicked</span><span class="sq"></span><span class="txt">Stories that stick</span><span class="sq"></span></div>
+    </div>
+  </div>
+
+  <footer id="contact" class="scroll-target">
+    <div class="wrap"><div class="footer-inner">
+      <div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div>
+      <div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div>
+    </div></div>
+  </footer>
+</div>
+
+<!-- WORK PAGE -->
+<div id="p-work" class="page">
+  <header class="page-header"><div class="wrap"><button class="back-btn" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>Back to Home</button><div class="section-label">Portfolio</div><h1 class="page-title">The <em>Goods</em></h1><p class="page-sub">Prompt engineering and copywriting projects, from brief to final deliverable. The thinking included.</p></div></header><hr class="divider"/>
+  <section class="work-section-wrapper"><div class="wrap"><div id="work-scroll-anchor" class="scroll-target" style="position:relative;"></div>
+    <div class="work-category-label scroll-target" id="anchor-prompt">Robot Whispering · Prompt Engineering</div>
+    <button class="project-card" onclick="go('case-yt')"><div><span class="project-num">01</span><span class="project-type">Prompt Engineering</span></div><div class="project-body"><h2>Educational YouTube Script<br><em>Using AI · Hallucinations Corrected</em></h2><p>From a brochure-sounding first draft to a verified, beginner-ready 10-minute script for a financial education channel. Full iteration log, hallucination audit, and final result.</p><div class="tags"><span class="tag">Script Writing</span><span class="tag">Hallucination Audit</span><span class="tag">Iteration Log</span><span class="tag">LLM Refinement</span></div></div><div class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></button>
+    <div class="work-category-label scroll-target" id="anchor-copy" style="margin-top:16px">Human Words · Email &amp; Direct-Response</div>
+    <button class="project-card" onclick="go('case-pulse')"><div><span class="project-num">02</span><span class="project-type">Email · Direct-Response</span></div><div class="project-body"><h2>Pulse Financials<br><em>Launch Email · Freelancer Banking</em></h2><p>A direct-response launch email for a digital bank built specifically for freelancers, side-hustlers, and small business owners.</p><div class="tags"><span class="tag">Email Marketing</span><span class="tag">Direct Response</span><span class="tag">Fintech</span></div></div><div class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></button>
+    <div class="work-category-label" style="margin-top:16px">Human Words · Product Copy</div>
+    <button class="project-card" onclick="go('case-hyundai')"><div><span class="project-num">03</span><span class="project-type">Product Copy</span></div><div class="project-body"><h2>Hyundai IONIQ 5 N<br><em>Product Feature Copy · Electric Performance</em></h2><p>Product feature copy that balances emotional appeal with technical detail for an electric performance vehicle.</p><div class="tags"><span class="tag">Product Copy</span><span class="tag">Automotive</span><span class="tag">Brand Voice</span></div></div><div class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></button>
+    <div class="work-category-label" style="margin-top:16px">Human Words · Brand Story</div>
+    <button class="project-card" onclick="go('case-wholesaler')"><div><span class="project-num">04</span><span class="project-type">Brand Story</span></div><div class="project-body"><h2>UK Wholesaler<br><em>Brand Story · From Salford to Five Branches</em></h2><p>A grounded, trustworthy brand story for tradespeople, from a single unit in Salford to five branches across the UK.</p><div class="tags"><span class="tag">Brand Story</span><span class="tag">About Us</span><span class="tag">Trade &amp; Industry</span></div></div><div class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></button>
+    <div class="work-category-label" style="margin-top:16px">Human Words · Google Ads</div>
+    <button class="project-card" onclick="go('case-ad')"><div><span class="project-num">05</span><span class="project-type">Copywriting · Google Ads</span></div><div class="project-body"><h2>Vault Savings App<br><em>Google Ad · Micro-savings Campaign</em></h2><p>A Google Search Ad that reframes saving as effortless, making micro-savings feel like the obvious choice.</p><div class="tags"><span class="tag">Google Ads</span><span class="tag">Fintech</span><span class="tag">Conversion Copy</span></div></div><div class="arrow-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></button>
+    <div class="more-work"><p>More goods loading…</p><span>Coming soon</span></div>
+  </div></section>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- CASE 1: YouTube Script -->
+<div id="p-case-yt" class="page">
+  <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>All Goods</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Robot Whispering · Financial Education</p><h1 class="case-title">Writing an Educational YouTube Script <em>Using AI</em></h1><p class="case-subtitle">How I turned a brochure-sounding first draft into a verified, beginner-ready 10-minute video script for a financial education channel, with hallucinations corrected.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Money Over Time</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">YouTube Script</div></div><div class="meta-item"><div class="meta-label">Iterations</div><div class="meta-value">3 Prompts + 1 Editorial Pass</div></div></div></div></section>
+  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">A script that <em>earns trust</em></h2><p>Money Over Time teaches beginner investors. Their audience is middle class and mostly self-taught. The brief was to explain diversification in a way that felt like advice from a knowledgeable friend, not a compliance department. Every factual claim needed systematic verification.</p></div>
+    <div class="case-section"><p class="kicker">Prompts</p><button class="collapsible" onclick="toggleCollapsible(this)">📄 View Version 1 Prompt (Creative Control Failure)</button><div class="collapsible-content"><div class="prompt-box">You are a Financial Educator with a masters degree in finance and 10+ years of experience as a financial advisor for an investment firm... [full detailed persona prompt]</div></div><button class="collapsible" onclick="toggleCollapsible(this)">📄 View Version 2 Prompt (Structured Correction)</button><div class="collapsible-content"><div class="prompt-box">Role: You are a financial educator writing a Youtube Script for a channel called Money Over Time. Focus on teaching and clear actional instruction instead of metaphors... [full structured prompt]</div></div></div>
+    <div class="case-section"><p class="kicker">Hallucination Audit</p><h2 class="case-h2">Factual <em>verification</em></h2><table class="verify-table"><thead><tr><th>Claim from v2 Script</th><th>Verdict</th><th>Correction Applied</th></tr></thead><tbody><tr><td>"Large-cap companies valued above £8 billion"</td><td>Misleading</td><td>Changed to index-based definition: FTSE 100 / S&amp;P 500 thresholds vary</td></tr><tr><td>"Small-cap companies valued below £2 billion"</td><td>Misleading</td><td>Changed to percentile / index-based definition</td></tr><tr><td>"US stocks went sideways for nearly ten years while international markets produced solid returns"</td><td>Partially false</td><td>Rewrote to specify emerging markets only</td></tr><tr><td>"When stock markets dropped sharply in early 2020, high-quality government bonds actually increased in value"</td><td>True but incomplete</td><td>Added caveat about 2022 exception</td></tr><tr><td>"Brexit hit UK markets hard in 2016 while much of the world was unaffected"</td><td>Overstated</td><td>Changed to "dipped briefly but recovered faster than UK"</td></tr></tbody></table></div>
+    <div class="case-section"><p class="kicker">Final Script</p><button class="collapsible" onclick="toggleCollapsible(this)">🎬 View Full 10-Minute Script</button><div class="collapsible-content"><div class="script-block"><div class="script-label">HOOK</div><div class="script-line">"Most investors don't lose money because they picked the wrong company. They lose money because they put too much money into too few things."</div><div class="script-label">RE-HOOK</div><div class="script-line">"Let me give you a real example. Imagine someone called James. He's 34. He earns around £45,000 a year... When that stock drops 60%, James loses over £10,000. Years of saving. Gone in months."</div><div class="script-label">STEP 1: Asset Classes</div><div class="script-line">"Stocks. When you buy a stock, you buy a small ownership stake in a company. Bonds. When you buy a bond, you lend money to a government or company."</div><div class="script-label">STEP 2: Sectors and Sizes</div><div class="script-line">"They buy ten different stocks — and feel diversified. But all ten are tech companies. That's not diversification. That's concentration with extra steps."</div><div class="script-label">STEP 3: Geographic Spread</div><div class="script-line">"The UK stock market makes up about 4% of the global market. That means if you only invest in British companies, you are missing 96% of the world."</div><div class="script-label">STEP 4: Time Horizon</div><div class="script-line">"Money you need within five years should not be in stocks. In 2022, the S&amp;P 500 fell by roughly 19%. If you needed that money then, you sold at a loss."</div><div class="script-label">CONCLUSION AND CTA</div><div class="script-line">"Diversification isn't one thing. It's four connected decisions. Download the Portfolio Planning Worksheet in the description."</div></div></div></div>
+    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>In my initial prompt the attempt was to ensure the prompt was as context rich as possible stuffing the persona role with a great amount of detail. This backfired in the end. I realise now that constraints and a more organised prompt structure is preferable. Also I could have pre-empted a lot of the hallucinations and applied accounted for this within my initial prompt. These pre-empted constraints could be used to create batch prompts for future projects to ensuring a more efficient workflow.</p></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Prompt Engineering</span><span class="tag">Hallucination Audit</span><span class="tag">Tone Calibration</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Goods</div></div><button class="next-arrow" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- CASE 2: Pulse Financials -->
+<div id="p-case-pulse" class="page">
+  <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>All Goods</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Human Words · Email and Direct-Response · Fintech</p><h1 class="case-title">Pulse Financials <em>Launch Email</em></h1><p class="case-subtitle">A direct-response launch email for a digital bank built specifically for freelancers, side-hustlers, and small business owners, making tax stress disappear.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Pulse Financials</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">Launch Email</div></div><div class="meta-item"><div class="meta-label">Goal</div><div class="meta-value">Account Sign-ups</div></div></div></div></section>
+  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make the reader feel <em>understood</em></h2><p>Self-employed people passionate about their work but stressed about financial admin. The email needed to make the reader feel understood, then position Pulse as the simple, stress-free solution. Tone: empathetic but confident, conversational not corporate.</p></div>
+    <div class="case-section"><p class="kicker">The Work</p><div class="email-preview"><div class="email-subject">Open before January 31st</div><div class="email-body"><p><strong>Hey [name],</strong></p><p>You did not start your business to become a dead-end professional in a boring job. You started it for passion. For freedom. Because you love the feeling when you have just made another sale.</p><p>But right now that feeling probably comes with knots in your stomach. Because every pound that hits your account gets mixed up with money for Costa trips, weekends away, and that loan from Grandma. And somewhere in your mind is the sinking feeling the tax man will want his cut.</p><p><strong>So we built Pulse.</strong> A new kind of digital bank built for people like you. When you open a Pulse Builder Account, you get a Pulse Pot. Tell it to save 20% for taxes. Every time a payment lands, Pulse automatically sweeps that 20% into your pot. When tax season rolls around, the money is just there.</p><p>Meet Sarah. A photographer in Columbus, Ohio. Before Pulse, she used spreadsheets and lay awake dreading tax time. Last year, with Pulse, she saved $4,000 automatically. Now it is her "peace of mind button."</p><p><strong>Our offer for you:</strong> When you open your Builder Account, we will include a complimentary 30-minute tax readiness call with one of our partner accountants. No pressure. No sales pitch. Just straight answers.</p><p><strong>Imagine a stress-free April.</strong> That feeling starts today. Go to pulsebank.com. Open your Builder Account in minutes. Give your future self some peace of mind.</p><p>James Keller, Founder, Pulse Financials</p><p><em>P.S. One account. One automatic sweep. Zero tax stress. That is Pulse.</em></p></div></div></div>
+    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The question at the top immediately connects with deeper motivation. Freelancers don't start for the admin. They start for freedom, passion, control. By naming that first, I built identity alignment before introducing any product. The Sarah story offers social proof without a formal testimonial. The complimentary tax call lowers the barrier. Circling back to the emotional opening leaves readers with a vision of relief, not a feature list.</p></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Email Marketing</span><span class="tag">Direct Response</span><span class="tag">Fintech</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Goods</div></div><button class="next-arrow" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- CASE 3: Hyundai IONIQ 5 N -->
+<div id="p-case-hyundai" class="page">
+  <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>All Goods</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Human Words · Product Copy · Automotive</p><h1 class="case-title">Hyundai IONIQ 5 N <em>Product Feature Copy</em></h1><p class="case-subtitle">Balancing emotional appeal with technical detail for an electric performance vehicle. Confident, cinematic, and precise.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Hyundai</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">Product Feature Copy</div></div></div></div></section>
+  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Excite <em>and inform</em></h2><p>Product feature copy that sits between a spec sheet and a lifestyle ad. Car enthusiasts want numbers; early EV adopters want cutting-edge tech. The copy had to excite and inform without tipping too far either direction.</p></div>
+    <div class="case-section"><p class="kicker">The Work</p><div class="script-block"><div class="script-label">Hyundai IONIQ 5 N</div><div class="script-line">Judge This Book By Its Cover. Pixelated, Powered, Potent.</div><div class="script-line">The Hyundai IONIQ 5 N is your all-access pass to the future of performance. Its pixelated design is a digital signature blending retro with cutting-edge.</div><div class="script-line">This is a vehicle designed for the journey, offering a fully customizable driving experience where you command the steering weight, torque distribution and even the G-Force at leisure.</div><div class="script-line">It is engineered for the destination, arriving with undeniable presence thanks to its aggressive stance, unique black N badge, and essential wing-spoiler. The freedom continues off the line, with its 800V high-performance architecture enabling a staggering 641 horsepower and ultra-fast charging.</div><div class="script-line">Every detail serves a purpose. The front air intakes cooling the brakes ensure all speed, no overheating. The massive 21-inch forged aluminium wheels translate power into improved traction and cornering grip.</div><div class="script-line">This is performance, perfected and packaged with breathtaking style. Discover the IONIQ 5 N, where every drive is a highlight reel.</div></div></div>
+    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest challenge was balancing emotion with technical specs. Car enthusiasts want the numbers, but they also want to feel something about the car. My approach was to use confident, cinematic language to build desire, then anchor every emotional claim with a concrete detail. When I said "undeniable presence," I backed it with the black N badge and wing spoiler. When I talked about performance, I gave them the horsepower, the charging architecture, and the wheel specifications. The hype feels earned because the proof is right there.</p></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Product Copy</span><span class="tag">Automotive</span><span class="tag">Brand Voice</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Goods</div></div><button class="next-arrow" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- CASE 4: UK Wholesaler -->
+<div id="p-case-wholesaler" class="page">
+  <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>All Goods</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Human Words · Brand Story · Trade and Industry</p><h1 class="case-title">UK Wholesaler <em>Brand Story</em></h1><p class="case-subtitle">From a single unit in Salford to five branches across the country, a grounded, trustworthy origin story for tradespeople who value reliability over marketing fluff.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">UK Wholesaler</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">Brand Story / About Us</div></div></div></div></section>
+  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Tell the origin story, <em>demonstrate growth</em></h2><p>A brand story for a UK wholesaler that started as a single unit in Salford and grew to five branches. The audience is tradespeople who value reliability, speed, and trust over marketing fluff. The story needed to feel human and grounded, not polished and distant.</p></div>
+    <div class="case-section"><p class="kicker">The Work</p><div class="email-preview"><div class="email-body"><p>In July of 2004 our founders spent a whole day chasing down basic parts for the job. This day taught them a lot and led them to this belief: that wholesalers should be partners to the flow of the job and not hurdles to get over.</p><p>So, they opened a single unit in Salford, stocking the reliable, hard-working components they trusted themselves.</p><p>For fifteen years they have remained close to those same principles of trust and pragmatism that they started with. And so they worked hard to earn the trust of local tradespersons in the area. From that solid bedrock of trust and reputation they were able to successfully expand across the UK.</p><p>Today, they are thriving, with five branches from Winsford to Sidcup and beyond, and are still the same dedicated partner. And still they are looking to open new doors in the future in locations around the UK.</p></div></div></div>
+    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>I opened with the specific anecdote about the founders spending a whole day chasing down basic parts. This was intentional. Tradespeople know exactly what that feels like. A wasted day on a simple job because the supply chain failed. By starting there, I proved the founders understand the audience's reality before making any claims about their business. Tradespeople do not respond to corporate language. They respond to trust, reliability, and evidence.</p></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Brand Story</span><span class="tag">Authentic Voice</span><span class="tag">Trade &amp; Industry</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Goods</div></div><button class="next-arrow" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- CASE 5: Vault Google Ad -->
+<div id="p-case-ad" class="page">
+  <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>All Goods</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Human Words · Google Ads · Fintech</p><h1 class="case-title">Vault Savings App <em>Google Ad</em></h1><p class="case-subtitle">A micro-savings campaign that reframes putting money aside as something you barely notice, turning reluctant savers into Vault users with a single search ad.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Vault</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">Google Search Ad</div></div><div class="meta-item"><div class="meta-label">Objective</div><div class="meta-value">App Downloads</div></div></div></div></section>
+  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make saving feel <em>invisible</em></h2><p>Vault is an automatic micro-savings app. The target audience is not disciplined investors; it is the person who wants to save but has never been able to stick to it. The brief: write a Google Search Ad that removes psychological friction entirely. Do not sell saving. Sell the absence of effort.</p></div>
+    <div class="case-section"><p class="kicker">The Ad</p><div class="ad-preview"><div class="ad-url">Ad · vault.app/automatic-savings · Sponsored</div><div class="ad-headline">Micro Saves — Major Goals</div><div class="ad-headline" style="font-size:16px">Save Without Noticing | Vault Automatic Savings</div><div class="ad-description">Instantly save money at the moment of transaction. You don't have to stress it. Micro-savings means you don't have to feel it sting at the end of the month. No big deal sacrifice.</div></div></div>
+    <div class="case-section"><p class="kicker">Strategic Thinking</p><div class="reflection-box"><p>Most automatic savings apps double down on the technical aspects of their application. The simplicity, the uniformity, the ease. This is good enough. Yet in writing this ad, I didn't want to bypass the real human frustration of muddling through the motivation and the discipline involved when working towards a saving goal. This is the desire behind the intent when the user searches for a savings app which is automatic. The final line — "No big deal sacrifice" — is casual, conversational, and removes any sense of pressure. It mirrors exactly how the audience actually thinks about money.</p></div></div>
+    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest insight from this project was realising that the audience does not want to think about saving. They want to think about literally anything else. Most financial copy tries to educate. This ad tries to reassure. It says: "You do not have to become a different person to save money. You just need a system that works while you are not paying attention." The "No big deal sacrifice" line turns "I should probably start saving at some point" into something that feels immediately possible. That shift — from abstract intention to concrete action — is what conversion copy actually does.</p></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Google Ads</span><span class="tag">Conversion Copy</span><span class="tag">Fintech</span><span class="tag">Search Intent</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Goods</div></div><button class="next-arrow" onclick="go('work', 'work-scroll-anchor')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<script>
+const PAGES = ['home','work','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
+const WORKISH = ['work','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
+
+function go(id, anchorId) {
+  PAGES.forEach(p => { const el = document.getElementById('p-'+p); if(el){ el.classList.remove('active','visible'); } });
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  const nbWork = document.getElementById('nb-work');
+  const nbAbout = document.getElementById('nb-about');
+  if(nbWork && WORKISH.includes(id)) nbWork.classList.add('active');
+  if(nbAbout && id === 'home' && anchorId === 'about') nbAbout.classList.add('active');
+  const page = document.getElementById('p-'+id);
+  if(!page) return;
+  page.style.display = 'block';
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+
+  requestAnimationFrame(() => {
+    page.classList.add('active');
+    requestAnimationFrame(() => {
+      page.classList.add('visible');
+      activateReveals(page);
+      window.scrollTo(0, 0);
+      if(anchorId) {
+        setTimeout(() => {
+          const anchor = document.getElementById(anchorId);
+          if(anchor) { anchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        }, 120);
+      }
+    });
+  });
+}
+
+function activateReveals(container) {
+  const els = container.querySelectorAll('.reveal');
+  els.forEach(el => el.classList.remove('in'));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  },{threshold:0.06});
+  els.forEach(el => obs.observe(el));
+}
+
+function toggleCollapsible(btn) {
+  btn.classList.toggle('active');
+  const content = btn.nextElementSibling;
+  if (content.classList.contains('open')) {
+    content.classList.remove('open');
+  } else {
+    content.classList.add('open');
+  }
+}
+
+go('home');
+</script>
+</body>
+</html>
