@@ -491,7 +491,7 @@ const PAGES = ['home','work','case-yt','case-ad','case-pulse','case-hyundai','ca
 const WORKISH = ['work','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
 
 function go(id, anchorId) {
-  PAGES.forEach(p => { const el = document.getElementById('p-'+p); if(el){ el.classList.remove('active','visible'); } });
+  PAGES.forEach(p => { const el = document.getElementById('p-'+p); if(el){ el.classList.remove('active','visible'); el.style.display = ''; } });
   document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
   const nbWork = document.getElementById('nb-work');
   const nbAbout = document.getElementById('nb-about');
