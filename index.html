@@ -110,11 +110,14 @@ h2.serif em{font-style:italic}
 .tile{position:relative;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);padding:0;cursor:pointer;background:var(--paper);display:block;width:100%;text-decoration:none}
 .tile svg{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .5s ease}
 .tile:hover svg{transform:scale(1.05)}
-.tile-label{position:absolute;left:14px;bottom:14px;background:var(--ink);color:#fff;padding:11px 16px;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;text-align:left;max-width:calc(100% - 28px)}
-.tile:hover .tile-label,.tile:focus-visible .tile-label{opacity:1;transform:none}
-.tile-label strong{display:block;font-size:14px;font-weight:700;line-height:1.35}
-.tile-label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
-@media (hover:none){.tile-label{opacity:1;transform:none}}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.05)}
+.tile-overlay{position:absolute;inset:0;background:rgba(10,10,10,.62);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:28px;text-align:center;opacity:0;transition:opacity .3s ease}
+.tile:hover .tile-overlay,.tile:focus-visible .tile-overlay{opacity:1}
+.tile-overlay .cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.tile-overlay strong{color:#fff;font-size:clamp(16px,1.5vw,21px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.4;max-width:320px}
+.tile-overlay .view{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+@media (hover:none){.tile-overlay{opacity:1;background:rgba(10,10,10,.55)}}
 
 /* MARQUEE */
 .marquee{background:var(--orange);overflow:hidden;padding:20px 0}
@@ -312,7 +315,8 @@ h2.case-h2 em{font-style:italic}
             <rect x="64" y="334" width="168" height="6" fill="#FF4D00"/>
             <circle cx="232" cy="337" r="9" fill="#FFFFFF"/>
           </svg>
-          <span class="tile-label"><strong>Educational YouTube Script</strong><span>Robot Whispering</span></span>
+          <img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/>
+          <span class="tile-overlay"><span class="cat">Robot Whispering</span><strong>Educational YouTube Script</strong><span class="view">— View —</span></span>
         </button>
 
         <button class="tile" onclick="go('case-pulse')">
@@ -325,7 +329,8 @@ h2.case-h2 em{font-style:italic}
             <circle cx="200" cy="332" r="10" fill="#FFFFFF"/>
             <g fill="#0A0A0A"><rect x="44" y="356" width="36" height="8"/><rect x="92" y="356" width="14" height="8"/><rect x="118" y="356" width="24" height="8"/></g>
           </svg>
-          <span class="tile-label"><strong>Pulse Financials Launch Email</strong><span>Human Words</span></span>
+          <img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/>
+          <span class="tile-overlay"><span class="cat">Human Words</span><strong>Pulse Financials Launch Email</strong><span class="view">— View —</span></span>
         </button>
 
         <button class="tile" onclick="go('case-hyundai')">
@@ -342,7 +347,8 @@ h2.case-h2 em{font-style:italic}
             <rect x="14" y="226" width="30" height="10" fill="#FF4D00"/><rect x="2" y="248" width="42" height="10" fill="#0A0A0A"/><rect x="22" y="204" width="22" height="10" fill="#FF4D00"/>
             <g fill="#0A0A0A"><rect x="60" y="324" width="36" height="6"/><rect x="112" y="324" width="36" height="6"/><rect x="164" y="324" width="36" height="6"/><rect x="216" y="324" width="36" height="6"/><rect x="268" y="324" width="36" height="6"/><rect x="320" y="324" width="22" height="6"/></g>
           </svg>
-          <span class="tile-label"><strong>Hyundai IONIQ 5 N</strong><span>Human Words</span></span>
+          <img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/>
+          <span class="tile-overlay"><span class="cat">Human Words</span><strong>Hyundai IONIQ 5 N</strong><span class="view">— View —</span></span>
         </button>
 
         <button class="tile" onclick="go('case-wholesaler')">
@@ -356,7 +362,8 @@ h2.case-h2 em{font-style:italic}
             <g fill="#FF4D00"><rect x="130" y="246" width="20" height="84"/><rect x="250" y="246" width="20" height="84"/><rect x="190" y="156" width="20" height="84"/></g>
             <rect x="76" y="338" width="248" height="6" fill="#0A0A0A"/>
           </svg>
-          <span class="tile-label"><strong>UK Wholesaler Brand Story</strong><span>Human Words</span></span>
+          <img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/>
+          <span class="tile-overlay"><span class="cat">Human Words</span><strong>UK Wholesaler Brand Story</strong><span class="view">— View —</span></span>
         </button>
 
         <button class="tile" onclick="go('case-ad')">
@@ -372,7 +379,8 @@ h2.case-h2 em{font-style:italic}
             <g fill="#FF4D00"><circle cx="346" cy="64" r="13"/><circle cx="330" cy="112" r="13"/><circle cx="350" cy="160" r="13"/></g>
             <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".7"><line x1="318" y1="58" x2="306" y2="56"/><line x1="304" y1="106" x2="292" y2="104"/><line x1="322" y1="156" x2="310" y2="154"/></g>
           </svg>
-          <span class="tile-label"><strong>Vault Savings Google Ad</strong><span>Human Words</span></span>
+          <img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/>
+          <span class="tile-overlay"><span class="cat">Human Words</span><strong>Vault Savings Google Ad</strong><span class="view">— View —</span></span>
         </button>
 
         <a class="tile" href="mailto:kieranfielder9@gmail.com">
@@ -382,7 +390,8 @@ h2.case-h2 em{font-style:italic}
             <text x="200" y="214" text-anchor="middle" dominant-baseline="central" font-family="'DM Sans',Arial,sans-serif" font-weight="700" font-size="150" fill="#FFFFFF">?</text>
             <g stroke="#0A0A0A" stroke-width="8" stroke-linecap="round"><g transform="translate(60,62)"><line x1="0" y1="-16" x2="0" y2="16"/><line x1="-14" y1="-8" x2="14" y2="8"/><line x1="-14" y1="8" x2="14" y2="-8"/></g><g transform="translate(342,334) scale(.8)"><line x1="0" y1="-16" x2="0" y2="16"/><line x1="-14" y1="-8" x2="14" y2="8"/><line x1="-14" y1="8" x2="14" y2="-8"/></g></g>
           </svg>
-          <span class="tile-label"><strong>Your Brief Here</strong><span>Say Hi</span></span>
+          <img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/>
+          <span class="tile-overlay"><span class="cat">Say Hi</span><strong>Your Brief Here</strong><span class="view">— Email Me —</span></span>
         </a>
 
       </div>
