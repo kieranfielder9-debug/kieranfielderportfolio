@@ -128,6 +128,23 @@ h2.serif em{font-style:italic}
 @keyframes marq{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}}
 
+/* READ PAGE */
+.read-about{padding:96px 0 110px}
+.read-how{padding:0 0 130px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.newsletter{background:var(--ink);padding:110px 0}
+.nl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.nl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,54px);font-weight:500;color:#fff;line-height:1.1;margin-bottom:20px}
+.nl-title em{font-style:italic}
+.nl-copy{font-size:16px;color:#C4C4C4;line-height:1.7}
+.nl-form{display:flex;gap:12px}
+.nl-input{flex:1;background:transparent;border:1.5px solid #4A4A4A;color:#fff;padding:16px 18px;font-family:'DM Sans',sans-serif;font-size:14px;min-width:0}
+.nl-input::placeholder{color:#777}
+.nl-input:focus{outline:none;border-color:var(--orange)}
+.nl-btn{background:var(--orange);color:var(--ink);border:none;padding:16px 30px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
+.nl-btn:hover{background:#fff}
+.nl-note{font-size:12px;color:#8E8E8E;margin-top:16px;line-height:1.6}
+
 /* WORK PAGE */
 .page-header{padding-top:64px;padding-bottom:48px}
 h1.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,76px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:20px}
@@ -226,7 +243,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:48px}.sig-panel{max-width:420px}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -240,6 +257,7 @@ h2.case-h2 em{font-style:italic}
         <li><button id="nb-about" onclick="go('home','about')">Who?</button></li>
         <li><button id="nb-work" onclick="go('work')">Projects</button></li>
         <li><button id="nb-blog" onclick="go('blog')">Blog</button></li>
+        <li><button id="nb-read" onclick="go('read')">Read</button></li>
       </ul>
       <a class="nav-sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
     </div>
@@ -258,7 +276,7 @@ h2.case-h2 em{font-style:italic}
         <li><button onclick="go('blog')">Blog</button></li>
         <li><button onclick="go('home','contact')">Contact</button></li>
         <li><a href="mailto:kieranfielder9@gmail.com">Say Hi</a></li>
-        <li><button onclick="go('home','about')">Read</button></li>
+        <li><button onclick="go('read')">Read</button></li>
       </ul>
     </div>
   </section>
@@ -415,6 +433,53 @@ h2.case-h2 em{font-style:italic}
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
 
+<!-- READ PAGE -->
+<div id="p-read" class="page">
+  <header class="page-header"><div class="wrap"><div class="section-label">The Read</div><h1 class="page-title">Read all <em>about it</em></h1><p class="page-sub">Who I am, how I work, and a newsletter worth opening.</p></div></header><hr class="divider"/>
+  <section class="read-about"><div class="wrap">
+    <div class="about-grid">
+      <div class="sig-panel">
+        <span class="sig-big">Kieran<br>Fielder</span>
+        <span class="sig-note">(committed to the bit)</span>
+      </div>
+      <div class="about-text">
+        <p class="roles">Copywriter. Content Creator. Prompt Engineer. Strategist.</p>
+        <p>I'm Kieran — a UK-based writer working both sides of the modern marketing desk: the words your customers read, and the instructions the machines follow.</p>
+        <p>My rule for copy is simple: it has to earn something. A click, a reply, a sale, a change of mind. Every project starts with who's reading and what's in their way — and ends with the exact words that meet them there.</p>
+        <p>The prompt engineering grew from the same obsession. Language models write confidently and sometimes wrongly; I build the prompts, constraints and fact-checking passes that make them reliable enough to publish.</p>
+        <p>If that sounds like what your project needs, the button below is the shortest path.</p>
+        <a class="sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
+      </div>
+    </div>
+  </div></section>
+  <section class="read-how"><div class="wrap">
+    <div class="section-label">How I work</div>
+    <div class="grid-3">
+      <div class="service-card"><span class="service-num">01</span><h3>Listen first</h3><p>Every brief starts with questions. Who's the reader? What do they want? What's in the way? The writing is the last 20% of the work.</p></div>
+      <div class="service-card"><span class="service-num">02</span><h3>Draft, test, argue</h3><p>First drafts exist to be argued with. Versions get tested against the brief, real search intent, and real objections — not my own taste.</p></div>
+      <div class="service-card"><span class="service-num">03</span><h3>Verify everything</h3><p>Claims get checked. Hallucinations get audited. Tone gets calibrated. Nothing ships that can't survive a sceptical reader.</p></div>
+    </div>
+  </div></section>
+  <section class="newsletter" id="newsletter"><div class="wrap">
+    <div class="nl-grid">
+      <div>
+        <p class="kicker">The Newsletter</p>
+        <h2 class="nl-title">The <em>Stand-Out</em></h2>
+        <p class="nl-copy">One short email, once a month: what's working in copy and prompts right now, with examples you can steal. Written for founders and marketers who want their words to earn more.</p>
+      </div>
+      <div>
+        <form class="nl-form" onsubmit="return subscribeNL(this)">
+          <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+          <button class="nl-btn" type="submit">Count me in</button>
+        </form>
+        <p class="nl-note">No spam, ever. Unsubscribe by replying "stop". Your address stays with me and goes nowhere else. (Proper sign-up service coming soon — for now this opens an email. Hit send and you're in.)</p>
+      </div>
+    </div>
+  </div></section>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Longer thoughts live on</div><div class="next-title-txt">The Blog</div></div><button class="next-arrow" onclick="go('blog')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></div>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
 <!-- CASE 1: YouTube Script -->
 <div id="p-case-yt" class="page">
   <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Robot Whispering · Financial Education</p><h1 class="case-title">Writing an Educational YouTube Script <em>Using AI</em></h1><p class="case-subtitle">How I turned a brochure-sounding first draft into a verified, beginner-ready 10-minute video script for a financial education channel, with hallucinations corrected.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Money Over Time</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">YouTube Script</div></div><div class="meta-item"><div class="meta-label">Iterations</div><div class="meta-value">3 Prompts + 1 Editorial Pass</div></div></div></div></section>
@@ -532,7 +597,7 @@ h2.case-h2 em{font-style:italic}
 </svg>
 
 <script>
-const PAGES = ['home','work','blog','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
+const PAGES = ['home','work','blog','read','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
 const WORKISH = ['work','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
 
 function go(id, anchorId) {
@@ -541,9 +606,11 @@ function go(id, anchorId) {
   const nbWork = document.getElementById('nb-work');
   const nbAbout = document.getElementById('nb-about');
   const nbBlog = document.getElementById('nb-blog');
+  const nbRead = document.getElementById('nb-read');
   if(nbWork && WORKISH.includes(id)) nbWork.classList.add('active');
   if(nbAbout && id === 'home' && anchorId === 'about') nbAbout.classList.add('active');
   if(nbBlog && id === 'blog') nbBlog.classList.add('active');
+  if(nbRead && id === 'read') nbRead.classList.add('active');
   const page = document.getElementById('p-'+id);
   if(!page) return;
   page.style.display = 'block';
@@ -572,6 +639,13 @@ function activateReveals(container) {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
   },{threshold:0.06});
   els.forEach(el => obs.observe(el));
+}
+
+function subscribeNL(form) {
+  const em = form.em.value.trim();
+  location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Newsletter sign-up: The Stand-Out')
+    + '&body=' + encodeURIComponent('Add me to The Stand-Out, please. My email: ' + em);
+  return false;
 }
 
 function toggleCollapsible(btn) {
