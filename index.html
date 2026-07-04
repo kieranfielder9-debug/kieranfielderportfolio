@@ -133,20 +133,31 @@ h2.serif em{font-style:italic}
 h1.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,76px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:20px}
 h1.page-title em{font-style:italic}
 .page-sub{font-size:17px;color:var(--muted);max-width:480px}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px 32px}
-.proj-item{background:none;border:none;padding:0;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;display:block;width:100%;text-decoration:none;color:inherit}
-.proj-media{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--border)}
-.proj-media svg,.proj-media img{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .5s ease}
-.proj-media img{object-fit:cover}
-.proj-item:hover .proj-media svg,.proj-item:hover .proj-media img{transform:scale(1.05)}
-.proj-view{position:absolute;inset:0;background:rgba(10,10,10,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease}
-.proj-item:hover .proj-view,.proj-item:focus-visible .proj-view{opacity:1}
-.proj-view span{color:#fff;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;border-bottom:3px solid var(--orange);padding-bottom:6px}
-@media (hover:none){.proj-view{opacity:1;background:rgba(10,10,10,.35)}}
-.proj-info{padding-top:24px}
-.proj-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;display:block;margin-bottom:10px}
-.proj-info h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.4vw,32px);font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:8px}
-.proj-info p{font-size:15px;color:var(--muted);max-width:480px}
+.page-dark{background:linear-gradient(180deg,#FFFFFF 0%,#0A0A0A 150px)}
+.page-dark .page-title{color:#fff}
+.page-dark .page-sub{color:#C4C4C4;font-size:19px;max-width:560px}
+.page-dark .section-label{color:#8E8E8E}
+.page-dark .section-label::after{background:#333}
+.page-dark .back-btn{color:#8E8E8E}
+.page-dark .back-btn:hover{color:var(--orange)}
+.page-dark hr.divider{border-top-color:#222}
+.page-dark .more-work{border-color:#2E2E2E}
+.page-dark .more-work p{color:#8E8E8E}
+.page-dark .more-work span{color:#5E5E5E}
+.case-row{display:block;width:100%;background:none;border:none;padding:0;margin:0 0 100px;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;color:inherit;text-decoration:none}
+.case-row-media{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;border:1px solid #262626}
+.case-row-media svg,.case-row-media img{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .6s ease}
+.case-row-media img{object-fit:cover}
+.case-row:hover .case-row-media svg,.case-row:hover .case-row-media img{transform:scale(1.03)}
+.row-chips{position:absolute;top:20px;left:20px;display:flex;flex-wrap:wrap;gap:8px;z-index:2}
+.chip{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;background:rgba(10,10,10,.82);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.chip-lead{background:#FFFFFF;color:#0A0A0A;border-color:rgba(10,10,10,.3)}
+.case-row-title{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.8vw,48px);font-weight:500;color:#fff;line-height:1.12;margin:30px 0 16px}
+.case-row-title em{font-style:italic}
+.view-link{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;transition:color .2s}
+.view-link .arr{transition:transform .25s;color:var(--orange)}
+.case-row:hover .view-link{color:var(--orange)}
+.case-row:hover .view-link .arr{transform:translateX(8px)}
 .more-work{margin-top:72px;border:1px dashed var(--border);padding:40px 44px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .more-work p{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--muted);font-style:italic}
 .more-work span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
@@ -215,7 +226,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:48px}.sig-panel{max-width:420px}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.proj-grid{grid-template-columns:1fr;gap:56px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -357,35 +368,39 @@ h2.case-h2 em{font-style:italic}
 </div>
 
 <!-- WORK PAGE -->
-<div id="p-work" class="page">
+<div id="p-work" class="page page-dark">
   <header class="page-header"><div class="wrap"><button class="back-btn" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>Back to Home</button><div class="section-label">Portfolio</div><h1 class="page-title">My <em>Stuff</em></h1><p class="page-sub">Copywriting and prompt engineering projects from start to finish.</p></div></header><hr class="divider"/>
   <section class="work-section-wrapper"><div class="wrap">
-    <div class="proj-grid">
-      <button class="proj-item" onclick="go('case-yt')">
-        <div class="proj-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-yt"/></svg><img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="proj-view"><span>View Project</span></span></div>
-        <div class="proj-info"><span class="proj-kicker">01 · Robot Whispering</span><h2>Educational YouTube Script</h2><p>A verified, beginner-ready video script for a financial education channel — hallucinations audited and corrected.</p></div>
-      </button>
-      <button class="proj-item" onclick="go('case-pulse')">
-        <div class="proj-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="proj-view"><span>View Project</span></span></div>
-        <div class="proj-info"><span class="proj-kicker">02 · Human Words</span><h2>Pulse Financials Launch Email</h2><p>A direct-response launch email for a digital bank built for freelancers, side-hustlers, and small business owners.</p></div>
-      </button>
-      <button class="proj-item" onclick="go('case-hyundai')">
-        <div class="proj-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="proj-view"><span>View Project</span></span></div>
-        <div class="proj-info"><span class="proj-kicker">03 · Human Words</span><h2>Hyundai IONIQ 5 N</h2><p>Product feature copy balancing emotional appeal with technical detail for an electric performance vehicle.</p></div>
-      </button>
-      <button class="proj-item" onclick="go('case-wholesaler')">
-        <div class="proj-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-wholesaler"/></svg><img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="proj-view"><span>View Project</span></span></div>
-        <div class="proj-info"><span class="proj-kicker">04 · Human Words</span><h2>UK Wholesaler Brand Story</h2><p>A grounded, trustworthy origin story for tradespeople — from a single unit in Salford to five branches.</p></div>
-      </button>
-      <button class="proj-item" onclick="go('case-ad')">
-        <div class="proj-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-vault"/></svg><img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="proj-view"><span>View Project</span></span></div>
-        <div class="proj-info"><span class="proj-kicker">05 · Human Words</span><h2>Vault Savings App Google Ad</h2><p>A Google Search ad that reframes saving as effortless — micro-savings you barely notice.</p></div>
-      </button>
-      <a class="proj-item" href="mailto:kieranfielder9@gmail.com">
-        <div class="proj-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-brief"/></svg><img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="proj-view"><span>Email Me</span></span></div>
-        <div class="proj-info"><span class="proj-kicker">✳ Say Hi</span><h2>Your Brief Here</h2><p>Got a project in mind? Let's make it the next tile on this page.</p></div>
-      </a>
-    </div>
+    <button class="case-row" onclick="go('case-yt')">
+      <span class="case-row-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-yt"/></svg><img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-chips"><span class="chip chip-lead">Money Over Time</span><span class="chip">Prompt Engineering</span><span class="chip">YouTube Script</span></span></span>
+      <span class="case-row-title">Educational YouTube Script <em>Using AI</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <button class="case-row" onclick="go('case-pulse')">
+      <span class="case-row-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-chips"><span class="chip chip-lead">Pulse Financials</span><span class="chip">Copywriting</span><span class="chip">Launch Email</span></span></span>
+      <span class="case-row-title">Pulse Financials <em>Launch Email</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <button class="case-row" onclick="go('case-hyundai')">
+      <span class="case-row-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-chips"><span class="chip chip-lead">Hyundai</span><span class="chip">Copywriting</span><span class="chip">Product Copy</span></span></span>
+      <span class="case-row-title">Hyundai IONIQ 5 N <em>Product Copy</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <button class="case-row" onclick="go('case-wholesaler')">
+      <span class="case-row-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-wholesaler"/></svg><img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-chips"><span class="chip chip-lead">UK Wholesaler</span><span class="chip">Copywriting</span><span class="chip">Brand Story</span></span></span>
+      <span class="case-row-title">UK Wholesaler <em>Brand Story</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <button class="case-row" onclick="go('case-ad')">
+      <span class="case-row-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-vault"/></svg><img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-chips"><span class="chip chip-lead">Vault</span><span class="chip">Copywriting</span><span class="chip">Google Ads</span></span></span>
+      <span class="case-row-title">Vault Savings App <em>Google Ad</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <a class="case-row" href="mailto:kieranfielder9@gmail.com">
+      <span class="case-row-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-brief"/></svg><img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-chips"><span class="chip chip-lead">You?</span><span class="chip">Any Discipline</span><span class="chip">Your Call</span></span></span>
+      <span class="case-row-title">Your Brief <em>Here</em></span>
+      <span class="view-link">Email me <span class="arr">→</span></span>
+    </a>
     <div class="more-work"><p>More stuff loading…</p><span>Coming soon</span></div>
   </div></section>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
@@ -476,8 +491,8 @@ h2.case-h2 em{font-style:italic}
             <circle cx="232" cy="337" r="9" fill="#FFFFFF"/></symbol>
 <symbol id="art-pulse" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FF4D00"/>
             <polyline points="0,118 96,118 128,118 156,76 192,156 224,92 248,118 400,118" fill="none" stroke="#FFFFFF" stroke-width="6" opacity=".4"/>
-            <circle cx="312" cy="92" r="50" fill="#FFFFFF"/>
-            <text x="312" y="94" text-anchor="middle" dominant-baseline="central" font-family="'DM Sans',Arial,sans-serif" font-weight="700" font-size="54" fill="#0A0A0A">£</text>
+            <circle cx="312" cy="124" r="50" fill="#FFFFFF"/>
+            <text x="312" y="126" text-anchor="middle" dominant-baseline="central" font-family="'DM Sans',Arial,sans-serif" font-weight="700" font-size="54" fill="#0A0A0A">£</text>
             <polyline points="0,252 92,252 130,252 162,168 200,332 238,196 262,252 400,252" fill="none" stroke="#0A0A0A" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
             <circle cx="200" cy="332" r="10" fill="#FFFFFF"/>
             <g fill="#0A0A0A"><rect x="44" y="356" width="36" height="8"/><rect x="92" y="356" width="14" height="8"/><rect x="118" y="356" width="24" height="8"/></g></symbol>
@@ -493,9 +508,9 @@ h2.case-h2 em{font-style:italic}
             <rect x="14" y="226" width="30" height="10" fill="#FF4D00"/><rect x="2" y="248" width="42" height="10" fill="#0A0A0A"/><rect x="22" y="204" width="22" height="10" fill="#FF4D00"/>
             <g fill="#0A0A0A"><rect x="60" y="324" width="36" height="6"/><rect x="112" y="324" width="36" height="6"/><rect x="164" y="324" width="36" height="6"/><rect x="216" y="324" width="36" height="6"/><rect x="268" y="324" width="36" height="6"/><rect x="320" y="324" width="22" height="6"/></g></symbol>
 <symbol id="art-wholesaler" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/>
-            <path d="M36 122 C110 44 290 44 364 114" fill="none" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 14"/>
-            <g fill="#FF4D00"><path d="M47 110 L65 110 L56 128 Z"/><path d="M121 70 L139 70 L130 88 Z"/><path d="M193 58 L211 58 L202 76 Z"/><path d="M265 68 L283 68 L274 86 Z"/><path d="M339 104 L357 104 L348 122 Z"/><circle cx="56" cy="106" r="11"/><circle cx="130" cy="66" r="11"/><circle cx="202" cy="54" r="11"/><circle cx="274" cy="64" r="11"/><circle cx="348" cy="100" r="11"/></g>
-            <g fill="#FFFFFF"><circle cx="56" cy="106" r="4"/><circle cx="130" cy="66" r="4"/><circle cx="202" cy="54" r="4"/><circle cx="274" cy="64" r="4"/><circle cx="348" cy="100" r="4"/></g>
+            <path d="M36 146 C110 68 290 68 364 138" fill="none" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 14"/>
+            <g fill="#FF4D00"><path d="M47 134 L65 134 L56 152 Z"/><path d="M121 94 L139 94 L130 112 Z"/><path d="M193 82 L211 82 L202 100 Z"/><path d="M265 92 L283 92 L274 110 Z"/><path d="M339 128 L357 128 L348 146 Z"/><circle cx="56" cy="130" r="11"/><circle cx="130" cy="90" r="11"/><circle cx="202" cy="78" r="11"/><circle cx="274" cy="88" r="11"/><circle cx="348" cy="124" r="11"/></g>
+            <g fill="#FFFFFF"><circle cx="56" cy="130" r="4"/><circle cx="130" cy="90" r="4"/><circle cx="202" cy="78" r="4"/><circle cx="274" cy="88" r="4"/><circle cx="348" cy="124" r="4"/></g>
             <g fill="#FFFFFF" stroke="#0A0A0A" stroke-width="6"><rect x="88" y="246" width="104" height="84"/><rect x="208" y="246" width="104" height="84"/><rect x="148" y="156" width="104" height="84"/></g>
             <g stroke="#0A0A0A" stroke-width="4"><line x1="88" y1="272" x2="192" y2="272"/><line x1="208" y1="272" x2="312" y2="272"/><line x1="148" y1="182" x2="252" y2="182"/></g>
             <g fill="#FF4D00"><rect x="130" y="246" width="20" height="84"/><rect x="250" y="246" width="20" height="84"/><rect x="190" y="156" width="20" height="84"/></g>
