@@ -34,8 +34,14 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links button{font-size:12px;font-weight:700;color:var(--ink);background:none;border:none;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
 .nav-links button:hover,.nav-links button.active{color:var(--orange)}
-.nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap}
+.nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .nav-sayhi:hover{background:var(--orange);color:#fff}
+.nav-burger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px 4px}
+.nav-burger span{width:20px;height:2px;background:var(--ink);display:block}
+.mobile-menu{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:none;flex-direction:column;z-index:99}
+.mobile-menu.open{display:flex}
+.mobile-menu button{background:none;border:none;border-top:1px solid var(--border);padding:18px 24px;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.mobile-menu button:active{color:var(--orange)}
 
 .btn{display:inline-block;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:0;transition:background .22s,color .22s,border-color .22s;cursor:pointer;border:none;text-decoration:none}
 .btn-solid{background:var(--ink);color:#fff;border:1.5px solid var(--ink)}
@@ -127,6 +133,55 @@ h2.serif em{font-style:italic}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}}
+
+/* CASE HERO TEMPLATE (IMA-style) */
+.case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
+.hero2-bg{position:absolute;inset:0}
+.hero2-bg svg,.hero2-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero2-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.3) 0%,rgba(10,10,10,.55) 55%,rgba(10,10,10,.9) 100%)}
+.hero2-content{position:relative;z-index:2;padding-top:140px;padding-bottom:64px;width:100%}
+.crumb-light .back-btn{color:#CFCFCF}
+.crumb-light .bc-cur{color:#B5B5B5}
+.crumb-light .bc-sep{color:#666}
+.hero2-title{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6.4vw,88px);font-weight:500;color:#fff;line-height:1.05;margin:20px 0 18px;max-width:1000px}
+.hero2-title em{font-style:italic}
+.hero2-sub{font-size:17px;color:#D6D6D6;max-width:620px;margin-bottom:28px;line-height:1.6}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px}
+
+/* BLOG INDEX + POST TEMPLATE */
+.post-row{display:block;width:100%;border:1px solid var(--border);padding:44px 48px;background:none;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;color:inherit;transition:border-color .25s;position:relative}
+.post-row::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--orange);transition:width .35s ease}
+.post-row:hover{border-color:var(--ink)}
+.post-row:hover::before{width:100%}
+.post-date{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;display:block;margin-bottom:14px}
+.post-row h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);font-weight:500;color:var(--ink);margin-bottom:10px}
+.post-row h2 em{font-style:italic}
+.post-row p{font-size:15px;color:var(--muted);max-width:560px;margin-bottom:18px}
+.post-row .view-link{color:var(--ink)}
+.post-row:hover .view-link{color:var(--orange)}
+.post-row:hover .view-link .arr{transform:translateX(8px)}
+.post-meta{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.post-wrap{max-width:780px;margin:0 auto;padding:72px 48px 110px}
+.post-wrap p{font-size:17px;line-height:1.85;margin-bottom:24px;color:var(--body)}
+.post-wrap h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--ink);margin:48px 0 18px}
+.post-wrap blockquote{border-left:3px solid var(--orange);padding:6px 0 6px 28px;font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;line-height:1.4;color:var(--ink);margin:40px 0}
+.post-cta{border:1px solid var(--border);border-left:3px solid var(--orange);padding:32px 36px;margin-top:56px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.post-cta p{margin:0;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic}
+
+/* SAY HI PAGE */
+.contact-section{padding:80px 0 130px}
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:start}
+.c-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:20px 0 8px;display:block;color:var(--ink)}
+.c-form .c-label:first-child{margin-top:0}
+.c-input{width:100%;background:#fff;border:1.5px solid #CFCFCF;padding:15px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--ink)}
+.c-input:focus{outline:none;border-color:var(--orange)}
+.c-textarea{min-height:170px;resize:vertical}
+.c-note{font-size:12px;color:var(--muted);margin-top:14px}
+.steps{list-style:none}
+.steps li{padding:12px 0;font-size:14px;color:var(--body);border-top:1px solid var(--border);line-height:1.6}
+.steps li:first-child{border-top:none;padding-top:0}
+.email-inline{font-size:16px;color:var(--ink);text-decoration:none;font-weight:500;border-bottom:2px solid var(--orange);padding-bottom:2px;transition:color .2s}
+.email-inline:hover{color:var(--orange)}
 
 /* READ PAGE */
 .read-about{padding:96px 0 110px}
@@ -243,9 +298,18 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:48px}.sig-panel{max-width:420px}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.contact-grid{grid-template-columns:1fr;gap:48px}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.post-row{padding:32px 24px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
+
+<!-- Analytics (GA4). Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
+</script>
 </head>
 <body>
 
@@ -259,8 +323,17 @@ h2.case-h2 em{font-style:italic}
         <li><button id="nb-blog" onclick="go('blog')">Blog</button></li>
         <li><button id="nb-read" onclick="go('read')">Read</button></li>
       </ul>
-      <a class="nav-sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
+      <button class="nav-sayhi" onclick="go('sayhi')">Say Hi</button>
+      <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
+  </div>
+  <div id="mobile-menu" class="mobile-menu">
+    <button onclick="go('home')">Home</button>
+    <button onclick="go('home','about')">Who?</button>
+    <button onclick="go('work')">Projects</button>
+    <button onclick="go('blog')">Blog</button>
+    <button onclick="go('read')">Read</button>
+    <button onclick="go('sayhi')">Say Hi</button>
   </div>
 </nav>
 
@@ -275,7 +348,7 @@ h2.case-h2 em{font-style:italic}
         <li><button onclick="go('work')">Projects</button></li>
         <li><button onclick="go('blog')">Blog</button></li>
         <li><button onclick="go('home','contact')">Contact</button></li>
-        <li><a href="mailto:kieranfielder9@gmail.com">Say Hi</a></li>
+        <li><button onclick="go('sayhi')">Say Hi</button></li>
         <li><button onclick="go('read')">Read</button></li>
       </ul>
     </div>
@@ -290,11 +363,11 @@ h2.case-h2 em{font-style:italic}
           <span class="sig-note">(my actual signature, more or less)</span>
         </div>
         <div class="about-text">
-          <p class="roles">Prompt Engineer. Copywriter.</p>
+          <p class="roles">Creative. Growth. Marketer.</p>
           <p>Two jobs that are secretly the same job: writing words that make people act, and writing instructions that make AI behave.</p>
           <p>I write conversion copy for fintech, automotive, and trade brands — emails, ads, product pages, brand stories. And I engineer the prompts that turn large language models into reliable, on-brand, fact-checked writers instead of confident liars.</p>
           <p>Based in the UK. Currently taking briefs.</p>
-          <a class="sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
+          <button class="sayhi" onclick="go('sayhi')">Say Hi</button>
         </div>
       </div>
     </div>
@@ -428,8 +501,54 @@ h2.case-h2 em{font-style:italic}
 <div id="p-blog" class="page">
   <header class="page-header"><div class="wrap"><div class="section-label">The Blog</div><h1 class="page-title">Worth a <em>read</em></h1><p class="page-sub">Notes on copy that converts, prompts that behave, and the odd strong opinion about both.</p></div></header><hr class="divider"/>
   <section class="work-section-wrapper"><div class="wrap">
-    <div class="more-work"><p>First post brewing…</p><span>Coming soon</span></div>
+    <button class="post-row" onclick="go('post-sample')">
+      <span class="post-date">Sample · Template preview</span>
+      <h2>Why most copy fails <em>the second read</em></h2>
+      <p>The first read sells the idea. The second read is where trust is won or lost — here's how to survive it.</p>
+      <span class="view-link">Read post <span class="arr">→</span></span>
+    </button>
+    <div class="more-work"><p>More posts brewing…</p><span>Coming soon</span></div>
   </div></section>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- SAY HI PAGE -->
+<div id="p-sayhi" class="page">
+  <header class="page-header"><div class="wrap"><div class="section-label">Contact</div><h1 class="page-title">Say <em>hi</em></h1><p class="page-sub">Tell me about the project. I reply to everything within two working days.</p></div></header><hr class="divider"/>
+  <section class="contact-section"><div class="wrap"><div class="contact-grid">
+    <form class="c-form" onsubmit="return sendEnquiry(this)">
+      <label class="c-label" for="c-nm">Name</label>
+      <input class="c-input" id="c-nm" name="nm" type="text" required placeholder="Your name"/>
+      <label class="c-label" for="c-em">Email</label>
+      <input class="c-input" id="c-em" name="em" type="email" required placeholder="your@email.com"/>
+      <label class="c-label" for="c-msg">The project</label>
+      <textarea class="c-input c-textarea" id="c-msg" name="msg" required placeholder="What are we writing? Audience, goal, deadline — rough is fine."></textarea>
+      <button class="sayhi" type="submit" style="margin-top:24px">Send it</button>
+      <p class="c-note">Sends via your email app for now, straight to my inbox. A proper form backend is on the way.</p>
+    </form>
+    <aside>
+      <div class="sidebar-block"><div class="sidebar-label">Prefer plain email?</div><a class="email-inline" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div>
+      <div class="sidebar-block"><div class="sidebar-label">What happens next</div><ol class="steps"><li><strong>1. You hit send.</strong> A rough brief is fine — two sentences beats a blank page.</li><li><strong>2. I reply within two working days</strong> with questions, a rough scope, or both.</li><li><strong>3. We agree the plan.</strong> Then I get to work, and you get words that earn their keep.</li></ol></div>
+      <div class="sidebar-block"><div class="sidebar-label">Availability</div><p style="font-size:14px">Taking briefs for 2026 — copy, content, prompts, strategy.</p></div>
+    </aside>
+  </div></div></section>
+  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
+</div>
+
+<!-- BLOG POST TEMPLATE (sample post) -->
+<div id="p-post-sample" class="page">
+  <header class="page-header"><div class="wrap"><div class="section-label">The Blog</div><h1 class="page-title" style="max-width:900px">Why most copy fails <em>the second read</em></h1><p class="post-meta">Kieran Fielder · 4 min read · Sample post — template preview</p></div></header><hr class="divider"/>
+  <article class="post-wrap">
+    <p>Anyone can write copy that survives the first read. The first read is fast, generous, half-skimmed on a phone — it forgives almost everything. The sale falls apart on the second read: the one where your prospect comes back an hour later, defences up, looking for a reason to say no.</p>
+    <h2>The second read is a stress test</h2>
+    <p>On the second read, adjectives collapse. "Effortless", "seamless", "powerful" — the reader doesn't feel them twice. What survives is anything with weight: a number, a mechanism, a named customer, a specific bad day the product prevents. That's why the strongest line in most of my drafts is usually the least decorated one.</p>
+    <blockquote>"Adjectives get you the first read. Evidence gets you the reply."</blockquote>
+    <p>So when I edit, I do the second read on purpose. Same copy, next morning, phone in hand, pretending I'm busy and mildly annoyed — because that's exactly who's reading it.</p>
+    <h2>Steal the checklist</h2>
+    <p>Cut every claim you can't back within one sentence. Replace one adjective per paragraph with a fact. Read the call-to-action as if you've already been interrupted twice. If it still earns the click, ship it.</p>
+    <div class="post-cta"><p>Enjoyed this? The newsletter is this, monthly.</p><button class="sayhi" onclick="go('read')">Get the newsletter</button></div>
+  </article>
+  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Blog</div></div><button class="next-arrow" onclick="go('blog')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
 
@@ -448,7 +567,7 @@ h2.case-h2 em{font-style:italic}
         <p>My rule for copy is simple: it has to earn something. A click, a reply, a sale, a change of mind. Every project starts with who's reading and what's in their way — and ends with the exact words that meet them there.</p>
         <p>The prompt engineering grew from the same obsession. Language models write confidently and sometimes wrongly; I build the prompts, constraints and fact-checking passes that make them reliable enough to publish.</p>
         <p>If that sounds like what your project needs, the button below is the shortest path.</p>
-        <a class="sayhi" href="mailto:kieranfielder9@gmail.com">Say Hi</a>
+        <button class="sayhi" onclick="go('sayhi')">Say Hi</button>
       </div>
     </div>
   </div></section>
@@ -482,14 +601,23 @@ h2.case-h2 em{font-style:italic}
 
 <!-- CASE 1: YouTube Script -->
 <div id="p-case-yt" class="page">
-  <section class="case-hero"><div class="wrap"><div class="breadcrumb"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div><p class="case-eyebrow">Robot Whispering · Financial Education</p><h1 class="case-title">Writing an Educational YouTube Script <em>Using AI</em></h1><p class="case-subtitle">How I turned a brochure-sounding first draft into a verified, beginner-ready 10-minute video script for a financial education channel, with hallucinations corrected.</p><div class="meta-strip"><div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">Money Over Time</div></div><div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">YouTube Script</div></div><div class="meta-item"><div class="meta-label">Iterations</div><div class="meta-value">3 Prompts + 1 Editorial Pass</div></div></div></div></section>
+  <section class="case-hero2">
+    <div class="hero2-bg"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-yt"/></svg><img src="images/youtube.jpg" alt="" onerror="this.remove()"/></div>
+    <div class="hero2-shade"></div>
+    <div class="wrap hero2-content">
+      <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
+      <h1 class="hero2-title">Writing an Educational YouTube Script <em>Using AI</em></h1>
+      <p class="hero2-sub">How I turned a brochure-sounding first draft into a verified, beginner-ready 10-minute video script for a financial education channel, with hallucinations corrected.</p>
+      <div class="chip-row"><span class="chip chip-lead">Money Over Time</span><span class="chip">Prompt Engineering</span><span class="chip">YouTube Script</span><span class="chip">3 Prompts + 1 Edit Pass</span></div>
+    </div>
+  </section>
   <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
     <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">A script that <em>earns trust</em></h2><p>Money Over Time teaches beginner investors. Their audience is middle class and mostly self-taught. The brief was to explain diversification in a way that felt like advice from a knowledgeable friend, not a compliance department. Every factual claim needed systematic verification.</p></div>
     <div class="case-section"><p class="kicker">Prompts</p><button class="collapsible" onclick="toggleCollapsible(this)">📄 View Version 1 Prompt (Creative Control Failure)</button><div class="collapsible-content"><div class="prompt-box">You are a Financial Educator with a masters degree in finance and 10+ years of experience as a financial advisor for an investment firm... [full detailed persona prompt]</div></div><button class="collapsible" onclick="toggleCollapsible(this)">📄 View Version 2 Prompt (Structured Correction)</button><div class="collapsible-content"><div class="prompt-box">Role: You are a financial educator writing a Youtube Script for a channel called Money Over Time. Focus on teaching and clear actional instruction instead of metaphors... [full structured prompt]</div></div></div>
     <div class="case-section"><p class="kicker">Hallucination Audit</p><h2 class="case-h2">Factual <em>verification</em></h2><table class="verify-table"><thead><tr><th>Claim from v2 Script</th><th>Verdict</th><th>Correction Applied</th></tr></thead><tbody><tr><td>"Large-cap companies valued above £8 billion"</td><td>Misleading</td><td>Changed to index-based definition: FTSE 100 / S&amp;P 500 thresholds vary</td></tr><tr><td>"Small-cap companies valued below £2 billion"</td><td>Misleading</td><td>Changed to percentile / index-based definition</td></tr><tr><td>"US stocks went sideways for nearly ten years while international markets produced solid returns"</td><td>Partially false</td><td>Rewrote to specify emerging markets only</td></tr><tr><td>"When stock markets dropped sharply in early 2020, high-quality government bonds actually increased in value"</td><td>True but incomplete</td><td>Added caveat about 2022 exception</td></tr><tr><td>"Brexit hit UK markets hard in 2016 while much of the world was unaffected"</td><td>Overstated</td><td>Changed to "dipped briefly but recovered faster than UK"</td></tr></tbody></table></div>
     <div class="case-section"><p class="kicker">Final Script</p><button class="collapsible" onclick="toggleCollapsible(this)">🎬 View Full 10-Minute Script</button><div class="collapsible-content"><div class="script-block"><div class="script-label">HOOK</div><div class="script-line">"Most investors don't lose money because they picked the wrong company. They lose money because they put too much money into too few things."</div><div class="script-label">RE-HOOK</div><div class="script-line">"Let me give you a real example. Imagine someone called James. He's 34. He earns around £45,000 a year... When that stock drops 60%, James loses over £10,000. Years of saving. Gone in months."</div><div class="script-label">STEP 1: Asset Classes</div><div class="script-line">"Stocks. When you buy a stock, you buy a small ownership stake in a company. Bonds. When you buy a bond, you lend money to a government or company."</div><div class="script-label">STEP 2: Sectors and Sizes</div><div class="script-line">"They buy ten different stocks — and feel diversified. But all ten are tech companies. That's not diversification. That's concentration with extra steps."</div><div class="script-label">STEP 3: Geographic Spread</div><div class="script-line">"The UK stock market makes up about 4% of the global market. That means if you only invest in British companies, you are missing 96% of the world."</div><div class="script-label">STEP 4: Time Horizon</div><div class="script-line">"Money you need within five years should not be in stocks. In 2022, the S&amp;P 500 fell by roughly 19%. If you needed that money then, you sold at a loss."</div><div class="script-label">CONCLUSION AND CTA</div><div class="script-line">"Diversification isn't one thing. It's four connected decisions. Download the Portfolio Planning Worksheet in the description."</div></div></div></div>
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>In my initial prompt the attempt was to ensure the prompt was as context rich as possible stuffing the persona role with a great amount of detail. This backfired in the end. I realise now that constraints and a more organised prompt structure is preferable. Also I could have pre-empted a lot of the hallucinations and applied accounted for this within my initial prompt. These pre-empted constraints could be used to create batch prompts for future projects to ensuring a more efficient workflow.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Prompt Engineering</span><span class="tag">Hallucination Audit</span><span class="tag">Tone Calibration</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Prompt Engineering</span><span class="tag">Hallucination Audit</span><span class="tag">Tone Calibration</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
@@ -501,7 +629,7 @@ h2.case-h2 em{font-style:italic}
     <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make the reader feel <em>understood</em></h2><p>Self-employed people passionate about their work but stressed about financial admin. The email needed to make the reader feel understood, then position Pulse as the simple, stress-free solution. Tone: empathetic but confident, conversational not corporate.</p></div>
     <div class="case-section"><p class="kicker">The Work</p><div class="email-preview"><div class="email-subject">Open before January 31st</div><div class="email-body"><p><strong>Hey [name],</strong></p><p>You did not start your business to become a dead-end professional in a boring job. You started it for passion. For freedom. Because you love the feeling when you have just made another sale.</p><p>But right now that feeling probably comes with knots in your stomach. Because every pound that hits your account gets mixed up with money for Costa trips, weekends away, and that loan from Grandma. And somewhere in your mind is the sinking feeling the tax man will want his cut.</p><p><strong>So we built Pulse.</strong> A new kind of digital bank built for people like you. When you open a Pulse Builder Account, you get a Pulse Pot. Tell it to save 20% for taxes. Every time a payment lands, Pulse automatically sweeps that 20% into your pot. When tax season rolls around, the money is just there.</p><p>Meet Sarah. A photographer in Columbus, Ohio. Before Pulse, she used spreadsheets and lay awake dreading tax time. Last year, with Pulse, she saved $4,000 automatically. Now it is her "peace of mind button."</p><p><strong>Our offer for you:</strong> When you open your Builder Account, we will include a complimentary 30-minute tax readiness call with one of our partner accountants. No pressure. No sales pitch. Just straight answers.</p><p><strong>Imagine a stress-free April.</strong> That feeling starts today. Go to pulsebank.com. Open your Builder Account in minutes. Give your future self some peace of mind.</p><p>James Keller, Founder, Pulse Financials</p><p><em>P.S. One account. One automatic sweep. Zero tax stress. That is Pulse.</em></p></div></div></div>
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The question at the top immediately connects with deeper motivation. Freelancers don't start for the admin. They start for freedom, passion, control. By naming that first, I built identity alignment before introducing any product. The Sarah story offers social proof without a formal testimonial. The complimentary tax call lowers the barrier. Circling back to the emotional opening leaves readers with a vision of relief, not a feature list.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Email Marketing</span><span class="tag">Direct Response</span><span class="tag">Fintech</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Email Marketing</span><span class="tag">Direct Response</span><span class="tag">Fintech</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
@@ -513,7 +641,7 @@ h2.case-h2 em{font-style:italic}
     <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Excite <em>and inform</em></h2><p>Product feature copy that sits between a spec sheet and a lifestyle ad. Car enthusiasts want numbers; early EV adopters want cutting-edge tech. The copy had to excite and inform without tipping too far either direction.</p></div>
     <div class="case-section"><p class="kicker">The Work</p><div class="script-block"><div class="script-label">Hyundai IONIQ 5 N</div><div class="script-line">Judge This Book By Its Cover. Pixelated, Powered, Potent.</div><div class="script-line">The Hyundai IONIQ 5 N is your all-access pass to the future of performance. Its pixelated design is a digital signature blending retro with cutting-edge.</div><div class="script-line">This is a vehicle designed for the journey, offering a fully customizable driving experience where you command the steering weight, torque distribution and even the G-Force at leisure.</div><div class="script-line">It is engineered for the destination, arriving with undeniable presence thanks to its aggressive stance, unique black N badge, and essential wing-spoiler. The freedom continues off the line, with its 800V high-performance architecture enabling a staggering 641 horsepower and ultra-fast charging.</div><div class="script-line">Every detail serves a purpose. The front air intakes cooling the brakes ensure all speed, no overheating. The massive 21-inch forged aluminium wheels translate power into improved traction and cornering grip.</div><div class="script-line">This is performance, perfected and packaged with breathtaking style. Discover the IONIQ 5 N, where every drive is a highlight reel.</div></div></div>
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest challenge was balancing emotion with technical specs. Car enthusiasts want the numbers, but they also want to feel something about the car. My approach was to use confident, cinematic language to build desire, then anchor every emotional claim with a concrete detail. When I said "undeniable presence," I backed it with the black N badge and wing spoiler. When I talked about performance, I gave them the horsepower, the charging architecture, and the wheel specifications. The hype feels earned because the proof is right there.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Product Copy</span><span class="tag">Automotive</span><span class="tag">Brand Voice</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Product Copy</span><span class="tag">Automotive</span><span class="tag">Brand Voice</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
@@ -525,7 +653,7 @@ h2.case-h2 em{font-style:italic}
     <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Tell the origin story, <em>demonstrate growth</em></h2><p>A brand story for a UK wholesaler that started as a single unit in Salford and grew to five branches. The audience is tradespeople who value reliability, speed, and trust over marketing fluff. The story needed to feel human and grounded, not polished and distant.</p></div>
     <div class="case-section"><p class="kicker">The Work</p><div class="email-preview"><div class="email-body"><p>In July of 2004 our founders spent a whole day chasing down basic parts for the job. This day taught them a lot and led them to this belief: that wholesalers should be partners to the flow of the job and not hurdles to get over.</p><p>So, they opened a single unit in Salford, stocking the reliable, hard-working components they trusted themselves.</p><p>For fifteen years they have remained close to those same principles of trust and pragmatism that they started with. And so they worked hard to earn the trust of local tradespersons in the area. From that solid bedrock of trust and reputation they were able to successfully expand across the UK.</p><p>Today, they are thriving, with five branches from Winsford to Sidcup and beyond, and are still the same dedicated partner. And still they are looking to open new doors in the future in locations around the UK.</p></div></div></div>
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>I opened with the specific anecdote about the founders spending a whole day chasing down basic parts. This was intentional. Tradespeople know exactly what that feels like. A wasted day on a simple job because the supply chain failed. By starting there, I proved the founders understand the audience's reality before making any claims about their business. Tradespeople do not respond to corporate language. They respond to trust, reliability, and evidence.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Brand Story</span><span class="tag">Authentic Voice</span><span class="tag">Trade &amp; Industry</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Brand Story</span><span class="tag">Authentic Voice</span><span class="tag">Trade &amp; Industry</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
@@ -538,7 +666,7 @@ h2.case-h2 em{font-style:italic}
     <div class="case-section"><p class="kicker">The Ad</p><div class="ad-preview"><div class="ad-url">Ad · vault.app/automatic-savings · Sponsored</div><div class="ad-headline">Micro Saves — Major Goals</div><div class="ad-headline" style="font-size:16px">Save Without Noticing | Vault Automatic Savings</div><div class="ad-description">Instantly save money at the moment of transaction. You don't have to stress it. Micro-savings means you don't have to feel it sting at the end of the month. No big deal sacrifice.</div></div></div>
     <div class="case-section"><p class="kicker">Strategic Thinking</p><div class="reflection-box"><p>Most automatic savings apps double down on the technical aspects of their application. The simplicity, the uniformity, the ease. This is good enough. Yet in writing this ad, I didn't want to bypass the real human frustration of muddling through the motivation and the discipline involved when working towards a saving goal. This is the desire behind the intent when the user searches for a savings app which is automatic. The final line — "No big deal sacrifice" — is casual, conversational, and removes any sense of pressure. It mirrors exactly how the audience actually thinks about money.</p></div></div>
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest insight from this project was realising that the audience does not want to think about saving. They want to think about literally anything else. Most financial copy tries to educate. This ad tries to reassure. It says: "You do not have to become a different person to save money. You just need a system that works while you are not paying attention." The "No big deal sacrifice" line turns "I should probably start saving at some point" into something that feels immediately possible. That shift — from abstract intention to concrete action — is what conversion copy actually does.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Google Ads</span><span class="tag">Conversion Copy</span><span class="tag">Fintech</span><span class="tag">Search Intent</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('home','contact')">Say Hi</button></div></aside></div></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Google Ads</span><span class="tag">Conversion Copy</span><span class="tag">Fintech</span><span class="tag">Search Intent</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
 </div>
@@ -597,7 +725,7 @@ h2.case-h2 em{font-style:italic}
 </svg>
 
 <script>
-const PAGES = ['home','work','blog','read','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
+const PAGES = ['home','work','blog','read','sayhi','post-sample','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
 const WORKISH = ['work','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
 
 function go(id, anchorId) {
@@ -609,8 +737,11 @@ function go(id, anchorId) {
   const nbRead = document.getElementById('nb-read');
   if(nbWork && WORKISH.includes(id)) nbWork.classList.add('active');
   if(nbAbout && id === 'home' && anchorId === 'about') nbAbout.classList.add('active');
-  if(nbBlog && id === 'blog') nbBlog.classList.add('active');
+  if(nbBlog && (id === 'blog' || id === 'post-sample')) nbBlog.classList.add('active');
   if(nbRead && id === 'read') nbRead.classList.add('active');
+  const mm = document.getElementById('mobile-menu');
+  if(mm) mm.classList.remove('open');
+  if(typeof gtag === 'function') gtag('event', 'page_view', { page_title: id, page_location: location.origin + location.pathname + '#' + id });
   const page = document.getElementById('p-'+id);
   if(!page) return;
   page.style.display = 'block';
@@ -641,11 +772,35 @@ function activateReveals(container) {
   els.forEach(el => obs.observe(el));
 }
 
+// Paste your Mailchimp embedded-form "action" URL here to send sign-ups to Mailchimp.
+// (Mailchimp → Audience → Signup forms → Embedded form → copy the form action URL.)
+const MAILCHIMP_ACTION = '';
+
 function subscribeNL(form) {
   const em = form.em.value.trim();
-  location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Newsletter sign-up: The Stand-Out')
-    + '&body=' + encodeURIComponent('Add me to The Stand-Out, please. My email: ' + em);
+  if (MAILCHIMP_ACTION) {
+    const f = document.createElement('form');
+    f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = '_blank';
+    const i = document.createElement('input'); i.type = 'email'; i.name = 'EMAIL'; i.value = em;
+    f.appendChild(i); document.body.appendChild(f); f.submit(); f.remove(); form.reset();
+  } else {
+    location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Newsletter sign-up')
+      + '&body=' + encodeURIComponent('Add me to the newsletter, please. My email: ' + em);
+  }
+  if(typeof gtag === 'function') gtag('event', 'newsletter_signup');
   return false;
+}
+
+function sendEnquiry(form) {
+  const nm = form.nm.value.trim(), em = form.em.value.trim(), msg = form.msg.value.trim();
+  location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Project enquiry — ' + (nm || 'new client'))
+    + '&body=' + encodeURIComponent(msg + '\n\n— ' + nm + '\n' + em);
+  if(typeof gtag === 'function') gtag('event', 'enquiry_submit');
+  return false;
+}
+
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
 }
 
 function toggleCollapsible(btn) {
