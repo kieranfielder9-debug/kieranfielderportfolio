@@ -87,7 +87,27 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .quick-links button:hover,.quick-links a:hover{border-bottom-color:#fff}
 
 /* ABOUT */
-.about-section{padding:130px 0}
+.about-section{padding:130px 0;position:relative;overflow:hidden}
+.paint-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.about-section .wrap{position:relative;z-index:2}
+.about-card{position:relative;max-width:880px;margin:110px auto 0;border:2px solid var(--ink);background:rgba(255,255,255,.93);padding:100px 76px 72px}
+.about-avatar{position:absolute;top:0;left:50%;transform:translate(-50%,-56%);width:150px;height:150px;border-radius:50%;background:var(--orange);border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.avatar-kf{font-family:'Mr Dafoe',cursive;font-size:62px;color:#fff;transform:rotate(-8deg);line-height:1}
+.about-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.meet-note{position:absolute;top:-104px;right:4%;display:flex;align-items:flex-start;gap:10px}
+.meet-note svg{width:92px;height:70px;flex-shrink:0;margin-top:6px}
+.meet-note span{font-family:'Mr Dafoe',cursive;font-size:29px;color:var(--ink);line-height:1.25;transform:rotate(-4deg);display:block;word-spacing:.4em}
+.about-chip{display:inline-block;background:var(--orange);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;margin-bottom:26px}
+.about-state{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,46px);font-weight:500;color:var(--ink);line-height:1.18;margin-bottom:28px}
+.about-state em{font-style:italic}
+.about-card p{font-size:16px;line-height:1.75;margin-bottom:18px;color:var(--body);max-width:640px}
+.about-bold{font-weight:700;color:var(--ink);font-size:17px}
+.about-meta{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:4px 0 30px}
+.sayhi .arr-w{display:inline-block;transition:transform .25s;margin-left:10px}
+.sayhi:hover .arr-w{transform:translateX(5px)}
+.doodle{position:absolute;z-index:1}
+.d-a{left:1.5%;top:44%}
+.d-b{right:2.5%;bottom:8%}
 .about-grid{display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:center}
 .sig-panel{background:var(--orange);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative}
 .sig-big{font-family:'Mr Dafoe',cursive;font-size:62px;color:#fff;transform:rotate(-7deg);line-height:1.1;text-align:center;padding:0 24px}
@@ -298,7 +318,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:48px}.sig-panel{max-width:420px}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.contact-grid{grid-template-columns:1fr;gap:48px}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.post-row{padding:32px 24px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.contact-grid{grid-template-columns:1fr;gap:48px}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.post-row{padding:32px 24px}.meet-note{display:none}.doodle{display:none}.about-card{padding:84px 26px 56px;margin-top:96px}.about-avatar{width:122px;height:122px}.avatar-kf{font-size:50px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -355,20 +375,39 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   </section>
 
   <section id="about" class="about-section scroll-target">
+    <svg class="paint-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="paint-rough" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="90"/></filter>
+        <pattern id="diag" width="90" height="90" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)"><rect width="30" height="90" fill="#FF4D00" opacity=".025"/></pattern>
+      </defs>
+      <rect width="1440" height="900" fill="url(#diag)"/>
+      <g filter="url(#paint-rough)" fill="#FF4D00">
+        <ellipse cx="170" cy="170" rx="270" ry="130" opacity=".06"/>
+        <ellipse cx="1290" cy="710" rx="310" ry="160" opacity=".08"/>
+        <ellipse cx="1210" cy="130" rx="210" ry="95" opacity=".045"/>
+        <ellipse cx="230" cy="770" rx="230" ry="115" opacity=".055"/>
+      </g>
+    </svg>
     <div class="wrap">
       <div class="section-label">Who?</div>
-      <div class="about-grid reveal">
-        <div class="sig-panel">
-          <span class="sig-big">Kieran<br>Fielder</span>
-          <span class="sig-note">(my actual signature, more or less)</span>
+      <svg class="doodle d-a" width="34" height="34" viewBox="-18 -18 36 36" aria-hidden="true"><g stroke="#FF4D00" stroke-width="6" stroke-linecap="round"><line x1="0" y1="-15" x2="0" y2="15"/><line x1="-13" y1="-7" x2="13" y2="7"/><line x1="-13" y1="7" x2="13" y2="-7"/></g></svg>
+      <svg class="doodle d-b" width="26" height="26" viewBox="-18 -18 36 36" aria-hidden="true"><g stroke="#0A0A0A" stroke-width="6" stroke-linecap="round"><line x1="0" y1="-15" x2="0" y2="15"/><line x1="-13" y1="-7" x2="13" y2="7"/><line x1="-13" y1="7" x2="13" y2="-7"/></g></svg>
+      <div class="about-card reveal">
+        <div class="about-avatar">
+          <span class="avatar-kf">KF</span>
+          <img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/>
         </div>
-        <div class="about-text">
-          <p class="roles">Creative. Growth. Marketer.</p>
-          <p>Two jobs that are secretly the same job: writing words that make people act, and writing instructions that make AI behave.</p>
-          <p>I write conversion copy for fintech, automotive, and trade brands — emails, ads, product pages, brand stories. And I engineer the prompts that turn large language models into reliable, on-brand, fact-checked writers instead of confident liars.</p>
-          <p>Based in the UK. Currently taking briefs.</p>
-          <button class="sayhi" onclick="go('sayhi')">Say Hi</button>
+        <div class="meet-note" aria-hidden="true">
+          <svg viewBox="0 0 100 78" fill="none"><path d="M92 8 C60 2 24 20 12 58" stroke="#FF4D00" stroke-width="5" stroke-linecap="round"/><path d="M12 58 L28 55 M12 58 L21 44" stroke="#FF4D00" stroke-width="5" stroke-linecap="round"/></svg>
+          <span>Meet Kieran<br>Fielder</span>
         </div>
+        <span class="about-chip">The Growth Marketer</span>
+        <h2 class="about-state">Copy that converts, content that compounds, <em>and prompts that behave.</em></h2>
+        <p>Two jobs that are secretly the same job: writing words that make people act, and writing instructions that make AI behave.</p>
+        <p>I write conversion copy for fintech, automotive, and trade brands — emails, ads, product pages, brand stories. And I engineer the prompts that turn large language models into reliable, on-brand, fact-checked writers instead of confident liars.</p>
+        <p class="about-bold">I'm here to make your brand impossible to scroll past.</p>
+        <p class="about-meta">Based in the UK · Currently taking briefs</p>
+        <button class="sayhi" onclick="go('sayhi')">Work With Kieran <span class="arr-w">→</span></button>
       </div>
     </div>
   </section>
