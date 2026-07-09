@@ -90,7 +90,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-section{padding:130px 0;position:relative;overflow:hidden;background:var(--orange)}
 .paint-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .about-section .wrap{position:relative;z-index:2}
-.about-section .section-label{color:var(--ink)}
+.about-section .section-label{color:var(--ink);font-size:16px;font-weight:700;letter-spacing:.22em}
 .about-section .section-label::after{background:rgba(10,10,10,.35)}
 .about-card{position:relative;max-width:980px;margin:120px auto 0;border:2px solid var(--ink);background:#fff;padding:88px 72px 72px;display:grid;grid-template-columns:1.02fr 1fr;gap:24px 64px;align-items:start}
 .about-avatar{position:absolute;top:0;left:0;transform:translate(-34%,-34%);width:142px;height:142px;border-radius:50%;background:var(--orange);border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -376,6 +376,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <svg class="paint-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <filter id="paint-rough" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="90"/></filter>
+        <linearGradient id="soften" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".14" stop-color="#FFFFFF" stop-opacity=".16"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".16"/></linearGradient>
       </defs>
       <rect width="1440" height="900" fill="#FF4D00"/>
       <g filter="url(#paint-rough)">
@@ -387,6 +388,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <ellipse cx="500" cy="230" rx="170" ry="65" fill="#FF8A55" opacity=".4"/>
         <ellipse cx="980" cy="620" rx="190" ry="75" fill="#E84400" opacity=".4"/>
       </g>
+      <rect width="1440" height="900" fill="url(#soften)"/>
     </svg>
     <div class="wrap">
       <div class="section-label">Who?</div>
@@ -402,8 +404,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <div>
           <h2 class="about-state">I'm here to make your brand <em>impossible to scroll past.</em></h2>
           <span class="about-chip">The Growth Marketer</span>
-          <p class="about-meta">Based in the UK · Currently taking briefs</p>
-          <button class="sayhi" onclick="go('sayhi')">Work With Kieran <span class="arr-w">→</span></button>
+          <p class="about-meta">Based in the UK · Books open soon</p>
+          <button class="sayhi" onclick="go('read','newsletter')">Get the Newsletter <span class="arr-w">→</span></button>
         </div>
         <div>
           <p><strong>Copy that converts. Content that compounds. Prompts that behave.</strong> Two jobs that are secretly the same job — writing words that make people act, and writing instructions that make AI behave.</p>
@@ -569,7 +571,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <aside>
       <div class="sidebar-block"><div class="sidebar-label">Prefer plain email?</div><a class="email-inline" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div>
       <div class="sidebar-block"><div class="sidebar-label">What happens next</div><ol class="steps"><li><strong>1. You hit send.</strong> A rough brief is fine — two sentences beats a blank page.</li><li><strong>2. I reply within two working days</strong> with questions, a rough scope, or both.</li><li><strong>3. We agree the plan.</strong> Then I get to work, and you get words that earn their keep.</li></ol></div>
-      <div class="sidebar-block"><div class="sidebar-label">Availability</div><p style="font-size:14px">Taking briefs for 2026 — copy, content, prompts, strategy.</p></div>
+      <div class="sidebar-block"><div class="sidebar-label">Availability</div><p style="font-size:14px">Books are closed just now. Join the newsletter on the Read page and you'll be first to hear when they reopen.</p></div>
     </aside>
   </div></div></section>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. Written by a human (me).</p></div></div></div></footer>
