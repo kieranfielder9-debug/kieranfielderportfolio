@@ -100,8 +100,9 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-section .section-label{color:var(--ink);font-size:16px;font-weight:700;letter-spacing:.22em}
 .about-section .section-label::after{background:rgba(10,10,10,.35)}
 .about-card{position:relative;max-width:980px;margin:120px auto 0;border:2px solid var(--ink);background:#fff;padding:88px 72px 72px;display:grid;grid-template-columns:1.02fr 1fr;gap:24px 64px;align-items:start}
-.about-avatar{position:absolute;top:0;left:0;transform:translate(-34%,-34%);width:142px;height:142px;border-radius:50%;background:var(--orange);border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.avatar-kf{font-family:'Mr Dafoe',cursive;font-size:58px;color:#fff;transform:rotate(-8deg);line-height:1}
+.about-avatar{position:absolute;top:0;left:0;transform:translate(-34%,-34%);width:142px;height:142px;border-radius:50%;background:#fff;border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.avatar-kf{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:54px;color:var(--ink);line-height:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.avatar-kf svg{width:54px;height:9px}
 .about-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .meet-note{position:absolute;top:-60px;left:128px;display:flex;align-items:center;gap:10px}
 .meet-note svg{width:72px;height:46px;flex-shrink:0;margin-top:14px}
@@ -200,6 +201,7 @@ h2.serif em{font-style:italic}
 /* SAY HI PAGE */
 .contact-section{padding:72px 0 130px}
 .c-form{max-width:720px}
+.hi-lead{font-size:clamp(20px,2.2vw,28px);letter-spacing:.04em;margin-top:20px;color:var(--body)}
 .hi-email-line{margin-top:26px;font-size:13px;color:var(--muted)}
 .c-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:20px 0 8px;display:block;color:var(--ink)}
 .c-form .c-label:first-child{margin-top:0}
@@ -467,7 +469,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <div class="section-label">Who?</div>
       <div class="about-card reveal">
         <div class="about-avatar">
-          <span class="avatar-kf">KF</span>
+          <span class="avatar-kf">KF<svg viewBox="0 0 60 10" aria-hidden="true"><path d="M4 6 Q30 10 56 4" stroke="#FF4D00" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg></span>
           <img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/>
         </div>
         <div class="meet-note" aria-hidden="true">
@@ -645,7 +647,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
 <!-- SAY HI PAGE -->
 <div id="p-sayhi" class="page">
-  <header class="page-header"><div class="wrap"><h1 class="page-title">Say <em>hi</em></h1><p class="page-sub">Tell me about the project. I reply to everything within two working days.</p></div></header><hr class="divider"/>
+  <header class="page-header"><div class="wrap"><h1 class="page-title">Say <em>hi</em></h1><p class="page-sub hi-lead">Tell me about the project</p></div></header><hr class="divider"/>
   <section class="contact-section"><div class="wrap">
     <form class="c-form" onsubmit="return sendEnquiry(this)">
       <label class="c-label" for="c-nm">First and Last Name</label>
@@ -713,7 +715,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
         <button class="nl-btn" type="submit">Sign-Up</button>
       </form>
-      <p class="nl-note" style="max-width:560px;margin:16px auto 0">No spam, ever. Unsubscribe any time. Your address stays with me and goes nowhere else. (Proper sign-up service coming soon — for now this opens an email. Hit send and you're in.)</p>
+      <p class="nl-note" style="max-width:560px;margin:16px auto 0">No spam, ever. Unsubscribe any time. Your address stays with me and goes nowhere else. (A proper sign-up service is coming soon. For now this opens an email. Hit send and you're in.)</p>
     </div>
   </section>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
