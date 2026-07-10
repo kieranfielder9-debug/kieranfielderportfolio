@@ -115,7 +115,7 @@ h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);f
 h2.serif em{font-style:italic}
 .whatido-title{text-align:center;margin-bottom:84px}
 .whatido-title h2{position:relative;display:inline-block;font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9.4vw,148px);font-weight:500;letter-spacing:.05em;line-height:1;color:var(--ink)}
-.wi-avatar{position:absolute;left:50%;top:50%;transform:translate(-50%,-56%);width:clamp(44px,5.4vw,76px);height:clamp(44px,5.4vw,76px);border-radius:50%;background:var(--orange);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wi-avatar{width:clamp(48px,5.4vw,76px);height:clamp(48px,5.4vw,76px);border-radius:50%;background:var(--orange);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;margin:24px auto 0}
 .wi-avatar .avatar-kf{font-size:clamp(18px,2.2vw,30px)}
 .wi-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .services-rows{display:grid;grid-template-columns:1fr 1fr;gap:72px 80px}
@@ -143,6 +143,9 @@ h2.serif em{font-style:italic}
 .tile-overlay strong{color:#fff;font-size:clamp(16px,1.5vw,21px);font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.4;max-width:320px}
 .tile-overlay .view{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
 @media (hover:none){.tile-overlay{opacity:1;background:rgba(10,10,10,.55)}}
+.tile-cta{border:2px dashed var(--orange);padding:6px;background:var(--paper)}
+.tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
+.tile-cta .tile-overlay{inset:6px}
 
 /* MARQUEE */
 .marquee{background:var(--orange);overflow:hidden;padding:20px 0}
@@ -472,7 +475,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <section class="services-section">
     <div class="wrap">
       <div class="whatido-title reveal">
-        <h2>WHAT I DO<span class="wi-avatar"><span class="avatar-kf">KF</span><img src="images/portrait.jpg" alt="" onerror="this.remove()"/></span></h2>
+        <h2>WHAT I DO</h2>
+        <span class="wi-avatar"><span class="avatar-kf">KF</span><img src="images/portrait.jpg" alt="" onerror="this.remove()"/></span>
       </div>
       <div class="services-rows reveal d1">
         <div class="svc">
@@ -517,9 +521,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
   <section class="goods-section">
     <div class="wrap">
-      <div class="section-label">My Stuff</div>
-      <h2 class="serif reveal">Five projects.<br><em>Zero filler.</em></h2>
-      <p class="goods-sub">Pick a tile. Every project comes with the full thinking — brief, drafts, audits and all.</p>
+      <div class="whatido-title reveal"><h2>MY STUFF</h2></div>
       <div class="tile-grid reveal d1">
 
         <button class="tile" onclick="go('case-yt')">
@@ -552,7 +554,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
           <span class="tile-overlay"><span class="cat">Human Words</span><strong>Vault Savings Google Ad</strong><span class="view">— View —</span></span>
         </button>
 
-        <a class="tile" href="mailto:kieranfielder9@gmail.com">
+        <a class="tile tile-cta" href="mailto:kieranfielder9@gmail.com">
           <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-brief"/></svg>
           <img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/>
           <span class="tile-overlay"><span class="cat">Say Hi</span><strong>Your Brief Here</strong><span class="view">— Email Me —</span></span>
@@ -564,8 +566,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <div class="marquee-group"><span class="txt">Words for humans</span><span class="sq"></span><span class="txt">Prompts for machines</span><span class="sq"></span><span class="txt">Copy that converts</span><span class="sq"></span><span class="txt">Scripts that teach</span><span class="sq"></span><span class="txt">Ads that get clicked</span><span class="sq"></span><span class="txt">Stories that stick</span><span class="sq"></span></div>
-      <div class="marquee-group"><span class="txt">Words for humans</span><span class="sq"></span><span class="txt">Prompts for machines</span><span class="sq"></span><span class="txt">Copy that converts</span><span class="sq"></span><span class="txt">Scripts that teach</span><span class="sq"></span><span class="txt">Ads that get clicked</span><span class="sq"></span><span class="txt">Stories that stick</span><span class="sq"></span></div>
+      <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
+      <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
     </div>
   </div>
 
@@ -611,7 +613,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <span class="case-row-title">Your Brief <em>Here</em></span>
       <span class="view-link">Email me <span class="arr">→</span></span>
     </a>
-    <div class="more-work"><p>More stuff loading…</p><span>Coming soon</span></div>
   </div></section>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
 </div>
