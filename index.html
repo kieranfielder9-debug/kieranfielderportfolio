@@ -78,13 +78,15 @@ footer{background:var(--ink);padding:88px 0 60px;margin-top:0}
 #hero{min-height:calc(100vh - 64px);background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:56px}
+.tag-hi{color:#fff}
+.hero-box{background:transparent;border:2px solid var(--ink);color:var(--ink);padding:18px 46px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s;display:inline-flex;align-items:center;gap:14px}
+.hero-box:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.hero-box .arr-w{transition:transform .25s}
+.hero-box:hover .arr-w{transform:translateX(6px)}
 .u-fl{position:relative;display:inline-block}
 .u-fl svg{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.24em;overflow:visible}
 .draw{stroke-dasharray:330;stroke-dashoffset:330;animation:drawIn .9s ease .6s forwards}
 @keyframes drawIn{to{stroke-dashoffset:0}}
-.quick-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px 40px;list-style:none}
-.quick-links button,.quick-links a{display:inline-block;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding:2px 0;border-bottom:3px solid transparent;transition:border-color .2s;text-decoration:none}
-.quick-links button:hover,.quick-links a:hover{border-bottom-color:#fff}
 
 /* ABOUT */
 .about-section{padding:130px 0;position:relative;overflow:hidden;background:var(--orange)}
@@ -368,7 +370,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -413,14 +415,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <section id="hero">
     <div class="wrap">
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
-      <p class="hero-tagline">Creative. Growth. Marketer.</p>
-      <ul class="quick-links">
-        <li><button onclick="go('work')">Projects</button></li>
-        <li><button onclick="go('blog')">Blog</button></li>
-        <li><button onclick="go('home','contact')">Contact</button></li>
-        <li><button onclick="go('sayhi')">Say Hi</button></li>
-        <li><button onclick="go('read')">Newsletter</button></li>
-      </ul>
+      <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
+      <button class="hero-box" onclick="go('work')">Projects <span class="arr-w">→</span></button>
     </div>
   </section>
 
