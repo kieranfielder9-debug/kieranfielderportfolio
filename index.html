@@ -302,6 +302,10 @@ h1.page-title em{font-style:italic}
 .proj-grid2 .case-row{margin:0}
 .proj-grid2 .case-row:nth-child(even){margin-top:140px}
 .proj-grid2 .case-row-title{font-size:clamp(24px,2.2vw,34px);margin:26px 0 14px}
+.row-view{position:absolute;inset:0;background:rgba(10,10,10,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s ease;z-index:2}
+.case-row:hover .row-view{opacity:1}
+.row-view span{color:#fff;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;border-bottom:3px solid var(--orange);padding-bottom:6px}
+@media (hover:none){.row-view{display:none}}
 .case-row-media{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;border:1px solid #262626}
 .case-row-media svg,.case-row-media img{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .6s ease}
 .case-row-media img{object-fit:cover}
@@ -588,32 +592,32 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <section class="work-section-wrapper"><div class="wrap">
     <div class="proj-grid2">
     <button class="case-row" onclick="go('case-yt')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-yt"/></svg><img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/></span>
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-yt"/></svg><img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span>View case study →</span></span></span>
       <span class="case-row-title">Educational YouTube Script <em>Using AI</em></span>
       <span class="view-link">View case study <span class="arr">→</span></span>
     </button>
     <button class="case-row" onclick="go('case-pulse')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/></span>
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span>View case study →</span></span></span>
       <span class="case-row-title">Pulse Financials <em>Launch Email</em></span>
       <span class="view-link">View case study <span class="arr">→</span></span>
     </button>
     <button class="case-row" onclick="go('case-hyundai')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/></span>
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span>View case study →</span></span></span>
       <span class="case-row-title">Hyundai IONIQ 5 N <em>Product Copy</em></span>
       <span class="view-link">View case study <span class="arr">→</span></span>
     </button>
     <button class="case-row" onclick="go('case-wholesaler')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-wholesaler"/></svg><img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/></span>
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-wholesaler"/></svg><img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span>View case study →</span></span></span>
       <span class="case-row-title">UK Wholesaler <em>Brand Story</em></span>
       <span class="view-link">View case study <span class="arr">→</span></span>
     </button>
     <button class="case-row" onclick="go('case-ad')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-vault"/></svg><img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/></span>
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-vault"/></svg><img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span>View case study →</span></span></span>
       <span class="case-row-title">Vault Savings App <em>Google Ad</em></span>
       <span class="view-link">View case study <span class="arr">→</span></span>
     </button>
     <a class="case-row" href="mailto:kieranfielder9@gmail.com">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-brief"/></svg><img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/></span>
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-brief"/></svg><img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span>View case study →</span></span></span>
       <span class="case-row-title">Your Brief <em>Here</em></span>
       <span class="view-link">Email me <span class="arr">→</span></span>
     </a>
