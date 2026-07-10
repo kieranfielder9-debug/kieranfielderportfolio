@@ -113,14 +113,20 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .services-section{padding:0 0 130px}
 h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:56px}
 h2.serif em{font-style:italic}
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.service-card{border:1px solid var(--border);padding:52px 44px;transition:border-color .25s;position:relative;background:var(--paper)}
-.service-card::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--orange);transition:width .35s ease}
-.service-card:hover{border-color:var(--ink)}
-.service-card:hover::before{width:100%}
-.service-num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--border);line-height:1;margin-bottom:24px;display:block}
-.service-card h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--ink);margin-bottom:16px}
-.service-card p{font-size:15px;color:var(--body)}
+.whatido-title{text-align:center;margin-bottom:84px}
+.whatido-title h2{position:relative;display:inline-block;font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9.4vw,148px);font-weight:500;letter-spacing:.05em;line-height:1;color:var(--ink)}
+.wi-avatar{position:absolute;left:50%;top:50%;transform:translate(-50%,-56%);width:clamp(44px,5.4vw,76px);height:clamp(44px,5.4vw,76px);border-radius:50%;background:var(--orange);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wi-avatar .avatar-kf{font-size:clamp(18px,2.2vw,30px)}
+.wi-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.services-rows{display:grid;grid-template-columns:1fr 1fr;gap:72px 80px}
+.svc{display:grid;grid-template-columns:168px 1fr;gap:30px;align-items:start}
+.svc-media{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--border)}
+.svc-media svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.svc h3{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3}
+.svc p{font-size:15px;color:var(--body);line-height:1.7;margin-bottom:22px}
+.sayhi-sm{padding:13px 26px;font-size:11px;letter-spacing:.14em}
+.svc-extra{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:20px;border:1px dashed var(--border);padding:36px 40px}
+.svc-script{font-family:'Mr Dafoe',cursive;font-size:31px;color:var(--ink);word-spacing:.35em;line-height:1.3}
 
 /* THE GOODS — tile grid */
 .goods-section{padding:0 0 130px}
@@ -370,7 +376,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -465,22 +471,37 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
   <section class="services-section">
     <div class="wrap">
-      <div class="section-label">What I do</div>
-      <h2 class="serif reveal">Two crafts.<br><em>One obsession with words.</em></h2>
-      <div class="services-grid reveal d1">
-        <div class="service-card">
-          <span class="service-num">01</span>
-          <p class="kicker">Prompt Engineering</p>
-          <h3>Robot Whispering</h3>
-          <p>Designing, testing, and refining prompts that unlock the full potential of large language models, making AI outputs reliably excellent, on-brand, and production-ready.</p>
-          <div class="tags" style="margin-top:28px"><span class="tag">LLM Optimisation</span><span class="tag">Chain-of-Thought</span><span class="tag">Few-Shot Learning</span><span class="tag">RAG Systems</span></div>
+      <div class="whatido-title reveal">
+        <h2>WHAT I DO<span class="wi-avatar"><span class="avatar-kf">KF</span><img src="images/portrait.jpg" alt="" onerror="this.remove()"/></span></h2>
+      </div>
+      <div class="services-rows reveal d1">
+        <div class="svc">
+          <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-wholesaler"/></svg></div>
+          <div>
+            <h3>Branding, Content and Copywriting.</h3>
+            <p>Your brand's voice, story and words — built to be recognised and remembered. From messaging and brand stories to the product pages that make people feel something, then do something.</p>
+            <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
+          </div>
         </div>
-        <div class="service-card">
-          <span class="service-num">02</span>
-          <p class="kicker">Copywriting</p>
-          <h3>Human Words</h3>
-          <p>Conversion-focused, voice-consistent copy for brands in finance, tech, SaaS, and media. Authentic, brand-representative, and built to connect.</p>
-          <div class="tags" style="margin-top:28px"><span class="tag">Email Marketing</span><span class="tag">Product Copy</span><span class="tag">Brand Story</span><span class="tag">Direct Response</span><span class="tag">Google Ads</span></div>
+        <div class="svc">
+          <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-pulse"/></svg></div>
+          <div>
+            <h3>Growth Marketing (Ads, Emails)</h3>
+            <p>Campaigns that earn their budget. Google Ads that get clicked, direct-response emails that get replies, and landing copy that turns attention into revenue.</p>
+            <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
+          </div>
+        </div>
+        <div class="svc">
+          <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-brief"/></svg></div>
+          <div>
+            <h3>Prompt Engineering and AI experiments</h3>
+            <p>Making AI behave. Prompts, constraints and fact-checking systems that turn language models into reliable, on-brand writers — plus the odd experiment to find what's next.</p>
+            <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
+          </div>
+        </div>
+        <div class="svc-extra">
+          <span class="svc-script">Something else on your mind?</span>
+          <button class="sayhi sayhi-sm" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button>
         </div>
       </div>
     </div>
