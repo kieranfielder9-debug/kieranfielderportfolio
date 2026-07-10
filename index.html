@@ -125,7 +125,7 @@ h2.serif em{font-style:italic}
 .svc h3{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3}
 .svc p{font-size:15px;color:var(--body);line-height:1.7;margin-bottom:22px}
 .sayhi-sm{padding:13px 26px;font-size:11px;letter-spacing:.14em}
-.svc-extra{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:20px;border:1px dashed var(--border);padding:36px 40px}
+.svc-extra{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px 36px;border:1px dashed var(--border);padding:32px 40px}
 .svc-script{font-family:'Mr Dafoe',cursive;font-size:31px;color:var(--ink);word-spacing:.35em;line-height:1.3}
 
 /* THE GOODS — tile grid */
@@ -478,8 +478,16 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <div class="svc">
           <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-wholesaler"/></svg></div>
           <div>
-            <h3>Brand Strategy; Content and Copywriting</h3>
-            <p>Your brand's voice, story and words — built to be recognised and remembered. From messaging and brand stories to the product pages that make people feel something, then do something.</p>
+            <h3>Brand Strategy</h3>
+            <p>Positioning, messaging and the sharp point of difference — deciding what your brand says, to whom, and why it wins, before a word of copy is written.</p>
+            <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
+          </div>
+        </div>
+        <div class="svc">
+          <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-yt"/></svg></div>
+          <div>
+            <h3>Content and Copywriting</h3>
+            <p>The words themselves: brand stories, product pages, scripts and content that sound unmistakably like you — and move readers to act.</p>
             <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
           </div>
         </div>
