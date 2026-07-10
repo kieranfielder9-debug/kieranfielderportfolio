@@ -101,8 +101,8 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-section .section-label::after{background:rgba(10,10,10,.35)}
 .about-card{position:relative;max-width:980px;margin:120px auto 0;border:2px solid var(--ink);background:#fff;padding:88px 72px 72px;display:grid;grid-template-columns:1.02fr 1fr;gap:24px 64px;align-items:start}
 .about-avatar{position:absolute;top:0;left:0;transform:translate(-34%,-34%);width:142px;height:142px;border-radius:50%;background:#fff;border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.avatar-kf{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:54px;color:var(--ink);line-height:1;display:flex;flex-direction:column;align-items:center;gap:3px}
-.avatar-kf svg{width:54px;height:9px}
+.avatar-kf{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.avatar-kf svg{width:100%;height:100%}
 .about-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .meet-note{position:absolute;top:-60px;left:128px;display:flex;align-items:center;gap:10px}
 .meet-note svg{width:72px;height:46px;flex-shrink:0;margin-top:14px}
@@ -201,7 +201,7 @@ h2.serif em{font-style:italic}
 /* SAY HI PAGE */
 .contact-section{padding:72px 0 130px}
 .c-form{max-width:720px}
-.hi-lead{font-size:clamp(20px,2.2vw,28px);letter-spacing:.04em;margin-top:20px;color:var(--body)}
+.hi-lead{font-size:clamp(24px,2.7vw,36px);letter-spacing:.06em;margin:28px 0 14px;color:var(--body)}
 .hi-email-line{margin-top:26px;font-size:13px;color:var(--muted)}
 .c-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:20px 0 8px;display:block;color:var(--ink)}
 .c-form .c-label:first-child{margin-top:0}
@@ -469,7 +469,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <div class="section-label">Who?</div>
       <div class="about-card reveal">
         <div class="about-avatar">
-          <span class="avatar-kf">KF<svg viewBox="0 0 60 10" aria-hidden="true"><path d="M4 6 Q30 10 56 4" stroke="#FF4D00" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg></span>
+          <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="41" fill="none" stroke="#0A0A0A" stroke-width="1.2" opacity=".85"/><text x="39" y="61" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="600" font-size="42" fill="#0A0A0A">K</text><text x="60" y="64" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="40" fill="#0A0A0A">F</text><rect x="46.5" y="70" width="7" height="7" transform="rotate(45 50 73.5)" fill="#FF4D00"/></svg></span>
           <img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/>
         </div>
         <div class="meet-note" aria-hidden="true">
@@ -647,7 +647,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
 <!-- SAY HI PAGE -->
 <div id="p-sayhi" class="page">
-  <header class="page-header"><div class="wrap"><h1 class="page-title">Say <em>hi</em></h1><p class="page-sub hi-lead">Tell me about the project</p></div></header><hr class="divider"/>
+  <header class="page-header"><div class="wrap"><h1 class="page-title">Say <em>hi</em></h1><p class="page-sub hi-lead">Tell me about this project</p></div></header><hr class="divider"/>
   <section class="contact-section"><div class="wrap">
     <form class="c-form" onsubmit="return sendEnquiry(this)">
       <label class="c-label" for="c-nm">First and Last Name</label>
