@@ -61,12 +61,11 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 .back-btn svg{width:14px;height:14px;transition:transform .2s}
 .back-btn:hover svg{transform:translateX(-3px)}
 
-footer{background:var(--ink);padding:88px 0 60px;margin-top:0}
-.footer-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+footer{background:var(--ink);padding:130px 0 56px;margin-top:0}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:110px;padding-top:44px;border-top:1px solid rgba(255,255,255,.14)}
 .footer-sig{font-family:'Mr Dafoe',cursive;font-size:54px;color:#fff;display:block;line-height:1.1;margin-bottom:16px;transform:rotate(-4deg);transform-origin:left bottom}
 .footer-email{font-size:15px;color:#fff;text-decoration:none;font-weight:500;border-bottom:2px solid var(--orange);padding-bottom:2px;transition:color .2s}
 .footer-email:hover{color:var(--orange)}
-.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:20px}
 .footer-copy{font-size:12px;color:#8E8E8E}
 
 .sayhi{display:inline-block;background:var(--ink);color:#fff;padding:17px 40px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
@@ -393,7 +392,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.lets-talk{padding:96px 0 110px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.lets-talk{padding:96px 0 110px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -585,10 +584,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   </div>
 
   <footer id="contact" class="scroll-target">
-    <div class="wrap"><div class="footer-inner">
-      <div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div>
-      <div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div>
-    </div></div>
+    <div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div>
   </footer>
 </div>
 
@@ -629,11 +625,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     </a>
     </div>
   </div></section>
-  <section class="lets-talk"><div class="wrap">
-    <h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2>
-    <button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button>
-  </div></section>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- BLOG PAGE -->
@@ -645,7 +637,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <h2>—</h2>
     </div>
   </div></section>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- SAY HI PAGE -->
@@ -670,7 +662,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <p class="hi-email-line">Prefer plain email? <a class="email-inline" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></p>
     </form>
   </div></section>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- BLOG POST TEMPLATE (sample post) -->
@@ -687,7 +679,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="post-cta"><p>Enjoyed this? The newsletter is this, monthly.</p><button class="sayhi" onclick="go('read')">Get the newsletter</button></div>
   </article>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Blog</div></div><button class="next-arrow" onclick="go('blog')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- READ PAGE -->
@@ -721,7 +713,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <p class="nl-note" style="max-width:560px;margin:16px auto 0">No spam, ever. Unsubscribe any time. Your address stays with me and goes nowhere else. (Proper sign-up service coming soon — for now this opens an email. Hit send and you're in.)</p>
     </div>
   </section>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- CASE 1: YouTube Script -->
@@ -756,7 +748,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>In my initial prompt the attempt was to ensure the prompt was as context rich as possible stuffing the persona role with a great amount of detail. This backfired in the end. I realise now that constraints and a more organised prompt structure is preferable. Also I could have pre-empted a lot of the hallucinations and applied accounted for this within my initial prompt. These pre-empted constraints could be used to create batch prompts for future projects to ensuring a more efficient workflow.</p></div></div>
   </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Prompt Engineering</span><span class="tag">Hallucination Audit</span><span class="tag">Tone Calibration</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- CASE 2: Pulse Financials -->
@@ -786,7 +778,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The question at the top immediately connects with deeper motivation. Freelancers don't start for the admin. They start for freedom, passion, control. By naming that first, I built identity alignment before introducing any product. The Sarah story offers social proof without a formal testimonial. The complimentary tax call lowers the barrier. Circling back to the emotional opening leaves readers with a vision of relief, not a feature list.</p></div></div>
   </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Email Marketing</span><span class="tag">Direct Response</span><span class="tag">Fintech</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- CASE 3: Hyundai IONIQ 5 N -->
@@ -823,7 +815,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest challenge was balancing emotion with technical specs. Car enthusiasts want the numbers, but they also want to feel something about the car. My approach was to use confident, cinematic language to build desire, then anchor every emotional claim with a concrete detail. When I said "undeniable presence," I backed it with the black N badge and wing spoiler. When I talked about performance, I gave them the horsepower, the charging architecture, and the wheel specifications. The hype feels earned because the proof is right there.</p></div></div>
   </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Product Copy</span><span class="tag">Automotive</span><span class="tag">Brand Voice</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- CASE 4: UK Wholesaler -->
@@ -858,7 +850,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>I opened with the specific anecdote about the founders spending a whole day chasing down basic parts. This was intentional. Tradespeople know exactly what that feels like. A wasted day on a simple job because the supply chain failed. By starting there, I proved the founders understand the audience's reality before making any claims about their business. Tradespeople do not respond to corporate language. They respond to trust, reliability, and evidence.</p></div></div>
   </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Brand Story</span><span class="tag">Authentic Voice</span><span class="tag">Trade &amp; Industry</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <!-- CASE 5: Vault Google Ad -->
@@ -897,7 +889,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest insight from this project was realising that the audience does not want to think about saving. They want to think about literally anything else. Most financial copy tries to educate. This ad tries to reassure. It says: "You do not have to become a different person to save money. You just need a system that works while you are not paying attention." The "No big deal sacrifice" line turns "I should probably start saving at some point" into something that feels immediately possible. That shift — from abstract intention to concrete action — is what conversion copy actually does.</p></div></div>
   </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Google Ads</span><span class="tag">Conversion Copy</span><span class="tag">Fintech</span><span class="tag">Search Intent</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><h2 class="lt-title">Great to see<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange lt-btn" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></footer>
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
