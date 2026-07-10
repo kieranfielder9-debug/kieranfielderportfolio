@@ -106,13 +106,6 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-meta{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 28px}
 .sayhi .arr-w{display:inline-block;transition:transform .25s;margin-left:10px}
 .sayhi:hover .arr-w{transform:translateX(5px)}
-.about-grid{display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:center}
-.sig-panel{background:var(--orange);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative}
-.sig-big{font-family:'Mr Dafoe',cursive;font-size:62px;color:#fff;transform:rotate(-7deg);line-height:1.1;text-align:center;padding:0 24px}
-.sig-note{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.08em;color:var(--ink)}
-.roles{font-size:clamp(22px,2.6vw,30px);font-weight:700;color:var(--ink);margin-bottom:26px;line-height:1.3}
-.about-text p{font-size:17px;line-height:1.75;margin-bottom:18px;max-width:540px}
-.about-text .sayhi{margin-top:14px}
 
 /* SERVICES */
 .services-section{padding:0 0 130px}
@@ -247,8 +240,13 @@ h2.serif em{font-style:italic}
 .spec-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
 .spec{border:1px solid #DDD;padding:6px 12px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#333}
 
-/* READ PAGE */
-.read-about{padding:96px 0 110px}
+/* NEWSLETTER PAGE */
+.nl-hero{position:relative;min-height:calc(100vh - 64px);background:#0A0A0A;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 0}
+.nl-hero .wrap{position:relative;z-index:2}
+.nl-hero-script{font-family:'Mr Dafoe',cursive;font-size:clamp(28px,3.4vw,44px);color:#fff;display:block;margin-bottom:6px;word-spacing:.4em}
+.nl-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,12vw,170px);font-weight:500;color:#fff;line-height:.95;letter-spacing:.05em;margin-bottom:30px}
+.nl-hero-copy{max-width:760px;margin:0 auto 14px;color:#D9D9D9;font-size:17px;line-height:1.75}
+.nl-hero-form{max-width:520px;margin:44px auto 0}
 .newsletter{background:var(--ink);padding:110px 0}
 .nl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
 .nl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,54px);font-weight:500;color:#fff;line-height:1.1;margin-bottom:20px}
@@ -360,7 +358,7 @@ h2.case-h2 em{font-style:italic}
 .verify-table td{font-size:14px}
 .scroll-target{scroll-margin-top:84px}
 
-@media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:48px}.sig-panel{max-width:420px}}
+@media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
 @media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-grid{grid-template-columns:1fr}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.contact-grid{grid-template-columns:1fr;gap:48px}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start;gap:36px}.footer-right{align-items:flex-start}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}.quick-links{gap:14px 28px}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
@@ -384,7 +382,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <li><button id="nb-about" onclick="go('home','about')">Who?</button></li>
         <li><button id="nb-work" onclick="go('work')">Projects</button></li>
         <li><button id="nb-blog" onclick="go('blog')">Blog</button></li>
-        <li><button id="nb-read" onclick="go('read')">Read</button></li>
+        <li><button id="nb-read" onclick="go('read')">Newsletter</button></li>
       </ul>
       <button class="nav-sayhi" onclick="go('sayhi')">Say Hi</button>
       <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -395,7 +393,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <button onclick="go('home','about')">Who?</button>
     <button onclick="go('work')">Projects</button>
     <button onclick="go('blog')">Blog</button>
-    <button onclick="go('read')">Read</button>
+    <button onclick="go('read')">Newsletter</button>
     <button onclick="go('sayhi')">Say Hi</button>
   </div>
 </nav>
@@ -412,7 +410,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <li><button onclick="go('blog')">Blog</button></li>
         <li><button onclick="go('home','contact')">Contact</button></li>
         <li><button onclick="go('sayhi')">Say Hi</button></li>
-        <li><button onclick="go('read')">Read</button></li>
+        <li><button onclick="go('read')">Newsletter</button></li>
       </ul>
     </div>
   </section>
@@ -642,41 +640,35 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
 <!-- READ PAGE -->
 <div id="p-read" class="page">
-  <header class="page-header"><div class="wrap"><div class="section-label">The Read</div><h1 class="page-title">Read all <em>about it</em></h1><p class="page-sub">Who I am, how I work, and a newsletter worth opening.</p></div></header><hr class="divider"/>
-  <section class="read-about"><div class="wrap">
-    <div class="about-grid">
-      <div class="sig-panel">
-        <span class="sig-big">Kieran<br>Fielder</span>
-        <span class="sig-note">(committed to the bit)</span>
-      </div>
-      <div class="about-text">
-        <p class="roles">Copywriter. Content Creator. Prompt Engineer. Strategist.</p>
-        <p>I'm Kieran — a UK-based writer working both sides of the modern marketing desk: the words your customers read, and the instructions the machines follow.</p>
-        <p>My rule for copy is simple: it has to earn something. A click, a reply, a sale, a change of mind. Every project starts with who's reading and what's in their way — and ends with the exact words that meet them there.</p>
-        <p>The prompt engineering grew from the same obsession. Language models write confidently and sometimes wrongly; I build the prompts, constraints and fact-checking passes that make them reliable enough to publish.</p>
-        <p>If that sounds like what your project needs, the button below is the shortest path.</p>
-        <button class="sayhi" onclick="go('sayhi')">Say Hi</button>
-      </div>
+  <section class="nl-hero scroll-target" id="newsletter">
+    <svg class="paint-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="paint-rough-nl" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="90"/></filter>
+      </defs>
+      <rect width="1440" height="900" fill="#0A0A0A"/>
+      <g filter="url(#paint-rough-nl)">
+        <ellipse cx="220" cy="180" rx="330" ry="160" fill="#1D1D1D" opacity=".95"/>
+        <ellipse cx="1240" cy="700" rx="360" ry="180" fill="#171717" opacity=".95"/>
+        <ellipse cx="1200" cy="170" rx="240" ry="110" fill="#2B140A" opacity=".8"/>
+        <ellipse cx="300" cy="740" rx="260" ry="130" fill="#301409" opacity=".75"/>
+        <ellipse cx="720" cy="470" rx="430" ry="230" fill="#151515" opacity=".9"/>
+        <ellipse cx="1060" cy="430" rx="170" ry="80" fill="#3A1A0B" opacity=".55"/>
+        <ellipse cx="410" cy="320" rx="150" ry="70" fill="#331708" opacity=".5"/>
+      </g>
+    </svg>
+    <div class="wrap">
+      <span class="nl-hero-script">Kieran Fielder's</span>
+      <h1 class="nl-hero-title">SIGNAL</h1>
+      <p class="nl-topics">Systems, Psychology, Growth, Copy and Creativity, Brand!</p>
+      <p class="nl-hero-copy">Signal is for founders, entrepreneurs, and creative leaders who want to build brands people notice, understand, and remember.</p>
+      <p class="nl-hero-copy">Inside Signal, you'll discover ideas on positioning, brand strategy, customer psychology, creative thinking, and growth marketing, helping you turn what makes your business unique into a message that connects.</p>
+      <form class="nl-form nl-hero-form" onsubmit="return subscribeNL(this)">
+        <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+        <button class="nl-btn" type="submit">Sign-Up</button>
+      </form>
+      <p class="nl-note" style="max-width:560px;margin:16px auto 0">No spam, ever. Unsubscribe any time. Your address stays with me and goes nowhere else. (Proper sign-up service coming soon — for now this opens an email. Hit send and you're in.)</p>
     </div>
-  </div></section>
-  <section class="newsletter" id="newsletter"><div class="wrap">
-    <div class="nl-grid">
-      <div>
-        <p class="kicker">The Newsletter</p>
-        <h2 class="nl-title"><em>Signal</em></h2>
-        <p class="nl-topics">Systems, Psychology, Growth, Copy and Creativity, Brand!</p>
-        <p class="nl-copy">Signal is for founders, entrepreneurs, and creative leaders who want to build brands people notice, understand, and remember.</p>
-        <p class="nl-copy">Inside Signal, you'll discover ideas on positioning, brand strategy, customer psychology, creative thinking, and growth marketing, helping you turn what makes your business unique into a message that connects.</p>
-      </div>
-      <div>
-        <form class="nl-form" onsubmit="return subscribeNL(this)">
-          <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
-          <button class="nl-btn" type="submit">Sign-Up</button>
-        </form>
-        <p class="nl-note">No spam, ever. Unsubscribe any time. Your address stays with me and goes nowhere else. (Proper sign-up service coming soon — for now this opens an email. Hit send and you're in.)</p>
-      </div>
-    </div>
-  </div></section>
+  </section>
   <footer><div class="wrap"><div class="footer-inner"><div><span class="footer-sig">Kieran Fielder</span><a class="footer-email" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></div><div class="footer-right"><a class="sayhi sayhi-orange" href="mailto:kieranfielder9@gmail.com">Say Hi</a><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
 </div>
 
