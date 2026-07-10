@@ -110,14 +110,11 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .sayhi:hover .arr-w{transform:translateX(5px)}
 
 /* SERVICES */
-.services-section{padding:0 0 130px}
+.services-section{padding:0 0 110px}
 h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:56px}
 h2.serif em{font-style:italic}
-.whatido-title{text-align:center;margin-bottom:84px}
-.whatido-title h2{position:relative;display:inline-block;font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9.4vw,148px);font-weight:500;letter-spacing:.05em;line-height:1;color:var(--ink)}
-.wi-avatar{width:clamp(48px,5.4vw,76px);height:clamp(48px,5.4vw,76px);border-radius:50%;background:var(--orange);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;margin:24px auto 0}
-.wi-avatar .avatar-kf{font-size:clamp(18px,2.2vw,30px)}
-.wi-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.whatido-title{text-align:center;margin-bottom:76px}
+.whatido-title h2{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7.4vw,108px);font-weight:500;line-height:1.05;color:var(--ink)}
 .services-rows{display:grid;grid-template-columns:1fr 1fr;gap:72px 80px}
 .svc{display:grid;grid-template-columns:168px 1fr;gap:30px;align-items:start}
 .svc-media{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--border)}
@@ -129,7 +126,7 @@ h2.serif em{font-style:italic}
 .svc-script{font-family:'Mr Dafoe',cursive;font-size:31px;color:var(--ink);word-spacing:.35em;line-height:1.3}
 
 /* THE GOODS — tile grid */
-.goods-section{padding:0 0 130px}
+.goods-section{padding:110px 0 130px;border-top:1px solid var(--border)}
 .goods-sub{font-size:16px;color:var(--muted);max-width:480px;margin:-32px 0 48px}
 .tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .tile{position:relative;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);padding:0;cursor:pointer;background:var(--paper);display:block;width:100%;text-decoration:none}
@@ -475,8 +472,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <section class="services-section">
     <div class="wrap">
       <div class="whatido-title reveal">
-        <h2>WHAT I DO</h2>
-        <span class="wi-avatar"><span class="avatar-kf">KF</span><img src="images/portrait.jpg" alt="" onerror="this.remove()"/></span>
+        <h2>What I do</h2>
       </div>
       <div class="services-rows reveal d1">
         <div class="svc">
@@ -521,7 +517,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
   <section class="goods-section">
     <div class="wrap">
-      <div class="whatido-title reveal"><h2>MY STUFF</h2></div>
+      <div class="whatido-title reveal"><h2>My stuff</h2></div>
       <div class="tile-grid reveal d1">
 
         <button class="tile" onclick="go('case-yt')">
