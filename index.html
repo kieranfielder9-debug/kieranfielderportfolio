@@ -116,6 +116,8 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-meta{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 28px}
 .about-card .about-lead p{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;line-height:1.16;color:var(--ink);margin:0}
 .about-lead em{font-style:italic}
+.hl-o{color:var(--orange)}
+.about-card .sayhi{font-size:14px;padding:20px 46px;margin-top:44px}
 .about-lead{position:relative}
 .about-divider{position:absolute;top:4px;bottom:4px;left:-32px;transform:translateX(-50%);width:26px;display:flex;flex-direction:column;align-items:center;pointer-events:none}
 .about-divider::before,.about-divider::after{content:'';width:1.5px;flex:1;background:rgba(10,10,10,.8)}
@@ -144,7 +146,7 @@ h2.serif em{font-style:italic}
 .goods-section{padding:110px 0 130px;border-top:1px solid var(--border)}
 .goods-sub{font-size:16px;color:var(--muted);max-width:480px;margin:-32px 0 48px}
 .tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.tile-grid-bleed{width:100vw;margin-left:calc(50% - 50vw);gap:6px}
+.tile-grid-bleed{width:100vw;margin-left:calc(50% - 50vw);gap:6px;grid-template-columns:repeat(4,1fr)}
 .tile{position:relative;aspect-ratio:1/1;overflow:hidden;border:1px solid var(--border);padding:0;cursor:pointer;background:var(--paper);display:block;width:100%;text-decoration:none}
 .tile svg{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .5s ease}
 .tile:hover svg{transform:scale(1.05)}
@@ -494,7 +496,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         </div>
         <div class="about-lead">
           <div class="about-divider" aria-hidden="true"><svg viewBox="0 0 26 34" fill="none"><path d="M13 0 V4 L4.5 10 L21.5 21 L13 27 V34" stroke="#FF4D00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p>Creating brand voices, growth campaigns, and <em>words that signal life to customers.</em></p>
+          <p>Creating brand voices, growth campaigns, and <em>words that <span class="hl-o">signal</span> life to customers.</em></p>
         </div>
       </div>
     </div>
@@ -551,12 +553,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <div class="whatido-title reveal"><h2>My stuff</h2><svg class="title-stroke" viewBox="0 0 200 16" aria-hidden="true"><path d="M8 10 Q100 17 192 7" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
       <div class="tile-grid tile-grid-bleed reveal d1">
 
-        <button class="tile" onclick="go('case-yt')">
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-yt"/></svg>
-          <img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/>
-          <span class="tile-overlay"><strong>Educational YouTube Script</strong><span class="view">— View —</span></span>
-        </button>
-
         <button class="tile" onclick="go('case-pulse')">
           <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-pulse"/></svg>
           <img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/>
@@ -567,12 +563,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
           <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-hyundai"/></svg>
           <img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/>
           <span class="tile-overlay"><strong>Hyundai IONIQ 5 N</strong><span class="view">— View —</span></span>
-        </button>
-
-        <button class="tile" onclick="go('case-wholesaler')">
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-wholesaler"/></svg>
-          <img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/>
-          <span class="tile-overlay"><strong>UK Wholesaler Brand Story</strong><span class="view">— View —</span></span>
         </button>
 
         <button class="tile" onclick="go('case-ad')">
@@ -608,11 +598,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <header class="page-header"><div class="wrap"><h1 class="page-title">My <em>Stuff</em></h1></div></header><hr class="divider"/>
   <section class="work-section-wrapper"><div class="wrap">
     <div class="proj-grid2">
-    <button class="case-row" onclick="go('case-yt')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-yt"/></svg><img src="images/youtube.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">A 10-minute educational YouTube script</span><span class="rv-go">View case study →</span></span></span>
-      <span class="case-row-title">Educational YouTube Script <em>Using AI</em></span>
-      <span class="view-link">View case study <span class="arr">→</span></span>
-    </button>
     <button class="case-row" onclick="go('case-pulse')">
       <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">A launch email for a freelancer bank</span><span class="rv-go">View case study →</span></span></span>
       <span class="case-row-title">Pulse Financials <em>Launch Email</em></span>
@@ -621,11 +606,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <button class="case-row" onclick="go('case-hyundai')">
       <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">Product page copy for an electric performance car</span><span class="rv-go">View case study →</span></span></span>
       <span class="case-row-title">Hyundai IONIQ 5 N <em>Product Copy</em></span>
-      <span class="view-link">View case study <span class="arr">→</span></span>
-    </button>
-    <button class="case-row" onclick="go('case-wholesaler')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-wholesaler"/></svg><img src="images/wholesaler.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">An origin story for a UK trade wholesaler</span><span class="rv-go">View case study →</span></span></span>
-      <span class="case-row-title">UK Wholesaler <em>Brand Story</em></span>
       <span class="view-link">View case study <span class="arr">→</span></span>
     </button>
     <button class="case-row" onclick="go('case-ad')">
@@ -734,47 +714,15 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap">
       <h1 class="nl-hero-title">SIGNAL</h1>
       <p class="nl-topics">Systems, Psychology, Growth, Copy and Creativity, Brand!</p>
+      <p class="nl-hero-copy">Signal is for founders, entrepreneurs, and creative leaders who want to build brands people notice, understand, and remember.</p>
+      <p class="nl-hero-copy">Inside Signal, you'll discover ideas on positioning, brand strategy, customer psychology, creative thinking, and growth marketing, helping you turn what makes your business unique into a message that connects.</p>
       <form class="nl-form nl-hero-form" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
         <button class="nl-btn" type="submit">Sign-Up</button>
       </form>
+      <p class="nl-note" style="max-width:560px;margin:16px auto 0">Feel free to unsubscribe at any time, if you don't get value from this newsletter.</p>
     </div>
   </section>
-  <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
-</div>
-
-<!-- CASE 1: YouTube Script -->
-<div id="p-case-yt" class="page">
-  <section class="case-hero2">
-    <div class="hero2-bg"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-hero-paint"/></svg><img src="images/youtube.jpg" alt="" onerror="this.remove()"/></div>
-    <div class="hero2-shade"></div>
-    <div class="wrap hero2-content">
-      <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
-      <h1 class="hero2-title">Writing an Educational YouTube Script <em>Using AI</em></h1>
-      <p class="hero2-sub">How I turned a brochure-sounding first draft into a verified, beginner-ready 10-minute video script for a financial education channel, with hallucinations corrected.</p>
-      <div class="chip-row"><span class="chip chip-lead">Money Over Time</span><span class="chip">Prompt Engineering</span><span class="chip">YouTube Script</span><span class="chip">3 Prompts + 1 Edit Pass</span></div>
-    </div>
-  </section>
-  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
-    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">A script that <em>earns trust</em></h2><p>Money Over Time teaches beginner investors. Their audience is middle class and mostly self-taught. The brief was to explain diversification in a way that felt like advice from a knowledgeable friend, not a compliance department. Every factual claim needed systematic verification.</p></div>
-    <div class="case-section"><p class="kicker">The Deliverable</p>
-      <div class="yt">
-        <div class="yt-player"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-yt"/></svg>
-          <div class="yt-controls"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg><div class="yt-progress"></div><span class="yt-time">3:24 / 10:02</span></div>
-        </div>
-        <div class="yt-info">
-          <div class="yt-title">Diversification Explained: The 4 Decisions That Protect Your Money</div>
-          <div class="yt-channel"><span class="yt-ava">M</span><div><div class="yt-ch-name">Money Over Time</div><div class="yt-subs">128K subscribers</div></div><button class="yt-sub">Subscribe</button></div>
-          <div class="yt-meta">24,312 views · 3 weeks ago · #investing #diversification</div>
-        </div>
-      </div>
-    </div>
-    <div class="case-section"><p class="kicker">Prompts</p><button class="collapsible" onclick="toggleCollapsible(this)">📄 View Version 1 Prompt (Creative Control Failure)</button><div class="collapsible-content"><div class="prompt-box">You are a Financial Educator with a masters degree in finance and 10+ years of experience as a financial advisor for an investment firm... [full detailed persona prompt]</div></div><button class="collapsible" onclick="toggleCollapsible(this)">📄 View Version 2 Prompt (Structured Correction)</button><div class="collapsible-content"><div class="prompt-box">Role: You are a financial educator writing a Youtube Script for a channel called Money Over Time. Focus on teaching and clear actional instruction instead of metaphors... [full structured prompt]</div></div></div>
-    <div class="case-section"><p class="kicker">Hallucination Audit</p><h2 class="case-h2">Factual <em>verification</em></h2><table class="verify-table"><thead><tr><th>Claim from v2 Script</th><th>Verdict</th><th>Correction Applied</th></tr></thead><tbody><tr><td>"Large-cap companies valued above £8 billion"</td><td>Misleading</td><td>Changed to index-based definition: FTSE 100 / S&amp;P 500 thresholds vary</td></tr><tr><td>"Small-cap companies valued below £2 billion"</td><td>Misleading</td><td>Changed to percentile / index-based definition</td></tr><tr><td>"US stocks went sideways for nearly ten years while international markets produced solid returns"</td><td>Partially false</td><td>Rewrote to specify emerging markets only</td></tr><tr><td>"When stock markets dropped sharply in early 2020, high-quality government bonds actually increased in value"</td><td>True but incomplete</td><td>Added caveat about 2022 exception</td></tr><tr><td>"Brexit hit UK markets hard in 2016 while much of the world was unaffected"</td><td>Overstated</td><td>Changed to "dipped briefly but recovered faster than UK"</td></tr></tbody></table></div>
-    <div class="case-section"><p class="kicker">Final Script</p><button class="collapsible" onclick="toggleCollapsible(this)">🎬 View Full 10-Minute Script</button><div class="collapsible-content"><div class="script-block"><div class="script-label">HOOK</div><div class="script-line">"Most investors don't lose money because they picked the wrong company. They lose money because they put too much money into too few things."</div><div class="script-label">RE-HOOK</div><div class="script-line">"Let me give you a real example. Imagine someone called James. He's 34. He earns around £45,000 a year... When that stock drops 60%, James loses over £10,000. Years of saving. Gone in months."</div><div class="script-label">STEP 1: Asset Classes</div><div class="script-line">"Stocks. When you buy a stock, you buy a small ownership stake in a company. Bonds. When you buy a bond, you lend money to a government or company."</div><div class="script-label">STEP 2: Sectors and Sizes</div><div class="script-line">"They buy ten different stocks — and feel diversified. But all ten are tech companies. That's not diversification. That's concentration with extra steps."</div><div class="script-label">STEP 3: Geographic Spread</div><div class="script-line">"The UK stock market makes up about 4% of the global market. That means if you only invest in British companies, you are missing 96% of the world."</div><div class="script-label">STEP 4: Time Horizon</div><div class="script-line">"Money you need within five years should not be in stocks. In 2022, the S&amp;P 500 fell by roughly 19%. If you needed that money then, you sold at a loss."</div><div class="script-label">CONCLUSION AND CTA</div><div class="script-line">"Diversification isn't one thing. It's four connected decisions. Download the Portfolio Planning Worksheet in the description."</div></div></div></div>
-    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>In my initial prompt the attempt was to ensure the prompt was as context rich as possible stuffing the persona role with a great amount of detail. This backfired in the end. I realise now that constraints and a more organised prompt structure is preferable. Also I could have pre-empted a lot of the hallucinations and applied accounted for this within my initial prompt. These pre-empted constraints could be used to create batch prompts for future projects to ensuring a more efficient workflow.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Prompt Engineering</span><span class="tag">Hallucination Audit</span><span class="tag">Tone Calibration</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
-  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
 
@@ -845,41 +793,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
 
-<!-- CASE 4: UK Wholesaler -->
-<div id="p-case-wholesaler" class="page">
-  <section class="case-hero2">
-    <div class="hero2-bg"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-hero-paint"/></svg><img src="images/wholesaler.jpg" alt="" onerror="this.remove()"/></div>
-    <div class="hero2-shade"></div>
-    <div class="wrap hero2-content">
-      <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
-      <h1 class="hero2-title">UK Wholesaler <em>Brand Story</em></h1>
-      <p class="hero2-sub">From a single unit in Salford to five branches across the country, a grounded, trustworthy origin story for tradespeople who value reliability over marketing fluff.</p>
-      <div class="chip-row"><span class="chip chip-lead">UK Wholesaler</span><span class="chip">Copywriting</span><span class="chip">Brand Story</span></div>
-    </div>
-  </section>
-  <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
-    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Tell the origin story, <em>demonstrate growth</em></h2><p>A brand story for a UK wholesaler that started as a single unit in Salford and grew to five branches. The audience is tradespeople who value reliability, speed, and trust over marketing fluff. The story needed to feel human and grounded, not polished and distant.</p></div>
-    <div class="case-section"><p class="kicker">The Story — On Site</p>
-      <div class="mock-browser">
-        <div class="mock-bar"><span class="mock-dots"><span></span><span></span><span></span></span><span class="mock-url">ukwholesaler.co.uk/about-us</span></div>
-        <div class="site-head"><span class="site-logo">UK WHOLESALER</span><span class="site-nav"><span>Home</span><span>Products</span><span>Branches</span><span>Trade Account</span></span></div>
-        <div class="site-body">
-          <div class="mock-sub">About Us</div>
-          <h3 class="mock-h1">Partners to the job since 2004</h3>
-          <p class="mock-p">In July of 2004 our founders spent a whole day chasing down basic parts for the job. This day taught them a lot and led them to this belief: that wholesalers should be partners to the flow of the job and not hurdles to get over.</p>
-          <p class="mock-p">So, they opened a single unit in Salford, stocking the reliable, hard-working components they trusted themselves.</p>
-          <p class="mock-p">For fifteen years they have remained close to those same principles of trust and pragmatism that they started with. And so they worked hard to earn the trust of local tradespersons in the area. From that solid bedrock of trust and reputation they were able to successfully expand across the UK.</p>
-          <p class="mock-p">Today, they are thriving, with five branches from Winsford to Sidcup and beyond, and are still the same dedicated partner. And still they are looking to open new doors in the future in locations around the UK.</p>
-          <div class="spec-chips"><span class="spec">Est. 2004 · Salford</span><span class="spec">5 Branches</span><span class="spec">Winsford → Sidcup</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>I opened with the specific anecdote about the founders spending a whole day chasing down basic parts. This was intentional. Tradespeople know exactly what that feels like. A wasted day on a simple job because the supply chain failed. By starting there, I proved the founders understand the audience's reality before making any claims about their business. Tradespeople do not respond to corporate language. They respond to trust, reliability, and evidence.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Brand Story</span><span class="tag">Authentic Voice</span><span class="tag">Trade &amp; Industry</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
-  <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
-</div>
-
 <!-- CASE 5: Vault Google Ad -->
 <div id="p-case-ad" class="page">
   <section class="case-hero2">
@@ -935,8 +848,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 </svg>
 
 <script>
-const PAGES = ['home','work','blog','read','sayhi','post-sample','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
-const WORKISH = ['work','case-yt','case-ad','case-pulse','case-hyundai','case-wholesaler'];
+const PAGES = ['home','work','blog','read','sayhi','post-sample','case-ad','case-pulse','case-hyundai'];
+const WORKISH = ['work','case-ad','case-pulse','case-hyundai'];
 
 function go(id, anchorId) {
   PAGES.forEach(p => { const el = document.getElementById('p-'+p); if(el){ el.classList.remove('active','visible'); el.style.display = ''; } });
