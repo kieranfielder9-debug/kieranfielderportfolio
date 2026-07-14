@@ -108,6 +108,8 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .meet-note svg{width:72px;height:46px;flex-shrink:0;margin-top:14px}
 .meet-note span{font-family:'Mr Dafoe',cursive;font-size:28px;color:var(--ink);line-height:1.25;transform:rotate(-4deg);display:block;word-spacing:.4em;white-space:nowrap}
 .about-chip{display:inline-block;background:var(--orange);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;margin-bottom:16px}
+.about-chiprow{grid-column:1/-1}
+.about-chiprow .about-chip{margin-bottom:0}
 .about-state{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;color:var(--ink);line-height:1.16;margin-bottom:36px}
 .about-state em{font-style:italic}
 .about-card p{font-size:16px;line-height:1.75;margin-bottom:18px;color:var(--body)}
@@ -478,8 +480,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
           <svg viewBox="0 0 90 56" fill="none"><path d="M84 10 C62 38 38 44 14 34" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/><path d="M14 34 L30 40 M14 34 L28 24" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/></svg>
           <span>Meet Kieran Fielder</span>
         </div>
+        <div class="about-chiprow"><span class="about-chip">The Growth Marketer</span></div>
         <div>
-          <span class="about-chip">The Growth Marketer</span>
           <h2 class="about-state">A multi-hyphenate at the intersection of <em>strategy, copy, and growth.</em></h2>
           <button class="sayhi" onclick="go('read','newsletter')">Get the Newsletter <span class="arr-w">→</span></button>
         </div>
