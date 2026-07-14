@@ -377,9 +377,7 @@ h2.case-h2 em{font-style:italic}
 .result-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
 .result-card strong{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .result-card span{font-size:13px;color:var(--muted)}
-.hero2-subwrap{display:flex;align-items:center;margin-bottom:26px;max-width:860px}
-.h2s-line{flex:1;height:1px;background:rgba(255,255,255,.32)}
-.hero2-sub-slim{font-size:13px;color:rgba(255,255,255,.78);max-width:500px;margin:0;text-align:center;line-height:1.6;padding:10px 26px;border-top:1px solid rgba(255,255,255,.32);border-bottom:1px solid rgba(255,255,255,.32)}
+.hero2-sub-slim{display:block;font-size:13px;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 26px;text-align:center;line-height:1.6;padding:12px 30px;border:1px solid rgba(255,255,255,.3);background:repeating-linear-gradient(45deg,rgba(255,255,255,.10) 0 1px,transparent 1px 10px)}
 .tone-line{display:flex;align-items:baseline;gap:16px;margin-top:26px}
 .tone-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
 .tone-line em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--ink)}
@@ -750,7 +748,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap hero2-content">
       <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
       <h1 class="hero2-title">Pulse Financials <em>Launch Email</em></h1>
-      <div class="hero2-subwrap"><span class="h2s-line"></span><p class="hero2-sub-slim">A direct-response launch email for a digital bank that makes tax stress disappear.</p><span class="h2s-line"></span></div>
+      <p class="hero2-sub-slim">A direct-response launch email for a digital bank that makes tax stress disappear.</p>
       <div class="chip-row"><span class="chip chip-lead">Pulse Financials</span><span class="chip">Copywriting</span><span class="chip">Launch Email</span><span class="chip">Goal: Sign-ups</span></div>
     </div>
   </section>
@@ -777,7 +775,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <div class="why-item"><span class="why-n">02</span><div><h3 class="why-h">Social Proof Without the Formality</h3><p>The Sarah story offers social proof without a formal testimonial, it's relatable, specific, and credible.</p></div></div>
       <div class="why-item"><span class="why-n">03</span><div><h3 class="why-h">Ending on Relief, Not Features</h3><p>Circling back to the emotional opening leaves readers with a vision of relief, not a feature list.</p></div></div>
     </div>
-  </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves an email like this, tell me about it.</p><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></aside></div></div></div>
+  </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves an email like this, tell me about it.</p><button class="sayhi" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
@@ -790,13 +788,18 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap hero2-content">
       <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
       <h1 class="hero2-title">Hyundai IONIQ 5 N <em>Product Feature Copy</em></h1>
-      <p class="hero2-sub">Balancing emotional appeal with technical detail for an electric performance vehicle. Confident, cinematic, and precise.</p>
+      <p class="hero2-sub-slim">Product page copy balancing emotional appeal with technical detail for an electric performance car.</p>
       <div class="chip-row"><span class="chip chip-lead">Hyundai</span><span class="chip">Copywriting</span><span class="chip">Product Copy</span></div>
     </div>
   </section>
   <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
-    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Excite <em>and inform</em></h2><p>Product feature copy that sits between a spec sheet and a lifestyle ad. Car enthusiasts want numbers; early EV adopters want cutting-edge tech. The copy had to excite and inform without tipping too far either direction.</p></div>
-    <div class="case-section"><p class="kicker">The Copy — On the Page</p>
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Excite <em>and inform</em></h2>
+      <p>Product feature copy that sits between a spec sheet and a lifestyle ad.</p>
+      <p>Car enthusiasts want numbers; early EV adopters want cutting-edge tech. The copy had to excite and inform without tipping too far either direction.</p>
+      <p class="tone-line"><span class="tone-label">Tone</span><em>Confident · Cinematic · Precise</em></p>
+    </div>
+    <svg class="flow-line" viewBox="0 0 26 64" width="26" height="64" aria-hidden="true"><path d="M13 0 V23" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/><path d="M13 23 L6 28 L20 36 L13 41" stroke="#FF4D00" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 41 V64" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/></svg>
+    <div class="case-section"><p class="kicker">The Copy: On the Page</p>
       <div class="mock-browser">
         <div class="mock-bar"><span class="mock-dots"><span></span><span></span><span></span></span><span class="mock-url">hyundai.co.uk/models/ioniq-5-n</span></div>
         <div class="site-head"><span class="site-logo">HYUNDAI</span><span class="site-nav"><span>Models</span><span>Electrified</span><span>N Performance</span><span>Configure</span></span></div>
@@ -813,8 +816,13 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         </div>
       </div>
     </div>
-    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest challenge was balancing emotion with technical specs. Car enthusiasts want the numbers, but they also want to feel something about the car. My approach was to use confident, cinematic language to build desire, then anchor every emotional claim with a concrete detail. When I said "undeniable presence," I backed it with the black N badge and wing spoiler. When I talked about performance, I gave them the horsepower, the charging architecture, and the wheel specifications. The hype feels earned because the proof is right there.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Product Copy</span><span class="tag">Automotive</span><span class="tag">Brand Voice</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
+    <svg class="flow-line" viewBox="0 0 26 64" width="26" height="64" aria-hidden="true"><path d="M13 0 V23" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/><path d="M13 23 L6 28 L20 36 L13 41" stroke="#FF4D00" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 41 V64" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/></svg>
+    <div class="case-section"><p class="kicker">Why it works</p>
+      <div class="why-item"><span class="why-n">01</span><div><h3 class="why-h">Desire First, Anchored Fast</h3><p>Car enthusiasts want the numbers, but they also want to feel something about the car. Confident, cinematic language builds the desire, then every emotional claim gets anchored with a concrete detail.</p></div></div>
+      <div class="why-item"><span class="why-n">02</span><div><h3 class="why-h">Proof Beside Every Promise</h3><p>When the copy says "undeniable presence," it backs it with the black N badge and wing spoiler. When it talks performance, it gives the horsepower, the charging architecture, and the wheel specifications.</p></div></div>
+      <div class="why-item"><span class="why-n">03</span><div><h3 class="why-h">Hype That Feels Earned</h3><p>Because the proof sits right beside the promise, the reader never has to take the excitement on faith.</p></div></div>
+    </div>
+  </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves copy like this, tell me about it.</p><button class="sayhi" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
@@ -827,13 +835,18 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap hero2-content">
       <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
       <h1 class="hero2-title">Vault Savings App <em>Google Ad</em></h1>
-      <p class="hero2-sub">A micro-savings campaign that reframes putting money aside as something you barely notice, turning reluctant savers into Vault users with a single search ad.</p>
+      <p class="hero2-sub-slim">A single search ad that turns reluctant savers into Vault users.</p>
       <div class="chip-row"><span class="chip chip-lead">Vault</span><span class="chip">Copywriting</span><span class="chip">Google Search Ad</span><span class="chip">Goal: Downloads</span></div>
     </div>
   </section>
   <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
-    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make saving feel <em>invisible</em></h2><p>Vault is an automatic micro-savings app. The target audience is not disciplined investors; it is the person who wants to save but has never been able to stick to it. The brief: write a Google Search Ad that removes psychological friction entirely. Do not sell saving. Sell the absence of effort.</p></div>
-    <div class="case-section"><p class="kicker">The Ad — Live on Google</p>
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make saving feel <em>invisible</em></h2>
+      <p>Vault is an automatic micro-savings app. The target audience is not disciplined investors; it is the person who wants to save but has never been able to stick to it.</p>
+      <p>The brief: write a Google Search Ad that removes psychological friction entirely. Do not sell saving. Sell the absence of effort.</p>
+      <p class="tone-line"><span class="tone-label">Tone</span><em>Casual · Conversational · Reassuring</em></p>
+    </div>
+    <svg class="flow-line" viewBox="0 0 26 64" width="26" height="64" aria-hidden="true"><path d="M13 0 V23" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/><path d="M13 23 L6 28 L20 36 L13 41" stroke="#FF4D00" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 41 V64" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/></svg>
+    <div class="case-section"><p class="kicker">The Ad: Live on Google</p>
       <div class="mock-browser">
         <div class="mock-bar"><span class="mock-dots"><span></span><span></span><span></span></span><span class="mock-url">google.com/search?q=automatic+savings+app</span></div>
         <div class="serp">
@@ -851,9 +864,13 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         </div>
       </div>
     </div>
-    <div class="case-section"><p class="kicker">Strategic Thinking</p><div class="reflection-box"><p>Most automatic savings apps double down on the technical aspects of their application. The simplicity, the uniformity, the ease. This is good enough. Yet in writing this ad, I didn't want to bypass the real human frustration of muddling through the motivation and the discipline involved when working towards a saving goal. This is the desire behind the intent when the user searches for a savings app which is automatic. The final line — "No big deal sacrifice" — is casual, conversational, and removes any sense of pressure. It mirrors exactly how the audience actually thinks about money.</p></div></div>
-    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The biggest insight from this project was realising that the audience does not want to think about saving. They want to think about literally anything else. Most financial copy tries to educate. This ad tries to reassure. It says: "You do not have to become a different person to save money. You just need a system that works while you are not paying attention." The "No big deal sacrifice" line turns "I should probably start saving at some point" into something that feels immediately possible. That shift — from abstract intention to concrete action — is what conversion copy actually does.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Google Ads</span><span class="tag">Conversion Copy</span><span class="tag">Fintech</span><span class="tag">Search Intent</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
+    <svg class="flow-line" viewBox="0 0 26 64" width="26" height="64" aria-hidden="true"><path d="M13 0 V23" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/><path d="M13 23 L6 28 L20 36 L13 41" stroke="#FF4D00" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 41 V64" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/></svg>
+    <div class="case-section"><p class="kicker">Why it works</p>
+      <div class="why-item"><span class="why-n">01</span><div><h3 class="why-h">Selling the Absence of Effort</h3><p>Most automatic savings apps double down on the technical aspects: the simplicity, the uniformity, the ease. This ad goes for the real human frustration instead, the muddle of motivation and discipline behind every abandoned savings goal. That is the desire behind the search.</p></div></div>
+      <div class="why-item"><span class="why-n">02</span><div><h3 class="why-h">Reassure, Don't Educate</h3><p>The audience does not want to think about saving. They want to think about literally anything else. Most financial copy tries to educate; this ad reassures: you do not have to become a different person to save money. You just need a system that works while you are not paying attention.</p></div></div>
+      <div class="why-item"><span class="why-n">03</span><div><h3 class="why-h">"No Big Deal Sacrifice"</h3><p>The final line is casual, conversational, and removes any sense of pressure. It turns "I should probably start saving at some point" into something that feels immediately possible. That shift, from abstract intention to concrete action, is what conversion copy actually does.</p></div></div>
+    </div>
+  </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves an ad like this, tell me about it.</p><button class="sayhi" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
