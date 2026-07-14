@@ -104,9 +104,6 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .avatar-kf{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .avatar-kf svg{width:100%;height:100%}
 .about-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.meet-note{position:absolute;top:-60px;left:128px;display:flex;align-items:center;gap:10px}
-.meet-note svg{width:72px;height:46px;flex-shrink:0;margin-top:14px}
-.meet-note span{font-family:'Mr Dafoe',cursive;font-size:28px;color:var(--ink);line-height:1.25;transform:rotate(-4deg);display:block;word-spacing:.4em;white-space:nowrap}
 .about-chip{display:inline-block;background:var(--orange);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;margin-bottom:16px}
 .about-state{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;color:var(--ink);line-height:1.16;margin-bottom:36px}
 .about-state em{font-style:italic}
@@ -397,7 +394,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -472,10 +469,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
           <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="29" y="55" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="700" font-size="42" fill="#0A0A0A">K</text><text x="71" y="55" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="600" font-size="40" fill="#0A0A0A">F</text><path d="M16 69 H40 L44 69 L48.5 55 L54 78 L58 69 H84" stroke="#0A0A0A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/><path d="M44 69 L48.5 55 L54 78 L58 69" stroke="#FF4D00" stroke-width="4.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/>
         </div>
-        <div class="meet-note" aria-hidden="true">
-          <svg viewBox="0 0 90 56" fill="none"><path d="M84 10 C62 38 38 44 14 34" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/><path d="M14 34 L30 40 M14 34 L28 24" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/></svg>
-          <span>Meet Kieran Fielder</span>
-        </div>
         <div>
           <h2 class="about-state">I'm here to make your brand <em>impossible to scroll past.</em></h2>
           <span class="about-chip">The Growth Marketer</span>
@@ -500,31 +493,31 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
           <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-svc-strategy"/></svg></div>
           <div>
             <h3>Brand Strategy</h3>
-            <p>Positioning, messaging and the sharp point of difference — deciding what your brand says, to whom, and why it wins, before a word of copy is written.</p>
+            <p>Positioning, voice, messaging. The verbal blueprint for a brand people remember.</p>
             <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
           </div>
         </div>
         <div class="svc">
           <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-svc-copy"/></svg></div>
           <div>
-            <h3>Content and Copywriting</h3>
-            <p>The words themselves: brand stories, product pages, scripts and content that sound unmistakably like you — and move readers to act.</p>
-            <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
-          </div>
-        </div>
-        <div class="svc">
-          <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-svc-growth"/></svg></div>
-          <div>
-            <h3>Growth Marketing (Ads, Emails)</h3>
-            <p>Campaigns that earn their budget. Google Ads that get clicked, direct-response emails that get replies, and landing copy that turns attention into revenue.</p>
+            <h3>Product Copy</h3>
+            <p>Landing pages, onboarding, feature copy. Eliminate objections until only reasons to buy remain.</p>
             <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
           </div>
         </div>
         <div class="svc">
           <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-svc-ai"/></svg></div>
           <div>
-            <h3>Prompt Engineering and AI experiments</h3>
-            <p>Making AI behave. Prompts, constraints and fact-checking systems that turn language models into reliable, on-brand writers — plus the odd experiment to find what's next.</p>
+            <h3>Content</h3>
+            <p>Building trust. Building audiences. Building communities.</p>
+            <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
+          </div>
+        </div>
+        <div class="svc">
+          <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-svc-growth"/></svg></div>
+          <div>
+            <h3>Growth</h3>
+            <p>Ads, Funnels, Campaigns. Growth systems that compound.</p>
             <button class="sayhi sayhi-sm" onclick="go('work')">See the work <span class="arr-w">→</span></button>
           </div>
         </div>
