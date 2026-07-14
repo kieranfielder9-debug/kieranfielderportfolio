@@ -377,6 +377,21 @@ h2.case-h2 em{font-style:italic}
 .result-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
 .result-card strong{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
 .result-card span{font-size:13px;color:var(--muted)}
+.hero2-subwrap{display:flex;align-items:center;margin-bottom:26px;max-width:860px}
+.h2s-line{flex:1;height:1px;background:rgba(255,255,255,.32)}
+.hero2-sub-slim{font-size:13px;color:rgba(255,255,255,.78);max-width:500px;margin:0;text-align:center;line-height:1.6;padding:10px 26px;border-top:1px solid rgba(255,255,255,.32);border-bottom:1px solid rgba(255,255,255,.32)}
+.tone-line{display:flex;align-items:baseline;gap:16px;margin-top:26px}
+.tone-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+.tone-line em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--ink)}
+.flow-line{display:block;margin:-20px auto 40px}
+.why-item{display:flex;gap:24px;padding:22px 0 4px}
+.why-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--orange);line-height:1.05;flex-shrink:0;width:44px}
+.why-h{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.why-item p{margin:0;font-size:15.5px;line-height:1.75;color:var(--body)}
+.sidebar-cta{border:2px solid var(--ink);padding:36px 30px}
+.sidebar-cta .sidebar-label{font-size:12px;color:var(--ink);letter-spacing:.2em}
+.sidebar-cta .sb-copy{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.35;color:var(--ink);margin:0 0 22px}
+.sidebar-cta .sayhi{width:100%;text-align:center;padding:19px 20px;font-size:13px}
 .reflection-box{border:1px solid var(--border);border-left:3px solid var(--orange);padding:36px 40px;background:var(--soft);margin-top:8px}
 .reflection-box p{font-size:15px;color:var(--body);line-height:1.8;margin-bottom:14px}
 .reflection-box p:last-child{margin-bottom:0}
@@ -735,13 +750,18 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap hero2-content">
       <div class="breadcrumb crumb-light" style="margin-bottom:0"><button class="back-btn" style="margin-bottom:0" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>My Stuff</button><span class="bc-sep">/</span><span class="bc-cur">Case Study</span></div>
       <h1 class="hero2-title">Pulse Financials <em>Launch Email</em></h1>
-      <p class="hero2-sub">A direct-response launch email for a digital bank built specifically for freelancers, side-hustlers, and small business owners, making tax stress disappear.</p>
+      <div class="hero2-subwrap"><span class="h2s-line"></span><p class="hero2-sub-slim">A direct-response launch email for a digital bank that makes tax stress disappear.</p><span class="h2s-line"></span></div>
       <div class="chip-row"><span class="chip chip-lead">Pulse Financials</span><span class="chip">Copywriting</span><span class="chip">Launch Email</span><span class="chip">Goal: Sign-ups</span></div>
     </div>
   </section>
   <div class="case-body"><div class="wrap"><div class="case-layout"><div class="case-content">
-    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make the reader feel <em>understood</em></h2><p>Self-employed people passionate about their work but stressed about financial admin. The email needed to make the reader feel understood, then position Pulse as the simple, stress-free solution. Tone: empathetic but confident, conversational not corporate.</p></div>
-    <div class="case-section"><p class="kicker">The Email — In the Inbox</p>
+    <div class="case-section"><p class="kicker">Brief</p><h2 class="case-h2">Make the reader feel <em>understood</em></h2>
+      <p>Self-employed people passionate about their work but stressed about financial admin.</p>
+      <p>The email needed to make the reader feel understood, then position Pulse as the simple, stress-free solution.</p>
+      <p class="tone-line"><span class="tone-label">Tone</span><em>Empathetic · Confident · Human</em></p>
+    </div>
+    <svg class="flow-line" viewBox="0 0 26 64" width="26" height="64" aria-hidden="true"><path d="M13 0 V23" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/><path d="M13 23 L6 28 L20 36 L13 41" stroke="#FF4D00" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 41 V64" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/></svg>
+    <div class="case-section"><p class="kicker">The Email: In the Inbox</p>
       <div class="mock-browser">
         <div class="mock-bar"><span class="mock-dots"><span></span><span></span><span></span></span><span class="mock-url">mail.google.com/mail/u/0/#inbox</span></div>
         <div class="mail">
@@ -751,8 +771,13 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         </div>
       </div>
     </div>
-    <div class="case-section"><p class="kicker">Reflection</p><div class="reflection-box"><p>The question at the top immediately connects with deeper motivation. Freelancers don't start for the admin. They start for freedom, passion, control. By naming that first, I built identity alignment before introducing any product. The Sarah story offers social proof without a formal testimonial. The complimentary tax call lowers the barrier. Circling back to the emotional opening leaves readers with a vision of relief, not a feature list.</p></div></div>
-  </div><aside class="case-sidebar"><div class="sidebar-block"><div class="sidebar-label">Skills</div><div class="sidebar-tags"><span class="tag">Email Marketing</span><span class="tag">Direct Response</span><span class="tag">Fintech</span></div></div><div class="sidebar-block"><div class="sidebar-label">Interested?</div><button class="btn btn-outline btn-full" onclick="go('sayhi')">Say Hi</button></div></aside></div></div></div>
+    <svg class="flow-line" viewBox="0 0 26 64" width="26" height="64" aria-hidden="true"><path d="M13 0 V23" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/><path d="M13 23 L6 28 L20 36 L13 41" stroke="#FF4D00" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 41 V64" stroke="rgba(10,10,10,.7)" stroke-width="1.5"/></svg>
+    <div class="case-section"><p class="kicker">Why it works</p>
+      <div class="why-item"><span class="why-n">01</span><div><h3 class="why-h">Identity-First Opening</h3><p>The question at the top immediately connects with deeper motivation. Because freelancers don't start for the admin. They start for freedom, passion, control. By naming that first, I built identity alignment before introducing any product.</p></div></div>
+      <div class="why-item"><span class="why-n">02</span><div><h3 class="why-h">Social Proof Without the Formality</h3><p>The Sarah story offers social proof without a formal testimonial, it's relatable, specific, and credible.</p></div></div>
+      <div class="why-item"><span class="why-n">03</span><div><h3 class="why-h">Ending on Relief, Not Features</h3><p>Circling back to the emotional opening leaves readers with a vision of relief, not a feature list.</p></div></div>
+    </div>
+  </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves an email like this, tell me about it.</p><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">My Stuff</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Say Hi <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
