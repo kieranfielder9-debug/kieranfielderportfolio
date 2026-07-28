@@ -92,11 +92,11 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .hb-kicker{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 18px;background:var(--ink);padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22)}
 .hb-kicker .hb-dot{width:5px;height:5px;border-radius:50%;background:#EAF6FF;box-shadow:0 0 5px rgba(191,227,255,.9)}
 .hb-signup{display:flex;width:fit-content;gap:12px;margin:24px auto 0}
-.hb-signup-input{background:transparent;border:1.5px solid var(--ink);color:var(--ink);padding:16px 18px;font-family:'DM Sans',sans-serif;font-size:14px;width:200px;min-width:0}
+.hb-signup-input{background:transparent;border:1.5px solid var(--ink);color:var(--ink);padding:16px 18px;font-family:'DM Sans',sans-serif;font-size:14px;width:200px;min-width:0;box-shadow:0 0 0 1px rgba(191,227,255,.35),0 0 12px rgba(191,227,255,.25);transition:box-shadow .2s}
 .hb-signup-input::placeholder{color:rgba(10,10,10,.45)}
-.hb-signup-input:focus{outline:none;box-shadow:0 0 0 2px rgba(10,10,10,.15)}
-.hb-signup-btn{background:var(--ink);color:#fff;border:none;padding:16px 30px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
-.hb-signup-btn:hover{background:var(--paper);color:var(--ink)}
+.hb-signup-input:focus{outline:none;box-shadow:0 0 0 2px rgba(191,227,255,.55),0 0 16px rgba(191,227,255,.4)}
+.hb-signup-btn{background:var(--ink);color:#EAF6FF;border:none;padding:16px 30px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s;white-space:nowrap;box-shadow:0 0 0 1px rgba(191,227,255,.3),0 0 14px rgba(191,227,255,.3)}
+.hb-signup-btn:hover{background:var(--paper);color:var(--ink);box-shadow:none}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
