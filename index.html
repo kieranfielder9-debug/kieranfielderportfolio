@@ -89,9 +89,14 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:56px}
 .tag-hi{color:#fff}
-.hero-box{background:var(--ink);border:2px solid var(--ink);color:#fff;padding:23px 56px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s,border-color .25s;display:inline-flex;align-items:center;gap:15px;animation:signalPulse 2.8s ease-out infinite}
-.hero-box:hover{background:var(--orange);border-color:var(--orange);color:var(--ink);transform:translateY(-3px);animation:none}
-@keyframes signalPulse{0%{box-shadow:0 0 0 0 rgba(255,77,0,.5)}70%{box-shadow:0 0 0 24px rgba(255,77,0,0)}100%{box-shadow:0 0 0 0 rgba(255,77,0,0)}}
+.hero-box{background:none;border:none;color:var(--ink);padding:14px 2px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:16px;transition:transform .25s}
+.hero-box:hover{transform:translateY(-3px)}
+.hb-label{display:inline-flex;align-items:center;gap:15px}
+.hb-wire{position:relative;width:100%;height:2px;background:var(--ink);display:block;transition:height .25s}
+.hero-box:hover .hb-wire{height:3px}
+.hb-tick{position:absolute;top:-3px;left:-14%;width:14%;height:8px;border-radius:1px;background:#fff;animation:wireTravel 2.6s ease-in-out infinite}
+.hero-box:hover .hb-tick{animation-duration:.7s;height:9px;box-shadow:0 0 10px 1px rgba(255,255,255,.85)}
+@keyframes wireTravel{0%{left:-14%;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
@@ -187,7 +192,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hero-box{animation:none}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-tick{animation:none;opacity:1;left:0;width:100%}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -490,7 +495,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap">
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
       <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
-      <button class="hero-box" onclick="go('read','newsletter')">Read Signal <span class="arr-w">→</span></button>
+      <button class="hero-box" onclick="go('read','newsletter')">
+        <span class="hb-label">Read Signal <span class="arr-w">→</span></span>
+        <span class="hb-wire"><span class="hb-tick"></span></span>
+      </button>
     </div>
   </section>
 
