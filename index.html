@@ -85,9 +85,11 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .sayhi-orange:hover{background:#fff;color:var(--ink)}
 
 /* HERO */
-#hero{min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
+#hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
+.hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Mr Dafoe',cursive;font-size:26px;color:var(--ink);opacity:0;animation:signatureReveal 7s ease-in-out forwards;pointer-events:none}
+@keyframes signatureReveal{0%{opacity:0;transform:translateX(-50%) translateY(10px)}18%{opacity:1;transform:translateX(-50%) translateY(0)}70%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-8px)}}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
-.hero-tagline{font-size:clamp(14px,1.6vw,19px);font-weight:700;letter-spacing:.12em;word-spacing:.4em;color:var(--ink);margin-bottom:46px}
+.hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:46px}
 .tag-hi{color:#fff}
 .hb-kicker{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 24px;background:var(--ink);padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22)}
 .hb-kicker .hb-dot{width:5px;height:5px;border-radius:50%;background:#EAF6FF;box-shadow:0 0 5px rgba(191,227,255,.9)}
@@ -191,7 +193,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hero-signature{animation:none;opacity:1}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -491,9 +493,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 <div id="p-home" class="page">
 
   <section id="hero">
+    <p class="hero-signature" aria-hidden="true">Kieran Fielder</p>
     <div class="wrap">
       <h1 class="display">Do you want to<br><span class="u-fl">stand out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
-      <p class="hero-tagline">Kieran Fielder — Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
+      <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
       <p class="hb-kicker"><span class="hb-dot"></span>The Newsletter</p>
       <form class="hb-signup" onsubmit="return subscribeNL(this)">
         <input class="hb-signup-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
