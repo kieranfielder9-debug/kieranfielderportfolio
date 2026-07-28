@@ -66,7 +66,7 @@ hr.divider{border:none;border-top:1px solid var(--border)}
 .back-btn svg{width:14px;height:14px;transition:transform .2s}
 .back-btn:hover svg{transform:translateX(-3px)}
 
-footer{background:var(--ink);padding:92px 0 64px;margin-top:0}
+footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;overflow:hidden}
 .footer-flex{display:flex;justify-content:space-between;align-items:center;gap:48px}
 .f-left .footer-copy{margin-top:12px}
 .f-right{flex:1;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center}
@@ -108,6 +108,10 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 /* ABOUT */
 .about-section{padding:130px 0;position:relative;overflow:hidden;background:var(--orange)}
 .paint-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.seam{position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:1}
+.seam-orange{height:150px;background:linear-gradient(180deg,rgba(255,77,0,.6) 0%,rgba(255,77,0,0) 100%)}
+.seam-black{height:150px;background:linear-gradient(180deg,rgba(10,10,10,.6) 0%,rgba(10,10,10,0) 100%)}
+.seam-white{height:32px;background:linear-gradient(180deg,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 100%)}
 .about-section .wrap{position:relative;z-index:2}
 .about-section .section-label{color:var(--ink);font-size:16px;font-weight:700;letter-spacing:.22em}
 .about-section .section-label::after{background:rgba(10,10,10,.35)}
@@ -176,7 +180,7 @@ h2.serif em{font-style:italic}
 .tile-cta .tile-overlay{inset:6px}
 
 /* MARQUEE */
-.marquee{background:var(--orange);overflow:hidden;padding:20px 0}
+.marquee{position:relative;background:var(--orange);overflow:hidden;padding:20px 0}
 .marquee-track{display:flex;width:max-content;animation:marq 30s linear infinite}
 .marquee-group{display:flex;align-items:center;flex-shrink:0}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
@@ -503,6 +507,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <ellipse cx="720" cy="470" rx="430" ry="230" fill="#151515" opacity=".9"/>
       </g>
     </svg>
+    <div class="seam seam-orange"></div>
     <div class="wrap ss-solo">
       <p class="ss-kicker"><span class="ss-dot"></span>Signal</p>
       <h2 class="ss-title">SIGNAL</h2>
@@ -533,6 +538,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       </g>
       <rect width="1440" height="900" fill="url(#soften)"/><rect width="1440" height="900" fill="url(#soften-b)"/>
     </svg>
+    <div class="seam seam-black"></div>
     <div class="wrap">
       <div class="section-label">Who?</div>
       <div class="about-card reveal">
@@ -637,6 +643,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   </section>
 
   <div class="marquee" aria-hidden="true">
+    <div class="seam seam-white"></div>
     <div class="marquee-track">
       <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
       <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
@@ -644,6 +651,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   </div>
 
   <footer id="contact" class="scroll-target">
+    <div class="seam seam-orange"></div>
     <div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Brand Audit <span class="arr-w">→</span></button></div></div></div>
   </footer>
 </div>
