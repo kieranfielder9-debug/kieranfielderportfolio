@@ -90,19 +90,12 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .hero-box{background:transparent;border:2px solid var(--ink);color:var(--ink);padding:18px 46px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s;display:inline-flex;align-items:center;gap:14px}
 .hero-box:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
 
-.signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px}
-.ss-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
-.ss-kicker{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
+.ss-solo{position:relative;max-width:640px;margin:0 auto}
+.ss-kicker{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px}
 .ss-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;box-shadow:0 0 0 4px rgba(255,77,0,.22)}
-.ss-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,7vw,96px);line-height:.98;color:#fff;margin:0 0 16px}
-.ss-fine{font-size:12px;color:rgba(255,255,255,.4);margin:0}
-.ss-issue{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);padding:38px 36px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s,background .2s}
-.ss-issue:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
-.ss-issue-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;display:flex;justify-content:space-between}
-.ss-issue h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;font-size:clamp(24px,2.4vw,29px);color:#fff;line-height:1.25;margin:0 0 16px}
-.ss-issue p{color:#bdbdbd;font-size:14.5px;line-height:1.7;margin:0 0 20px}
-.ss-issue-link{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
-@media(max-width:900px){.ss-grid{grid-template-columns:1fr;gap:44px}}
+.ss-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,9vw,120px);line-height:.98;color:#fff;margin:0 0 16px}
+.ss-fine{font-size:12px;color:rgba(255,255,255,.4);margin:16px auto 0;max-width:480px}
 .hero-box .arr-w{transition:transform .25s}
 .hero-box:hover .arr-w{transform:translateX(6px)}
 .u-fl{position:relative;display:inline-block}
@@ -509,23 +502,15 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <ellipse cx="720" cy="470" rx="430" ry="230" fill="#151515" opacity=".9"/>
       </g>
     </svg>
-    <div class="wrap ss-grid">
-      <div>
-        <p class="ss-kicker"><span class="ss-dot"></span>Signal</p>
-        <h2 class="ss-title">SIGNAL</h2>
-        <p class="nl-topics">Systems, Psychology, Growth, Copy and Creativity, Brand!</p>
-        <form class="nl-form" style="max-width:440px;margin-bottom:14px" onsubmit="return subscribeNL(this)">
-          <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
-          <button class="nl-btn" type="submit">Sign Up</button>
-        </form>
-        <p class="ss-fine">One email. No noise. Unsubscribe any time.</p>
-      </div>
-      <button class="ss-issue" onclick="go('post-sample')">
-        <span class="ss-issue-label"><span>Sample issue</span><span>Template preview</span></span>
-        <h3>"Why most copy fails the second read"</h3>
-        <p>Anyone can write copy that survives the first read. The sale falls apart on the one where your prospect comes back an hour later, defences up, looking for a reason to say no.</p>
-        <span class="ss-issue-link">Read this issue <span class="arr-w">→</span></span>
-      </button>
+    <div class="wrap ss-solo">
+      <p class="ss-kicker"><span class="ss-dot"></span>Signal</p>
+      <h2 class="ss-title">SIGNAL</h2>
+      <p class="nl-topics">Systems, Psychology, Growth, Copy and Creativity, Brand!</p>
+      <form class="nl-form" style="max-width:440px;margin:0 auto" onsubmit="return subscribeNL(this)">
+        <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+        <button class="nl-btn" type="submit">Sign Up</button>
+      </form>
+      <p class="ss-fine">Feel free to unsubscribe at any time, if you don't get value from this newsletter.</p>
     </div>
   </section>
 
