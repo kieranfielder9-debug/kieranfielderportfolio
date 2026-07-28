@@ -91,8 +91,6 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .tag-hi{color:#fff}
 .hb-kicker{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 18px;background:var(--ink);padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22)}
 .hb-kicker .hb-dot{width:5px;height:5px;border-radius:50%;background:#EAF6FF;box-shadow:0 0 5px rgba(191,227,255,.9)}
-.sayhi.hero-read{display:flex;width:fit-content;margin:0 auto 18px}
-.hero-read:hover{background:var(--ink)}
 .hb-form{display:inline-flex;gap:10px}
 .hb-input{background:transparent;border:1.5px solid var(--ink);border-radius:6px;color:var(--ink);padding:0 16px;font-family:'DM Sans',sans-serif;font-size:14px;width:190px;min-width:0}
 .hb-input::placeholder{color:rgba(10,10,10,.45)}
@@ -500,11 +498,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
       <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
       <p class="hb-kicker"><span class="hb-dot"></span>The Newsletter</p>
-      <button class="sayhi hero-read" onclick="go('read','newsletter')">Read Signal <span class="arr-w">→</span></button>
       <form class="hb-form" onsubmit="return subscribeNL(this)">
         <input class="hb-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
         <button class="hero-box" type="submit">
-          Receive Signal
+          Read Signal
           <span class="hb-wire"><svg class="hb-wave" viewBox="0 0 320 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><defs><linearGradient id="hbShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="45%" stop-color="#BFE3FF"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><path d="M0 11 H14 L20 3 L26 19 L32 11 H94 L100 3 L106 19 L112 11 H174 L180 3 L186 19 L192 11 H254 L260 3 L266 19 L272 11 H320" stroke="url(#hbShine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </button>
       </form>
