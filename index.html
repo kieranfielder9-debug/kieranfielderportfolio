@@ -93,11 +93,11 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .hero-box:hover{transform:translateY(-4px);box-shadow:0 26px 50px -14px rgba(10,10,10,.6)}
 .hb-wire{position:relative;width:100%;height:2px;background:rgba(255,255,255,.22);display:block;transition:background .25s}
 .hero-box:hover .hb-wire{background:rgba(255,255,255,.32)}
-.hb-tick{position:absolute;top:-9px;left:calc(50% - 22px);width:44px;height:20px;animation:signalBounce 2.2s ease-in-out infinite;transition:filter .2s}
-.hb-tick svg{width:100%;height:100%;display:block;transition:transform .25s}
-.hero-box:hover .hb-tick{animation-duration:.9s;filter:drop-shadow(0 0 5px rgba(255,255,255,.9)) drop-shadow(0 0 14px rgba(255,255,255,.45))}
-.hero-box:hover .hb-tick svg{transform:scale(1.15)}
-@keyframes signalBounce{0%,20%,53%,80%,100%{transform:translateY(0)}40%,43%{transform:translateY(-7px)}70%{transform:translateY(-3.5px)}90%{transform:translateY(-1px)}}
+.hb-tick{position:absolute;top:-9px;left:calc(50% - 22px);width:44px;height:20px;transition:filter .2s}
+.hb-tick svg{width:100%;height:100%;display:block;transform-origin:center;animation:signalPulseGraph 2.6s ease-in-out infinite}
+.hero-box:hover .hb-tick{filter:drop-shadow(0 0 5px rgba(255,255,255,.9)) drop-shadow(0 0 14px rgba(255,255,255,.45))}
+.hero-box:hover .hb-tick svg{animation-duration:.9s}
+@keyframes signalPulseGraph{0%,58%,100%{transform:scaleY(0)}72%{transform:scaleY(1.05)}84%{transform:scaleY(0)}}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
@@ -191,7 +191,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-tick{animation:none}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-tick svg{animation:none;transform:scaleY(1)}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -496,7 +496,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
       <button class="hero-box" onclick="go('read','newsletter')">
         Read Signal
-        <span class="hb-wire"><span class="hb-tick"><svg viewBox="0 0 64 22" fill="none" aria-hidden="true"><path d="M0 11 H22 L29 2 L36 20 L43 11 H64" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+        <span class="hb-wire"><span class="hb-tick"><svg viewBox="0 0 64 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M0 11 H22 L29 2 L36 20 L43 11 H64" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
       </button>
     </div>
   </section>
