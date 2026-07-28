@@ -89,8 +89,9 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:56px}
 .tag-hi{color:#fff}
-.hero-box{background:transparent;border:2px solid var(--ink);color:var(--ink);padding:18px 46px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s;display:inline-flex;align-items:center;gap:14px}
-.hero-box:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.hero-box{background:var(--ink);border:2px solid var(--ink);color:#fff;padding:23px 56px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s,border-color .25s;display:inline-flex;align-items:center;gap:15px;animation:signalPulse 2.8s ease-out infinite}
+.hero-box:hover{background:var(--orange);border-color:var(--orange);color:var(--ink);transform:translateY(-3px);animation:none}
+@keyframes signalPulse{0%{box-shadow:0 0 0 0 rgba(255,77,0,.5)}70%{box-shadow:0 0 0 24px rgba(255,77,0,0)}100%{box-shadow:0 0 0 0 rgba(255,77,0,0)}}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
@@ -186,7 +187,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hero-box{animation:none}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
