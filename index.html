@@ -87,11 +87,13 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 /* HERO */
 #hero{min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
-.hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:56px}
+.hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:30px}
 .tag-hi{color:#fff}
-.hero-box{background:var(--ink);border:2px solid var(--ink);border-radius:6px;box-shadow:0 20px 44px -18px rgba(10,10,10,.55);color:#fff;padding:27px 62px 23px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:17px;transition:transform .25s,box-shadow .25s}
-.hero-box:hover{transform:translateY(-4px);box-shadow:0 26px 50px -14px rgba(10,10,10,.6)}
-.hb-wire{position:relative;width:100%;height:20px;overflow:hidden}
+.hb-kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.75;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:16px}
+.hb-kicker .hb-dot{width:6px;height:6px;border-radius:50%;background:var(--ink);display:inline-block}
+.hero-box{background:transparent;border:1.5px solid var(--ink);border-radius:6px;box-shadow:0 10px 26px -16px rgba(10,10,10,.4);color:var(--ink);padding:15px 34px 13px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:11px;transition:background .25s,color .25s,transform .25s,box-shadow .25s}
+.hero-box:hover{background:var(--ink);color:#fff;transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(10,10,10,.5)}
+.hb-wire{position:relative;width:100%;height:16px;overflow:hidden}
 .hb-wave{position:absolute;top:0;left:0;width:200%;height:100%;animation:hbScroll 3.6s linear infinite;transition:filter .2s}
 .hero-box:hover .hb-wave{animation-duration:1.2s;filter:drop-shadow(0 0 5px rgba(255,255,255,.9)) drop-shadow(0 0 14px rgba(255,255,255,.45))}
 @keyframes hbScroll{to{transform:translateX(-50%)}}
@@ -491,9 +493,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap">
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
       <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
+      <p class="hb-kicker"><span class="hb-dot"></span>The Newsletter</p>
       <button class="hero-box" onclick="go('read','newsletter')">
         Read Signal
-        <span class="hb-wire"><svg class="hb-wave" viewBox="0 0 320 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M0 11 H14 L20 3 L26 19 L32 11 H94 L100 3 L106 19 L112 11 H174 L180 3 L186 19 L192 11 H254 L260 3 L266 19 L272 11 H320" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="hb-wire"><svg class="hb-wave" viewBox="0 0 320 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M0 11 H14 L20 3 L26 19 L32 11 H94 L100 3 L106 19 L112 11 H174 L180 3 L186 19 L192 11 H254 L260 3 L266 19 L272 11 H320" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </button>
     </div>
   </section>
