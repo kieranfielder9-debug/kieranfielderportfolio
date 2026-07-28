@@ -36,6 +36,9 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .nav-links button:hover,.nav-links button.active{color:var(--orange)}
 .nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .nav-sayhi:hover{background:var(--orange);color:#fff}
+.nav-links button.nav-signal{background:var(--orange);color:#fff;padding:9px 16px;letter-spacing:.12em;display:inline-flex;align-items:center;gap:7px}
+.nav-links button.nav-signal:hover,.nav-links button.nav-signal.active{background:var(--orange-dark);color:#fff}
+.nav-signal-dot{width:5px;height:5px;border-radius:50%;background:#fff;display:inline-block}
 .nav-burger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px 4px}
 .nav-burger span{width:20px;height:2px;background:var(--ink);display:block}
 .mobile-menu{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:none;flex-direction:column;z-index:99}
@@ -86,6 +89,20 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .tag-hi{color:#fff}
 .hero-box{background:transparent;border:2px solid var(--ink);color:var(--ink);padding:18px 46px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,transform .25s;display:inline-flex;align-items:center;gap:14px}
 .hero-box:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+
+.signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px}
+.ss-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.ss-kicker{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.ss-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;box-shadow:0 0 0 4px rgba(255,77,0,.22)}
+.ss-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,7vw,96px);line-height:.98;color:#fff;margin:0 0 16px}
+.ss-fine{font-size:12px;color:rgba(255,255,255,.4);margin:0}
+.ss-issue{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);padding:38px 36px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s,background .2s}
+.ss-issue:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)}
+.ss-issue-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;display:flex;justify-content:space-between}
+.ss-issue h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;font-size:clamp(24px,2.4vw,29px);color:#fff;line-height:1.25;margin:0 0 16px}
+.ss-issue p{color:#bdbdbd;font-size:14.5px;line-height:1.7;margin:0 0 20px}
+.ss-issue-link{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+@media(max-width:900px){.ss-grid{grid-template-columns:1fr;gap:44px}}
 .hero-box .arr-w{transition:transform .25s}
 .hero-box:hover .arr-w{transform:translateX(6px)}
 .u-fl{position:relative;display:inline-block}
@@ -451,7 +468,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <li><button id="nb-about" onclick="go('home','about')">Who?</button></li>
         <li><button id="nb-work" onclick="go('work')">Projects</button></li>
         <li><button id="nb-blog" onclick="go('blog')">Blog</button></li>
-        <li><button id="nb-read" onclick="go('read')">Newsletter</button></li>
+        <li><button id="nb-read" class="nav-signal" onclick="go('read')"><span class="nav-signal-dot"></span>Signal</button></li>
       </ul>
       <button class="nav-sayhi" onclick="go('sayhi')">Say Hi</button>
       <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
@@ -462,7 +479,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <button onclick="go('home','about')">Who?</button>
     <button onclick="go('work')">Projects</button>
     <button onclick="go('blog')">Blog</button>
-    <button onclick="go('read')">Newsletter</button>
+    <button onclick="go('read')">Signal</button>
     <button onclick="go('sayhi')">Say Hi</button>
   </div>
 </nav>
@@ -474,7 +491,41 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap">
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
       <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
-      <button class="hero-box" onclick="go('work')">Projects <span class="arr-w">→</span></button>
+      <button class="hero-box" onclick="go('read','newsletter')">Read Signal <span class="arr-w">→</span></button>
+    </div>
+  </section>
+
+  <section class="signal-showcase">
+    <svg class="paint-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="paint-rough-ss" x="-30%" y="-30%" width="160%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="3" seed="17" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="90"/></filter>
+      </defs>
+      <rect width="1440" height="900" fill="#0A0A0A"/>
+      <g filter="url(#paint-rough-ss)">
+        <ellipse cx="220" cy="180" rx="330" ry="160" fill="#1D1D1D" opacity=".95"/>
+        <ellipse cx="1240" cy="700" rx="360" ry="180" fill="#171717" opacity=".95"/>
+        <ellipse cx="1200" cy="170" rx="240" ry="110" fill="#2B140A" opacity=".8"/>
+        <ellipse cx="300" cy="740" rx="260" ry="130" fill="#301409" opacity=".75"/>
+        <ellipse cx="720" cy="470" rx="430" ry="230" fill="#151515" opacity=".9"/>
+      </g>
+    </svg>
+    <div class="wrap ss-grid">
+      <div>
+        <p class="ss-kicker"><span class="ss-dot"></span>Signal</p>
+        <h2 class="ss-title">SIGNAL</h2>
+        <p class="nl-topics">Systems, Psychology, Growth, Copy and Creativity, Brand!</p>
+        <form class="nl-form" style="max-width:440px;margin-bottom:14px" onsubmit="return subscribeNL(this)">
+          <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+          <button class="nl-btn" type="submit">Sign Up</button>
+        </form>
+        <p class="ss-fine">One email. No noise. Unsubscribe any time.</p>
+      </div>
+      <button class="ss-issue" onclick="go('post-sample')">
+        <span class="ss-issue-label"><span>Sample issue</span><span>Template preview</span></span>
+        <h3>"Why most copy fails the second read"</h3>
+        <p>Anyone can write copy that survives the first read. The sale falls apart on the one where your prospect comes back an hour later, defences up, looking for a reason to say no.</p>
+        <span class="ss-issue-link">Read this issue <span class="arr-w">→</span></span>
+      </button>
     </div>
   </section>
 
