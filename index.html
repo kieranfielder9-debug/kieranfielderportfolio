@@ -89,11 +89,15 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:30px}
 .tag-hi{color:#fff}
-.hb-kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.75;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:16px}
-.hb-kicker .hb-dot{width:6px;height:6px;border-radius:50%;background:var(--ink);display:inline-block}
-.hero-box{background:transparent;border:1.5px solid var(--ink);border-radius:6px;box-shadow:0 10px 26px -16px rgba(10,10,10,.4);color:var(--ink);padding:15px 34px 13px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:11px;transition:background .25s,color .25s,transform .25s,box-shadow .25s}
-.hero-box:hover{background:var(--ink);color:#fff;transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(10,10,10,.5)}
-.hb-wire{position:relative;width:100%;height:22px;overflow:hidden;background:var(--ink);border-radius:3px;transition:background .25s}
+.hb-kicker{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 18px;background:var(--ink);padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22)}
+.hb-kicker .hb-dot{width:5px;height:5px;border-radius:50%;background:#EAF6FF;box-shadow:0 0 5px rgba(191,227,255,.9)}
+.hb-form{display:inline-flex;gap:10px}
+.hb-input{background:transparent;border:1.5px solid var(--ink);border-radius:6px;color:var(--ink);padding:0 16px;font-family:'DM Sans',sans-serif;font-size:14px;width:190px;min-width:0}
+.hb-input::placeholder{color:rgba(10,10,10,.45)}
+.hb-input:focus{outline:none;box-shadow:0 0 0 2px rgba(10,10,10,.15)}
+.hero-box{background:var(--ink);border:1.5px solid rgba(191,227,255,.4);border-radius:6px;box-shadow:0 0 0 1px rgba(191,227,255,.12),0 0 16px rgba(191,227,255,.22),0 10px 26px -16px rgba(10,10,10,.45);color:#EAF6FF;padding:15px 30px 13px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:11px;white-space:nowrap;transition:transform .25s,box-shadow .25s}
+.hero-box:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(191,227,255,.3),0 0 26px rgba(191,227,255,.4),0 18px 36px -16px rgba(10,10,10,.55)}
+.hb-wire{position:relative;width:100%;height:22px;overflow:hidden;background:rgba(255,255,255,.05);border-radius:3px;box-shadow:inset 0 1px 3px rgba(0,0,0,.5)}
 .hb-wave{position:absolute;top:0;left:0;width:200%;height:100%;animation:hbScroll 3.6s linear infinite;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px rgba(200,230,255,.75));transition:filter .2s}
 .hero-box:hover .hb-wave{animation-duration:1.2s;filter:drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px rgba(200,230,255,.9)) drop-shadow(0 0 20px rgba(170,215,255,.55))}
 @keyframes hbScroll{to{transform:translateX(-50%)}}
@@ -448,7 +452,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.hb-form{flex-direction:column;width:100%;max-width:290px}.hb-input{width:100%;padding:14px 16px}.hero-box{width:100%}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -494,10 +498,13 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
       <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
       <p class="hb-kicker"><span class="hb-dot"></span>The Newsletter</p>
-      <button class="hero-box" onclick="go('read','newsletter')">
-        Read Signal
-        <span class="hb-wire"><svg class="hb-wave" viewBox="0 0 320 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><defs><linearGradient id="hbShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="45%" stop-color="#BFE3FF"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><path d="M0 11 H14 L20 3 L26 19 L32 11 H94 L100 3 L106 19 L112 11 H174 L180 3 L186 19 L192 11 H254 L260 3 L266 19 L272 11 H320" stroke="url(#hbShine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
+      <form class="hb-form" onsubmit="return subscribeNL(this)">
+        <input class="hb-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+        <button class="hero-box" type="submit">
+          Receive Signal
+          <span class="hb-wire"><svg class="hb-wave" viewBox="0 0 320 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><defs><linearGradient id="hbShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="45%" stop-color="#BFE3FF"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><path d="M0 11 H14 L20 3 L26 19 L32 11 H94 L100 3 L106 19 L112 11 H174 L180 3 L186 19 L192 11 H254 L260 3 L266 19 L272 11 H320" stroke="url(#hbShine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+      </form>
     </div>
   </section>
 
