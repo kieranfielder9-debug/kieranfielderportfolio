@@ -97,6 +97,12 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .hb-wave{position:absolute;top:0;left:0;width:200%;height:100%;animation:hbScroll 3.6s linear infinite;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 8px rgba(200,230,255,.75));transition:filter .2s}
 .hero-box:hover .hb-wave{animation-duration:1.2s;filter:drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px rgba(200,230,255,.9)) drop-shadow(0 0 20px rgba(170,215,255,.55))}
 @keyframes hbScroll{to{transform:translateX(-50%)}}
+.hb-pill{display:flex;width:fit-content;align-items:center;background:var(--paper);border:1.5px solid var(--ink);border-radius:30px;padding:5px 5px 5px 22px;box-shadow:0 10px 26px -16px rgba(10,10,10,.35);margin:24px auto 0}
+.hb-pill-input{background:none;border:none;color:var(--ink);font-size:14px;font-family:'DM Sans',sans-serif;width:190px;min-width:0}
+.hb-pill-input::placeholder{color:rgba(10,10,10,.45)}
+.hb-pill-input:focus{outline:none}
+.hb-pill-btn{background:var(--ink);color:#fff;border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;transition:background .2s,transform .2s}
+.hb-pill-btn:hover{background:var(--orange);transform:scale(1.06)}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
@@ -448,7 +454,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.hero-box{width:100%}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.hero-box{width:100%}.hb-pill{width:100%;max-width:320px}.hb-pill-input{width:100%}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -498,6 +504,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         Read Signal
         <span class="hb-wire"><svg class="hb-wave" viewBox="0 0 320 22" preserveAspectRatio="none" fill="none" aria-hidden="true"><defs><linearGradient id="hbShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="45%" stop-color="#BFE3FF"/><stop offset="100%" stop-color="#FFFFFF"/></linearGradient></defs><path d="M0 11 H14 L20 3 L26 19 L32 11 H94 L100 3 L106 19 L112 11 H174 L180 3 L186 19 L192 11 H254 L260 3 L266 19 L272 11 H320" stroke="url(#hbShine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </button>
+      <form class="hb-pill" onsubmit="return subscribeNL(this)">
+        <input class="hb-pill-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+        <button class="hb-pill-btn" type="submit" aria-label="Subscribe">→</button>
+      </form>
     </div>
   </section>
 
