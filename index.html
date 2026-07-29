@@ -143,6 +143,8 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-state{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;color:var(--ink);line-height:1.16;margin-bottom:36px}
 .about-state em{font-style:italic}
 .about-card p{font-size:16px;line-height:1.75;margin-bottom:18px;color:var(--body)}
+.about-card p.about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:16px;line-height:1.7;color:var(--body);margin:0 0 22px}
+.about-card .about-lead p.about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:16px;line-height:1.7;color:var(--body);margin:14px 0 0}
 .about-meta{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 28px}
 .about-card .about-lead p{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;line-height:1.16;color:var(--ink);margin:0}
 .about-lead em{font-style:italic}
@@ -569,12 +571,14 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <div class="about-photo"><img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/></div>
         <div class="about-chiprow"><span class="about-chip">The Growth Marketer</span></div>
         <div>
-          <h2 class="about-state">I distill brand identity to its core for lifestyle-focused DTC and SaaS founders, building vibrant, breathing companies through <em>systems that <span class="hl-o">signal</span> life to customers.</em></h2>
+          <h2 class="about-state">I distill brand identity to its core for lifestyle-focused DTC and SaaS founders.</h2>
+          <p class="about-detail">Building vibrant, breathing companies through systems that <span class="hl-o">signal</span> life to customers.</p>
           <button class="sayhi" onclick="go('read','newsletter')">Read Signal <span class="arr-w">→</span></button>
         </div>
         <div class="about-lead">
           <div class="about-divider" aria-hidden="true"><svg viewBox="0 0 26 34" fill="none"><path d="M13 0 C13 5 6.5 8 5 11 C13.5 14 20.5 18 20 22 C19.5 26 14 28 13 34" stroke="#FF4D00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p>By the end, you should gain clarity and command across your channels, leaving you with <em>a brand built to sustain its own growth.</em></p>
+          <p>By the end, you should gain clarity and command across your channels.</p>
+          <p class="about-detail">Leaving you with a brand built to sustain its own growth.</p>
         </div>
       </div>
     </div>
