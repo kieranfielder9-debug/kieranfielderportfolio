@@ -105,7 +105,9 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
 .ss-kicker{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px}
-.ss-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;box-shadow:0 0 0 4px rgba(255,77,0,.22)}
+.ss-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;position:relative}
+.ss-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:var(--orange);opacity:.6;animation:ssDotPulse 2s cubic-bezier(0,0,.3,1) infinite}
+@keyframes ssDotPulse{0%{transform:scale(.4);opacity:.6}100%{transform:scale(2.6);opacity:0}}
 .ss-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,9vw,120px);line-height:.98;color:#fff;margin:0 0 16px}
 .ss-fine{font-size:12px;color:rgba(255,255,255,.4);margin:16px auto 0;max-width:480px}
 .u-fl{position:relative;display:inline-block}
@@ -194,7 +196,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
