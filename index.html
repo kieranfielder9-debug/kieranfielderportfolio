@@ -38,8 +38,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .nav-links button:hover,.nav-links button.active{color:var(--ink)}
 .nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .nav-sayhi:hover{background:var(--orange);color:#fff}
-.nav-links button.nav-signal{background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px}
+.nav-links button.nav-signal{position:relative;overflow:hidden;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px}
 .nav-links button.nav-signal:hover,.nav-links button.nav-signal.active{background:var(--orange-dark);color:#fff}
+.nav-links button.nav-signal::before{content:'';position:absolute;top:0;left:-60%;width:35%;height:100%;background:linear-gradient(75deg,transparent 0%,rgba(255,255,255,.75) 50%,transparent 100%);animation:navSignalShine 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes navSignalShine{0%{left:-60%}35%{left:130%}100%{left:130%}}
 .nav-signal-dot{width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block}
 .nav-burger{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px 4px}
 .nav-burger span{width:20px;height:2px;background:var(--ink);display:block}
@@ -192,7 +194,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
