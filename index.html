@@ -485,6 +485,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <button onclick="go('home')">Home</button>
     <button onclick="go('home','about')">Who?</button>
     <button onclick="go('work')">Projects</button>
+    <button onclick="go('services')">Services</button>
     <button onclick="go('blog')">Blog</button>
     <button onclick="go('read')">Receive Signal</button>
     <button onclick="go('sayhi')">Signal Audit</button>
@@ -576,11 +577,54 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     </div>
   </section>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
+      <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
+    </div>
+  </div>
+
+  <footer id="contact" class="scroll-target">
+    <div class="seam seam-orange"></div>
+    <div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
+  </footer>
+</div>
+
+<!-- WORK PAGE -->
+<div id="p-work" class="page page-dark">
+  <header class="page-header"><div class="wrap"><h1 class="page-title">The <em>Work</em></h1></div></header><hr class="divider"/>
+  <section class="work-section-wrapper"><div class="wrap">
+    <div class="proj-grid2">
+    <button class="case-row" onclick="go('case-pulse')">
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">A launch email for a freelancer bank</span><span class="rv-go">View case study →</span></span></span>
+      <span class="case-row-title">Pulse Financials <em>Launch Email</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <button class="case-row" onclick="go('case-hyundai')">
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">Product page copy for an electric performance car</span><span class="rv-go">View case study →</span></span></span>
+      <span class="case-row-title">Hyundai IONIQ 5 N <em>Product Copy</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <button class="case-row" onclick="go('case-ad')">
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-vault"/></svg><img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">A Google search ad for a micro-savings app</span><span class="rv-go">View case study →</span></span></span>
+      <span class="case-row-title">Vault Savings App <em>Google Ad</em></span>
+      <span class="view-link">View case study <span class="arr">→</span></span>
+    </button>
+    <a class="case-row" href="mailto:kieranfielder9@gmail.com">
+      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-brief"/></svg><img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">Your project — tell me about it</span><span class="rv-go">Email me →</span></span></span>
+      <span class="case-row-title">Your Brief <em>Here</em></span>
+      <span class="view-link">Email me <span class="arr">→</span></span>
+    </a>
+    </div>
+  </div></section>
+  <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div></footer>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="p-services" class="page">
+  <header class="page-header"><div class="wrap"><div class="section-label">Services</div><h1 class="page-title">What I do</h1></div></header><hr class="divider"/>
   <section class="services-section">
     <div class="wrap">
-      <div class="whatido-title reveal">
-        <h2>What I do</h2><svg class="title-stroke" viewBox="0 0 200 16" aria-hidden="true"><path d="M8 10 Q100 17 192 7" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
-      </div>
       <div class="services-rows reveal d1">
         <div class="svc">
           <div class="svc-media"><svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-svc-strategy"/></svg></div>
@@ -621,81 +665,6 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       </div>
     </div>
   </section>
-
-  <section class="goods-section">
-    <div class="wrap">
-      <div class="whatido-title reveal"><h2>The Work</h2><svg class="title-stroke" viewBox="0 0 200 16" aria-hidden="true"><path d="M8 10 Q100 17 192 7" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
-      <div class="tile-grid tile-grid-bleed reveal d1">
-
-        <button class="tile" onclick="go('case-pulse')">
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-pulse"/></svg>
-          <img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/>
-          <span class="tile-overlay"><strong>Pulse Financials Launch Email</strong><span class="view">— View —</span></span>
-        </button>
-
-        <button class="tile" onclick="go('case-hyundai')">
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-hyundai"/></svg>
-          <img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/>
-          <span class="tile-overlay"><strong>Hyundai IONIQ 5 N</strong><span class="view">— View —</span></span>
-        </button>
-
-        <button class="tile" onclick="go('case-ad')">
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-vault"/></svg>
-          <img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/>
-          <span class="tile-overlay"><strong>Vault Savings Google Ad</strong><span class="view">— View —</span></span>
-        </button>
-
-        <a class="tile tile-cta" href="mailto:kieranfielder9@gmail.com">
-          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-brief"/></svg>
-          <img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/>
-          <span class="tile-overlay"><strong>Your Brief Here</strong><span class="view">— Email Me —</span></span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="seam seam-white"></div>
-    <div class="marquee-track">
-      <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
-      <div class="marquee-group"><span class="txt">Signal over noise</span><span class="sq"></span><span class="txt">Cut through noise</span><span class="sq"></span><span class="txt">Find your frequency</span><span class="sq"></span><span class="txt">Words with weight</span><span class="sq"></span><span class="txt">Turn attention into action</span><span class="sq"></span><span class="txt">Define your difference</span><span class="sq"></span></div>
-    </div>
-  </div>
-
-  <footer id="contact" class="scroll-target">
-    <div class="seam seam-orange"></div>
-    <div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
-  </footer>
-</div>
-
-<!-- WORK PAGE -->
-<div id="p-work" class="page page-dark">
-  <header class="page-header"><div class="wrap"><h1 class="page-title">My <em>Stuff</em></h1></div></header><hr class="divider"/>
-  <section class="work-section-wrapper"><div class="wrap">
-    <div class="proj-grid2">
-    <button class="case-row" onclick="go('case-pulse')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-pulse"/></svg><img src="images/pulse.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">A launch email for a freelancer bank</span><span class="rv-go">View case study →</span></span></span>
-      <span class="case-row-title">Pulse Financials <em>Launch Email</em></span>
-      <span class="view-link">View case study <span class="arr">→</span></span>
-    </button>
-    <button class="case-row" onclick="go('case-hyundai')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-hyundai"/></svg><img src="images/hyundai.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">Product page copy for an electric performance car</span><span class="rv-go">View case study →</span></span></span>
-      <span class="case-row-title">Hyundai IONIQ 5 N <em>Product Copy</em></span>
-      <span class="view-link">View case study <span class="arr">→</span></span>
-    </button>
-    <button class="case-row" onclick="go('case-ad')">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-vault"/></svg><img src="images/vault.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">A Google search ad for a micro-savings app</span><span class="rv-go">View case study →</span></span></span>
-      <span class="case-row-title">Vault Savings App <em>Google Ad</em></span>
-      <span class="view-link">View case study <span class="arr">→</span></span>
-    </button>
-    <a class="case-row" href="mailto:kieranfielder9@gmail.com">
-      <span class="case-row-media"><svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-w-brief"/></svg><img src="images/brief.jpg" alt="" loading="lazy" onerror="this.remove()"/><span class="row-view"><span class="rv-what">Your project — tell me about it</span><span class="rv-go">Email me →</span></span></span>
-      <span class="case-row-title">Your Brief <em>Here</em></span>
-      <span class="view-link">Email me <span class="arr">→</span></span>
-    </a>
-    </div>
-  </div></section>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div></footer>
 </div>
 
@@ -981,7 +950,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 </svg>
 
 <script>
-const PAGES = ['home','work','blog','read','sayhi','post-sample','case-ad','case-pulse','case-hyundai'];
+const PAGES = ['home','work','services','blog','read','sayhi','post-sample','case-ad','case-pulse','case-hyundai'];
 const WORKISH = ['work','case-ad','case-pulse','case-hyundai'];
 
 function go(id, anchorId) {
