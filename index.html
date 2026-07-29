@@ -86,6 +86,9 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .sayhi:hover{background:var(--orange);color:#fff}
 .sayhi-orange{background:var(--orange);color:var(--ink)}
 .sayhi-orange:hover{background:#fff;color:var(--ink)}
+.f-audit-btn{background:linear-gradient(135deg,var(--orange),var(--orange-dark));box-shadow:0 4px 0 var(--orange-dark),0 16px 36px rgba(255,77,0,.4);transition:transform .25s,box-shadow .25s}
+.f-audit-btn:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--orange-dark),0 20px 44px rgba(255,77,0,.5)}
+.f-audit-btn:active{transform:translateY(-1px);box-shadow:0 2px 0 var(--orange-dark),0 10px 24px rgba(255,77,0,.4)}
 
 /* HERO */
 #hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
@@ -575,7 +578,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
         <div>
           <h2 class="about-state">I distill brand identity to its core for lifestyle-focused DTC and SaaS founders.</h2>
           <p class="about-detail">Building vibrant, breathing companies through systems that <span class="hl-o">signal</span> life to customers.</p>
-          <button class="sayhi" onclick="go('read','newsletter')">Read Signal <span class="arr-w">→</span></button>
+          <button class="sayhi" onclick="go('read','newsletter')">Receive Signal <span class="arr-w">→</span></button>
         </div>
         <div class="about-lead">
           <div class="about-divider" aria-hidden="true"><svg viewBox="0 0 26 34" fill="none"><path d="M13 0 C13 5 6.5 8 5 11 C13.5 14 20.5 18 20 22 C19.5 26 14 28 13 34" stroke="#FF4D00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -588,7 +591,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
   <footer id="contact" class="scroll-target">
     <div class="seam seam-white"></div>
-    <div class="wrap"><div class="footer-flex"><div class="f-right"><h2 class="f-cta">Every Brand has a Signal.</h2><p class="f-cta-sub">Most just haven't found it yet.</p><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
+    <div class="wrap"><div class="footer-flex"><div class="f-right"><h2 class="f-cta">Every Brand has a Signal.</h2><p class="f-cta-sub">Most just haven't found it yet.</p><button class="sayhi sayhi-orange f-audit-btn" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
   </footer>
 </div>
 
