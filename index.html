@@ -86,6 +86,7 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .footer-copy{font-size:12px;color:#8E8E8E}
 
 .sayhi{display:inline-block;background:var(--ink);color:#fff;padding:17px 40px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.sayhi:disabled{opacity:.55;cursor:default}
 .sayhi:hover{background:var(--orange);color:#fff}
 .sayhi-orange{background:var(--orange);color:var(--ink)}
 .sayhi-orange:hover{background:#fff;color:var(--ink)}
@@ -264,6 +265,9 @@ h2.serif em{font-style:italic}
 .c-select:invalid{color:var(--muted)}
 .c-select option{color:var(--ink)}
 .c-note{font-size:12px;color:var(--muted);margin-top:14px}
+.c-note.is-success{color:var(--ink);font-weight:700}
+.c-note.is-error{color:var(--orange);font-weight:700}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .email-inline{font-size:16px;color:var(--ink);text-decoration:none;font-weight:500;border-bottom:2px solid var(--orange);padding-bottom:2px;transition:color .2s}
 .email-inline:hover{color:var(--orange)}
 
@@ -343,6 +347,12 @@ h2.serif em{font-style:italic}
 .nl-input:focus{outline:none;border-color:var(--orange)}
 .nl-btn{background:var(--orange);color:var(--ink);border:none;padding:16px 30px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
 .nl-btn:hover{background:#fff}
+.nl-btn:disabled{opacity:.55;cursor:default}
+.nl-btn:disabled:hover{background:var(--orange)}
+.nl-status{font-size:13px;color:rgba(255,255,255,.55);text-align:center}
+.nl-status:empty{display:none}
+.nl-status.is-success{color:#fff;font-weight:700}
+.nl-status.is-error{color:var(--orange);font-weight:700}
 .nl-note{font-size:12px;color:#8E8E8E;margin-top:16px;line-height:1.6}
 
 /* WORK PAGE */
@@ -474,7 +484,7 @@ h2.case-h2 em{font-style:italic}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
-<!-- Analytics (GA4). Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+<!-- Analytics (GA4) — placeholder ID below, so nothing is being recorded yet. Replace G-XXXXXXXXXX in both places with your real Measurement ID from analytics.google.com to start collecting data. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -484,6 +494,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 </script>
 </head>
 <body>
+<iframe name="mc-silent-frame" class="visually-hidden" aria-hidden="true" tabindex="-1"></iframe>
 
 <nav>
   <div class="wrap">
@@ -541,8 +552,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <p class="ss-promise">Never quite sure what your brand should say? Start knowing what to say, and owning it.</p>
       <form class="nl-form" style="max-width:440px;margin:0 auto" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+        <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <button class="nl-btn" type="submit">Receive Signal</button>
       </form>
+      <p class="nl-status" style="max-width:440px;margin:12px auto 0" aria-live="polite"></p>
       <p class="ss-fine">Feel free to unsubscribe at any time, if you don't get value from this newsletter.</p>
     </div>
   </section>
@@ -694,6 +707,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
   <header class="page-header"><div class="wrap"><h1 class="page-title">Signal <em>Audit</em></h1><p class="page-sub hi-lead">Tell me about this project</p></div></header><hr class="divider"/>
   <section class="contact-section"><div class="wrap">
     <form class="c-form" onsubmit="return sendEnquiry(this)">
+      <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"/>
       <label class="c-label" for="c-nm">First and Last Name</label>
       <input class="c-input" id="c-nm" name="nm" type="text" required placeholder="Your name"/>
       <label class="c-label" for="c-co">Company</label>
@@ -723,7 +737,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <label class="c-label" for="c-msg">The Project</label>
       <textarea class="c-input c-textarea" id="c-msg" name="msg" required placeholder="What are you working on at the minute?"></textarea>
       <button class="sayhi" type="submit" style="margin-top:24px">Send it</button>
-      <p class="c-note">Sends via your email app for now, straight to my inbox. A proper form backend is on the way.</p>
+      <p class="c-note" aria-live="polite">Sends via your email app for now, straight to my inbox. A proper form backend is on the way.</p>
       <p class="hi-email-line">Prefer plain email? <a class="email-inline" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></p>
     </form>
   </div></section>
@@ -772,8 +786,10 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
       <p class="nl-hero-copy">Inside Signal, you'll discover ideas on positioning, brand strategy, customer psychology, creative thinking, and growth marketing, helping you turn what makes your business unique into a message that connects.</p>
       <form class="nl-form nl-hero-form" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
+        <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <button class="nl-btn" type="submit">Receive Signal</button>
       </form>
+      <p class="nl-status" style="max-width:520px;margin:12px auto 0" aria-live="polite"></p>
       <p class="nl-note" style="max-width:560px;margin:16px auto 0">Feel free to unsubscribe at any time, if you don't get value from this newsletter.</p>
     </div>
   </section>
@@ -1022,33 +1038,86 @@ function activateReveals(container) {
   els.forEach(el => obs.observe(el));
 }
 
-// Paste your Mailchimp embedded-form "action" URL here to send sign-ups to Mailchimp.
-// (Mailchimp → Audience → Signup forms → Embedded form → copy the form action URL.)
+// ── Form back-ends ────────────────────────────────────────────────────
+// Right now both forms fall back to a mailto: link, which opens nothing
+// for any visitor without a desktop email app configured — most people on
+// web Gmail/Outlook or mobile. Fill in either constant below to switch
+// that form over to a real submission with an on-page confirmation instead.
+
+// 1) Newsletter only — for building an actual mailable list.
+// Mailchimp → Audience → Signup forms → Embedded form → copy the form action URL.
 const MAILCHIMP_ACTION = '';
 
+// 2) Either form — a plain "deliver this submission to my inbox" endpoint.
+// Formspree (formspree.io) issues one of these free in about two minutes,
+// no audience/list setup required — paste it here and both forms below
+// switch over immediately, with real success/error states instead of
+// depending on the visitor's own email app. (Newsletter prefers Mailchimp
+// above if both are set, since that one builds an actual subscriber list.)
+const FORM_ENDPOINT = '';
+
+function setFormStatus(note, message, state) {
+  if (!note) return;
+  note.textContent = message;
+  note.classList.toggle('is-success', state === 'success');
+  note.classList.toggle('is-error', state === 'error');
+}
+
+function postToEndpoint(data) {
+  const body = new FormData();
+  Object.keys(data).forEach(k => { if (data[k]) body.append(k, data[k]); });
+  return fetch(FORM_ENDPOINT, { method: 'POST', body, headers: { 'Accept': 'application/json' } })
+    .then(res => { if (!res.ok) throw new Error('Request failed'); });
+}
+
 function subscribeNL(form) {
+  if (form._gotcha && form._gotcha.value) { form.reset(); return false; }
   const em = form.em.value.trim();
+  const btn = form.querySelector('button[type="submit"]');
+  const note = form.nextElementSibling;
+
   if (MAILCHIMP_ACTION) {
     const f = document.createElement('form');
-    f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = '_blank';
+    f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = 'mc-silent-frame';
     const i = document.createElement('input'); i.type = 'email'; i.name = 'EMAIL'; i.value = em;
-    f.appendChild(i); document.body.appendChild(f); f.submit(); f.remove(); form.reset();
+    f.appendChild(i); document.body.appendChild(f); f.submit(); f.remove();
+    form.reset();
+    setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
+  } else if (FORM_ENDPOINT) {
+    btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
+    postToEndpoint({ email: em, _subject: 'Newsletter sign-up: Signal' })
+      .then(() => { form.reset(); setFormStatus(note, "You're in — thanks for subscribing.", 'success'); })
+      .catch(() => setFormStatus(note, "That didn't send — email kieranfielder9@gmail.com and I'll add you myself.", 'error'))
+      .finally(() => { btn.disabled = false; btn.textContent = label; });
   } else {
     location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Newsletter sign-up: Signal')
       + '&body=' + encodeURIComponent('Sign me up to Signal, please. My email: ' + em);
+    setFormStatus(note, 'Opening your email app to send this — if nothing happens, email kieranfielder9@gmail.com directly.');
   }
   if(typeof gtag === 'function') gtag('event', 'newsletter_signup');
   return false;
 }
 
 function sendEnquiry(form) {
+  if (form._gotcha && form._gotcha.value) { form.reset(); return false; }
   const nm = form.nm.value.trim(), co = form.co.value.trim(), rl = form.rl.value.trim(),
         em = form.em.value.trim(), ph = form.ph.value.trim(), msg = form.msg.value.trim(),
         dl = form.dl.value, rv = form.rv.value;
-  const sig = ['— ' + nm, rl && ('Role: ' + rl), co && ('Company: ' + co), dl && ('Deliverable: ' + dl), rv && ('Monthly revenue: ' + rv), 'Email: ' + em, ph && ('Phone: ' + ph)]
-    .filter(Boolean).join('\n');
-  location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Project enquiry — ' + (nm || 'new client'))
-    + '&body=' + encodeURIComponent(msg + '\n\n' + sig);
+  const btn = form.querySelector('button[type="submit"]');
+  const note = form.querySelector('.c-note');
+
+  if (FORM_ENDPOINT) {
+    btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
+    postToEndpoint({ name: nm, company: co, role: rl, email: em, phone: ph, deliverable: dl, revenue: rv, message: msg, _subject: 'Project enquiry — ' + (nm || 'new client') })
+      .then(() => { form.reset(); setFormStatus(note, "Sent — I'll reply within a couple of days.", 'success'); })
+      .catch(() => setFormStatus(note, "That didn't send — email kieranfielder9@gmail.com directly and I'll pick it up from there.", 'error'))
+      .finally(() => { btn.disabled = false; btn.textContent = label; });
+  } else {
+    const sig = ['— ' + nm, rl && ('Role: ' + rl), co && ('Company: ' + co), dl && ('Deliverable: ' + dl), rv && ('Monthly revenue: ' + rv), 'Email: ' + em, ph && ('Phone: ' + ph)]
+      .filter(Boolean).join('\n');
+    location.href = 'mailto:kieranfielder9@gmail.com?subject=' + encodeURIComponent('Project enquiry — ' + (nm || 'new client'))
+      + '&body=' + encodeURIComponent(msg + '\n\n' + sig);
+  }
   if(typeof gtag === 'function') gtag('event', 'enquiry_submit');
   return false;
 }
