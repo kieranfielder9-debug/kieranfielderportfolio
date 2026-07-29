@@ -86,8 +86,7 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 
 /* HERO */
 #hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
-.hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Mr Dafoe',cursive;font-size:26px;color:var(--ink);pointer-events:none;transition:opacity .5s ease}
-body:has(nav.nav-visible) .hero-signature{opacity:0}
+.hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Mr Dafoe',cursive;font-size:26px;color:var(--ink);pointer-events:none}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:30px}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:92px}
 .tag-hi{color:#fff}
@@ -994,7 +993,7 @@ function go(id, anchorId) {
   if(nbBlog && (id === 'blog' || id === 'post-sample')) nbBlog.classList.add('active');
   if(nbRead && id === 'read') nbRead.classList.add('active');
   const navEl = document.querySelector('nav');
-  if(navEl) { if(id === 'home') { navEl.classList.remove('nav-visible'); } else { navEl.classList.add('nav-visible'); } }
+  if(navEl) { if(id === 'home') { navEl.classList.remove('nav-visible'); const sig = document.querySelector('.hero-signature'); if(sig) sig.style.opacity = '1'; } else { navEl.classList.add('nav-visible'); } }
   const mm = document.getElementById('mobile-menu');
   if(mm) mm.classList.remove('open');
   if(typeof gtag === 'function') gtag('event', 'page_view', { page_title: id, page_location: location.origin + location.pathname + '#' + id });
@@ -1021,9 +1020,14 @@ function go(id, anchorId) {
 
 function revealNavOnScroll() {
   const home = document.getElementById('p-home');
+  const navEl = document.querySelector('nav');
   if(home && home.classList.contains('active') && window.scrollY > 40) {
-    const navEl = document.querySelector('nav');
     if(navEl) navEl.classList.add('nav-visible');
+  }
+  const sig = document.querySelector('.hero-signature');
+  if(sig) {
+    const navVisible = navEl && navEl.classList.contains('nav-visible');
+    sig.style.opacity = (navVisible || window.scrollY > 8) ? '0' : '1';
   }
 }
 window.addEventListener('scroll', revealNavOnScroll, { passive: true });
