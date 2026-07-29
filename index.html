@@ -87,19 +87,13 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 /* HERO */
 #hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
 .hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Mr Dafoe',cursive;font-size:26px;color:var(--ink);pointer-events:none}
-h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:14px}
-.hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(21px,3vw,32px);line-height:1.2;color:var(--ink);margin:0 auto 40px}
+h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
+.hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
 .hero-subline .sub-signal{color:#fff}
-.hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;word-spacing:.6em;color:var(--ink);margin-bottom:92px}
-.tag-hi{color:#fff}
 .hb-kicker{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 18px;background:var(--ink);padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22)}
 .hb-kicker .hb-dot{width:5px;height:5px;border-radius:50%;background:#EAF6FF;box-shadow:0 0 5px rgba(191,227,255,.9)}
-.hb-signup{display:flex;width:fit-content;gap:14px;margin:0 auto}
-.hb-signup-input{background:var(--paper);border:1.5px solid var(--ink);color:var(--ink);padding:18px 20px;font-family:'DM Sans',sans-serif;font-size:14px;width:210px;min-width:0;box-shadow:0 0 0 1px rgba(191,227,255,.35),0 0 12px rgba(191,227,255,.25);transition:box-shadow .2s}
-.hb-signup-input::placeholder{color:rgba(10,10,10,.45)}
-.hb-signup-input:focus{outline:none;box-shadow:0 0 0 2px rgba(191,227,255,.55),0 0 16px rgba(191,227,255,.4)}
-.hb-signup-btn{background:var(--ink);color:#EAF6FF;border:none;padding:18px 32px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s;white-space:nowrap;box-shadow:0 0 0 1px rgba(191,227,255,.3),0 0 14px rgba(191,227,255,.3)}
-.hb-signup-btn:hover{background:var(--paper);color:var(--ink);box-shadow:none}
+.hb-signup-btn{background:var(--ink);color:#EAF6FF;border:none;padding:19px 42px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:999px;transition:box-shadow .25s,transform .25s;white-space:nowrap;box-shadow:0 0 0 1px rgba(191,227,255,.3),0 0 16px rgba(191,227,255,.35)}
+.hb-signup-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(191,227,255,.5),0 0 24px rgba(191,227,255,.55)}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
@@ -451,7 +445,7 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1000px){.case-layout{grid-template-columns:1fr}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.hb-signup{flex-direction:column;width:100%;max-width:320px}.hb-signup-input{width:100%}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:768px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-links{display:none}.nav-burger{display:flex}.nav-logo{font-size:23px}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.meet-note{display:none}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:88px}.about-avatar{width:112px;height:112px;transform:translate(-24%,-38%)}.avatar-kf{font-size:46px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -497,12 +491,8 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
     <div class="wrap">
       <h1 class="display">Do you want to<br><span class="u-fl">stand-out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
       <p class="hero-subline">Your brand doesn't need to stand out.<br>It needs <span class="sub-signal">Signal</span>.</p>
-      <p class="hero-tagline">Creative. <span class="tag-hi">Growth.</span> Marketer.</p>
       <p class="hb-kicker"><span class="hb-dot"></span>The Newsletter</p>
-      <form class="hb-signup" onsubmit="return subscribeNL(this)">
-        <input class="hb-signup-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
-        <button class="hb-signup-btn" type="submit">Receive Signal</button>
-      </form>
+      <button class="hb-signup-btn" onclick="go('read','newsletter')">Receive Signal</button>
     </div>
   </section>
 
