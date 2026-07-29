@@ -72,7 +72,10 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .footer-flex{display:flex;justify-content:space-between;align-items:center;gap:48px}
 .f-left .footer-copy{margin-top:12px}
 .f-right{flex:1;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center}
-.f-cta{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(38px,5.2vw,76px);line-height:1.1;color:#fff}
+.f-cta{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(38px,5.2vw,76px);line-height:1.1;color:#fff}
+.f-cta-sub{font-family:'DM Sans',sans-serif;font-weight:400;font-size:18px;line-height:1.5;color:rgba(255,255,255,.68);margin:16px 0 0}
+.f-shine-btn{position:relative;overflow:hidden}
+.f-shine-btn::before{content:'';position:absolute;top:0;left:-60%;width:35%;height:100%;background:linear-gradient(75deg,transparent 0%,rgba(255,255,255,.75) 50%,transparent 100%);animation:navSignalShine 3.2s ease-in-out infinite;pointer-events:none}
 .page-dark footer{padding:48px 0 72px}
 .page-dark .work-section-wrapper{padding-bottom:56px}
 .page-dark footer .f-cta{font-size:clamp(56px,8.8vw,130px);line-height:1.05}
@@ -203,7 +206,7 @@ h2.serif em{font-style:italic}
 .marquee-group .txt{font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .sq{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);margin:0 32px;flex-shrink:0}
 @keyframes marq{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.f-shine-btn::before{animation:none;left:-60%}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -587,7 +590,7 @@ gtag('config', 'G-XXXXXXXXXX', { send_page_view: false });
 
   <footer id="contact" class="scroll-target">
     <div class="seam seam-white"></div>
-    <div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div><div class="f-right"><h2 class="f-cta">Every brand has a signal.<br>Most just haven't found it yet.</h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
+    <div class="wrap"><div class="footer-flex"><div class="f-right"><h2 class="f-cta">Every Brand has a Signal.</h2><p class="f-cta-sub">Most just haven't found it yet.</p><button class="sayhi sayhi-orange f-shine-btn" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
   </footer>
 </div>
 
