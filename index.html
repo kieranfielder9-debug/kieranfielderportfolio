@@ -116,7 +116,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 /* SIGNAL EXPLAIN */
 .signal-explain{position:relative;background:#0A0A0A;padding:130px 0 120px;text-align:center;overflow:hidden}
 .se-wrap{position:relative;max-width:640px;margin:0 auto}
-.se-kicker{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(19px,2.6vw,26px);color:rgba(255,255,255,.68);margin:0 0 52px}
+.se-kicker{font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.5);margin:0 0 52px}
 .se-impact{position:relative;width:132px;height:132px;margin:0 auto;display:block}
 .se-impact-dot{position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px 1px rgba(255,77,0,.35);animation:seBreathe 3.2s ease-in-out infinite}
 @keyframes seBreathe{0%,100%{box-shadow:0 0 10px 1px rgba(255,77,0,.35)}50%{box-shadow:0 0 16px 3px rgba(255,77,0,.55)}}
@@ -126,8 +126,8 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-impact.flash-now .se-impact-flash{animation:seFlash 1s ease-out forwards}
 .se-impact.flash-now .se-impact-ring:nth-child(2){animation:seShock 1.5s ease-out forwards}
 .se-impact.flash-now .se-impact-ring:nth-child(3){animation:seShock 1.6s ease-out .12s forwards}
-@keyframes seFlash{0%{opacity:0;transform:scale(1)}22%{opacity:.9;transform:scale(2.4)}100%{opacity:0;transform:scale(4.4)}}
-@keyframes seShock{0%{opacity:.7;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(13) scaleX(1.06)}}
+@keyframes seFlash{0%{opacity:0;transform:scale(1)}22%{opacity:.9;transform:scale(2.8)}100%{opacity:0;transform:scale(5.2)}}
+@keyframes seShock{0%{opacity:.7;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(16) scaleX(1.06)}}
 .se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,5.4vw,58px);line-height:1.15;color:#fff;margin:36px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
 .se-impact.fired~.se-claim{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
 @keyframes seClaimLand{0%{opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}65%{opacity:1;transform:scale(1.015);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
@@ -551,7 +551,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
   <section class="signal-explain" id="signal-explain">
     <div class="seam seam-orange"></div>
     <div class="wrap se-wrap reveal">
-      <p class="se-kicker">So — what is Signal?</p>
+      <p class="se-kicker">What is Signal?</p>
       <div class="se-impact" aria-hidden="true">
         <span class="se-impact-flash"></span>
         <span class="se-impact-ring"></span>
@@ -1075,7 +1075,8 @@ function activateReveals(container) {
 
 function initSignalImpact() {
   const impact = document.querySelector('.se-impact');
-  if (!impact) return;
+  const trigger = document.querySelector('.se-wrap');
+  if (!impact || !trigger) return;
   let firstTimer = null;
   let repeatTimer = null;
 
@@ -1099,13 +1100,13 @@ function initSignalImpact() {
     entries.forEach(e => {
       if (e.isIntersecting) {
         if (firstTimer || impact.classList.contains('fired')) return;
-        firstTimer = setTimeout(() => { firstTimer = null; reveal(); }, 2000);
+        firstTimer = setTimeout(() => { firstTimer = null; reveal(); }, 900);
       } else {
         reset();
       }
     });
-  }, { threshold: 0.5 });
-  obs.observe(impact);
+  }, { threshold: 0.15 });
+  obs.observe(trigger);
 }
 initSignalImpact();
 
