@@ -116,7 +116,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 /* SIGNAL EXPLAIN */
 .signal-explain{position:relative;background:#0A0A0A;padding:130px 0 120px;text-align:center;overflow:hidden}
 .se-wrap{position:relative;max-width:640px;margin:0 auto}
-.se-kicker{font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.5);margin:0 0 52px}
+.se-kicker{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,3.4vw,34px);color:rgba(255,255,255,.72);margin:0 0 48px}
 .se-impact{position:relative;width:132px;height:132px;margin:0 auto;display:block}
 .se-impact-dot{position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px 1px rgba(255,77,0,.35);animation:seBreathe 3.2s ease-in-out infinite}
 @keyframes seBreathe{0%,100%{box-shadow:0 0 10px 1px rgba(255,77,0,.35)}50%{box-shadow:0 0 16px 3px rgba(255,77,0,.55)}}
@@ -1088,7 +1088,7 @@ function initSignalImpact() {
   function reveal() {
     impact.classList.add('fired');
     playFlash();
-    repeatTimer = setInterval(playFlash, 6500);
+    repeatTimer = setInterval(playFlash, 4500);
   }
   function reset() {
     if (firstTimer) { clearTimeout(firstTimer); firstTimer = null; }
@@ -1100,12 +1100,12 @@ function initSignalImpact() {
     entries.forEach(e => {
       if (e.isIntersecting) {
         if (firstTimer || impact.classList.contains('fired')) return;
-        firstTimer = setTimeout(() => { firstTimer = null; reveal(); }, 900);
+        firstTimer = setTimeout(() => { firstTimer = null; reveal(); }, 500);
       } else {
         reset();
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0, rootMargin: '0px 0px 300px 0px' });
   obs.observe(trigger);
 }
 initSignalImpact();
