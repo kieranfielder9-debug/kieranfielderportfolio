@@ -123,14 +123,14 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-impact.fired .se-impact-dot{animation:none;transform:scale(1.35);box-shadow:0 0 30px 8px rgba(255,100,40,.75)}
 .se-impact-flash{position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:radial-gradient(circle,rgba(255,225,190,.95) 0%,rgba(255,140,60,.7) 38%,rgba(255,77,0,0) 72%);opacity:0;filter:blur(2px)}
 .se-impact-ring{position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2px solid rgba(255,120,50,.8);opacity:0;filter:blur(.5px)}
-.se-impact.fired .se-impact-flash{animation:seFlash .6s cubic-bezier(.1,.7,.3,1) forwards}
-.se-impact.fired .se-impact-ring:nth-child(2){animation:seShock .9s cubic-bezier(.15,.65,.3,1) forwards}
-.se-impact.fired .se-impact-ring:nth-child(3){animation:seShock 1s cubic-bezier(.15,.65,.3,1) .09s forwards}
-@keyframes seFlash{0%{opacity:0;transform:scale(1)}18%{opacity:1;transform:scale(3.1)}100%{opacity:0;transform:scale(5)}}
-@keyframes seShock{0%{opacity:.85;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(19) scaleX(1.08)}}
-.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,5.4vw,58px);line-height:1.15;color:#fff;margin:36px 0 0;opacity:0;transform:scale(.88) translateY(6px);filter:blur(6px)}
-.se-impact.fired~.se-claim{animation:seClaimLand .6s cubic-bezier(.2,1.35,.4,1) forwards}
-@keyframes seClaimLand{0%{opacity:0;transform:scale(.88) translateY(6px);filter:blur(6px)}55%{opacity:1;transform:scale(1.045);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
+.se-impact.flash-now .se-impact-flash{animation:seFlash 1s ease-out forwards}
+.se-impact.flash-now .se-impact-ring:nth-child(2){animation:seShock 1.5s ease-out forwards}
+.se-impact.flash-now .se-impact-ring:nth-child(3){animation:seShock 1.6s ease-out .12s forwards}
+@keyframes seFlash{0%{opacity:0;transform:scale(1)}22%{opacity:.9;transform:scale(2.4)}100%{opacity:0;transform:scale(4.4)}}
+@keyframes seShock{0%{opacity:.7;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(13) scaleX(1.06)}}
+.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,5.4vw,58px);line-height:1.15;color:#fff;margin:36px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
+.se-impact.fired~.se-claim{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
+@keyframes seClaimLand{0%{opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}65%{opacity:1;transform:scale(1.015);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
 .se-beats{opacity:0;transform:translateY(12px);transition:opacity .8s ease .3s,transform .8s ease .3s}
 .se-impact.fired~.se-beats{opacity:1;transform:none}
 .se-why{font-family:'DM Sans',sans-serif;font-weight:500;font-size:18px;line-height:1.6;color:rgba(255,255,255,.8);max-width:480px;margin:32px auto 0}
@@ -229,7 +229,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.fired .se-impact-flash,.se-impact.fired .se-impact-ring{animation:none;opacity:0}.se-claim{transition:opacity .3s}.se-impact.fired~.se-claim{animation:none;opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim{transition:opacity .3s}.se-impact.fired~.se-claim{animation:none;opacity:1;transform:none;filter:none}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -1076,16 +1076,32 @@ function activateReveals(container) {
 function initSignalImpact() {
   const impact = document.querySelector('.se-impact');
   if (!impact) return;
-  let fired = false;
+  let firstTimer = null;
+  let repeatTimer = null;
+
+  function playFlash() {
+    impact.classList.remove('flash-now');
+    void impact.offsetWidth;
+    impact.classList.add('flash-now');
+  }
+  function reveal() {
+    impact.classList.add('fired');
+    playFlash();
+    repeatTimer = setInterval(playFlash, 6500);
+  }
+  function reset() {
+    if (firstTimer) { clearTimeout(firstTimer); firstTimer = null; }
+    if (repeatTimer) { clearInterval(repeatTimer); repeatTimer = null; }
+    impact.classList.remove('fired', 'flash-now');
+  }
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting && !fired) {
-        setTimeout(() => {
-          if (fired) return;
-          fired = true;
-          impact.classList.add('fired');
-        }, 1000);
-        obs.unobserve(e.target);
+      if (e.isIntersecting) {
+        if (firstTimer || impact.classList.contains('fired')) return;
+        firstTimer = setTimeout(() => { firstTimer = null; reveal(); }, 2000);
+      } else {
+        reset();
       }
     });
   }, { threshold: 0.5 });
