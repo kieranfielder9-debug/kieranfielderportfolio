@@ -117,19 +117,17 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .signal-explain{position:relative;background:#0A0A0A;padding:130px 0 120px;text-align:center;overflow:hidden}
 .se-wrap{position:relative;max-width:640px;margin:0 auto}
 .se-kicker{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(19px,2.6vw,26px);color:rgba(255,255,255,.68);margin:0 0 52px}
-.se-impact{position:relative;width:132px;height:132px;margin:0 auto;background:none;border:none;padding:0;cursor:pointer;display:block}
+.se-impact{position:relative;width:132px;height:132px;margin:0 auto;display:block}
 .se-impact-dot{position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px 1px rgba(255,77,0,.35);animation:seBreathe 3.2s ease-in-out infinite}
 @keyframes seBreathe{0%,100%{box-shadow:0 0 10px 1px rgba(255,77,0,.35)}50%{box-shadow:0 0 16px 3px rgba(255,77,0,.55)}}
 .se-impact.fired .se-impact-dot{animation:none;transform:scale(1.35);box-shadow:0 0 30px 8px rgba(255,100,40,.75)}
 .se-impact-flash{position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:radial-gradient(circle,rgba(255,225,190,.95) 0%,rgba(255,140,60,.7) 38%,rgba(255,77,0,0) 72%);opacity:0;filter:blur(2px)}
 .se-impact-ring{position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2px solid rgba(255,120,50,.8);opacity:0;filter:blur(.5px)}
-.se-impact.fired .se-impact-flash{animation:seFlash .55s cubic-bezier(.1,.7,.3,1) forwards}
-.se-impact.fired .se-impact-ring:nth-child(2){animation:seShock .85s cubic-bezier(.15,.65,.3,1) forwards}
-.se-impact.fired .se-impact-ring:nth-child(3){animation:seShock .95s cubic-bezier(.15,.65,.3,1) .09s forwards}
-@keyframes seFlash{0%{opacity:0;transform:scale(1)}18%{opacity:1;transform:scale(2.6)}100%{opacity:0;transform:scale(4.2)}}
-@keyframes seShock{0%{opacity:.85;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(15) scaleX(1.08)}}
-.se-hint{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin:22px 0 0;transition:opacity .4s}
-.se-impact.fired~.se-hint{opacity:0}
+.se-impact.fired .se-impact-flash{animation:seFlash .6s cubic-bezier(.1,.7,.3,1) forwards}
+.se-impact.fired .se-impact-ring:nth-child(2){animation:seShock .9s cubic-bezier(.15,.65,.3,1) forwards}
+.se-impact.fired .se-impact-ring:nth-child(3){animation:seShock 1s cubic-bezier(.15,.65,.3,1) .09s forwards}
+@keyframes seFlash{0%{opacity:0;transform:scale(1)}18%{opacity:1;transform:scale(3.1)}100%{opacity:0;transform:scale(5)}}
+@keyframes seShock{0%{opacity:.85;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(19) scaleX(1.08)}}
 .se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,5.4vw,58px);line-height:1.15;color:#fff;margin:36px 0 0;opacity:0;transform:scale(.88) translateY(6px);filter:blur(6px)}
 .se-impact.fired~.se-claim{animation:seClaimLand .6s cubic-bezier(.2,1.35,.4,1) forwards}
 @keyframes seClaimLand{0%{opacity:0;transform:scale(.88) translateY(6px);filter:blur(6px)}55%{opacity:1;transform:scale(1.045);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
@@ -554,13 +552,12 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     <div class="seam seam-orange"></div>
     <div class="wrap se-wrap reveal">
       <p class="se-kicker">So — what is Signal?</p>
-      <button class="se-impact" type="button" aria-label="Tap to reveal">
-        <span class="se-impact-flash" aria-hidden="true"></span>
-        <span class="se-impact-ring" aria-hidden="true"></span>
-        <span class="se-impact-ring" aria-hidden="true"></span>
-        <span class="se-impact-dot" aria-hidden="true"></span>
-      </button>
-      <p class="se-hint">Tap to tune in</p>
+      <div class="se-impact" aria-hidden="true">
+        <span class="se-impact-flash"></span>
+        <span class="se-impact-ring"></span>
+        <span class="se-impact-ring"></span>
+        <span class="se-impact-dot"></span>
+      </div>
       <p class="se-claim">Not louder. Clearer. That's Signal.</p>
       <div class="se-beats">
         <p class="se-why">Founders don't lose customers to bigger brands. They lose them to brands that are clearer.</p>
@@ -1080,19 +1077,14 @@ function initSignalImpact() {
   const impact = document.querySelector('.se-impact');
   if (!impact) return;
   let fired = false;
-  let timer = null;
-  function fire() {
-    if (fired) return;
-    fired = true;
-    if (timer) clearTimeout(timer);
-    impact.classList.add('fired');
-    if (navigator.vibrate) navigator.vibrate([40, 30, 90]);
-  }
-  impact.addEventListener('click', fire);
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting && !fired) {
-        timer = setTimeout(fire, 4500);
+        setTimeout(() => {
+          if (fired) return;
+          fired = true;
+          impact.classList.add('fired');
+        }, 1000);
         obs.unobserve(e.target);
       }
     });
