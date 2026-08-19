@@ -132,7 +132,12 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-claim-1{margin:30px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
 .se-impact.fired~.se-claim-1{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
 .se-claim-2{margin:45vh 0 0}
-.se-clarity{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.6vw,48px);line-height:1.2;color:rgba(255,255,255,.82);margin:45vh auto 0}
+.se-framework{margin:45vh auto 0;max-width:560px}
+.se-framework-label{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin:0 0 40px;text-align:center}
+.se-framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 36px;text-align:left}
+.se-framework-item h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#fff;margin:0 0 8px}
+.se-framework-item p{font-family:'DM Sans',sans-serif;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.68);margin:0}
+@media (max-width:640px){.se-framework-grid{grid-template-columns:1fr;text-align:center}}
 @keyframes seClaimLand{0%{opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}65%{opacity:1;transform:scale(1.015);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
 .se-doors{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.58);max-width:440px;margin:45vh auto 0}
 .se-doors strong{color:#fff;font-weight:700}
@@ -560,7 +565,27 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       </div>
       <p class="se-claim se-claim-1">Signal is the angle only you see.</p>
       <p class="se-claim se-claim-2 reveal">What makes your brand impossible to confuse with anyone else.</p>
-      <p class="se-clarity reveal">It's the idea, perspective and expression that make your brand unmistakably yours.</p>
+      <div class="se-framework reveal">
+        <p class="se-framework-label">Signal is&hellip;</p>
+        <div class="se-framework-grid">
+          <div class="se-framework-item">
+            <h3>Positioning</h3>
+            <p>The idea your market should associate with you.</p>
+          </div>
+          <div class="se-framework-item">
+            <h3>Psychology</h3>
+            <p>The reason people care, believe and buy.</p>
+          </div>
+          <div class="se-framework-item">
+            <h3>Creative</h3>
+            <p>The visual and verbal expression that makes it recognizable.</p>
+          </div>
+          <div class="se-framework-item">
+            <h3>Growth</h3>
+            <p>Turning distinctiveness into attention, demand and revenue.</p>
+          </div>
+        </div>
+      </div>
       <div class="se-beats reveal">
         <p class="se-doors">Read every week in <strong>The Signal Newsletter</strong>.</p>
       </div>
