@@ -114,10 +114,10 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 @keyframes hbBorderSpin{to{transform:rotate(360deg)}}
 
 /* SIGNAL EXPLAIN */
-.signal-explain{position:relative;background:#0A0A0A;padding:130px 0 120px;text-align:center;overflow:hidden}
+.signal-explain{position:relative;background:#0A0A0A;padding:112px 0 104px;text-align:center;overflow:hidden}
 .se-wrap{position:relative;max-width:640px;margin:0 auto}
-.se-kicker{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,3.4vw,34px);color:rgba(255,255,255,.72);margin:0 0 48px}
-.se-impact{position:relative;width:132px;height:132px;margin:0 auto;display:block}
+.se-kicker{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,3.4vw,34px);color:rgba(255,255,255,.72);margin:0 0 38px}
+.se-impact{position:relative;width:100px;height:100px;margin:0 auto;display:block}
 .se-impact-dot{position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px 1px rgba(255,77,0,.35);animation:seBreathe 3.2s ease-in-out infinite}
 @keyframes seBreathe{0%,100%{box-shadow:0 0 10px 1px rgba(255,77,0,.35)}50%{box-shadow:0 0 16px 3px rgba(255,77,0,.55)}}
 .se-impact.fired .se-impact-dot{animation:none;transform:scale(1.35);box-shadow:0 0 30px 8px rgba(255,100,40,.75)}
@@ -128,13 +128,12 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-impact.flash-now .se-impact-ring:nth-child(3){animation:seShock 1.6s ease-out .12s forwards}
 @keyframes seFlash{0%{opacity:0;transform:scale(1)}22%{opacity:.9;transform:scale(2.8)}100%{opacity:0;transform:scale(5.2)}}
 @keyframes seShock{0%{opacity:.7;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(16) scaleX(1.06)}}
-.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,5.4vw,58px);line-height:1.15;color:#fff;margin:36px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
+.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.6vw,48px);line-height:1.2;color:#fff;margin:30px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
 .se-impact.fired~.se-claim{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
 @keyframes seClaimLand{0%{opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}65%{opacity:1;transform:scale(1.015);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
 .se-beats{opacity:0;transform:translateY(12px);transition:opacity .8s ease .3s,transform .8s ease .3s}
 .se-impact.fired~.se-beats{opacity:1;transform:none}
-.se-why{font-family:'DM Sans',sans-serif;font-weight:500;font-size:18px;line-height:1.6;color:rgba(255,255,255,.8);max-width:480px;margin:32px auto 0}
-.se-doors{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.58);max-width:440px;margin:22px auto 0}
+.se-doors{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.58);max-width:440px;margin:26px auto 0}
 .se-doors strong{color:#fff;font-weight:700}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
@@ -560,8 +559,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       </div>
       <p class="se-claim">Signal is the angle only you see. What makes your brand impossible to confuse with anyone else?</p>
       <div class="se-beats">
-        <p class="se-why">Founders don't lose customers to bigger brands. They lose them to brands that are clearer.</p>
-        <p class="se-doors">Read every week in <strong>The Signal Newsletter</strong>. Or skip ahead — get it applied straight to your brand with a <strong>Signal Audit</strong>.</p>
+        <p class="se-doors">Read every week in <strong>The Signal Newsletter</strong>.</p>
       </div>
     </div>
   </section>
