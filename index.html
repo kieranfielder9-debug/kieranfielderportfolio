@@ -128,12 +128,12 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-impact.flash-now .se-impact-ring:nth-child(3){animation:seShock 1.6s ease-out .12s forwards}
 @keyframes seFlash{0%{opacity:0;transform:scale(1)}22%{opacity:.9;transform:scale(2.8)}100%{opacity:0;transform:scale(5.2)}}
 @keyframes seShock{0%{opacity:.7;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(16) scaleX(1.06)}}
-.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,6vw,64px);line-height:1.15;color:#fff;margin:30px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
-.se-impact.fired~.se-claim{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
+.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.6vw,48px);line-height:1.2;color:#fff}
+.se-claim-1{margin:30px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
+.se-impact.fired~.se-claim-1{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
+.se-claim-2{margin:65vh 0 0}
 @keyframes seClaimLand{0%{opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}65%{opacity:1;transform:scale(1.015);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
-.se-beats{opacity:0;transform:translateY(12px);transition:opacity .8s ease .3s,transform .8s ease .3s}
-.se-impact.fired~.se-beats{opacity:1;transform:none}
-.se-doors{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.58);max-width:440px;margin:clamp(90px,18vw,190px) auto 0}
+.se-doors{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.58);max-width:440px;margin:65vh auto 0}
 .se-doors strong{color:#fff;font-weight:700}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
@@ -228,7 +228,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim{transition:opacity .3s}.se-impact.fired~.se-claim{animation:none;opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -557,8 +557,9 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
         <span class="se-impact-ring"></span>
         <span class="se-impact-dot"></span>
       </div>
-      <p class="se-claim">Signal is the angle only you see. What makes your brand impossible to confuse with anyone else.</p>
-      <div class="se-beats">
+      <p class="se-claim se-claim-1">Signal is the angle only you see.</p>
+      <p class="se-claim se-claim-2 reveal">What makes your brand impossible to confuse with anyone else.</p>
+      <div class="se-beats reveal">
         <p class="se-doors">Read every week in <strong>The Signal Newsletter</strong>.</p>
       </div>
     </div>
