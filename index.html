@@ -1160,6 +1160,28 @@ function postToEndpoint(data) {
     .then(res => { if (!res.ok) throw new Error('Request failed'); });
 }
 
+// Fallback path: posts straight to Mailchimp via a hidden iframe. Used
+// whenever the /api/subscribe function isn't configured yet or can't be
+// reached, so a subscriber never sees a hard failure over that.
+function subscribeViaMailchimpIframe(em, form, note, btn, label) {
+  const f = document.createElement('form');
+  f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = 'mc-silent-frame';
+  const i = document.createElement('input'); i.type = 'email'; i.name = 'EMAIL'; i.value = em;
+  // Mailchimp's anti-bot honeypot field — must exist, must stay empty.
+  const b = document.createElement('input'); b.type = 'text'; b.name = 'b_87a3a01a1d2a2b3ec01a0e137_22ae2915e9'; b.value = '';
+  f.appendChild(i); f.appendChild(b); document.body.appendChild(f); f.submit(); f.remove();
+  form.reset();
+  const frame = document.querySelector('iframe[name="mc-silent-frame"]');
+  let done = false;
+  const finish = () => {
+    if (done) return; done = true;
+    btn.disabled = false; btn.textContent = label;
+    setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
+  };
+  frame.addEventListener('load', finish, { once: true });
+  setTimeout(finish, 4000);
+}
+
 function subscribeNL(form) {
   if (form._gotcha && form._gotcha.value) { form.reset(); return false; }
   const em = form.em.value.trim();
@@ -1168,22 +1190,28 @@ function subscribeNL(form) {
 
   if (MAILCHIMP_ACTION) {
     btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
-    const f = document.createElement('form');
-    f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = 'mc-silent-frame';
-    const i = document.createElement('input'); i.type = 'email'; i.name = 'EMAIL'; i.value = em;
-    // Mailchimp's anti-bot honeypot field — must exist, must stay empty.
-    const b = document.createElement('input'); b.type = 'text'; b.name = 'b_87a3a01a1d2a2b3ec01a0e137_22ae2915e9'; b.value = '';
-    f.appendChild(i); f.appendChild(b); document.body.appendChild(f); f.submit(); f.remove();
-    form.reset();
-    const frame = document.querySelector('iframe[name="mc-silent-frame"]');
-    let done = false;
-    const finish = () => {
-      if (done) return; done = true;
-      btn.disabled = false; btn.textContent = label;
-      setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
-    };
-    frame.addEventListener('load', finish, { once: true });
-    setTimeout(finish, 4000);
+    const source = form.classList.contains('nl-hero-form') ? 'Landing' : 'Homepage';
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: em, source })
+    })
+      .then(r => r.json().then(data => ({ httpOk: r.ok, data })))
+      .then(({ httpOk, data }) => {
+        if (httpOk && data.ok) {
+          form.reset();
+          btn.disabled = false; btn.textContent = label;
+          setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
+        } else if (data && data.code === 'mailchimp_error') {
+          btn.disabled = false; btn.textContent = label;
+          setFormStatus(note, "That didn't send — email kieranfielder9@gmail.com and I'll add you myself.", 'error');
+        } else {
+          // Not configured yet, or a bad request our own client-side
+          // validation should have already prevented — fall back quietly.
+          subscribeViaMailchimpIframe(em, form, note, btn, label);
+        }
+      })
+      .catch(() => subscribeViaMailchimpIframe(em, form, note, btn, label));
   } else if (FORM_ENDPOINT) {
     btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
     postToEndpoint({ email: em, _subject: 'Newsletter sign-up: Signal' })
