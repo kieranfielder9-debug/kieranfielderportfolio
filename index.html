@@ -141,6 +141,8 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 @keyframes seClaimLand{0%{opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}65%{opacity:1;transform:scale(1.015);filter:blur(0)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
 .se-doors{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,.58);max-width:440px;margin:45vh auto 0}
 .se-doors strong{color:#fff;font-weight:700}
+.se-doors-link{color:#fff;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);transition:border-color .2s,color .2s}
+.se-doors-link:hover,.se-doors-link:focus-visible{color:var(--orange);border-color:var(--orange)}
 
 .signal-showcase{position:relative;background:#0A0A0A;overflow:hidden;padding:120px 0 108px;text-align:center}
 .ss-solo{position:relative;max-width:640px;margin:0 auto}
@@ -587,12 +589,12 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
         </div>
       </div>
       <div class="se-beats reveal">
-        <p class="se-doors">Read every week in <strong>The Signal Newsletter</strong>.</p>
+        <p class="se-doors">Read every week in <a href="#signal-teaser" class="se-doors-link">The Signal Newsletter</a>.</p>
       </div>
     </div>
   </section>
 
-  <section class="signal-showcase">
+  <section class="signal-showcase" id="signal-teaser">
     <svg class="paint-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <rect width="1440" height="900" fill="#0A0A0A"/>
       <g>
