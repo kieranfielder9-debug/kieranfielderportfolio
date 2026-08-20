@@ -175,6 +175,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-avatar{position:absolute;top:0;left:0;transform:translate(-34%,-34%);width:142px;height:142px;border-radius:50%;background:#fff;border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
 .avatar-kf{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .avatar-kf svg{width:100%;height:100%}
+.about-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 .meet-note{position:absolute;top:-60px;left:128px;display:flex;align-items:center;gap:10px}
 .meet-note-mobile{display:none}
 .meet-note svg{width:72px;height:46px;flex-shrink:0;margin-top:14px}
@@ -650,6 +651,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <div class="about-card reveal">
         <div class="about-avatar">
           <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="27" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">K</text><text x="73" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">F</text><path d="M12 71 H39 M61 71 H88" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/><path d="M39 71 C44 67 46.5 58 48 48 C50 60 51.5 78 54.5 86 C56.5 79 58.5 73 61 71" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/>
         </div>
         <div class="meet-note" aria-hidden="true">
           <svg viewBox="0 0 90 56" fill="none"><path d="M84 10 C62 38 38 44 14 34" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/><path d="M14 34 L30 40 M14 34 L28 24" stroke="#0A0A0A" stroke-width="5" stroke-linecap="round"/></svg>
@@ -658,8 +660,8 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
         <p class="meet-note-mobile">Meet Kieran Fielder</p>
         <div class="about-chiprow"><span class="about-chip">The Growth Marketer</span></div>
         <div>
-          <h2 class="about-state">I'm Kieran — I work with lifestyle DTC and SaaS founders on the thing most brands get wrong: sounding like everyone else in their category.</h2>
-          <p class="about-detail">I help you find the one idea that's actually yours, then build the systems that carry it through everything you do.</p>
+          <h2 class="about-state">I'm Kieran. I work with lifestyle DTC and SaaS founders who sound like everyone else in their category.</h2>
+          <p class="about-detail">I find the one idea that's actually yours, then turn it into the copy, positioning and creative that carries it everywhere.</p>
           <button class="sayhi" onclick="go('read')">Receive Signal <span class="arr-w">→</span></button>
         </div>
         <div class="about-lead">
