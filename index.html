@@ -84,6 +84,8 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .page-dark footer .f-right .sayhi{font-size:16px;padding:24px 58px;letter-spacing:.18em}
 .footer-sig{font-family:'Mr Dafoe',cursive;font-size:54px;color:#fff;display:block;line-height:1.1;margin-bottom:16px;transform:rotate(-4deg);transform-origin:left bottom}
 .footer-copy{font-size:12px;color:#8E8E8E}
+.footer-legal-link{color:inherit;text-decoration:underline;text-underline-offset:2px;margin-left:10px;transition:color .2s}
+.footer-legal-link:hover{color:var(--orange)}
 
 .sayhi{display:inline-block;background:var(--ink);color:#fff;padding:17px 40px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .sayhi:disabled{opacity:.55;cursor:default}
@@ -135,6 +137,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-framework{margin:45vh auto 0;max-width:560px}
 .se-framework-label{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin:0 0 40px;text-align:center}
 .se-framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 36px;text-align:left}
+.se-framework-num{display:block;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--orange);margin:0 0 8px}
 .se-framework-item h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#fff;margin:0 0 8px}
 .se-framework-item p{font-family:'DM Sans',sans-serif;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.68);margin:0}
 @media (max-width:640px){.se-framework-grid{grid-template-columns:1fr;text-align:center}}
@@ -571,18 +574,22 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
         <p class="se-framework-label">Signal is&hellip;</p>
         <div class="se-framework-grid">
           <div class="se-framework-item">
+            <span class="se-framework-num">01</span>
             <h3>Positioning</h3>
             <p>What you're known for, in one sentence.</p>
           </div>
           <div class="se-framework-item">
+            <span class="se-framework-num">02</span>
             <h3>Psychology</h3>
             <p>Why people choose you over anyone else.</p>
           </div>
           <div class="se-framework-item">
+            <span class="se-framework-num">03</span>
             <h3>Creative</h3>
             <p>What makes that idea stick in someone's head.</p>
           </div>
           <div class="se-framework-item">
+            <span class="se-framework-num">04</span>
             <h3>Growth</h3>
             <p>How that turns into customers.</p>
           </div>
@@ -666,7 +673,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 
   <footer id="contact" class="scroll-target">
     <div class="seam seam-white"></div>
-    <div class="wrap"><div class="footer-flex"><div class="f-right"><h2 class="f-cta f-cta-script">Every Brand has a Signal.</h2><p class="f-cta-sub">Most just haven't found it yet.</p><button class="sayhi sayhi-orange f-audit-btn" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></div></div>
+    <div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta f-cta-script">Every Brand has a Signal.</h2><p class="f-cta-sub">Most just haven't found it yet.</p><button class="sayhi sayhi-orange f-audit-btn" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div>
   </footer>
 </div>
 
@@ -697,7 +704,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </a>
     </div>
   </div></section>
-  <footer><div class="seam seam-black"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-black"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- SERVICES PAGE -->
@@ -745,7 +752,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       </div>
     </div>
   </section>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- BLOG PAGE -->
@@ -757,7 +764,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <h2>—</h2>
     </div>
   </div></section>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- SAY HI PAGE -->
@@ -799,7 +806,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <p class="hi-email-line">Prefer plain email? <a class="email-inline" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a></p>
     </form>
   </div></section>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- BLOG POST TEMPLATE (sample post) -->
@@ -816,7 +823,24 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     <div class="post-cta"><p>Enjoyed this? The newsletter is this, weekly.</p><button class="sayhi" onclick="go('read')">Get the newsletter</button></div>
   </article>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Blog</div></div><button class="next-arrow" onclick="go('blog')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
+</div>
+
+<!-- PRIVACY PAGE -->
+<div id="p-privacy" class="page">
+  <header class="page-header"><div class="wrap"><div class="section-label">Legal</div><h1 class="page-title">Privacy</h1><p class="post-meta">Last updated August 2026</p></div></header><hr class="divider"/>
+  <article class="post-wrap">
+    <p>Signal collects the minimum needed to run this site and the newsletter — here's exactly what that is.</p>
+    <h2>Newsletter</h2>
+    <p>If you subscribe, your email address is sent to Mailchimp, the service used to send Signal each week. You'll get a confirmation email before anything else arrives. Your address is never sold or shared, and you can unsubscribe from any issue at any time.</p>
+    <h2>Getting in touch</h2>
+    <p>If you submit an enquiry through this site, whatever you enter — name, company, email and the details of your message — is sent through a third-party form service used purely to deliver that message to Kieran's inbox. It's used only to reply to you.</p>
+    <h2>Analytics</h2>
+    <p>This site uses Google Analytics to understand overall traffic — which pages get read, roughly how visitors arrive, and a small number of specific actions like signing up or sending an enquiry. This is aggregate usage data, not used to identify you personally. Google's own privacy policy governs how they handle it.</p>
+    <h2>Questions</h2>
+    <p>Email <a class="email-inline" href="mailto:kieranfielder9@gmail.com">kieranfielder9@gmail.com</a> for anything about your data, including a request to have it deleted.</p>
+  </article>
+  <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- READ PAGE -->
@@ -847,7 +871,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <p class="nl-note" style="max-width:560px;margin:16px auto 0">One email a week, never sold or shared. Unsubscribe any time, no hard feelings.</p>
     </div>
   </section>
-  <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- CASE 2: Pulse Financials -->
@@ -889,7 +913,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </div>
   </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves an email like this, tell me about it.</p><button class="sayhi" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Work</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- CASE 3: Hyundai IONIQ 5 N -->
@@ -960,7 +984,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </div>
   </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves copy like this, tell me about it.</p><button class="sayhi" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Work</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <!-- CASE 5: Vault Google Ad -->
@@ -1010,7 +1034,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </div>
   </div><aside class="case-sidebar"><div class="sidebar-block sidebar-cta"><div class="sidebar-label">Interested?</div><p class="sb-copy">If your product deserves an ad like this, tell me about it.</p><button class="sayhi" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div></aside></div></div></div>
   <div class="next-strip"><div class="wrap"><div class="next-inner"><div><div class="next-label">Back to</div><div class="next-title-txt">The Work</div></div><button class="next-arrow" onclick="go('work')"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg></button></div></div></div>
-  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
+  <footer><div class="seam seam-white"></div><div class="wrap"><div class="footer-flex footer-flex-stack"><div class="f-right"><h2 class="f-cta">Great to hear<br>from <span class="lt-u">you<svg viewBox="0 0 200 22" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 Q100 23 194 8" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></svg></span></h2><button class="sayhi sayhi-orange" onclick="go('sayhi')">Signal Audit <span class="arr-w">→</span></button></div><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved. <a class="footer-legal-link" href="#" onclick="go('privacy');return false;">Privacy</a></p></div></div></div></footer>
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -1028,7 +1052,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 </svg>
 
 <script>
-const PAGES = ['home','work','services','blog','read','sayhi','post-sample','case-ad','case-pulse','case-hyundai'];
+const PAGES = ['home','work','services','blog','read','sayhi','post-sample','privacy','case-ad','case-pulse','case-hyundai'];
 const WORKISH = ['work','case-ad','case-pulse','case-hyundai'];
 
 function go(id, anchorId) {
