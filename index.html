@@ -614,7 +614,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
         <button class="nl-btn" type="submit">Receive Signal</button>
       </form>
       <p class="nl-status" style="max-width:440px;margin:12px auto 0" aria-live="polite"></p>
-      <p class="ss-fine">Feel free to unsubscribe at any time, if you don't get value from this newsletter.</p>
+      <p class="ss-fine">One email a week, never sold or shared. Unsubscribe any time, no hard feelings.</p>
     </div>
   </section>
 
@@ -837,14 +837,14 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <h1 class="nl-hero-title">SIGNAL</h1>
       <p class="nl-topics">Systems, Psychology, Growth, Copy and Branding.</p>
       <p class="nl-hero-copy">Signal is for founders, entrepreneurs, and creative leaders who want to build brands people notice, understand, and remember.</p>
-      <p class="nl-hero-copy">Inside Signal, you'll discover ideas on positioning, brand strategy, customer psychology, creative thinking, and growth marketing, helping you turn what makes your business unique into a message that connects.</p>
+      <p class="nl-hero-copy">Every week, Signal breaks down ideas on positioning, brand strategy, customer psychology, creative thinking, and growth marketing — helping you turn what makes your business unique into a message that connects.</p>
       <form class="nl-form nl-hero-form" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required placeholder="your@email.com" name="em" aria-label="Your email address"/>
         <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <button class="nl-btn" type="submit">Receive Signal</button>
       </form>
       <p class="nl-status" style="max-width:520px;margin:12px auto 0" aria-live="polite"></p>
-      <p class="nl-note" style="max-width:560px;margin:16px auto 0">Feel free to unsubscribe at any time, if you don't get value from this newsletter.</p>
+      <p class="nl-note" style="max-width:560px;margin:16px auto 0">One email a week, never sold or shared. Unsubscribe any time, no hard feelings.</p>
     </div>
   </section>
   <footer><div class="wrap"><div class="footer-flex"><div class="f-left"><span class="footer-sig">Kieran Fielder</span><p class="footer-copy">© 2026 Kieran Fielder. All rights reserved.</p></div></div></div></footer>
@@ -1167,6 +1167,7 @@ function subscribeNL(form) {
   const note = form.nextElementSibling;
 
   if (MAILCHIMP_ACTION) {
+    btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
     const f = document.createElement('form');
     f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = 'mc-silent-frame';
     const i = document.createElement('input'); i.type = 'email'; i.name = 'EMAIL'; i.value = em;
@@ -1174,7 +1175,15 @@ function subscribeNL(form) {
     const b = document.createElement('input'); b.type = 'text'; b.name = 'b_87a3a01a1d2a2b3ec01a0e137_22ae2915e9'; b.value = '';
     f.appendChild(i); f.appendChild(b); document.body.appendChild(f); f.submit(); f.remove();
     form.reset();
-    setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
+    const frame = document.querySelector('iframe[name="mc-silent-frame"]');
+    let done = false;
+    const finish = () => {
+      if (done) return; done = true;
+      btn.disabled = false; btn.textContent = label;
+      setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
+    };
+    frame.addEventListener('load', finish, { once: true });
+    setTimeout(finish, 4000);
   } else if (FORM_ENDPOINT) {
     btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
     postToEndpoint({ email: em, _subject: 'Newsletter sign-up: Signal' })
