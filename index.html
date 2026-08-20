@@ -1136,7 +1136,7 @@ initSignalImpact();
 
 // 1) Newsletter only — for building an actual mailable list.
 // Mailchimp → Audience → Signup forms → Embedded form → copy the form action URL.
-const MAILCHIMP_ACTION = '';
+const MAILCHIMP_ACTION = 'https://kieranfielder.us11.list-manage.com/subscribe/post?u=87a3a01a1d2a2b3ec01a0e137&id=22ae2915e9&f_id=001917e1f0';
 
 // 2) Either form — a plain "deliver this submission to my inbox" endpoint.
 // Formspree (formspree.io) issues one of these free in about two minutes,
@@ -1170,7 +1170,9 @@ function subscribeNL(form) {
     const f = document.createElement('form');
     f.method = 'POST'; f.action = MAILCHIMP_ACTION; f.target = 'mc-silent-frame';
     const i = document.createElement('input'); i.type = 'email'; i.name = 'EMAIL'; i.value = em;
-    f.appendChild(i); document.body.appendChild(f); f.submit(); f.remove();
+    // Mailchimp's anti-bot honeypot field — must exist, must stay empty.
+    const b = document.createElement('input'); b.type = 'text'; b.name = 'b_87a3a01a1d2a2b3ec01a0e137_22ae2915e9'; b.value = '';
+    f.appendChild(i); f.appendChild(b); document.body.appendChild(f); f.submit(); f.remove();
     form.reset();
     setFormStatus(note, "You're in — check your inbox to confirm.", 'success');
   } else if (FORM_ENDPOINT) {
