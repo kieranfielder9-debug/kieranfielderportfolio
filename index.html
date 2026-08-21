@@ -175,8 +175,6 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .about-avatar{position:absolute;top:0;left:0;transform:translate(-34%,-34%);width:142px;height:142px;border-radius:50%;background:#fff;border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
 .avatar-kf{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .avatar-kf svg{width:100%;height:100%}
-.about-photo-frame{width:92px;height:133px;border-radius:14px;overflow:hidden;margin:0 auto 24px}
-.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
 .meet-note{position:absolute;top:-60px;left:128px;display:flex;align-items:center;gap:10px}
 .meet-note-mobile{display:none}
 .meet-note svg{width:72px;height:46px;flex-shrink:0;margin-top:14px}
@@ -296,10 +294,7 @@ h2.serif em{font-style:italic}
 .c-note.is-success{color:var(--ink);font-weight:700}
 .c-note.is-error{color:#B3261E;font-weight:700}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-.email-inline{font-size:16px;color:var(--ink);text-decoration:none;font-weight:500;border-bottom:2px solid var(--orange);padding-bottom:2px;transition:color .2s}
-.case-inline{color:inherit;text-decoration:none;font-weight:600;border-bottom:2px solid var(--orange);padding-bottom:1px;cursor:pointer;transition:opacity .2s}
-.case-inline:hover{opacity:.65}
-.email-inline:hover{color:var(--orange)}
+.email-inline{font-size:16px;color:var(--ink);text-decoration:none;font-weight:500;border-bottom:2px solid var(--orange);padding-bottom:2px;transition:color .2s}.email-inline:hover{color:var(--orange)}
 
 /* DELIVERABLE MOCKUPS */
 .mock-browser{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:16px;background:#fff;box-shadow:0 18px 40px -24px rgba(10,10,10,.28)}
@@ -362,6 +357,10 @@ h2.serif em{font-style:italic}
 .nl-hero .wrap{position:relative;z-index:2}
 .nl-hero-script{font-family:'Mr Dafoe',cursive;font-size:clamp(28px,3.4vw,44px);color:#fff;display:block;margin-bottom:6px;word-spacing:.4em}
 .nl-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,12vw,170px);font-weight:500;color:#fff;line-height:.95;letter-spacing:.05em;margin-bottom:30px}
+.nl-byline{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 24px}
+.nl-byline-photo{width:34px;height:34px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.nl-byline-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.nl-byline-name{font-family:'Mr Dafoe',cursive;font-size:22px;font-weight:400;color:#fff;transform:rotate(-2deg)}
 .nl-hero-copy{max-width:760px;margin:0 auto 14px;color:#D9D9D9;font-size:17px;line-height:1.75}
 .nl-hero-form{max-width:520px;margin:44px auto 0}
 .newsletter{background:var(--ink);padding:110px 0}
@@ -660,7 +659,6 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
           <span>Meet Kieran Fielder</span>
         </div>
         <p class="meet-note-mobile">Meet Kieran Fielder</p>
-        <div class="about-photo-frame"><img src="images/portrait.jpg" alt="Kieran Fielder" onerror="this.remove()"/></div>
         <div class="about-chiprow"><span class="about-chip">The Growth Marketer</span></div>
         <div>
           <h2 class="about-state">I'm Kieran. I work with lifestyle DTC and SaaS founders who sound like everyone else in their category.</h2>
@@ -670,7 +668,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
         <div class="about-lead">
           <div class="about-divider" aria-hidden="true"><svg viewBox="0 0 26 34" fill="none"><path d="M13 0 C13 5 6.5 8 5 11 C13.5 14 20.5 18 20 22 C19.5 26 14 28 13 34" stroke="#FF4D00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <p>By the end, you should gain clarity and command across your channels.</p>
-          <p class="about-detail">See it at work: a launch email for <a href="#" class="case-inline" onclick="go('case-pulse');return false;">Pulse Financials</a>, product copy for the <a href="#" class="case-inline" onclick="go('case-hyundai');return false;">Hyundai IONIQ 5 N</a>.</p>
+          <p class="about-detail">Leaving you with a brand built to sustain its own growth.</p>
         </div>
       </div>
     </div>
@@ -865,8 +863,9 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </svg>
     <div class="wrap">
       <h1 class="nl-hero-title">SIGNAL</h1>
+      <div class="nl-byline"><span class="nl-byline-photo"><img src="images/portrait.jpg" alt="" aria-hidden="true" onerror="this.parentElement.remove()"/></span><span class="nl-byline-name">Written by Kieran Fielder</span></div>
       <p class="nl-topics">Systems, Psychology, Growth, Copy and Branding.</p>
-      <p class="nl-hero-copy">Written by Kieran Fielder, for founders, entrepreneurs and creative leaders who want their brand impossible to confuse with anyone else's.</p>
+      <p class="nl-hero-copy">For founders, entrepreneurs and creative leaders who want their brand impossible to confuse with anyone else's.</p>
       <p class="nl-hero-copy">Every week: one breakdown that turns what makes your brand different into a message people actually remember.</p>
       <form class="nl-form nl-hero-form" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required autocomplete="email" placeholder="your@email.com" name="em" aria-label="Your email address"/>
