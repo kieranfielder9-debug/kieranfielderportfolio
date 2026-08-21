@@ -155,6 +155,10 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .ss-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:var(--orange);opacity:.6;animation:ssDotPulse 2s cubic-bezier(0,0,.3,1) infinite}
 @keyframes ssDotPulse{0%{transform:scale(.4);opacity:.6}100%{transform:scale(2.6);opacity:0}}
 .ss-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,9vw,120px);line-height:.98;color:#fff;margin:0 0 16px}
+.signal-byline{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 24px}
+.signal-byline-photo{width:34px;height:34px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.signal-byline-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+.signal-byline-name{font-family:'Mr Dafoe',cursive;font-size:22px;font-weight:400;color:#fff;transform:rotate(-2deg)}
 .ss-fine{font-size:12px;color:rgba(255,255,255,.4);margin:16px auto 0;max-width:480px}
 .u-fl{position:relative;display:inline-block}
 .u-fl svg{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.24em;overflow:visible}
@@ -357,10 +361,6 @@ h2.serif em{font-style:italic}
 .nl-hero .wrap{position:relative;z-index:2}
 .nl-hero-script{font-family:'Mr Dafoe',cursive;font-size:clamp(28px,3.4vw,44px);color:#fff;display:block;margin-bottom:6px;word-spacing:.4em}
 .nl-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,12vw,170px);font-weight:500;color:#fff;line-height:.95;letter-spacing:.05em;margin-bottom:30px}
-.nl-byline{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 24px}
-.nl-byline-photo{width:34px;height:34px;border-radius:50%;overflow:hidden;flex-shrink:0}
-.nl-byline-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
-.nl-byline-name{font-family:'Mr Dafoe',cursive;font-size:22px;font-weight:400;color:#fff;transform:rotate(-2deg)}
 .nl-hero-copy{max-width:760px;margin:0 auto 14px;color:#D9D9D9;font-size:17px;line-height:1.75}
 .nl-hero-form{max-width:520px;margin:44px auto 0}
 .newsletter{background:var(--ink);padding:110px 0}
@@ -619,6 +619,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     <div class="wrap ss-solo">
       <p class="ss-kicker"><span class="ss-dot"></span>Signal</p>
       <h2 class="ss-title">SIGNAL</h2>
+      <div class="signal-byline"><span class="signal-byline-photo"><img src="images/portrait.jpg" alt="" aria-hidden="true" onerror="this.parentElement.remove()"/></span><span class="signal-byline-name">Written by Kieran Fielder</span></div>
       <p class="ss-promise">Never quite sure what your brand should say? Signal tells you, every week.</p>
       <form class="nl-form" style="max-width:440px;margin:0 auto" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required autocomplete="email" placeholder="your@email.com" name="em" aria-label="Your email address"/>
@@ -649,7 +650,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </svg>
     <div class="seam seam-black"></div>
     <div class="wrap">
-      <div class="section-label">Who?</div>
+      <div class="section-label">Meet</div>
       <div class="about-card reveal">
         <div class="about-avatar">
           <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="27" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">K</text><text x="73" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">F</text><path d="M12 71 H39 M61 71 H88" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/><path d="M39 71 C44 67 46.5 58 48 48 C50 60 51.5 78 54.5 86 C56.5 79 58.5 73 61 71" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -863,9 +864,8 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </svg>
     <div class="wrap">
       <h1 class="nl-hero-title">SIGNAL</h1>
-      <div class="nl-byline"><span class="nl-byline-photo"><img src="images/portrait.jpg" alt="" aria-hidden="true" onerror="this.parentElement.remove()"/></span><span class="nl-byline-name">Written by Kieran Fielder</span></div>
       <p class="nl-topics">Systems, Psychology, Growth, Copy and Branding.</p>
-      <p class="nl-hero-copy">For founders, entrepreneurs and creative leaders who want their brand impossible to confuse with anyone else's.</p>
+      <p class="nl-hero-copy">Written by Kieran Fielder, for founders, entrepreneurs and creative leaders who want their brand impossible to confuse with anyone else's.</p>
       <p class="nl-hero-copy">Every week: one breakdown that turns what makes your brand different into a message people actually remember.</p>
       <form class="nl-form nl-hero-form" onsubmit="return subscribeNL(this)">
         <input class="nl-input" type="email" required autocomplete="email" placeholder="your@email.com" name="em" aria-label="Your email address"/>
