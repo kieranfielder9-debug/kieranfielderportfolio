@@ -178,30 +178,25 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .meet-signature-photo{width:130px;height:188px;border-radius:8px;overflow:hidden;flex-shrink:0}
 .meet-signature-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
 .meet-signature-name{font-family:'Dancing Script',cursive;font-weight:700;font-size:clamp(42px,7vw,76px);color:var(--ink)}
-.about-card{position:relative;max-width:980px;margin:0 auto 0;border:2px solid var(--ink);border-top:1px solid rgba(10,10,10,.2);background:#EAD0B0;padding:88px 72px 72px;display:grid;grid-template-columns:1.02fr 1fr;gap:24px 64px;align-items:start}
-.meet-row{grid-column:1/-1;display:flex;align-items:center;justify-content:center;margin:0 0 40px}
-.about-avatar{width:220px;height:220px;border-radius:50%;background:#fff;border:2px solid var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.about-card{position:relative;max-width:980px;margin:0 auto 0;border:2px solid var(--ink);border-top:1px solid rgba(10,10,10,.2);background:#EAD0B0;padding:88px 72px 72px}
+.meet-row{display:flex;align-items:center;justify-content:center;margin:0 0 32px}
+.about-avatar{width:340px;height:340px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .avatar-kf{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .avatar-kf svg{width:100%;height:100%}
 .about-chip{display:inline-block;background:var(--orange);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;margin-bottom:16px}
-.about-chiprow{grid-column:1/-1;text-align:center}
+.about-chiprow{text-align:center;margin:0 0 8px}
 .about-chiprow .about-chip{margin-bottom:0}
+.about-copy{max-width:640px;margin:0 auto;text-align:center}
 .about-state{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;color:var(--ink);line-height:1.16;margin-bottom:36px}
 .about-state em{font-style:italic}
 .about-card p{font-size:16px;line-height:1.75;margin-bottom:18px;color:var(--body)}
 .about-card p.about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:18px;line-height:1.6;color:var(--body);margin:0 0 22px}
-.about-card .about-lead p.about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:18px;line-height:1.6;color:var(--body);margin:14px 0 0}
 .about-detail .hl-o{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6em;font-weight:600}
+.about-lead-line{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;line-height:1.16;color:var(--ink);margin:48px 0 0}
 .about-meta{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin:0 0 28px}
-.about-card .about-lead p{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,44px);font-weight:500;line-height:1.16;color:var(--ink);margin:0}
-.about-lead em{font-style:italic}
 .hl-o{color:var(--orange)}
 .nb{white-space:nowrap}
 .about-card .sayhi{font-size:14px;padding:20px 46px;margin-top:44px}
-.about-lead{position:relative}
-.about-divider{position:absolute;top:4px;bottom:4px;left:-32px;transform:translateX(-50%);width:26px;display:flex;flex-direction:column;align-items:center;pointer-events:none}
-.about-divider::before,.about-divider::after{content:'';width:1.5px;flex:1;background:rgba(10,10,10,.8)}
-.about-divider svg{width:26px;height:34px;flex-shrink:0;display:block}
 .sayhi .arr-w{display:inline-block;transition:transform .25s;margin-left:10px}
 .sayhi:hover .arr-w{transform:translateX(5px)}
 
@@ -509,8 +504,8 @@ h2.case-h2 em{font-style:italic}
 .scroll-target{scroll-margin-top:84px}
 
 @media(max-width:1024px){.case-layout{grid-template-columns:minmax(0,1fr)}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
-@media(max-width:1024px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-logo{font-size:20px}.nav-right{gap:14px}.nav-links button.nav-signal{font-size:10.5px;padding:9px 14px;letter-spacing:.06em;gap:6px;white-space:nowrap}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;padding:76px 26px 56px;margin-top:0}.meet-plate{margin-top:88px;padding:20px 26px}.meet-signature-name{font-size:clamp(32px,9vw,48px)}.about-avatar{width:170px;height:170px}.meet-signature-photo{width:96px;height:139px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.footer-flex-stack{align-items:center;text-align:center;gap:40px}.footer-flex-stack .f-right{align-items:center;text-align:center}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
-@media(max-width:1400px) and (min-width:1025px){.about-divider{display:none}.about-card{grid-template-columns:1fr;gap:8px;margin-top:0}.meet-plate{margin-top:88px;padding:24px 26px}.about-section{padding:96px 0}}
+@media(max-width:1024px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-logo{font-size:20px}.nav-right{gap:14px}.nav-links button.nav-signal{font-size:10.5px;padding:9px 14px;letter-spacing:.06em;gap:6px;white-space:nowrap}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.about-card{padding:76px 26px 56px;margin-top:0}.meet-plate{margin-top:88px;padding:20px 26px}.meet-signature-name{font-size:clamp(32px,9vw,48px)}.about-avatar{width:240px;height:240px}.meet-signature-photo{width:96px;height:139px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.footer-flex-stack{align-items:center;text-align:center;gap:40px}.footer-flex-stack .f-right{align-items:center;text-align:center}.script-block{padding:24px}.script-line{font-size:16px}.about-section{padding:96px 0}}
+@media(max-width:1400px) and (min-width:1025px){.meet-plate{margin-top:88px;padding:24px 26px}.about-section{padding:96px 0}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
 </style>
 
@@ -660,14 +655,11 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
           </div>
         </div>
         <div class="about-chiprow"><span class="about-chip">The Growth Marketer</span></div>
-        <div>
+        <div class="about-copy">
           <h2 class="about-state">I'm Kieran. I work with lifestyle DTC and SaaS founders who sound like everyone else in their category.</h2>
           <p class="about-detail">I find what makes you different, then turn it into a brand people actually remember.</p>
           <button class="sayhi" onclick="go('read')">Receive Signal <span class="arr-w">→</span></button>
-        </div>
-        <div class="about-lead">
-          <div class="about-divider" aria-hidden="true"><svg viewBox="0 0 26 34" fill="none"><path d="M13 0 C13 5 6.5 8 5 11 C13.5 14 20.5 18 20 22 C19.5 26 14 28 13 34" stroke="#FF4D00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p>By the end, you should gain clarity and command across your channels.</p>
+          <p class="about-lead-line">By the end, you should gain clarity and command across your channels.</p>
           <p class="about-detail">Leaving you with a brand built to sustain its own growth.</p>
         </div>
       </div>
