@@ -97,7 +97,9 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .f-audit-btn:active{transform:translateY(-1px);box-shadow:0 2px 0 var(--orange-dark),0 10px 24px rgba(255,77,0,.4)}
 
 /* HERO */
-#hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
+#hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#hero>.wrap{position:relative;z-index:1}
 .hb2-grid{display:flex;align-items:flex-start;justify-content:center;gap:40px;text-align:left;margin-bottom:56px}
 .hb2-text{display:flex;flex-direction:column}
 .hb2-line{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,5.6vw,80px);line-height:1.02;color:var(--ink);margin:0}
@@ -561,6 +563,20 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 <div id="p-home" class="page">
 
   <section id="hero">
+    <svg class="hero-pattern" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="pulseTile" width="200" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(6)">
+          <path d="M0 100 H55 M145 100 H200" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".3"/>
+          <path d="M55 100 C66 86 71 60 76 32 C81 64 86 132 97 158 C102 132 107 110 145 100" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".3"/>
+        </pattern>
+        <pattern id="pulseTileSmall" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="rotate(-10)">
+          <path d="M0 60 H30 M90 60 H120" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".2"/>
+          <path d="M30 60 C36 51 39 36 42 20 C45 38 48 82 54 96 C57 82 60 68 90 60" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".2"/>
+        </pattern>
+      </defs>
+      <rect width="1440" height="900" fill="url(#pulseTileSmall)"/>
+      <rect width="1440" height="900" fill="url(#pulseTile)"/>
+    </svg>
     <p class="hero-signature" aria-hidden="true">Kieran Fielder</p>
     <div class="wrap">
       <div class="hb2-grid">
