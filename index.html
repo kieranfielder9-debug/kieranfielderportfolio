@@ -125,7 +125,11 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb2-photo{flex-shrink:0;width:clamp(90px,11vw,160px);aspect-ratio:130/160;border-radius:8px;border:2px solid var(--ink);overflow:hidden;margin-top:.3em}
 .hb2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 @media(max-width:760px){.hb2-grid{flex-direction:column-reverse;align-items:center;text-align:center;gap:20px}.hb2-text{align-items:center}.hb2-photo{width:120px}}
-.hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Mr Dafoe',cursive;font-size:26px;color:var(--ink);pointer-events:none}
+.hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-size:26px;color:var(--ink);pointer-events:none;white-space:nowrap}
+.hs-name{font-family:'Mr Dafoe',cursive;display:inline-block;clip-path:inset(0 100% 0 0);animation:hsDraw .9s cubic-bezier(.65,0,.35,1) .2s forwards}
+@keyframes hsDraw{to{clip-path:inset(0 -5% 0 0)}}
+.hs-role{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.02em;color:rgba(10,10,10,.55);display:inline-block;overflow:hidden;width:0;margin-left:4px;vertical-align:middle;animation:hsType .5s steps(18,end) 1.2s forwards}
+@keyframes hsType{to{width:11em}}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
 .hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
@@ -268,7 +272,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.hs-name{clip-path:none!important;animation:none!important}.hs-role{width:auto!important;animation:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -594,7 +598,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <rect width="1440" height="900" fill="url(#pulseTileSmall)"/>
       <rect width="1440" height="900" fill="url(#pulseTile)"/>
     </svg>
-    <p class="hero-signature" aria-hidden="true">Kieran Fielder</p>
+    <p class="hero-signature"><span class="hs-name">Kieran Fielder</span><span class="hs-role">— Brand Copywriter</span></p>
     <div class="hb3-scatter">
       <h1 class="hb3-w hb3-a">Wanna stand out?</h1>
       <h1 class="hb3-w hb3-b">Brands that stand out</h1>
