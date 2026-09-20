@@ -126,10 +126,10 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 @media(max-width:760px){.hb2-grid{flex-direction:column-reverse;align-items:center;text-align:center;gap:20px}.hb2-text{align-items:center}.hb2-photo{width:120px}}
 .hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-size:26px;color:var(--ink);pointer-events:none;white-space:nowrap}
-.hs-name{font-family:'Mr Dafoe',cursive;display:inline-block;clip-path:inset(0 100% 0 0);animation:hsDraw .9s cubic-bezier(.65,0,.35,1) .2s forwards}
-@keyframes hsDraw{to{clip-path:inset(0 -5% 0 0)}}
-.hs-role{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.02em;color:rgba(10,10,10,.55);display:inline-block;overflow:hidden;width:0;margin-left:4px;vertical-align:middle;animation:hsType .5s steps(18,end) 1.2s forwards}
-@keyframes hsType{to{width:11em}}
+.hs-name{font-family:'Mr Dafoe',cursive}
+.hs-role{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.02em;color:rgba(10,10,10,.55);display:inline-block;min-width:8px;margin-left:4px;vertical-align:middle}
+.hs-role::after{content:'';display:inline-block;width:1px;height:.9em;background:currentColor;margin-left:2px;vertical-align:middle;animation:hsBlink 1s step-end infinite}
+@keyframes hsBlink{50%{opacity:0}}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
 .hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
@@ -272,7 +272,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.hs-name{clip-path:none!important;animation:none!important}.hs-role{width:auto!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.hs-role::after{animation:none!important;opacity:0!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -1220,6 +1220,49 @@ function initHeroReveal() {
   requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('hb3-in')));
 }
 initHeroReveal();
+
+// Role typewriter: "Kieran Fielder" stays put while this cycles through a
+// short list of roles/lines, typing each in, holding, deleting, then
+// moving to the next — loops for as long as the visitor stays on the page.
+function initRoleCycle() {
+  const el = document.querySelector('.hs-role');
+  if (!el) return;
+  const phrases = ['Brand Copywriter', 'Signal, Not Noise'];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    el.textContent = '— ' + phrases[0];
+    return;
+  }
+
+  const TYPE_MS = 55, DELETE_MS = 35, HOLD_MS = 1800, GAP_MS = 400, START_MS = 1200;
+  let phraseIndex = 0, charIndex = 0, deleting = false;
+
+  function tick() {
+    const current = phrases[phraseIndex];
+    if (!deleting) {
+      charIndex++;
+      el.textContent = '— ' + current.slice(0, charIndex);
+      if (charIndex === current.length) {
+        deleting = true;
+        setTimeout(tick, HOLD_MS);
+      } else {
+        setTimeout(tick, TYPE_MS);
+      }
+    } else {
+      charIndex--;
+      el.textContent = '— ' + current.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(tick, GAP_MS);
+      } else {
+        setTimeout(tick, DELETE_MS);
+      }
+    }
+  }
+  el.textContent = '—';
+  setTimeout(tick, START_MS);
+}
+initRoleCycle();
 
 // ── Form back-ends ────────────────────────────────────────────────────
 // Right now both forms fall back to a mailto: link, which opens nothing
