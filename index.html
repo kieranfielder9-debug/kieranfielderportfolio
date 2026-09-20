@@ -241,7 +241,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -641,10 +641,10 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <div class="meet-plate">
         <p class="meet-plate-kicker">Signal Newsletter</p>
         <p class="meet-signature-name">By Kieran Fielder</p>
-        <span class="meet-signature-photo"><img src="images/portrait.jpg" alt="" aria-hidden="true" onerror="this.parentElement.remove()"/></span>
+        <span class="meet-signature-photo" data-parallax="0.10"><img src="images/portrait.jpg" alt="" aria-hidden="true" onerror="this.parentElement.remove()"/></span>
       </div>
       <div class="about-card">
-        <div class="meet-row">
+        <div class="meet-row" data-parallax="-0.14">
           <div class="about-avatar">
             <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="27" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">K</text><text x="73" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">F</text><path d="M12 71 H39 M61 71 H88" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/><path d="M39 71 C44 67 46.5 58 48 48 C50 60 51.5 78 54.5 86 C56.5 79 58.5 73 61 71" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
@@ -1107,6 +1107,29 @@ function initAboutInteractivity() {
 
   const section = document.querySelector('#about');
   if (!section) return;
+
+  // Continuous scroll parallax: elements move at different speeds than
+  // the page scroll, so the section keeps responding the whole time
+  // you're scrolled into it, not just once on entry.
+  const parallaxEls = Array.from(section.querySelectorAll('[data-parallax]'));
+  let ticking = false;
+  function updateParallax() {
+    const vh = window.innerHeight;
+    parallaxEls.forEach((el) => {
+      const speed = parseFloat(el.dataset.parallax);
+      const rect = el.getBoundingClientRect();
+      const centerOffset = (rect.top + rect.height / 2) - vh / 2;
+      el.style.transform = `translateY(${(-centerOffset * speed).toFixed(1)}px)`;
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateParallax();
 
   // Cursor-reactive spotlight across the whole section
   section.addEventListener('pointermove', (e) => {
