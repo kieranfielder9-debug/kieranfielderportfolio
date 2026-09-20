@@ -125,10 +125,12 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb2-photo{flex-shrink:0;width:clamp(90px,11vw,160px);aspect-ratio:130/160;border-radius:8px;border:2px solid var(--ink);overflow:hidden;margin-top:.3em}
 .hb2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 @media(max-width:760px){.hb2-grid{flex-direction:column-reverse;align-items:center;text-align:center;gap:20px}.hb2-text{align-items:center}.hb2-photo{width:120px}}
-.hero-signature{position:absolute;top:44px;left:50%;font-size:26px;font-family:'Cormorant Garamond',serif;font-weight:700;color:rgba(10,10,10,.4);pointer-events:none;white-space:nowrap;opacity:0;transform:translate(-50%,0) translateX(-320px)}
-#hero.hb3-in .hero-signature{opacity:1;transform:translate(-50%,0) translateX(0);animation:hsWhiz .7s cubic-bezier(.15,.75,.25,1.15)}
-@keyframes hsWhiz{0%{opacity:0;transform:translate(-50%,0) translateX(-320px)}65%{opacity:1;transform:translate(-50%,0) translateX(16px)}100%{opacity:1;transform:translate(-50%,0) translateX(0)}}
-.hs-role{font-size:16px;margin-left:6px}
+.hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-size:clamp(28px,3.4vw,42px);font-family:'Cormorant Garamond',serif;font-weight:700;color:rgba(10,10,10,.4);pointer-events:none;white-space:nowrap}
+.hs-name,.hs-role{display:inline-block;opacity:0}
+.hs-role{font-size:.62em;margin-left:6px}
+#hero.hb3-in .hs-name{opacity:1;animation:crashIn .75s cubic-bezier(.2,.7,.3,1) 4.3s backwards}
+#hero.hb3-in .hs-role{opacity:1;animation:crashIn .7s cubic-bezier(.2,.7,.3,1) 4.75s backwards}
+@keyframes crashIn{0%{opacity:0;transform:scale(2.6);filter:brightness(3) blur(3px)}45%{opacity:1;transform:scale(.9);filter:brightness(1.4) blur(0)}60%{transform:scale(1.08) translateX(-5px)}75%{transform:scale(.96) translateX(4px)}88%{transform:scale(1.02) translateX(-2px)}100%{opacity:1;transform:scale(1) translateX(0);filter:brightness(1)}}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
 .hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
@@ -271,7 +273,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.hero-signature{opacity:1;transform:translate(-50%,0)!important;animation:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.hs-name,.hs-role{opacity:1!important;animation:none!important;transform:none!important;filter:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
