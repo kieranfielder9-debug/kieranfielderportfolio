@@ -97,8 +97,7 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .f-audit-btn:active{transform:translateY(-1px);box-shadow:0 2px 0 var(--orange-dark),0 10px 24px rgba(255,77,0,.4)}
 
 /* HERO */
-#hero{position:relative;height:340vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%)}
-.hb3-pin{position:sticky;top:0;height:100vh;overflow:hidden}
+#hero{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%)}
 .hero-pattern{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hb3-scatter{position:absolute;inset:0;z-index:1;padding:0}
 .hb3-w{position:absolute;margin:0;font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1;color:var(--ink);white-space:nowrap}
@@ -110,8 +109,14 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb3-signal{bottom:16%;right:5%;font-size:clamp(56px,11vw,168px);line-height:.9}
 .hb3-signal .sub-signal{color:#fff}
 .hb-signup-btn.hb3-cta{position:absolute;left:6%;bottom:9%}
-.hb3-b,.hb3-c,.hb3-d,.hb3-signal,.hb-signup-btn.hb3-cta{opacity:0;transform:translateY(24px)}
-@media(max-width:900px){#hero{height:auto}.hb3-pin{position:static;height:auto;min-height:100vh;overflow:visible}.hb3-w{position:static;white-space:normal;display:block;margin:0 0 18px;text-align:left!important}.hb3-scatter{position:static;padding:140px 24px 100px;display:flex;flex-direction:column}.hb3-signal{order:5;margin-top:8px}.hb-signup-btn.hb3-cta{position:relative;left:auto;bottom:auto;order:6;margin-top:24px;align-self:flex-start}.hb3-b,.hb3-c,.hb3-d,.hb3-signal,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important}}
+.hb3-w,.hb-signup-btn.hb3-cta{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+#hero.hb3-in .hb3-a{opacity:1;transform:none;transition-delay:.1s}
+#hero.hb3-in .hb3-b{opacity:1;transform:none;transition-delay:.5s}
+#hero.hb3-in .hb3-c{opacity:1;transform:none;transition-delay:.9s}
+#hero.hb3-in .hb3-d{opacity:1;transform:none;transition-delay:1.3s}
+#hero.hb3-in .hb3-signal{opacity:1;transform:none;transition-delay:1.7s}
+#hero.hb3-in .hb-signup-btn.hb3-cta{opacity:1;transform:none;transition-delay:2.1s}
+@media(max-width:900px){.hb3-w{position:static;white-space:normal;display:block;margin:0 0 18px;text-align:left!important}.hb3-scatter{position:static;padding:140px 24px 100px;display:flex;flex-direction:column}.hb3-signal{order:5;margin-top:8px}.hb-signup-btn.hb3-cta{position:relative;left:auto;bottom:auto;order:6;margin-top:24px;align-self:flex-start}}
 .hb2-grid{display:flex;align-items:flex-start;justify-content:center;gap:40px;text-align:left;margin-bottom:56px}
 .hb2-text{display:flex;flex-direction:column}
 .hb2-line{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,5.6vw,80px);line-height:1.02;color:var(--ink);margin:0}
@@ -263,7 +268,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}#hero{height:100vh!important}.hb3-pin{position:relative!important}.hb3-b,.hb3-c,.hb3-d,.hb3-signal,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -575,7 +580,6 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 <div id="p-home" class="page">
 
   <section id="hero">
-   <div class="hb3-pin">
     <svg class="hero-pattern" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <pattern id="pulseTile" width="200" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(6)">
@@ -599,7 +603,6 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <h1 class="hb3-w hb3-signal"><span class="sub-signal">Signal</span>.</h1>
       <button class="hb-signup-btn hb3-cta" onclick="go('read')"><span class="hb-btn-label">Receive Signal</span></button>
     </div>
-   </div>
   </section>
 
   <section class="signal-explain" id="signal-explain">
@@ -1202,47 +1205,15 @@ function initAboutInteractivity() {
 }
 initAboutInteractivity();
 
-// Hero scroll-reveal: the section is taller than the viewport and its
-// content stays pinned (position:sticky) while that extra height scrolls
-// past, so each line of the headline builds up in sequence instead of
-// all sitting on screen at once. Progress is scroll position, not a
-// timer, so it stays tied to how far the visitor has actually scrolled.
+// Hero intro reveal: a one-off timed sequence, not tied to scroll. Each
+// line's transition-delay is set in CSS (#hero.hb3-in .hb3-a etc); adding
+// the class here just starts the clock. Double rAF makes sure the hidden
+// opacity:0 state has actually painted first, so the transition runs
+// instead of the browser coalescing straight to the end state.
 function initHeroReveal() {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
-
   const hero = document.getElementById('hero');
   if (!hero) return;
-
-  const FADE = 0.12;
-  const steps = ['.hb3-b', '.hb3-c', '.hb3-d', '.hb3-signal', '.hb-signup-btn.hb3-cta']
-    .map((sel, i) => ({ el: hero.querySelector(sel), at: 0.12 + i * 0.16 }))
-    .filter((s) => s.el);
-
-  let ticking = false;
-  function update() {
-    if (window.innerWidth <= 900) {
-      steps.forEach((s) => { s.el.style.opacity = ''; s.el.style.transform = ''; });
-      ticking = false;
-      return;
-    }
-    const scrollable = hero.offsetHeight - window.innerHeight;
-    const progress = scrollable > 0 ? Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / scrollable)) : 0;
-    steps.forEach((s) => {
-      const t = Math.min(1, Math.max(0, (progress - s.at) / FADE));
-      s.el.style.opacity = t;
-      s.el.style.transform = `translateY(${(1 - t) * 24}px)`;
-    });
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('hb3-in')));
 }
 initHeroReveal();
 
