@@ -98,11 +98,19 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 
 /* HERO */
 #hero{position:relative;min-height:100vh;background:linear-gradient(180deg,#FFFFFF 0%,#FF8A55 7%,var(--orange) 16%);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
+.hb2-grid{display:flex;align-items:flex-start;justify-content:center;gap:40px;text-align:left;margin-bottom:56px}
+.hb2-text{display:flex;flex-direction:column}
+.hb2-line{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,5.6vw,80px);line-height:1.02;color:var(--ink);margin:0}
+.hb2-mark{display:inline-flex;width:.86em;height:.86em;margin-left:.12em;vertical-align:-.12em}
+.hb2-mark svg{width:100%;height:100%}
+.hb2-photo{flex-shrink:0;width:clamp(90px,11vw,160px);aspect-ratio:130/160;border-radius:8px;border:2px solid var(--ink);overflow:hidden;margin-top:.3em}
+.hb2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+@media(max-width:760px){.hb2-grid{flex-direction:column-reverse;align-items:center;text-align:center;gap:20px}.hb2-text{align-items:center}.hb2-photo{width:120px}}
 .hero-signature{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'Mr Dafoe',cursive;font-size:26px;color:var(--ink);pointer-events:none}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
 .hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
-.hero-subline .sub-signal{color:#fff}
+.sub-signal{color:#fff}
 .hb-kicker{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 18px;background:var(--ink);border:none;padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22);cursor:pointer;transition:box-shadow .2s}
 .hb-kicker:hover{box-shadow:0 0 0 1px rgba(191,227,255,.5),0 0 14px rgba(191,227,255,.4)}
 .hb-reason-head{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(24px,3.2vw,30px);line-height:1.35;color:var(--ink);max-width:500px;margin:18px auto 18px}
@@ -555,9 +563,14 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
   <section id="hero">
     <p class="hero-signature" aria-hidden="true">Kieran Fielder</p>
     <div class="wrap">
-      <p class="hero-tagline">Creative. Growth. Marketer.</p>
-      <h1 class="display">Do you want to<br><span class="u-fl">stand out?<svg viewBox="0 0 320 26" preserveAspectRatio="none" aria-hidden="true"><path class="draw" d="M6 18 Q160 28 314 8" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/></svg></span></h1>
-      <p class="hero-subline">Your brand doesn't need to stand out.<br>It needs <span class="sub-signal">Signal</span>.</p>
+      <div class="hb2-grid">
+        <div class="hb2-text">
+          <h1 class="hb2-line">Wanna stand out?</h1>
+          <h1 class="hb2-line">Brands that stand out<br>don't make noise.</h1>
+          <h1 class="hb2-line">They show <span class="sub-signal">Signal</span><span class="hb2-mark"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#fff" stroke="#0A0A0A" stroke-width="2"/><text x="27" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="42" fill="#0A0A0A">K</text><text x="73" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="42" fill="#0A0A0A">F</text><path d="M14 70 H38 M62 70 H86" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/><path d="M38 70 C43 66 45.5 57 47 47 C49 59 50.5 77 53.5 85 C55.5 78 57.5 72 62 70" stroke="#FF4D00" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>.</h1>
+        </div>
+        <span class="hb2-photo"><img src="images/portrait.jpg" alt="" aria-hidden="true" onerror="this.parentElement.remove()"/></span>
+      </div>
       <p class="hb-reason-head">The newsletter that makes your brand impossible to confuse with anyone else's.</p>
       <p class="hb-reason-sub">Weekly, from Kieran Fielder</p>
       <button class="hb-kicker" onclick="go('read')"><span class="hb-dot"></span>The Signal Newsletter</button>
