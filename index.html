@@ -125,15 +125,18 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb2-photo{flex-shrink:0;width:clamp(90px,11vw,160px);aspect-ratio:130/160;border-radius:8px;border:2px solid var(--ink);overflow:hidden;margin-top:.3em}
 .hb2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 @media(max-width:760px){.hb2-grid{flex-direction:column-reverse;align-items:center;text-align:center;gap:20px}.hb2-text{align-items:center}.hb2-photo{width:120px}}
-.kf-badge{position:fixed;left:24px;bottom:24px;width:56px;height:56px;border-radius:50%;background:var(--paper);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0;transform:scale(.4);transition:transform .2s ease,box-shadow .2s ease;z-index:90;overflow:hidden}
+.kf-badge{position:fixed;left:24px;bottom:24px;z-index:90;display:flex;align-items:center;background:none;border:none;padding:0;cursor:pointer;opacity:0;transform:scale(.4)}
 .kf-badge.kf-in{opacity:1;transform:scale(1);transition:opacity .5s ease,transform .5s cubic-bezier(.34,1.56,.64,1)}
-.kf-badge:hover{transform:scale(1.08);box-shadow:0 6px 22px rgba(0,0,0,.28)}
-.kf-badge:active{transform:scale(.9)}
-.kf-mark{position:relative;display:flex;align-items:baseline;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:19px;color:var(--ink);line-height:1;pointer-events:none}
-.kf-arrow{width:11px;height:11px;margin-left:1px;transform:translateY(-4px)}
+.kf-circle{position:relative;width:56px;height:56px;border-radius:50%;background:var(--paper);box-shadow:0 4px 16px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:transform .2s ease,box-shadow .2s ease}
+.kf-badge:hover .kf-circle{transform:scale(1.05);box-shadow:0 6px 22px rgba(0,0,0,.28)}
+.kf-badge:active .kf-circle{transform:scale(.92)}
+.kf-mark{position:relative;display:flex;flex-direction:column;align-items:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--ink);line-height:1;pointer-events:none}
+.kf-pulse{width:26px;height:10px;margin-top:3px}
 .kf-ping{position:absolute;inset:0;border-radius:50%;background:var(--orange);opacity:0;pointer-events:none}
 .kf-badge.kf-pinging .kf-ping{animation:kfPing .5s ease-out}
 @keyframes kfPing{0%{opacity:.55;transform:scale(.3)}100%{opacity:0;transform:scale(1.8)}}
+.kf-label{display:inline-block;white-space:nowrap;background:var(--ink);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:24px;height:56px;line-height:56px;padding:0 22px;max-width:0;overflow:hidden;opacity:0;margin-left:0;transition:max-width .35s ease,opacity .25s ease,margin-left .35s ease}
+.kf-badge:hover .kf-label{max-width:340px;opacity:1;margin-left:10px}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
 .hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
@@ -276,7 +279,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-ping{display:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -585,8 +588,11 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 </div>
 
 <button class="kf-badge" onclick="kfBadgeClick(this)" aria-label="About Kieran Fielder, Brand Copywriter">
-  <span class="kf-ping" aria-hidden="true"></span>
-  <span class="kf-mark">KF<svg class="kf-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--orange)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <span class="kf-circle">
+    <span class="kf-ping" aria-hidden="true"></span>
+    <span class="kf-mark">KF<svg class="kf-pulse" viewBox="0 0 26 10" fill="none" aria-hidden="true"><path d="M0 5H6L8 1L11 9L13 5H26" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </span>
+  <span class="kf-label">Kieran Fielder — Brand Copywriter</span>
 </button>
 
 <!-- HOME PAGE -->
