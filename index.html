@@ -125,10 +125,11 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb2-photo{flex-shrink:0;width:clamp(90px,11vw,160px);aspect-ratio:130/160;border-radius:8px;border:2px solid var(--ink);overflow:hidden;margin-top:.3em}
 .hb2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 @media(max-width:760px){.hb2-grid{flex-direction:column-reverse;align-items:center;text-align:center;gap:20px}.hb2-text{align-items:center}.hb2-photo{width:120px}}
-.kf-badge{position:absolute;top:28px;left:50%;width:54px;height:54px;border-radius:50%;background:var(--ink);color:#fff;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-50%) scale(1);transition:transform .25s ease,box-shadow .25s ease;z-index:5}
-.kf-badge:hover{transform:translateX(-50%) scale(1.08);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.kf-badge{position:absolute;left:6%;bottom:8%;width:54px;height:54px;border-radius:50%;background:var(--ink);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(1);transition:transform .25s ease,box-shadow .25s ease;z-index:5}
+.kf-badge svg{width:24px;height:24px}
+.kf-badge:hover{transform:scale(1.1);box-shadow:0 6px 18px rgba(0,0,0,.35)}
 #hero.hb3-in .kf-badge{opacity:1;animation:kfCrash .75s cubic-bezier(.2,.7,.3,1) 4.3s backwards}
-@keyframes kfCrash{0%{opacity:0;transform:translateX(-50%) scale(2.6);filter:brightness(3) blur(3px)}45%{opacity:1;transform:translateX(-50%) scale(.88);filter:brightness(1.4) blur(0)}60%{transform:translateX(-50%) scale(1.1)}75%{transform:translateX(-50%) scale(.95)}88%{transform:translateX(-50%) scale(1.03)}100%{opacity:1;transform:translateX(-50%) scale(1);filter:brightness(1)}}
+@keyframes kfCrash{0%{opacity:0;transform:scale(2.6);filter:brightness(3) blur(3px)}45%{opacity:1;transform:scale(.88);filter:brightness(1.4) blur(0)}60%{transform:scale(1.1)}75%{transform:scale(.95)}88%{transform:scale(1.03)}100%{opacity:1;transform:scale(1);filter:brightness(1)}}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
 h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
 .hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
@@ -271,7 +272,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{opacity:1!important;animation:none!important;transform:translateX(-50%) scale(1)!important;filter:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{opacity:1!important;animation:none!important;transform:scale(1)!important;filter:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -570,14 +571,14 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div id="mobile-menu" class="mobile-menu">
-    <button onclick="go('work')">Projects</button>
-    <button onclick="go('services')">Services</button>
-    <button onclick="go('blog')">Blog</button>
-    <button onclick="go('read')">Receive Signal</button>
-    <button onclick="go('sayhi')">Signal Audit</button>
-  </div>
 </nav>
+<div id="mobile-menu" class="mobile-menu">
+  <button onclick="go('work')">Projects</button>
+  <button onclick="go('services')">Services</button>
+  <button onclick="go('blog')">Blog</button>
+  <button onclick="go('read')">Receive Signal</button>
+  <button onclick="go('sayhi')">Signal Audit</button>
+</div>
 
 <!-- HOME PAGE -->
 <div id="p-home" class="page">
@@ -597,7 +598,13 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <rect width="1440" height="900" fill="url(#pulseTileSmall)"/>
       <rect width="1440" height="900" fill="url(#pulseTile)"/>
     </svg>
-    <button class="kf-badge" onclick="go('home','about')" aria-label="About Kieran Fielder, Brand Copywriter">KF</button>
+    <button class="kf-badge" onclick="toggleMenu()" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="8" cy="10" r="1.6" fill="#fff"/>
+        <circle cx="16" cy="10" r="1.6" fill="#fff"/>
+        <path d="M6.5 14C8.5 17.5 15.5 17.5 17.5 14" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
     <div class="hb3-scatter">
       <h1 class="hb3-w hb3-a">Wanna stand out?</h1>
       <h1 class="hb3-w hb3-b">Brands that stand out</h1>
