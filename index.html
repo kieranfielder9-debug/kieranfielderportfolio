@@ -27,23 +27,28 @@ body{background:var(--paper);color:var(--body);font-family:'DM Sans',sans-serif;
 .reveal.in{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.4s}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease}
-nav.nav-visible{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:background .3s ease}
+nav.nav-on-dark{background:rgba(0,0,0,.14)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:var(--ink);cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .2s;padding:0 4px}
+.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:var(--ink);cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .25s ease;padding:0 4px}
 .nav-logo:hover{color:var(--orange)}
 .nav-right{display:flex;align-items:center;gap:40px}
 .nav-links{display:flex;gap:36px;list-style:none}
-.nav-links button{font-size:11px;font-weight:500;color:var(--muted);background:none;border:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
+.nav-links button{font-size:11px;font-weight:500;color:var(--muted);background:none;border:none;letter-spacing:.1em;text-transform:uppercase;transition:color .25s ease;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
 .nav-links button:hover,.nav-links button.active{color:var(--ink)}
 .nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .nav-sayhi:hover{background:var(--orange);color:#fff}
+nav.nav-on-dark .nav-logo{color:#fff}
+nav.nav-on-dark .nav-logo:hover{color:var(--orange)}
+nav.nav-on-dark .nav-links button:not(.nav-signal){color:rgba(255,255,255,.7)}
+nav.nav-on-dark .nav-links button:not(.nav-signal):hover,nav.nav-on-dark .nav-links button.active:not(.nav-signal){color:#fff}
+nav.nav-on-dark .nav-burger span{background:#fff}
 .nav-links button.nav-signal{position:relative;overflow:hidden;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px}
 .nav-links button.nav-signal:hover,.nav-links button.nav-signal.active{background:var(--orange-dark);color:#fff}
 @keyframes navSignalShine{0%{left:-60%}35%{left:130%}100%{left:130%}}
 .nav-signal-dot{width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block}
 .nav-burger{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px 4px}
-.nav-burger span{width:20px;height:2px;background:var(--ink);display:block}
+.nav-burger span{width:20px;height:2px;background:var(--ink);display:block;transition:background .25s ease}
 .mobile-menu{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:none;flex-direction:column;z-index:99}
 .mobile-menu.open{display:flex}
 .mobile-menu button{background:none;border:none;border-top:1px solid var(--border);padding:18px 24px;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);cursor:pointer}
@@ -106,7 +111,8 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 #hero.spot-on .hero-spotlight{opacity:1}
 .hb3-scatter{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:safe center;align-items:flex-start;padding:100px 6% 60px}
 .hb3-w{position:static;margin:0;font-family:'Poppins',sans-serif;font-weight:800;line-height:1.12;color:var(--ink);white-space:normal;letter-spacing:-.01em}
-.hb3-a{font-size:clamp(24px,4vw,52px)}
+.hb3-a{font-size:clamp(24px,4vw,52px);background:linear-gradient(100deg,#C9C9C9 0%,#FFFFFF 20%,#EFEFEF 32%,#FFFFFF 48%,#C4C4C4 58%,#FFFFFF 74%,#F3F3F3 88%,#FFFFFF 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:1px 2px 4px rgba(130,130,130,.3);animation:kfShine 3.2s ease-in-out infinite}
+@keyframes kfShine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hb3-b{font-size:clamp(26px,4.4vw,58px)}
 .hb3-c{font-size:clamp(26px,4.4vw,58px)}
 .hb3-d{font-size:clamp(20px,3vw,38px);margin-top:8px}
@@ -275,10 +281,10 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-a{animation:none!important;background-position:35% 50%!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
-.case-hero2{position:relative;min-height:74vh;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
+.case-hero2{position:relative;min-height:74vh;margin-top:-64px;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
 .hero2-bg{position:absolute;inset:0}
 .hero2-bg svg,.hero2-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .hero2-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.3) 0%,rgba(10,10,10,.55) 55%,rgba(10,10,10,.9) 100%)}
@@ -1060,8 +1066,6 @@ function go(id, anchorId) {
   if(nbAbout && id === 'home' && anchorId === 'about') nbAbout.classList.add('active');
   if(nbBlog && (id === 'blog' || id === 'post-sample')) nbBlog.classList.add('active');
   if(nbRead && id === 'read') nbRead.classList.add('active');
-  const navEl = document.querySelector('nav');
-  if(navEl) { if(id === 'home') { navEl.classList.remove('nav-visible'); } else { navEl.classList.add('nav-visible'); } }
   const mm = document.getElementById('mobile-menu');
   if(mm) mm.classList.remove('open');
   if(typeof gtag === 'function') gtag('event', 'page_view', { page_title: id, page_location: location.origin + location.pathname + '#' + id });
@@ -1076,6 +1080,7 @@ function go(id, anchorId) {
       page.classList.add('visible');
       activateReveals(page);
       window.scrollTo(0, 0);
+      updateNavTheme();
       if(anchorId) {
         setTimeout(() => {
           const anchor = document.getElementById(anchorId);
@@ -1086,13 +1091,25 @@ function go(id, anchorId) {
   });
 }
 
+// Nav stays fully transparent everywhere; it only switches to light text
+// when a genuinely dark section (a footer, or a dark case-study hero) is
+// scrolled up behind its strip, so it blends with every section instead
+// of solidifying into a bar once and staying that way.
+function updateNavTheme() {
+  const navEl = document.querySelector('nav');
+  if (!navEl) return;
+  const zones = document.querySelectorAll('.page.active footer, .page.active .case-hero2');
+  let onDark = false;
+  zones.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.width > 0 && r.top < 64 && r.bottom > 0) onDark = true;
+  });
+  navEl.classList.toggle('nav-on-dark', onDark);
+}
+
 let navTicking = false;
 function revealNavOnScroll() {
-  const home = document.getElementById('p-home');
-  const navEl = document.querySelector('nav');
-  if(home && home.classList.contains('active') && window.scrollY > 40) {
-    if(navEl) navEl.classList.add('nav-visible');
-  }
+  updateNavTheme();
   navTicking = false;
 }
 window.addEventListener('scroll', () => {
