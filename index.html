@@ -27,22 +27,17 @@ body{background:var(--paper);color:var(--body);font-family:'DM Sans',sans-serif;
 .reveal.in{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.4s}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:background .3s ease}
-nav.nav-on-dark{background:rgba(0,0,0,.14)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);opacity:0;transform:translateY(-14px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+nav.nav-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:var(--ink);cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .25s ease;padding:0 4px}
+.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:var(--ink);cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .2s;padding:0 4px}
 .nav-logo:hover{color:var(--orange)}
 .nav-right{display:flex;align-items:center;gap:40px}
 .nav-links{display:flex;gap:36px;list-style:none}
-.nav-links button{font-size:11px;font-weight:500;color:var(--muted);background:none;border:none;letter-spacing:.1em;text-transform:uppercase;transition:color .25s ease;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
+.nav-links button{font-size:11px;font-weight:500;color:var(--muted);background:none;border:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
 .nav-links button:hover,.nav-links button.active{color:var(--ink)}
 .nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .nav-sayhi:hover{background:var(--orange);color:#fff}
-nav.nav-on-dark .nav-logo{color:#fff}
-nav.nav-on-dark .nav-logo:hover{color:var(--orange)}
-nav.nav-on-dark .nav-links button:not(.nav-signal){color:rgba(255,255,255,.7)}
-nav.nav-on-dark .nav-links button:not(.nav-signal):hover,nav.nav-on-dark .nav-links button.active:not(.nav-signal){color:#fff}
-nav.nav-on-dark .nav-burger span{background:#fff}
 .nav-links button.nav-signal{position:relative;overflow:hidden;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px}
 .nav-links button.nav-signal:hover,.nav-links button.nav-signal.active{background:var(--orange-dark);color:#fff}
 @keyframes navSignalShine{0%{left:-60%}35%{left:130%}100%{left:130%}}
@@ -1066,6 +1061,8 @@ function go(id, anchorId) {
   if(nbAbout && id === 'home' && anchorId === 'about') nbAbout.classList.add('active');
   if(nbBlog && (id === 'blog' || id === 'post-sample')) nbBlog.classList.add('active');
   if(nbRead && id === 'read') nbRead.classList.add('active');
+  const navEl = document.querySelector('nav');
+  if(navEl) { if(id === 'home') { navEl.classList.remove('nav-visible'); } else { navEl.classList.add('nav-visible'); } }
   const mm = document.getElementById('mobile-menu');
   if(mm) mm.classList.remove('open');
   if(typeof gtag === 'function') gtag('event', 'page_view', { page_title: id, page_location: location.origin + location.pathname + '#' + id });
@@ -1080,7 +1077,6 @@ function go(id, anchorId) {
       page.classList.add('visible');
       activateReveals(page);
       window.scrollTo(0, 0);
-      updateNavTheme();
       if(anchorId) {
         setTimeout(() => {
           const anchor = document.getElementById(anchorId);
@@ -1091,25 +1087,13 @@ function go(id, anchorId) {
   });
 }
 
-// Nav stays fully transparent everywhere; it only switches to light text
-// when a genuinely dark section (a footer, or a dark case-study hero) is
-// scrolled up behind its strip, so it blends with every section instead
-// of solidifying into a bar once and staying that way.
-function updateNavTheme() {
-  const navEl = document.querySelector('nav');
-  if (!navEl) return;
-  const zones = document.querySelectorAll('.page.active footer, .page.active .case-hero2');
-  let onDark = false;
-  zones.forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.width > 0 && r.top < 64 && r.bottom > 0) onDark = true;
-  });
-  navEl.classList.toggle('nav-on-dark', onDark);
-}
-
 let navTicking = false;
 function revealNavOnScroll() {
-  updateNavTheme();
+  const home = document.getElementById('p-home');
+  const navEl = document.querySelector('nav');
+  if(home && home.classList.contains('active') && window.scrollY > 40) {
+    if(navEl) navEl.classList.add('nav-visible');
+  }
   navTicking = false;
 }
 window.addEventListener('scroll', () => {
