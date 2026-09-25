@@ -190,10 +190,10 @@ h1.display{font-family:'Poppins',sans-serif;font-size:clamp(46px,8.4vw,118px);fo
 .se-claim-2{margin:45vh 0 0}
 .se-framework{margin:45vh auto 0;max-width:920px}
 .se-framework-label{font-family:'DM Sans',sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin:0 0 44px;text-align:center}
-.se-framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px 64px;text-align:left;will-change:transform}
-.kinetic-settle{transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.se-framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px 64px;text-align:left;will-change:filter}
+.focus-settle{transition:filter .5s cubic-bezier(.16,1,.3,1),opacity .5s cubic-bezier(.16,1,.3,1)}
 .se-framework-item{opacity:0;transform:translateY(18px);will-change:opacity,transform}
-.se-kicker,.se-impact,.ss-kicker,.ss-title,.about-copy2{will-change:transform}
+.se-kicker,.se-impact,.ss-kicker,.ss-title,.about-copy2{will-change:filter}
 .about-chip,.about-lead,.about-quote,.about-detail{opacity:0;transform:translateY(16px);will-change:opacity,transform}
 .se-framework-num{display:block;font-family:'DM Sans',sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;letter-spacing:.16em;color:var(--orange);margin:0 0 10px}
 .se-framework-item h3{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(22px,2.4vw,30px);color:#fff;margin:0 0 12px}
@@ -286,7 +286,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-shine{animation:none!important;background-position:35% 50%!important;transform:none!important}.kf-sparkle{animation:none!important;opacity:0!important}.se-framework-grid{transform:none!important}.se-framework-item{opacity:1!important;transform:none!important}.se-kicker,.se-impact,.ss-kicker,.ss-title,.about-copy2{transform:none!important}.about-chip,.about-lead,.about-quote,.about-detail{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-shine{animation:none!important;background-position:35% 50%!important;transform:none!important}.kf-sparkle{animation:none!important;opacity:0!important}.se-framework-grid{filter:none!important}.se-framework-item{opacity:1!important;transform:none!important}.se-kicker,.se-impact,.ss-kicker,.ss-title,.about-copy2{filter:none!important;opacity:1!important}.about-chip,.about-lead,.about-quote,.about-detail{opacity:1!important;transform:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;margin-top:-64px;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -617,6 +617,9 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <use href="#pulseMark" transform="translate(780,60) scale(2) rotate(-1)" opacity=".45"/>
       <use href="#pulseMark" transform="translate(1200,720) scale(3.4) rotate(-3)" opacity=".45"/>
       <use href="#pulseMark" transform="translate(1150,850) scale(2.4) rotate(2)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(1330,60) scale(1.6) rotate(-1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(-30,320) scale(2) rotate(3)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(400,850) scale(2) rotate(1)" opacity=".4"/>
     </svg>
     <div class="hero-spotlight"></div>
     <div class="hb3-scatter">
@@ -1299,10 +1302,15 @@ function initScrollCascade(containerSel, itemSel, opts = {}) {
   update();
 }
 
-function initKineticTilt(selectors, opts = {}) {
-  const maxTilt = opts.maxTilt ?? 1.6;
-  const tiltFactor = opts.tiltFactor ?? 0.3;
-  const settleMs = opts.settleMs ?? 120;
+// Replaces the earlier skew-based kinetic tilt (disliked) with a
+// velocity-driven focus effect: fast scrolling softly blurs and dims
+// an element, like it's briefly out of focus while everything's
+// moving, then it sharpens back to full clarity a beat after you stop
+// - a small nod to the "signal" idea (clarity needs stillness).
+function initVelocityFocus(selectors, opts = {}) {
+  const maxBlur = opts.maxBlur ?? 2.2;
+  const factor = opts.factor ?? 0.05;
+  const settleMs = opts.settleMs ?? 150;
   const els = selectors.map(s => document.querySelector(s)).filter(Boolean);
   if (!els.length) return;
   let lastY = window.scrollY;
@@ -1311,18 +1319,20 @@ function initKineticTilt(selectors, opts = {}) {
 
   function onScroll() {
     const y = window.scrollY;
-    const delta = y - lastY;
+    const delta = Math.abs(y - lastY);
     lastY = y;
-    const tilt = Math.max(-maxTilt, Math.min(maxTilt, delta * tiltFactor));
+    const amt = Math.min(1, (delta * factor) / maxBlur);
     els.forEach((el) => {
-      el.classList.remove('kinetic-settle');
-      el.style.transform = `skewY(${tilt}deg)`;
+      el.classList.remove('focus-settle');
+      el.style.filter = `blur(${(amt * maxBlur).toFixed(2)}px)`;
+      el.style.opacity = (1 - amt * 0.15).toFixed(2);
     });
     clearTimeout(settleTimer);
     settleTimer = setTimeout(() => {
       els.forEach((el) => {
-        el.classList.add('kinetic-settle');
-        el.style.transform = 'skewY(0deg)';
+        el.classList.add('focus-settle');
+        el.style.filter = 'blur(0px)';
+        el.style.opacity = '1';
       });
     }, settleMs);
     ticking = false;
@@ -1333,11 +1343,11 @@ function initKineticTilt(selectors, opts = {}) {
 }
 
 initScrollCascade('.se-framework-grid', '.se-framework-item', { lift: 18 });
-initKineticTilt(['.se-framework-grid'], { maxTilt: 2, tiltFactor: 0.35 });
-initKineticTilt(['.se-kicker', '.se-impact'], { maxTilt: 1.6, tiltFactor: 0.3 });
-initKineticTilt(['.ss-kicker', '.ss-title'], { maxTilt: 1.6, tiltFactor: 0.3 });
+initVelocityFocus(['.se-framework-grid']);
+initVelocityFocus(['.se-kicker', '.se-impact']);
+initVelocityFocus(['.ss-kicker', '.ss-title']);
 initScrollCascade('.about-copy2', '.about-chip, .about-lead, .about-quote, .about-detail', { stagger: 0.12, span: 0.5, lift: 16 });
-initKineticTilt(['.about-copy2'], { maxTilt: 1.6, tiltFactor: 0.3 });
+initVelocityFocus(['.about-copy2']);
 
 // KF badge: sitewide persistent mark, not scoped to the hero, so it
 // just fades/pops in shortly after load rather than waiting on the
