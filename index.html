@@ -190,7 +190,9 @@ h1.display{font-family:'Poppins',sans-serif;font-size:clamp(46px,8.4vw,118px);fo
 .se-claim-2{margin:45vh 0 0}
 .se-framework{margin:45vh auto 0;max-width:920px}
 .se-framework-label{font-family:'DM Sans',sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin:0 0 44px;text-align:center}
-.se-framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px 64px;text-align:left}
+.se-framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px 64px;text-align:left;will-change:transform}
+.se-framework-grid.kinetic-settle{transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.se-framework-item{opacity:0;transform:translateY(28px);will-change:opacity,transform}
 .se-framework-num{display:block;font-family:'DM Sans',sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;letter-spacing:.16em;color:var(--orange);margin:0 0 10px}
 .se-framework-item h3{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(22px,2.4vw,30px);color:#fff;margin:0 0 12px}
 .se-framework-item p{font-family:'DM Sans',sans-serif;font-size:clamp(15px,1.3vw,19px);line-height:1.6;color:rgba(255,255,255,.68);margin:0}
@@ -237,9 +239,9 @@ h1.display{font-family:'Poppins',sans-serif;font-size:clamp(46px,8.4vw,118px);fo
 .avatar-kf svg{width:100%;height:100%}
 .about-chip{display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;margin-bottom:20px}
 .about-lead{font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;line-height:1.55;color:var(--ink);margin:0 0 26px;max-width:520px}
-.about-quote{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(30px,3.4vw,44px);line-height:1.28;color:var(--ink);margin:0 0 30px}
+.about-quote{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;line-height:1.55;color:var(--ink);margin:0 0 30px}
 .about-quote .aq-solid{font-style:normal;color:#fff}
-.about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:19px;line-height:1.65;color:var(--body);margin:0}
+.about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:20px;line-height:1.6;color:var(--body);margin:0}
 .about-detail.about-closing{margin-top:36px;max-width:520px}
 .about-copy2 .sayhi{font-size:14px;padding:20px 46px;margin-top:8px}
 .about-copy2 .sayhi:hover{background:#fff;color:var(--ink)}
@@ -282,7 +284,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-shine{animation:none!important;background-position:35% 50%!important;transform:none!important}.kf-sparkle{animation:none!important;opacity:0!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-shine{animation:none!important;background-position:35% 50%!important;transform:none!important}.kf-sparkle{animation:none!important;opacity:0!important}.se-framework-grid{transform:none!important}.se-framework-item{opacity:1!important;transform:none!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;margin-top:-64px;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -637,7 +639,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       </div>
       <p class="se-claim se-claim-1">Signal is the angle only you see.</p>
       <p class="se-claim se-claim-2 reveal">What makes your brand impossible to confuse with anyone else.</p>
-      <div class="se-framework reveal">
+      <div class="se-framework">
         <p class="se-framework-label">Signal is&hellip;</p>
         <div class="se-framework-grid">
           <div class="se-framework-item">
@@ -1261,6 +1263,56 @@ function initHeroSpotlight() {
   hero.addEventListener('pointerleave', () => hero.classList.remove('spot-on'));
 }
 initHeroSpotlight();
+
+// Signal Is grid: scroll-scrubbed reveal (each card's opacity/lift is
+// driven continuously by scroll position, staggered so they cascade
+// in rather than flipping on as a block) plus a velocity-based kinetic
+// skew on the grid itself - fast scrolling tilts it slightly, and it
+// eases back flat a beat after scrolling stops.
+function initFrameworkScroll() {
+  const grid = document.querySelector('.se-framework-grid');
+  if (!grid) return;
+  const items = Array.from(grid.querySelectorAll('.se-framework-item'));
+  let lastY = window.scrollY;
+  let settleTimer = null;
+  let ticking = false;
+
+  function updateReveal() {
+    const vh = window.innerHeight;
+    const rect = grid.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
+    items.forEach((el, i) => {
+      const local = Math.max(0, Math.min(1, (progress - i * 0.15) / 0.4));
+      el.style.opacity = local;
+      el.style.transform = `translateY(${(1 - local) * 28}px)`;
+    });
+  }
+
+  function onScroll() {
+    const y = window.scrollY;
+    const delta = y - lastY;
+    lastY = y;
+    updateReveal();
+    const tilt = Math.max(-3.5, Math.min(3.5, delta * 0.6));
+    grid.classList.remove('kinetic-settle');
+    grid.style.transform = `skewY(${tilt}deg)`;
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(() => {
+      grid.classList.add('kinetic-settle');
+      grid.style.transform = 'skewY(0deg)';
+    }, 120);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateReveal();
+}
+initFrameworkScroll();
 
 // KF badge: sitewide persistent mark, not scoped to the hero, so it
 // just fades/pops in shortly after load rather than waiting on the
