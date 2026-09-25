@@ -620,6 +620,9 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <use href="#pulseMark" transform="translate(1330,60) scale(1.6) rotate(-1)" opacity=".4"/>
       <use href="#pulseMark" transform="translate(-30,320) scale(2) rotate(3)" opacity=".4"/>
       <use href="#pulseMark" transform="translate(400,850) scale(2) rotate(1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(1280,480) scale(2.2) rotate(-2)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(950,850) scale(2.4) rotate(1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(1380,400) scale(1.8) rotate(-1)" opacity=".4"/>
     </svg>
     <div class="hero-spotlight"></div>
     <div class="hb3-scatter">
@@ -1347,7 +1350,7 @@ initVelocityFocus(['.se-framework-grid']);
 initVelocityFocus(['.se-kicker', '.se-impact']);
 initVelocityFocus(['.ss-kicker', '.ss-title']);
 initScrollCascade('.about-copy2', '.about-chip, .about-lead, .about-quote, .about-detail', { stagger: 0.12, span: 0.5, lift: 16 });
-initVelocityFocus(['.about-copy2']);
+initVelocityFocus(['.about-copy2'], { maxBlur: 1, factor: 0.003 });
 
 // KF badge: sitewide persistent mark, not scoped to the hero, so it
 // just fades/pops in shortly after load rather than waiting on the
