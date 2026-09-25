@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap" rel="stylesheet"/>
 <style>
 
 :root{--paper:#FFFFFF;--ink:#0A0A0A;--body:#1C1C1C;--orange:#FF4D00;--orange-dark:#E04300;--border:#E4E4E4;--muted:#6E6E6E;--soft:#F7F7F6;--max:1200px}
@@ -73,9 +73,9 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .footer-flex-stack .f-left{text-align:center}
 .f-left .footer-copy{margin-top:12px}
 .f-right{flex:1;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center}
-.f-cta{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(46px,6.4vw,96px);line-height:1.1;color:#fff}
-.f-cta-script{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(42px,6.5vw,84px);line-height:1.2}
-.f-cta-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:22px;line-height:1.3;color:rgba(255,255,255,.65);margin:4px 0 0}
+.f-cta{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(46px,6.4vw,96px);line-height:1.1;color:#fff}
+.f-cta-script{font-family:'Poppins',sans-serif;font-style:italic;font-weight:500;font-size:clamp(42px,6.5vw,84px);line-height:1.2}
+.f-cta-sub{font-family:'Poppins',sans-serif;font-style:italic;font-weight:500;font-size:22px;line-height:1.3;color:rgba(255,255,255,.65);margin:4px 0 0}
 .page-dark footer{padding:48px 0 72px}
 .page-dark .work-section-wrapper{padding-bottom:56px}
 .page-dark footer .f-cta{font-size:clamp(56px,8.8vw,130px);line-height:1.05}
@@ -131,7 +131,7 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 @media(max-width:900px){.hb3-scatter{padding:100px 24px 56px}}
 .hb2-grid{display:flex;align-items:flex-start;justify-content:center;gap:40px;text-align:left;margin-bottom:56px}
 .hb2-text{display:flex;flex-direction:column}
-.hb2-line{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,5.6vw,80px);line-height:1.02;color:var(--ink);margin:0}
+.hb2-line{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(34px,5.6vw,80px);line-height:1.02;color:var(--ink);margin:0}
 .hb2-mark{display:inline-flex;width:.86em;height:.86em;margin-left:.12em;vertical-align:-.12em}
 .hb2-mark svg{width:100%;height:100%}
 .hb2-photo{flex-shrink:0;width:clamp(90px,11vw,160px);aspect-ratio:130/160;border-radius:8px;border:2px solid var(--ink);overflow:hidden;margin-top:.3em}
@@ -142,7 +142,7 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .kf-circle{position:relative;width:68px;height:68px;border-radius:50%;background:var(--paper);box-shadow:0 5px 22px rgba(0,0,0,.26);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;transition:transform .2s ease,box-shadow .2s ease}
 .kf-badge:hover .kf-circle{transform:scale(1.05);box-shadow:0 7px 28px rgba(0,0,0,.33)}
 .kf-badge:active .kf-circle{transform:scale(.92)}
-.kf-mark{position:relative;display:flex;flex-direction:column;align-items:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:var(--ink);line-height:1;pointer-events:none}
+.kf-mark{position:relative;display:flex;flex-direction:column;align-items:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;color:var(--ink);line-height:1;pointer-events:none}
 .kf-pulse{width:31px;height:12px;margin-top:4px}
 .kf-ping{position:absolute;inset:0;border-radius:50%;background:var(--orange);opacity:0;pointer-events:none}
 .kf-badge.kf-pinging .kf-ping{animation:kfPing .5s ease-out}
@@ -151,12 +151,12 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .kf-badge:hover .kf-label{max-width:340px;opacity:1;margin-right:10px}
 @media(max-width:900px){.kf-badge{bottom:4px}.kf-circle{width:50px;height:50px}.kf-label{height:50px;line-height:50px}.kf-mark{font-size:19px}.kf-pulse{width:28px;height:11px;margin-top:3px}}
 .hero-tagline{font-size:clamp(15px,1.8vw,21px);font-weight:700;letter-spacing:.14em;color:var(--ink);margin:0 0 88px}
-h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
-.hero-subline{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
+h1.display{font-family:'Poppins',sans-serif;font-size:clamp(46px,8.4vw,118px);font-weight:500;color:var(--ink);line-height:1.04;margin-bottom:20px}
+.hero-subline{font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(28px,5.4vw,60px);line-height:1.1;color:var(--ink);margin:0 auto 92px}
 .sub-signal{color:#fff}
 .hb-kicker{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EAF6FF;display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 18px;background:var(--ink);border:none;padding:7px 16px;border-radius:20px;box-shadow:0 0 0 1px rgba(191,227,255,.25),0 0 10px rgba(191,227,255,.22);cursor:pointer;transition:box-shadow .2s}
 .hb-kicker:hover{box-shadow:0 0 0 1px rgba(191,227,255,.5),0 0 14px rgba(191,227,255,.4)}
-.hb-reason-head{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(24px,3.2vw,30px);line-height:1.35;color:var(--ink);max-width:500px;margin:18px auto 18px}
+.hb-reason-head{font-family:'Poppins',sans-serif;font-style:italic;font-weight:600;font-size:clamp(24px,3.2vw,30px);line-height:1.35;color:var(--ink);max-width:500px;margin:18px auto 18px}
 .hb-reason-sub{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(10,10,10,.8);margin:0 0 40px}
 .hb-kicker .hb-dot{width:5px;height:5px;border-radius:50%;background:#EAF6FF;box-shadow:0 0 5px rgba(191,227,255,.9)}
 .hb-signup-btn{position:relative;overflow:hidden;background:none;border:none;padding:19px 42px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:999px;transition:transform .25s;white-space:nowrap}
@@ -171,7 +171,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 /* SIGNAL EXPLAIN */
 .signal-explain{position:relative;background:#0A0A0A;padding:112px 0 104px;text-align:center;overflow:hidden}
 .se-wrap{position:relative;max-width:640px;margin:0 auto}
-.se-kicker{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(24px,3.4vw,34px);color:rgba(255,255,255,.72);margin:0 0 38px}
+.se-kicker{font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(24px,3.4vw,34px);color:rgba(255,255,255,.72);margin:0 0 38px}
 .se-impact{position:relative;width:100px;height:100px;margin:0 auto;display:block}
 .se-impact-dot{position:absolute;top:50%;left:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px 1px rgba(255,77,0,.35);animation:seBreathe 3.2s ease-in-out infinite}
 @media(min-width:1025px){.se-impact-flash,.se-impact-ring{width:36px;height:36px;margin:-18px 0 0 -18px}.se-impact-dot{box-shadow:0 0 20px 4px rgba(255,77,0,.4)}}
@@ -184,7 +184,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .se-impact.flash-now .se-impact-ring:nth-child(3){animation:seShock 1.6s ease-out .12s forwards}
 @keyframes seFlash{0%{opacity:0;transform:scale(1)}22%{opacity:.9;transform:scale(2.8)}100%{opacity:0;transform:scale(5.2)}}
 @keyframes seShock{0%{opacity:.7;transform:scale(1) scaleX(1)}100%{opacity:0;transform:scale(16) scaleX(1.06)}}
-.se-claim{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.6vw,48px);line-height:1.2;color:#fff}
+.se-claim{font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(28px,4.6vw,48px);line-height:1.2;color:#fff}
 .se-claim-1{margin:30px 0 0;opacity:0;transform:scale(.92) translateY(6px);filter:blur(6px)}
 .se-impact.fired~.se-claim-1{animation:seClaimLand .9s cubic-bezier(.2,1.05,.4,1) forwards}
 .se-claim-2{margin:45vh 0 0}
@@ -207,7 +207,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .ss-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);display:inline-block;position:relative}
 .ss-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:var(--orange);opacity:.6;animation:ssDotPulse 2s cubic-bezier(0,0,.3,1) infinite}
 @keyframes ssDotPulse{0%{transform:scale(.4);opacity:.6}100%{transform:scale(2.6);opacity:0}}
-.ss-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(56px,9vw,120px);line-height:.98;color:#fff;margin:0 0 16px}
+.ss-title{font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(56px,9vw,120px);line-height:.98;color:#fff;margin:0 0 16px}
 .ss-fine{font-size:12px;color:rgba(255,255,255,.4);margin:16px auto 0;max-width:480px}
 .u-fl{position:relative;display:inline-block}
 .u-fl svg{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.24em;overflow:visible}
@@ -238,7 +238,7 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 .avatar-kf svg{width:100%;height:100%}
 .about-chip{display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;margin-bottom:20px}
 .about-lead{font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;line-height:1.6;color:var(--ink);margin:0 0 24px;max-width:480px}
-.about-quote{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,5.2vw,68px);line-height:1.14;color:var(--ink);margin:0 0 32px}
+.about-quote{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(34px,5.2vw,68px);line-height:1.14;color:var(--ink);margin:0 0 32px}
 .about-quote .aq-solid{font-style:normal;color:#fff}
 .about-detail{font-family:'DM Sans',sans-serif;font-weight:400;font-size:16px;line-height:1.7;color:var(--body);margin:0}
 .about-detail.about-closing{margin-top:36px;max-width:480px}
@@ -248,10 +248,10 @@ h1.display{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8.4vw,118
 
 /* SERVICES */
 .services-section{padding:0 0 110px}
-h2.serif{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:56px}
+h2.serif{font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:56px}
 h2.serif em{font-style:italic}
 .whatido-title{text-align:center;margin-bottom:76px}
-.whatido-title h2{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7.4vw,108px);font-weight:500;line-height:1.05;color:var(--ink)}
+.whatido-title h2{font-family:'Poppins',sans-serif;font-size:clamp(44px,7.4vw,108px);font-weight:500;line-height:1.05;color:var(--ink)}
 .title-stroke{width:170px;height:14px;display:block;margin:14px auto 0}
 .services-rows{display:grid;grid-template-columns:1fr 1fr;gap:72px 80px}
 .svc{display:grid;grid-template-columns:168px 1fr;gap:30px;align-items:start}
@@ -261,7 +261,7 @@ h2.serif em{font-style:italic}
 .svc p{font-size:15px;color:var(--body);line-height:1.7;margin-bottom:22px}
 .sayhi-sm{padding:13px 26px;font-size:11px;letter-spacing:.14em}
 .svc-extra{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px 36px;border:1px dashed var(--border);padding:32px 40px}
-.svc-script{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:31px;color:var(--ink);line-height:1.3}
+.svc-script{font-family:'Poppins',sans-serif;font-style:italic;font-weight:500;font-size:31px;color:var(--ink);line-height:1.3}
 
 /* THE GOODS — tile grid */
 .goods-section{padding:110px 0 130px;border-top:1px solid var(--border)}
@@ -294,7 +294,7 @@ h2.serif em{font-style:italic}
 .crumb-light .back-btn{color:#CFCFCF}
 .crumb-light .bc-cur{color:#B5B5B5}
 .crumb-light .bc-sep{color:#666}
-.hero2-title{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6.4vw,88px);font-weight:500;color:#fff;line-height:1.05;margin:20px 0 18px;max-width:1000px}
+.hero2-title{font-family:'Poppins',sans-serif;font-size:clamp(42px,6.4vw,88px);font-weight:500;color:#fff;line-height:1.05;margin:20px 0 18px;max-width:1000px}
 .hero2-title em{font-style:italic}
 .hero2-sub{font-size:17px;color:#D6D6D6;max-width:620px;margin-bottom:28px;line-height:1.6}
 .chip-row{display:flex;flex-wrap:wrap;gap:8px}
@@ -303,7 +303,7 @@ h2.serif em{font-style:italic}
 .post-item{display:block;width:100%;background:none;border:none;border-bottom:1px solid var(--border);padding:36px 0;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;color:inherit;transition:padding-left .25s}
 .post-item:first-of-type{border-top:1px solid var(--border)}
 .post-cat{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;display:block;margin-bottom:10px}
-.post-item h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:500;color:var(--ink);line-height:1.15;transition:color .2s}
+.post-item h2{font-family:'Poppins',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:500;color:var(--ink);line-height:1.15;transition:color .2s}
 .post-item:hover h2{color:var(--orange)}
 .post-item:hover{padding-left:14px}
 .page-dark .post-item{border-bottom-color:#262626}
@@ -317,16 +317,16 @@ h2.serif em{font-style:italic}
 .post-meta{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px}
 .post-wrap{max-width:780px;margin:0 auto;padding:72px 48px 110px}
 .post-wrap p{font-size:17px;line-height:1.85;margin-bottom:24px;color:var(--body)}
-.post-wrap h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--ink);margin:48px 0 18px}
-.post-wrap blockquote{border-left:3px solid var(--orange);padding:6px 0 6px 28px;font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;line-height:1.4;color:var(--ink);margin:40px 0}
+.post-wrap h2{font-family:'Poppins',sans-serif;font-size:32px;font-weight:500;color:var(--ink);margin:48px 0 18px}
+.post-wrap blockquote{border-left:3px solid var(--orange);padding:6px 0 6px 28px;font-family:'Poppins',sans-serif;font-size:26px;font-style:italic;line-height:1.4;color:var(--ink);margin:40px 0}
 .post-cta{border:1px solid var(--border);border-left:3px solid var(--orange);padding:32px 36px;margin-top:56px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.post-cta p{margin:0;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic}
+.post-cta p{margin:0;font-family:'Poppins',sans-serif;font-size:22px;font-style:italic}
 
 /* SAY HI PAGE */
 .contact-section{padding:72px 0 130px}
 .c-form{max-width:720px}
 .c-soon{max-width:560px}
-.c-soon-lead{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);font-weight:500;line-height:1.3;color:var(--ink);margin:0 0 20px}
+.c-soon-lead{font-family:'Poppins',sans-serif;font-size:clamp(26px,3vw,36px);font-weight:500;line-height:1.3;color:var(--ink);margin:0 0 20px}
 .c-soon-sub{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;color:var(--muted);margin:0 0 36px}
 .hi-lead{font-size:clamp(24px,2.7vw,36px);letter-spacing:.06em;margin:28px 0 14px;color:var(--body)}
 .hi-email-line{margin-top:26px;font-size:13px;color:var(--muted)}
@@ -403,16 +403,16 @@ h2.serif em{font-style:italic}
 /* NEWSLETTER PAGE */
 .nl-hero{position:relative;min-height:calc(100vh - 64px);background:#0A0A0A;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 0}
 .nl-hero .wrap{position:relative;z-index:2}
-.nl-hero-script{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(28px,3.4vw,44px);color:#fff;display:block;margin-bottom:6px}
-.nl-hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,12vw,170px);font-weight:500;color:#fff;line-height:.95;letter-spacing:.05em;margin-bottom:30px}
+.nl-hero-script{font-family:'Poppins',sans-serif;font-style:italic;font-weight:500;font-size:clamp(28px,3.4vw,44px);color:#fff;display:block;margin-bottom:6px}
+.nl-hero-title{font-family:'Poppins',sans-serif;font-size:clamp(64px,12vw,170px);font-weight:500;color:#fff;line-height:.95;letter-spacing:.05em;margin-bottom:30px}
 .nl-hero-copy{max-width:760px;margin:0 auto 14px;color:#D9D9D9;font-size:17px;line-height:1.75}
 .nl-hero-form{max-width:520px;margin:44px auto 0}
 .newsletter{background:var(--ink);padding:110px 0}
 .nl-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
-.nl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,54px);font-weight:500;color:#fff;line-height:1.1;margin-bottom:20px}
+.nl-title{font-family:'Poppins',sans-serif;font-size:clamp(34px,4vw,54px);font-weight:500;color:#fff;line-height:1.1;margin-bottom:20px}
 .nl-title em{font-style:italic}
 .nl-topics{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
-.ss-promise{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.4;color:#fff;max-width:480px;margin:0 auto 32px}
+.ss-promise{font-family:'Poppins',sans-serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.4;color:#fff;max-width:480px;margin:0 auto 32px}
 .nl-copy{font-size:16px;color:#C4C4C4;line-height:1.7;margin-bottom:14px}
 .nl-form{display:flex;gap:12px}
 .nl-input{flex:1;background:transparent;border:none;border-bottom:1.5px solid #4A4A4A;color:#fff;padding:16px 6px;font-family:'DM Sans',sans-serif;font-size:15px;min-width:0;transition:border-color .2s}
@@ -432,7 +432,7 @@ h2.serif em{font-style:italic}
 
 /* WORK PAGE */
 .page-header{padding-top:64px;padding-bottom:48px}
-h1.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,76px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:20px}
+h1.page-title{font-family:'Poppins',sans-serif;font-size:clamp(44px,6vw,76px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:20px}
 h1.page-title em{font-style:italic}
 .page-sub{font-size:17px;color:var(--muted);max-width:480px}
 .page-dark{background:linear-gradient(180deg,#FFFFFF 0%,#0A0A0A 150px)}
@@ -456,7 +456,7 @@ h1.page-title em{font-style:italic}
 .lt-u svg{position:absolute;left:-2%;bottom:-.08em;width:104%;height:.2em;overflow:visible}
 .row-view{position:absolute;inset:0;background:rgba(10,10,10,.58);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:28px;text-align:center;opacity:0;transition:opacity .3s ease;z-index:2}
 .case-row:hover .row-view{opacity:1}
-.rv-what{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,1.9vw,29px);color:#fff;line-height:1.35;max-width:440px}
+.rv-what{font-family:'Poppins',sans-serif;font-style:italic;font-size:clamp(20px,1.9vw,29px);color:#fff;line-height:1.35;max-width:440px}
 .rv-go{color:#fff;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;border-bottom:3px solid var(--orange);padding-bottom:6px}
 @media (hover:none){.row-view{display:none}}
 .case-row-media{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;border:1px solid #262626}
@@ -466,12 +466,12 @@ h1.page-title em{font-style:italic}
 .row-chips{position:absolute;top:20px;left:20px;display:flex;flex-wrap:wrap;gap:8px;z-index:2}
 .chip{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;background:rgba(10,10,10,.82);color:#fff;border:1px solid rgba(255,255,255,.3)}
 .chip-lead{background:#FFFFFF;color:#0A0A0A;border-color:rgba(10,10,10,.3)}
-.case-row-title{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.8vw,48px);font-weight:500;color:#fff;line-height:1.12;margin:30px 0 16px}
+.case-row-title{display:block;font-family:'Poppins',sans-serif;font-size:clamp(30px,3.8vw,48px);font-weight:500;color:#fff;line-height:1.12;margin:30px 0 16px}
 .case-row-title em{font-style:italic}
 .view-link{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff;transition:color .2s}
 .case-row:hover .view-link{color:var(--orange)}
 .more-work{margin-top:72px;border:1px dashed var(--border);padding:40px 44px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.more-work p{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--muted);font-style:italic}
+.more-work p{font-family:'Poppins',sans-serif;font-size:22px;font-weight:300;color:var(--muted);font-style:italic}
 .more-work span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .work-section-wrapper{padding:0 0 140px}
 
@@ -482,18 +482,18 @@ h1.page-title em{font-style:italic}
 .bc-cur{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .case-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:flex;align-items:center;gap:16px;font-weight:700}
 .case-eyebrow::after{content:'';display:block;width:32px;height:1px;background:var(--border)}
-h1.case-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,72px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:24px}
+h1.case-title{font-family:'Poppins',sans-serif;font-size:clamp(40px,5.5vw,72px);font-weight:400;color:var(--ink);line-height:1.07;margin-bottom:24px}
 h1.case-title em{font-style:italic}
 .case-subtitle{font-size:18px;color:var(--muted);max-width:580px;margin-bottom:56px;line-height:1.55}
 .meta-strip{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .meta-item{flex:1;padding:28px 32px;border-right:1px solid var(--border)}
 .meta-item:last-child{border-right:none}
 .meta-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.meta-value{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--ink)}
+.meta-value{font-family:'Poppins',sans-serif;font-size:20px;font-weight:500;color:var(--ink)}
 .case-body{padding:72px 0 120px}
 .case-layout{display:grid;grid-template-columns:1fr 280px;gap:80px;align-items:start}
 .case-section{margin-bottom:64px}
-h2.case-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:20px}
+h2.case-h2{font-family:'Poppins',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:20px}
 h2.case-h2 em{font-style:italic}
 .case-content p{font-size:16px;color:var(--body);line-height:1.75;margin-bottom:18px}
 .email-preview{background:var(--soft);border:1px solid var(--border);padding:28px 32px;margin-top:16px}
@@ -509,15 +509,15 @@ h2.case-h2 em{font-style:italic}
 .hero-tagstack .hero2-sub-slim{width:0;min-width:100%;box-sizing:border-box;margin:0 0 12px;line-height:1.7}
 .tone-line{display:flex;align-items:baseline;gap:16px;margin-top:26px}
 .tone-label{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
-.tone-line em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--ink)}
+.tone-line em{font-family:'Poppins',sans-serif;font-style:italic;font-size:22px;color:var(--ink)}
 .flow-line{display:block;margin:-20px auto 40px}
 .why-item{display:flex;gap:24px;padding:22px 0 4px}
-.why-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--orange);line-height:1.05;flex-shrink:0;width:44px}
-.why-h{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.why-n{font-family:'Poppins',sans-serif;font-style:italic;font-size:30px;color:var(--orange);line-height:1.05;flex-shrink:0;width:44px}
+.why-h{font-family:'Poppins',sans-serif;font-size:25px;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.2}
 .why-item p{margin:0;font-size:15.5px;line-height:1.75;color:var(--body)}
 .sidebar-cta{border:2px solid var(--ink);padding:36px 30px}
 .sidebar-cta .sidebar-label{font-size:12px;color:var(--ink);letter-spacing:.2em}
-.sidebar-cta .sb-copy{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.35;color:var(--ink);margin:0 0 22px}
+.sidebar-cta .sb-copy{font-family:'Poppins',sans-serif;font-size:22px;line-height:1.35;color:var(--ink);margin:0 0 22px}
 .sidebar-cta .sayhi{width:100%;text-align:center;padding:19px 20px;font-size:13px}
 .reflection-box{border:1px solid var(--border);border-left:3px solid var(--orange);padding:36px 40px;background:var(--soft);margin-top:8px}
 .reflection-box p{font-size:15px;color:var(--body);line-height:1.8;margin-bottom:14px}
@@ -529,14 +529,14 @@ h2.case-h2 em{font-style:italic}
 .next-strip{border-top:1px solid var(--border);padding:64px 0}
 .next-inner{display:flex;justify-content:space-between;align-items:center;gap:32px}
 .next-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:700}
-.next-title-txt{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--ink);font-style:italic}
+.next-title-txt{font-family:'Poppins',sans-serif;font-size:26px;font-weight:400;color:var(--ink);font-style:italic}
 .next-arrow{width:52px;height:52px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;background:none;transition:background .22s,border-color .22s,transform .22s}
 .next-arrow:hover{background:var(--orange);border-color:var(--orange);transform:rotate(45deg)}
 .next-arrow svg{width:20px;height:20px;stroke:var(--muted);transition:stroke .22s}
 .next-arrow:hover svg{stroke:#fff}
 .script-block{background:#0A0A0A;color:#F2F1EC;padding:44px 48px;margin-top:16px;overflow-x:auto}
 .script-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:24px;font-weight:700}
-.script-line{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;line-height:1.55;color:#F2F1EC;margin-bottom:12px}
+.script-line{font-family:'Poppins',sans-serif;font-size:18px;font-weight:300;line-height:1.55;color:#F2F1EC;margin-bottom:12px}
 .prompt-box{background:var(--soft);border:1px solid var(--border);border-left:3px solid var(--orange);padding:28px 32px;margin-top:16px;font-family:'DM Sans',sans-serif;font-size:13px;white-space:pre-wrap;overflow-x:auto}
 .collapsible{background:var(--ink);color:#fff;cursor:pointer;padding:14px 24px;width:100%;border:none;text-align:left;font-size:14px;font-weight:500;letter-spacing:.04em;margin-top:24px;font-family:'DM Sans',sans-serif;transition:background .22s}
 .collapsible:hover{background:var(--orange)}
@@ -701,7 +701,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </svg>
     <div class="about-split">
       <div class="about-avatar">
-        <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="27" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">K</text><text x="73" y="60" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-weight="500" font-size="50" fill="#0A0A0A">F</text><path d="M12 71 H39 M61 71 H88" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/><path d="M39 71 C44 67 46.5 58 48 48 C50 60 51.5 78 54.5 86 C56.5 79 58.5 73 61 71" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="avatar-kf"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="27" y="60" text-anchor="middle" font-family="'Poppins',sans-serif" font-weight="500" font-size="50" fill="#0A0A0A">K</text><text x="73" y="60" text-anchor="middle" font-family="'Poppins',sans-serif" font-weight="500" font-size="50" fill="#0A0A0A">F</text><path d="M12 71 H39 M61 71 H88" stroke="#0A0A0A" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/><path d="M39 71 C44 67 46.5 58 48 48 C50 60 51.5 78 54.5 86 C56.5 79 58.5 73 61 71" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </div>
       <div class="about-copy2">
         <span class="about-chip">Brand Copywriter</span>
@@ -1041,16 +1041,16 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
 <symbol id="art-hero-paint" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A0A"/><g><ellipse cx="90" cy="80" rx="150" ry="75" fill="#1E1E1E" opacity=".95"/><ellipse cx="330" cy="90" rx="140" ry="70" fill="#2B140A" opacity=".8"/><ellipse cx="320" cy="330" rx="150" ry="80" fill="#191919" opacity=".95"/><ellipse cx="80" cy="330" rx="140" ry="75" fill="#301409" opacity=".7"/><ellipse cx="210" cy="200" rx="180" ry="100" fill="#151515" opacity=".9"/><ellipse cx="260" cy="150" rx="90" ry="45" fill="#3A1A0B" opacity=".5"/></g></symbol>
-<symbol id="art-yt" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A0A"/><g><ellipse cx="320" cy="90" rx="150" ry="70" fill="#FF6E30" opacity="0.14"/><ellipse cx="80" cy="330" rx="150" ry="75" fill="#FFFFFF" opacity="0.06"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="200" y="218" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Script.</text><path d="M112 252 Q200 266 288 248" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
-<symbol id="art-pulse" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="330" cy="80" rx="150" ry="70" fill="#FF4D00" opacity="0.08"/><ellipse cx="70" cy="340" rx="150" ry="75" fill="#FF4D00" opacity="0.06"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="200" y="218" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="94" fill="#0A0A0A">Email.</text><path d="M118 252 Q200 264 282 247" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
-<symbol id="art-hyundai" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FF4D00"/><g><ellipse cx="320" cy="90" rx="150" ry="75" fill="#FFFFFF" opacity="0.13"/><ellipse cx="90" cy="330" rx="150" ry="75" fill="#0A0A0A" opacity="0.11"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.85"/><text x="200" y="218" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Product.</text><path d="M108 252 Q200 267 292 249" stroke="#0A0A0A" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
-<symbol id="art-wholesaler" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="310" cy="320" rx="155" ry="75" fill="#FF4D00" opacity="0.08"/><ellipse cx="90" cy="80" rx="145" ry="70" fill="#FF4D00" opacity="0.055"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="200" y="218" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="94" fill="#0A0A0A">Story.</text><path d="M120 252 Q200 263 280 248" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
-<symbol id="art-vault" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A0A"/><g><ellipse cx="90" cy="90" rx="145" ry="70" fill="#FF6E30" opacity="0.13"/><ellipse cx="320" cy="330" rx="155" ry="75" fill="#FFFFFF" opacity="0.055"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="200" y="218" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Ad.</text><path d="M136 252 Q200 264 264 248" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
-<symbol id="art-brief" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FF4D00"/><g><ellipse cx="320" cy="90" rx="150" ry="75" fill="#FFFFFF" opacity="0.13"/><ellipse cx="90" cy="330" rx="150" ry="75" fill="#0A0A0A" opacity="0.11"/></g><text x="200" y="218" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Yours?</text><path d="M124 252 Q200 265 276 248" stroke="#0A0A0A" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-yt" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A0A"/><g><ellipse cx="320" cy="90" rx="150" ry="70" fill="#FF6E30" opacity="0.14"/><ellipse cx="80" cy="330" rx="150" ry="75" fill="#FFFFFF" opacity="0.06"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="200" y="218" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Script.</text><path d="M112 252 Q200 266 288 248" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-pulse" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="330" cy="80" rx="150" ry="70" fill="#FF4D00" opacity="0.08"/><ellipse cx="70" cy="340" rx="150" ry="75" fill="#FF4D00" opacity="0.06"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="200" y="218" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="94" fill="#0A0A0A">Email.</text><path d="M118 252 Q200 264 282 247" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-hyundai" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FF4D00"/><g><ellipse cx="320" cy="90" rx="150" ry="75" fill="#FFFFFF" opacity="0.13"/><ellipse cx="90" cy="330" rx="150" ry="75" fill="#0A0A0A" opacity="0.11"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.85"/><text x="200" y="218" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Product.</text><path d="M108 252 Q200 267 292 249" stroke="#0A0A0A" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-wholesaler" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="310" cy="320" rx="155" ry="75" fill="#FF4D00" opacity="0.08"/><ellipse cx="90" cy="80" rx="145" ry="70" fill="#FF4D00" opacity="0.055"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="200" y="218" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="94" fill="#0A0A0A">Story.</text><path d="M120 252 Q200 263 280 248" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-vault" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A0A"/><g><ellipse cx="90" cy="90" rx="145" ry="70" fill="#FF6E30" opacity="0.13"/><ellipse cx="320" cy="330" rx="155" ry="75" fill="#FFFFFF" opacity="0.055"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="200" y="218" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Ad.</text><path d="M136 252 Q200 264 264 248" stroke="#FF4D00" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-brief" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FF4D00"/><g><ellipse cx="320" cy="90" rx="150" ry="75" fill="#FFFFFF" opacity="0.13"/><ellipse cx="90" cy="330" rx="150" ry="75" fill="#0A0A0A" opacity="0.11"/></g><text x="200" y="218" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="94" fill="#FFFFFF">Yours?</text><path d="M124 252 Q200 265 276 248" stroke="#0A0A0A" stroke-width="6" fill="none" stroke-linecap="round"/></symbol>
 <symbol id="art-svc-strategy" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="320" cy="90" rx="145" ry="70" fill="#FF4D00" opacity=".06"/><ellipse cx="80" cy="330" rx="140" ry="70" fill="#FF4D00" opacity=".045"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><g stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" fill="none"><line x1="96" y1="312" x2="330" y2="312"/><line x1="112" y1="96" x2="112" y2="328"/><path d="M322 306 L332 312 L322 318"/><path d="M106 104 L112 94 L118 104"/></g><g fill="#C9C9C9"><circle cx="176" cy="252" r="5"/><circle cx="214" cy="272" r="5"/><circle cx="252" cy="216" r="5"/><circle cx="166" cy="186" r="5"/></g><circle cx="276" cy="152" r="11" fill="#FF4D00"/><circle cx="276" cy="152" r="22" fill="none" stroke="#0A0A0A" stroke-width="2.5"/></symbol>
 <symbol id="art-svc-copy" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="320" cy="90" rx="145" ry="70" fill="#FF4D00" opacity=".06"/><ellipse cx="80" cy="330" rx="140" ry="70" fill="#FF4D00" opacity=".045"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><rect x="148" y="102" width="150" height="196" fill="none" stroke="#0A0A0A" stroke-width="2" opacity=".35"/><rect x="122" y="122" width="150" height="196" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="2.5"/><rect x="140" y="140" width="60" height="42" fill="none" stroke="#0A0A0A" stroke-width="2"/><line x1="140" y1="182" x2="200" y2="140" stroke="#0A0A0A" stroke-width="1.5" opacity=".6"/><g stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round"><line x1="212" y1="150" x2="254" y2="150"/><line x1="212" y1="164" x2="248" y2="164"/></g><g stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round"><line x1="140" y1="204" x2="254" y2="204"/><line x1="140" y1="220" x2="244" y2="220"/><line x1="140" y1="236" x2="252" y2="236"/><line x1="140" y1="268" x2="236" y2="268"/><line x1="140" y1="284" x2="248" y2="284"/></g><path d="M140 252 Q196 258 252 250" stroke="#FF4D00" stroke-width="4.5" fill="none" stroke-linecap="round"/></symbol>
 <symbol id="art-svc-growth" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="320" cy="90" rx="145" ry="70" fill="#FF4D00" opacity=".06"/><ellipse cx="80" cy="330" rx="140" ry="70" fill="#FF4D00" opacity=".045"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><line x1="84" y1="318" x2="330" y2="318" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round"/><path d="M92 300 C150 298 172 250 212 216" stroke="#0A0A0A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M212 216 C248 186 262 156 296 124" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M274 122 L298 122 L292 146" stroke="#FF4D00" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="art-svc-ai" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="320" cy="90" rx="145" ry="70" fill="#FF4D00" opacity=".06"/><ellipse cx="80" cy="330" rx="140" ry="70" fill="#FF4D00" opacity=".045"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><g stroke="#0A0A0A" stroke-width="2" opacity=".75"><line x1="124" y1="152" x2="184" y2="112"/><line x1="184" y1="112" x2="258" y2="142"/><line x1="258" y1="142" x2="298" y2="222"/><line x1="298" y1="222" x2="232" y2="268"/><line x1="232" y1="268" x2="142" y2="258"/><line x1="142" y1="258" x2="124" y2="152"/><line x1="184" y1="112" x2="232" y2="268"/></g><g fill="#0A0A0A"><circle cx="124" cy="152" r="6"/><circle cx="184" cy="112" r="6"/><circle cx="298" cy="222" r="6"/><circle cx="232" cy="268" r="6"/><circle cx="142" cy="258" r="6"/></g><circle cx="258" cy="142" r="8" fill="#FF4D00"/><circle cx="258" cy="142" r="16" fill="none" stroke="#FF4D00" stroke-width="2.5"/><g stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round"><line x1="312" y1="102" x2="312" y2="122"/><line x1="302" y1="112" x2="322" y2="112"/></g></symbol><symbol id="art-w-yt" viewBox="0 0 600 400"><rect width="600" height="400" fill="#0A0A0A"/><g><ellipse cx="500" cy="85" rx="190" ry="80" fill="#FF6E30" opacity="0.14"/><ellipse cx="110" cy="330" rx="180" ry="80" fill="#FFFFFF" opacity="0.06"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="300" y="222" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Script.</text><path d="M186 262 Q300 278 414 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-pulse" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FFFFFF"/><g><ellipse cx="510" cy="80" rx="185" ry="80" fill="#FF4D00" opacity="0.08"/><ellipse cx="95" cy="335" rx="175" ry="80" fill="#FF4D00" opacity="0.06"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="300" y="222" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="118" fill="#0A0A0A">Email.</text><path d="M192 262 Q300 276 408 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-hyundai" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FF4D00"/><g><ellipse cx="500" cy="90" rx="185" ry="80" fill="#FFFFFF" opacity="0.13"/><ellipse cx="110" cy="330" rx="180" ry="80" fill="#0A0A0A" opacity="0.11"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.85"/><text x="300" y="222" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Product.</text><path d="M176 262 Q300 280 424 259" stroke="#0A0A0A" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-wholesaler" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FFFFFF"/><g><ellipse cx="490" cy="325" rx="190" ry="80" fill="#FF4D00" opacity="0.08"/><ellipse cx="110" cy="85" rx="175" ry="75" fill="#FF4D00" opacity="0.055"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="300" y="222" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="118" fill="#0A0A0A">Story.</text><path d="M196 262 Q300 275 404 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-vault" viewBox="0 0 600 400"><rect width="600" height="400" fill="#0A0A0A"/><g><ellipse cx="110" cy="85" rx="175" ry="75" fill="#FF6E30" opacity="0.13"/><ellipse cx="500" cy="330" rx="190" ry="80" fill="#FFFFFF" opacity="0.055"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="300" y="222" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Ad.</text><path d="M226 262 Q300 274 374 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-brief" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FF4D00"/><g><ellipse cx="500" cy="90" rx="185" ry="80" fill="#FFFFFF" opacity="0.13"/><ellipse cx="110" cy="330" rx="180" ry="80" fill="#0A0A0A" opacity="0.11"/></g><text x="300" y="222" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Yours?</text><path d="M204 262 Q300 277 396 258" stroke="#0A0A0A" stroke-width="7" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="art-svc-ai" viewBox="0 0 400 400"><rect width="400" height="400" fill="#FFFFFF"/><g><ellipse cx="320" cy="90" rx="145" ry="70" fill="#FF4D00" opacity=".06"/><ellipse cx="80" cy="330" rx="140" ry="70" fill="#FF4D00" opacity=".045"/></g><rect x="14" y="14" width="372" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5"/><g stroke="#0A0A0A" stroke-width="2" opacity=".75"><line x1="124" y1="152" x2="184" y2="112"/><line x1="184" y1="112" x2="258" y2="142"/><line x1="258" y1="142" x2="298" y2="222"/><line x1="298" y1="222" x2="232" y2="268"/><line x1="232" y1="268" x2="142" y2="258"/><line x1="142" y1="258" x2="124" y2="152"/><line x1="184" y1="112" x2="232" y2="268"/></g><g fill="#0A0A0A"><circle cx="124" cy="152" r="6"/><circle cx="184" cy="112" r="6"/><circle cx="298" cy="222" r="6"/><circle cx="232" cy="268" r="6"/><circle cx="142" cy="258" r="6"/></g><circle cx="258" cy="142" r="8" fill="#FF4D00"/><circle cx="258" cy="142" r="16" fill="none" stroke="#FF4D00" stroke-width="2.5"/><g stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round"><line x1="312" y1="102" x2="312" y2="122"/><line x1="302" y1="112" x2="322" y2="112"/></g></symbol><symbol id="art-w-yt" viewBox="0 0 600 400"><rect width="600" height="400" fill="#0A0A0A"/><g><ellipse cx="500" cy="85" rx="190" ry="80" fill="#FF6E30" opacity="0.14"/><ellipse cx="110" cy="330" rx="180" ry="80" fill="#FFFFFF" opacity="0.06"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="300" y="222" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Script.</text><path d="M186 262 Q300 278 414 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-pulse" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FFFFFF"/><g><ellipse cx="510" cy="80" rx="185" ry="80" fill="#FF4D00" opacity="0.08"/><ellipse cx="95" cy="335" rx="175" ry="80" fill="#FF4D00" opacity="0.06"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="300" y="222" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="118" fill="#0A0A0A">Email.</text><path d="M192 262 Q300 276 408 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-hyundai" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FF4D00"/><g><ellipse cx="500" cy="90" rx="185" ry="80" fill="#FFFFFF" opacity="0.13"/><ellipse cx="110" cy="330" rx="180" ry="80" fill="#0A0A0A" opacity="0.11"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.85"/><text x="300" y="222" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Product.</text><path d="M176 262 Q300 280 424 259" stroke="#0A0A0A" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-wholesaler" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FFFFFF"/><g><ellipse cx="490" cy="325" rx="190" ry="80" fill="#FF4D00" opacity="0.08"/><ellipse cx="110" cy="85" rx="175" ry="75" fill="#FF4D00" opacity="0.055"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#0A0A0A" stroke-width="1.5" opacity="1"/><text x="300" y="222" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="118" fill="#0A0A0A">Story.</text><path d="M196 262 Q300 275 404 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-vault" viewBox="0 0 600 400"><rect width="600" height="400" fill="#0A0A0A"/><g><ellipse cx="110" cy="85" rx="175" ry="75" fill="#FF6E30" opacity="0.13"/><ellipse cx="500" cy="330" rx="190" ry="80" fill="#FFFFFF" opacity="0.055"/></g><rect x="14" y="14" width="572" height="372" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/><text x="300" y="222" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Ad.</text><path d="M226 262 Q300 274 374 258" stroke="#FF4D00" stroke-width="7" fill="none" stroke-linecap="round"/></symbol><symbol id="art-w-brief" viewBox="0 0 600 400"><rect width="600" height="400" fill="#FF4D00"/><g><ellipse cx="500" cy="90" rx="185" ry="80" fill="#FFFFFF" opacity="0.13"/><ellipse cx="110" cy="330" rx="180" ry="80" fill="#0A0A0A" opacity="0.11"/></g><text x="300" y="222" text-anchor="middle" font-family="'Poppins',sans-serif" font-style="italic" font-weight="500" font-size="118" fill="#FFFFFF">Yours?</text><path d="M204 262 Q300 277 396 258" stroke="#0A0A0A" stroke-width="7" fill="none" stroke-linecap="round"/></symbol>
 </svg>
 
 <script>
