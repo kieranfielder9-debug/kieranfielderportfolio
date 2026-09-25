@@ -107,8 +107,13 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hb3-scatter{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:safe center;align-items:flex-start;padding:100px 6% 60px}
 .hb3-w{position:static;margin:0;font-family:'Poppins',sans-serif;font-weight:800;line-height:1.12;color:var(--ink);white-space:normal;letter-spacing:-.01em}
 .hb3-a{font-size:clamp(24px,4vw,52px)}
-.hb3-shine{display:inline-block;background:linear-gradient(100deg,#E2E2E2 0%,#E2E2E2 38%,#FFFFFF 48%,#FFFFFF 52%,#E2E2E2 62%,#E2E2E2 100%);background-size:280% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:1px 1px 0 rgba(224,224,224,.7),2px 2px 0 rgba(206,206,206,.6),3px 3px 0 rgba(188,188,188,.5),4px 4px 0 rgba(170,170,170,.4),5px 6px 8px rgba(150,150,150,.35);animation:kfShine 3.2s ease-in-out infinite,kfFloat 2.8s ease-in-out infinite}
-@keyframes kfFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hb3-shine{position:relative;display:inline-block;background:linear-gradient(100deg,#D6D6D6 0%,#D6D6D6 41%,#FFFFFF 49%,#FFFFFF 51%,#D6D6D6 59%,#D6D6D6 100%);background-size:320% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:1px 1px 0 rgba(224,224,224,.7),2px 2px 0 rgba(206,206,206,.6),3px 3px 0 rgba(188,188,188,.5),4px 4px 0 rgba(170,170,170,.4),5px 6px 10px rgba(255,255,255,.5);animation:kfShine 2.3s ease-in-out infinite,kfFloat 4.8s ease-in-out infinite}
+@keyframes kfFloat{0%,12%{transform:translateY(0)}35%,60%{transform:translateY(-16px)}82%,100%{transform:translateY(0)}}
+.kf-sparkle{position:absolute;width:13px;height:13px;background:#fff;clip-path:polygon(50% 0%,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0% 50%,39% 39%);opacity:0;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,255,255,.9))}
+.kf-sparkle-1{top:-8px;left:20%;animation:sparkleTwinkle 3s ease-in-out infinite}
+.kf-sparkle-2{bottom:-2px;right:8%;width:9px;height:9px;animation:sparkleTwinkle 3s ease-in-out infinite 1.3s}
+.kf-sparkle-3{top:6px;left:48%;width:8px;height:8px;animation:sparkleTwinkle 3s ease-in-out infinite 2.1s}
+@keyframes sparkleTwinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(25deg)}}
 @keyframes kfShine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hb3-b{font-size:clamp(26px,4.4vw,58px)}
 .hb3-c{font-size:clamp(26px,4.4vw,58px)}
@@ -278,7 +283,7 @@ h2.serif em{font-style:italic}
 .tile-cta svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
 .tile-cta .tile-overlay{inset:6px}
 
-@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-shine{animation:none!important;background-position:35% 50%!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){.draw{animation:none;stroke-dashoffset:0}.tile svg{transition:none}.hb-signup-btn::before{animation:none}.nav-links button.nav-signal::before{animation:none;left:-60%}.ss-dot::after{animation:none;opacity:0}.se-impact-dot{animation:none}.se-impact.flash-now .se-impact-flash,.se-impact.flash-now .se-impact-ring{animation:none;opacity:0}.se-claim-1{transition:opacity .3s}.se-impact.fired~.se-claim-1{animation:none;opacity:1;transform:none;filter:none}.about-spotlight{display:none}.hero-spotlight{display:none}.about-avatar{transition:none!important;transform:none!important}.sayhi{transition:background .2s,color .2s!important;transform:none!important}.sayhi::before,.nav-signal::before{animation:none;left:-60%}.sayhi.sayhi-pulse::after,.nav-signal.sayhi-pulse::after{animation:none;opacity:0}[data-parallax]{transform:none!important}.hb3-w,.hb-signup-btn.hb3-cta{opacity:1!important;transform:none!important;transition:none!important}.kf-badge{transition:none!important}.kf-badge.kf-in{opacity:1!important;transform:scale(1)!important}.kf-circle{transition:none!important}.kf-label{transition:none!important}.kf-ping{display:none!important}.hb3-shine{animation:none!important;background-position:35% 50%!important;transform:none!important}.kf-sparkle{animation:none!important;opacity:0!important}}
 
 /* CASE HERO TEMPLATE (IMA-style) */
 .case-hero2{position:relative;min-height:74vh;margin-top:-64px;display:flex;align-items:flex-end;background:#0A0A0A;overflow:hidden}
@@ -609,7 +614,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     </svg>
     <div class="hero-spotlight"></div>
     <div class="hb3-scatter">
-      <h1 class="hb3-w hb3-a"><span class="hb3-shine">Wanna stand out?</span></h1>
+      <h1 class="hb3-w hb3-a"><span class="hb3-shine">Wanna stand out?<span class="kf-sparkle kf-sparkle-1" aria-hidden="true"></span><span class="kf-sparkle kf-sparkle-2" aria-hidden="true"></span><span class="kf-sparkle kf-sparkle-3" aria-hidden="true"></span></span></h1>
       <h1 class="hb3-w hb3-b">Brands that stand out</h1>
       <h1 class="hb3-w hb3-c">don't make noise.</h1>
       <p class="hb3-w hb3-d">They show&hellip;</p>
