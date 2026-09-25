@@ -27,26 +27,26 @@ body{background:var(--paper);color:var(--body);font-family:'DM Sans',sans-serif;
 .reveal.in{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.4s}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,232,220,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);opacity:0;transform:translateY(-14px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(-14px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}
 nav.nav-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:var(--ink);cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .2s;padding:0 4px}
+.nav-logo{font-family:'Mr Dafoe',cursive;font-size:27px;font-weight:400;color:#fff;cursor:pointer;background:none;border:none;line-height:1;transform:rotate(-3deg);transition:color .2s;padding:0 4px}
 .nav-logo:hover{color:var(--orange)}
 .nav-right{display:flex;align-items:center;gap:40px}
 .nav-links{display:flex;gap:36px;list-style:none}
-.nav-links button{font-size:11px;font-weight:500;color:var(--muted);background:none;border:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
-.nav-links button:hover,.nav-links button.active{color:var(--ink)}
-.nav-sayhi{background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.nav-links button{font-size:11px;font-weight:500;color:rgba(255,255,255,.65);background:none;border:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0}
+.nav-links button:hover,.nav-links button.active{color:#fff}
+.nav-sayhi{background:#fff;color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;text-decoration:none;transition:background .2s;white-space:nowrap;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
 .nav-sayhi:hover{background:var(--orange);color:#fff}
 .nav-links button.nav-signal{position:relative;overflow:hidden;background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;letter-spacing:.14em;display:inline-flex;align-items:center;gap:10px}
 .nav-links button.nav-signal:hover,.nav-links button.nav-signal.active{background:var(--orange-dark);color:#fff}
 @keyframes navSignalShine{0%{left:-60%}35%{left:130%}100%{left:130%}}
 .nav-signal-dot{width:7px;height:7px;border-radius:50%;background:#fff;display:inline-block}
 .nav-burger{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px 4px}
-.nav-burger span{width:20px;height:2px;background:var(--ink);display:block;transition:background .25s ease}
-.mobile-menu{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:none;flex-direction:column;z-index:99}
+.nav-burger span{width:20px;height:2px;background:#fff;display:block;transition:background .25s ease}
+.mobile-menu{position:fixed;top:64px;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);display:none;flex-direction:column;z-index:99}
 .mobile-menu.open{display:flex}
-.mobile-menu button{background:none;border:none;border-top:1px solid var(--border);padding:18px 24px;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.mobile-menu button{background:none;border:none;border-top:1px solid rgba(255,255,255,.08);padding:18px 24px;text-align:left;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;cursor:pointer}
 .mobile-menu button:active{color:var(--orange)}
 
 .btn{display:inline-block;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:0;transition:background .22s,color .22s,border-color .22s;cursor:pointer;border:none;text-decoration:none}
