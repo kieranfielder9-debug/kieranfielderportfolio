@@ -578,7 +578,7 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
     <button class="nav-logo" onclick="go('home')">Kieran Fielder</button>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><button id="nb-read" class="nav-signal" onclick="go('read')"><span class="nav-signal-dot"></span>Receive Signal</button></li>
+        <li><button id="nb-audit" class="nav-signal" onclick="go('sayhi')"><span class="nav-signal-dot"></span>Signal Audit</button></li>
       </ul>
       <button class="nav-burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     </div>
@@ -1073,11 +1073,11 @@ function go(id, anchorId) {
   const nbWork = document.getElementById('nb-work');
   const nbAbout = document.getElementById('nb-about');
   const nbBlog = document.getElementById('nb-blog');
-  const nbRead = document.getElementById('nb-read');
+  const nbAudit = document.getElementById('nb-audit');
   if(nbWork && WORKISH.includes(id)) nbWork.classList.add('active');
   if(nbAbout && id === 'home' && anchorId === 'about') nbAbout.classList.add('active');
   if(nbBlog && (id === 'blog' || id === 'post-sample')) nbBlog.classList.add('active');
-  if(nbRead && id === 'read') nbRead.classList.add('active');
+  if(nbAudit && id === 'sayhi') nbAudit.classList.add('active');
   const navEl = document.querySelector('nav');
   if(navEl) { if(id === 'home') { navEl.classList.remove('nav-visible'); } else { navEl.classList.add('nav-visible'); } }
   const mm = document.getElementById('mobile-menu');
