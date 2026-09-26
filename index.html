@@ -104,8 +104,8 @@ footer{position:relative;background:var(--ink);padding:92px 0 64px;margin-top:0;
 .hero-pattern{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;mix-blend-mode:soft-light;will-change:filter}
 .hero-spotlight{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .4s ease;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.18),rgba(255,255,255,0) 70%)}
 #hero.spot-on .hero-spotlight{opacity:1}
-.hb3-scatter{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:safe center;align-items:flex-start;padding:100px 6% 60px}
-.hb3-w{position:static;margin:0;font-family:'DM Sans',sans-serif;font-weight:800;line-height:1.12;color:var(--ink);white-space:normal;letter-spacing:-.01em}
+.hb3-scatter{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:safe center;align-items:center;text-align:center;padding:100px 6% 60px}
+.hb3-w{position:static;margin:0;font-family:'Poppins',sans-serif;font-weight:800;line-height:1.12;color:var(--ink);white-space:normal;letter-spacing:-.01em}
 .hb3-a{font-size:clamp(24px,4vw,52px)}
 .hb3-shine{position:relative;display:inline-block;background:linear-gradient(100deg,#D6D6D6 0%,#D6D6D6 41%,#FFFFFF 49%,#FFFFFF 51%,#D6D6D6 59%,#D6D6D6 100%);background-size:320% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:1px 1px 0 rgba(224,224,224,.7),2px 2px 0 rgba(206,206,206,.6),3px 3px 0 rgba(188,188,188,.5),4px 4px 0 rgba(170,170,170,.4),5px 6px 10px rgba(255,255,255,.5);animation:kfShine 2.3s ease-in-out infinite,kfFloat 4.8s ease-in-out infinite}
 @keyframes kfFloat{0%,12%{transform:translateY(0)}35%,60%{transform:translateY(-28px)}82%,100%{transform:translateY(0)}}
@@ -607,20 +607,19 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
       <defs>
         <path id="pulseMark" d="M0 30 H24 C27 30 28.5 21 30 12 C31.5 21 33 41 36.5 49 C38 41 39.5 34 46 30 H70" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </defs>
-      <use href="#pulseMark" transform="translate(40,55) scale(1.7)" opacity=".5"/>
-      <use href="#pulseMark" transform="translate(560,50) scale(1.8)" opacity=".5"/>
-      <use href="#pulseMark" transform="translate(1050,58) scale(1.6)" opacity=".5"/>
-      <use href="#pulseMark" transform="translate(1010,150) scale(4.2)" opacity=".5"/>
-      <use href="#pulseMark" transform="translate(900,420) scale(4.2) rotate(-2)" opacity=".5"/>
-      <use href="#pulseMark" transform="translate(560,730) scale(3.2)" opacity=".45"/>
-      <use href="#pulseMark" transform="translate(780,60) scale(2) rotate(-1)" opacity=".45"/>
-      <use href="#pulseMark" transform="translate(1200,720) scale(3.4) rotate(-3)" opacity=".45"/>
-      <use href="#pulseMark" transform="translate(1150,850) scale(2.4) rotate(2)" opacity=".4"/>
-      <use href="#pulseMark" transform="translate(1330,60) scale(1.6) rotate(-1)" opacity=".4"/>
-      <use href="#pulseMark" transform="translate(400,850) scale(2) rotate(1)" opacity=".4"/>
-      <use href="#pulseMark" transform="translate(1280,480) scale(2.2) rotate(-2)" opacity=".4"/>
-      <use href="#pulseMark" transform="translate(950,850) scale(2.4) rotate(1)" opacity=".4"/>
-      <use href="#pulseMark" transform="translate(1380,400) scale(1.8) rotate(-1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(40,55) scale(1.7)" opacity=".45"/>
+      <use href="#pulseMark" transform="translate(-20,185) scale(4) rotate(2)" opacity=".5"/>
+      <use href="#pulseMark" transform="translate(70,440) scale(2.4) rotate(-2)" opacity=".45"/>
+      <use href="#pulseMark" transform="translate(-40,610) scale(3.4) rotate(3)" opacity=".5"/>
+      <use href="#pulseMark" transform="translate(130,835) scale(2) rotate(-1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(1330,60) scale(1.6) rotate(-1)" opacity=".45"/>
+      <use href="#pulseMark" transform="translate(1160,175) scale(4) rotate(-2)" opacity=".5"/>
+      <use href="#pulseMark" transform="translate(1215,450) scale(2.4) rotate(2)" opacity=".45"/>
+      <use href="#pulseMark" transform="translate(1090,592) scale(2.8) rotate(-3)" opacity=".5"/>
+      <use href="#pulseMark" transform="translate(560,8) scale(1.6)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(830,12) scale(1.5) rotate(-1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(440,815) scale(2.2) rotate(1)" opacity=".4"/>
+      <use href="#pulseMark" transform="translate(640,828) scale(1.7) rotate(-1)" opacity=".4"/>
     </svg>
     <div class="hero-spotlight"></div>
     <div class="hb3-scatter">
