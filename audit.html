@@ -1,0 +1,1543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Signal Audit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A 5-minute diagnostic for SaaS founders. Find where your brand blends in and get the 3 fixes that matter most.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:wght@600;700;800&display=swap">
+<style>
+/* Layout: one 560px column. Orange chapter screens (intro, section breaks, thanks) flood the page like the
+   site's hero; questions and results sit on paper in light mode and on ink in dark mode. */
+:root{
+  --orange:#FF4D00;--orange-deep:#E04300;--ink:#0A0A0A;--paper:#FFFFFF;--ink-soft:rgba(10,10,10,.12);--ink-faint:rgba(10,10,10,.6);--glint:rgba(234,246,255,.85);
+  --bg:#FFFFFF;--fg:#0A0A0A;--body:#2B2724;--muted:#645D57;--line:#E8E3DE;--soft:#F6F3F0;
+  --chip:#FFFFFF;--chip-line:rgba(10,10,10,.16);--track:#ECE7E2;--accent-text:#C93C00;--hl:rgba(255,77,0,.12);
+  --btn:#0A0A0A;--btn-fg:#FFFFFF;--danger:#C2182F;--shadow:0 18px 40px rgba(10,10,10,.10);
+  --f-display:'Poppins','Helvetica Neue',Arial,sans-serif;
+  --f-body:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  --ease-out:cubic-bezier(.22,1,.36,1);--ease-pop:cubic-bezier(.34,1.56,.64,1);--ease-io:cubic-bezier(.65,0,.35,1);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0A0A;--fg:#FFFFFF;--body:rgba(255,255,255,.86);--muted:rgba(255,255,255,.64);--line:rgba(255,255,255,.12);--soft:#171513;
+    --chip:#131110;--chip-line:rgba(255,255,255,.2);--track:rgba(255,255,255,.13);--accent-text:#FF7A3D;--hl:rgba(255,77,0,.2);
+    --btn:#FFFFFF;--btn-fg:#0A0A0A;--danger:#FF6B7F;--shadow:0 18px 40px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0A0A;--fg:#FFFFFF;--body:rgba(255,255,255,.86);--muted:rgba(255,255,255,.64);--line:rgba(255,255,255,.12);--soft:#171513;
+  --chip:#131110;--chip-line:rgba(255,255,255,.2);--track:rgba(255,255,255,.13);--accent-text:#FF7A3D;--hl:rgba(255,77,0,.2);
+  --btn:#FFFFFF;--btn-fg:#0A0A0A;--danger:#FF6B7F;--shadow:0 18px 40px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--body);font:400 16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased;transition:background-color .55s var(--ease-io)}
+body.is-orange{background:var(--orange)}
+button,input,textarea{font:inherit;color:inherit}
+button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+body.is-orange :focus-visible{outline-color:var(--ink)}
+[data-focus]:focus{outline:none}
+
+/* Shell */
+.app{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--fg);transition:color .4s}
+body.is-orange .brand{color:var(--ink)}
+.kf{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:var(--paper);box-shadow:0 0 0 1px var(--line),0 4px 14px rgba(10,10,10,.12)}
+body.is-orange .kf{box-shadow:0 4px 14px rgba(10,10,10,.2)}
+.kf b{display:flex;flex-direction:column;align-items:center;font:700 12.5px/1 var(--f-display);color:var(--ink)}
+.kf svg{width:18px;height:7px;margin-top:2px}
+.kf path{fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.brand-name{font:700 12px/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase}
+.count{font:700 12px/1 var(--f-body);letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums}
+body.is-orange .count{color:var(--ink)}
+.progress{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:0 4px 8px}
+.seg{height:5px;border-radius:3px;background:var(--track);overflow:hidden}
+.seg i{display:block;height:100%;width:0;border-radius:inherit;background:var(--orange);transition:width .6s var(--ease-out)}
+body.is-orange .seg{background:var(--ink-soft)}
+body.is-orange .seg i{background:var(--ink)}
+
+/* Screens and transitions */
+.stage{position:relative}
+.screen{display:flex;flex-direction:column;gap:22px;padding:6px 4px 8px}
+.screen.leaving{position:absolute;top:0;left:0;right:0;pointer-events:none}
+.screen.in-fwd{animation:inFwd .5s .1s var(--ease-out) both}
+.screen.in-back{animation:inBack .5s .1s var(--ease-out) both}
+.screen.out-fwd{animation:outFwd .24s ease-in both}
+.screen.out-back{animation:outBack .24s ease-in both}
+@keyframes inFwd{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes inBack{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes outFwd{to{opacity:0;transform:translateY(-18px)}}
+@keyframes outBack{to{opacity:0;transform:translateY(22px)}}
+.screen.in-fwd .stagger>*,.screen.in-back .stagger>*{animation:rise .45s var(--ease-out) both;animation-delay:calc(var(--i,0) * 35ms + 160ms)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Type */
+.back{align-self:flex-start;min-height:44px;margin:-6px 0 -10px;padding:0 6px 0 0;border:0;background:none;font:700 12px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.back:hover{color:var(--fg)}
+body.is-orange .back{color:var(--ink)}
+.eyebrow{margin:0;font:700 12px/1.2 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+.q{margin:-8px 0 0;font:700 clamp(25px,7vw,33px)/1.16 var(--f-display);letter-spacing:-.015em;color:var(--fg);text-wrap:balance}
+.help{margin:-10px 0 0;max-width:46ch;font:400 16px/1.5 var(--f-body);color:var(--muted)}
+.pill-ink{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;background:var(--ink);color:var(--paper);font:700 11px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase}
+.pill-ink svg{width:13px;height:13px}
+.pill-ink path{fill:none;stroke:var(--orange);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border:0;border-radius:8px;font:700 14px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:transform .15s var(--ease-out),opacity .2s,background-color .2s,color .2s}
+.btn:active{transform:translateY(2px)}
+.btn[disabled]{opacity:.32;cursor:not-allowed;transform:none}
+.btn-block{width:100%}
+.btn-primary{background:var(--btn);color:var(--btn-fg)}
+.btn-primary:not([disabled]):hover{background:var(--orange);color:var(--ink)}
+.btn-orange{background:var(--orange);color:var(--ink);box-shadow:0 4px 0 var(--orange-deep)}
+.btn-orange:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--paper);color:var(--ink)}
+.btn-line{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--fg)}
+.btn-line:hover{background:var(--fg);color:var(--bg)}
+.btn-text{align-self:center;min-height:48px;padding:0 10px;background:none;color:var(--fg);text-decoration:underline;text-underline-offset:5px;letter-spacing:.12em}
+body.is-orange .btn-text{color:var(--ink)}
+.cta{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;min-height:64px;border:0;border-radius:999px;background:none;color:var(--paper);font:700 15px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:transform .2s var(--ease-out)}
+.cta::before{content:"";position:absolute;top:50%;left:50%;width:640px;height:640px;margin:-320px 0 0 -320px;background:conic-gradient(from 0deg,transparent 0%,transparent 74%,var(--glint) 87%,var(--paper) 91%,var(--glint) 95%,transparent 100%);animation:spin 3s linear infinite;z-index:-2}
+.cta::after{content:"";position:absolute;inset:2.5px;border-radius:999px;background:var(--ink);z-index:-1}
+.cta:hover{transform:translateY(-2px)}
+.cta:hover::before{animation-duration:1.1s}
+.cta:active{transform:translateY(1px)}
+
+/* Intro */
+.intro{gap:20px}
+.intro h1{margin:2px 0 0;font:800 clamp(36px,10.4vw,56px)/1.02 var(--f-display);letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+.intro h1 em{font-style:normal;color:var(--paper)}
+.lede{margin:0;max-width:42ch;font:400 18px/1.55 var(--f-body);color:var(--ink)}
+.start{display:grid;gap:14px;margin-top:4px}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0;margin:0;font:700 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.meta span+span::before{content:"";display:inline-block;width:4px;height:4px;margin:0 12px 2px;border-radius:50%;background:currentColor;vertical-align:middle}
+.preview{position:relative;display:grid;gap:10px;margin:16px 6px 4px;padding:20px 18px 16px;border-radius:14px;background:var(--paper);color:var(--ink);box-shadow:0 24px 60px rgba(10,10,10,.28);transform:rotate(-1.6deg)}
+.preview-tag{position:absolute;top:-11px;right:16px;padding:6px 10px;border-radius:999px;background:var(--ink);color:var(--paper);font:700 10px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase}
+.pv-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font:700 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.pv-chip{padding:6px 9px;border-radius:999px;background:var(--orange);color:var(--ink);letter-spacing:.12em}
+.pv-num{margin:0;font:800 64px/.9 var(--f-display);letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums}
+.pv-num small{margin-left:4px;font-size:.3em;letter-spacing:0;color:var(--ink-faint)}
+.pv-spec{position:relative;display:grid;grid-template-columns:40fr 20fr 20fr 20fr;gap:3px;height:8px;margin-top:4px}
+.pv-spec i{border-radius:2px;background:var(--ink-soft)}
+.pv-spec i.is-you{background:var(--ink)}
+.pv-dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:3px solid var(--paper);background:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.pv-dot.next{background:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+.pv-legend{display:flex;justify-content:space-between;gap:10px;font:600 12px/1.2 var(--f-body);color:var(--ink-faint)}
+
+/* Waveforms */
+.wave{display:block;width:100%;height:auto;aspect-ratio:320/100}
+.wave path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.wave .w-noise{stroke-width:1.6}
+.wave .w-signal{stroke-width:2.8}
+.wave.on-orange .w-noise{stroke:var(--ink);opacity:.32}
+.wave.on-orange .w-signal{stroke:var(--paper)}
+.wave.on-paper .w-noise{stroke:var(--ink);opacity:.26}
+.wave.on-paper .w-signal{stroke:var(--orange)}
+.wave.draw path{stroke-dasharray:1 1;stroke-dashoffset:1;animation:draw 1.1s var(--ease-io) forwards;animation-delay:var(--d,0s)}
+
+/* Options (one answer, taps advance) */
+.opts{display:grid;gap:10px}
+.opt,.chip{position:relative;overflow:hidden;isolation:isolate;border:1.5px solid var(--chip-line);border-radius:8px;background:var(--chip);color:var(--fg);text-align:left;cursor:pointer;transition:border-color .2s,color .25s,transform .15s var(--ease-out)}
+.opt::before,.chip::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .32s var(--ease-io)}
+.opt:hover,.chip:hover{border-color:var(--fg)}
+.opt:active,.chip:active{transform:scale(.985)}
+.opt.is-on,.chip.is-on{border-color:var(--orange);color:var(--ink)}
+.opt.is-on::before,.chip.is-on::before{transform:scaleX(1)}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:58px;padding:12px 16px;font:500 17px/1.3 var(--f-body)}
+.key{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:6px;border:1.5px solid var(--chip-line);font:700 13px/1 var(--f-body);color:var(--muted);transition:border-color .25s,color .25s}
+.opt.is-on .key{border-color:var(--ink);color:var(--ink)}
+.tick{flex:none;width:22px;height:22px;margin-left:auto;opacity:0;transform:scale(.4);transition:opacity .2s,transform .4s var(--ease-pop)}
+.tick path{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.is-on>.tick{opacity:1;transform:scale(1)}
+
+/* Chips (rank pick and headline lead) */
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{display:flex;align-items:center;gap:8px;min-width:0;min-height:56px;padding:10px 12px 10px 14px;font:500 16px/1.25 var(--f-body)}
+.chip>span:first-child{min-width:0}
+.chip.wide{grid-column:1/-1}
+.rank{flex:none;display:grid;place-items:center;width:26px;height:26px;margin-left:auto;border-radius:50%;background:var(--ink);color:var(--paper);font:700 13px/1 var(--f-body);transform:scale(0);transition:transform .4s var(--ease-pop)}
+.chip.is-on .rank{transform:scale(1)}
+.pickline{margin:-8px 0 0;min-height:22px;font:600 15px/1.4 var(--f-body);color:var(--muted)}
+.pickline.nudge{animation:shake .36s;color:var(--accent-text)}
+
+/* Matrix */
+.matrix{display:grid;gap:12px}
+.mrow{display:grid;gap:12px;padding:16px;border:1.5px solid var(--chip-line);border-radius:10px;background:var(--chip);transition:border-color .3s}
+.mrow.is-done{border-color:var(--line)}
+.mrow-t{margin:0;font:500 17px/1.4 var(--f-body);color:var(--fg)}
+.dots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.dot{min-height:46px;border:1.5px solid var(--chip-line);border-radius:8px;background:transparent;color:var(--muted);font:700 15px/1 var(--f-body);cursor:pointer;transition:background-color .2s,border-color .2s,color .2s,transform .35s var(--ease-pop)}
+.dot:hover{border-color:var(--fg);color:var(--fg)}
+.dot.is-on{border-color:var(--orange);background:var(--orange);color:var(--ink);transform:scale(1.06)}
+.ends{display:flex;justify-content:space-between;gap:10px;margin-top:-4px;font:500 12px/1.2 var(--f-body);color:var(--muted)}
+
+/* Text inputs */
+.form{display:grid;gap:14px}
+.field{display:grid;gap:8px}
+.field label{font:700 12px/1.2 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--fg)}
+.input{display:block;width:100%;min-height:56px;padding:14px 16px;border:1.5px solid var(--chip-line);border-radius:8px;background:var(--chip);color:var(--fg);font:500 18px/1.35 var(--f-body);transition:border-color .2s,box-shadow .2s}
+.input::placeholder{color:var(--muted);opacity:.75}
+.input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px var(--hl)}
+.input.is-bad{border-color:var(--danger);animation:shake .36s}
+textarea.input{min-height:112px;resize:none}
+.field-foot{display:flex;justify-content:space-between;gap:12px}
+.err{margin:0;min-height:18px;font:500 14px/1.35 var(--f-body);color:var(--danger)}
+.countchars{flex:none;font:500 13px/1.35 var(--f-body);color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Tests */
+.mock{margin:0;border:1.5px solid var(--chip-line);border-radius:12px;overflow:hidden;background:var(--chip);box-shadow:var(--shadow)}
+.mock-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--soft)}
+.mock-bar i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--track)}
+.mock-url{flex:1;min-width:0;margin-left:8px;padding:5px 10px;border-radius:6px;background:var(--chip);font:500 12px/1.2 var(--f-body);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-body{display:grid;gap:14px;padding:16px 16px 20px}
+.mock-nav{display:flex;align-items:center;gap:14px;font:500 12px/1 var(--f-body);color:var(--muted)}
+.mock-nav b{margin-right:auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:800 16px/1.1 var(--f-display);letter-spacing:-.01em;color:var(--fg)}
+.mock-h{margin:0;font:700 clamp(21px,5.8vw,26px)/1.22 var(--f-display);letter-spacing:-.01em;color:var(--fg);overflow-wrap:anywhere}
+.mock-cta{justify-self:start;padding:10px 14px;border-radius:6px;background:var(--fg);color:var(--bg);font:700 11px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase}
+mark.swap{padding:0 .12em;border-radius:3px;background:var(--orange);color:var(--ink)}
+mark.buzz{background:none;color:inherit;text-decoration:underline wavy var(--orange);text-decoration-thickness:2px;text-underline-offset:5px}
+.flag{margin:0;font:500 15px/1.5 var(--f-body);color:var(--muted)}
+.flag b,.flag mark{color:var(--fg)}
+.gapgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gcol{display:grid;align-content:start;gap:8px;min-width:0}
+.glabel{margin:0;font:700 11px/1.2 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.gchip{display:grid;gap:3px;min-height:58px;align-content:center;padding:10px 12px;border:1.5px solid var(--chip-line);border-radius:8px;background:var(--chip);font:600 15px/1.3 var(--f-body);color:var(--fg);overflow-wrap:anywhere;transition:border-color .3s,background-color .3s}
+.gchip em{margin-right:6px;font-style:normal;font-weight:700;color:var(--muted)}
+.gchip small{font:500 12px/1.3 var(--f-body);color:var(--muted)}
+.gchip.is-match{border-color:var(--orange);background:var(--hl)}
+.clash{display:grid;gap:6px;padding:16px;border-radius:12px;background:var(--soft)}
+.clash-p{margin:0 0 8px;font:700 22px/1.2 var(--f-display);color:var(--fg)}
+.clash-h{margin:0 0 6px;font:600 18px/1.4 var(--f-body);color:var(--fg);overflow-wrap:anywhere}
+
+/* Section breaks */
+.sec{gap:18px;min-height:calc(100vh - 170px)}
+.sec-main{display:grid;gap:10px;margin-top:auto}
+.sec-num{font:800 clamp(92px,28vw,148px)/.82 var(--f-display);letter-spacing:-.05em;color:var(--paper)}
+.sec-name{margin:0;font:800 clamp(40px,11.5vw,62px)/1 var(--f-display);letter-spacing:-.03em;color:var(--ink)}
+.sec-def{margin:0;max-width:30ch;font:500 20px/1.4 var(--f-body);color:var(--ink)}
+.sec-pulse{display:block;width:100%;height:auto;aspect-ratio:320/70}
+.sec-pulse path{fill:none;stroke:var(--paper);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1;animation:draw 1.2s .3s var(--ease-io) forwards}
+.sec .btn{margin-top:auto}
+
+/* Loading */
+.load{gap:24px;padding-top:12px}
+.load h1{margin:0;font:800 clamp(30px,8.4vw,40px)/1.1 var(--f-display);letter-spacing:-.02em;color:var(--fg)}
+.ecg{display:block;width:100%;height:auto;aspect-ratio:320/100}
+.ecg path{fill:none;stroke:var(--orange);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ecg-run{animation:ecg 1.6s linear infinite}
+@keyframes ecg{to{transform:translateX(-80px)}}
+.steps{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.step{display:flex;align-items:center;gap:12px;font:500 17px/1.35 var(--f-body);color:var(--muted);opacity:.5;transition:opacity .3s,color .3s}
+.step.is-active,.step.is-done{opacity:1;color:var(--fg)}
+.tick-box{flex:none;display:grid;place-items:center;width:26px;height:26px;border:2px solid var(--chip-line);border-radius:50%;transition:background-color .3s,border-color .3s}
+.step.is-active .tick-box{border-color:var(--orange);animation:ring 1s ease-out infinite}
+.step.is-done .tick-box{border-color:var(--orange);background:var(--orange)}
+.tick-box svg{width:14px;height:14px}
+.tick-box path{fill:none;stroke:var(--ink);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset .35s var(--ease-out)}
+.step.is-done .tick-box path{stroke-dashoffset:0}
+@keyframes ring{from{box-shadow:0 0 0 0 var(--hl)}to{box-shadow:0 0 0 12px transparent}}
+.pct{margin:0;font:700 13px/1 var(--f-body);letter-spacing:.16em;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Results */
+.results{gap:44px}
+.block{display:grid;gap:14px}
+.h2{margin:0;font:800 clamp(24px,6.6vw,30px)/1.15 var(--f-display);letter-spacing:-.015em;color:var(--fg)}
+.sub{margin:-8px 0 0;font:400 15px/1.5 var(--f-body);color:var(--muted)}
+.label{margin:0;font:700 12px/1.2 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+.arch{display:grid;gap:14px;padding:22px 20px 20px;border-radius:16px;background:var(--orange);color:var(--ink);overflow:hidden}
+.arch-label{margin:0;font:700 12px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase}
+.arch-name{margin:0;font:800 clamp(46px,13.5vw,66px)/.95 var(--f-display);letter-spacing:-.035em;color:var(--ink)}
+.arch-line{margin:0;font:500 19px/1.45 var(--f-body)}
+.arch-cost{display:grid;gap:5px;margin:0;padding:14px 16px;border-radius:10px;background:var(--ink-soft);font:400 16px/1.5 var(--f-body)}
+.arch-cost b{font:700 11px/1.2 var(--f-body);letter-spacing:.16em;text-transform:uppercase}
+.score-num{margin:-4px 0 0;font:800 clamp(92px,28vw,136px)/.82 var(--f-display);letter-spacing:-.05em;color:var(--fg);font-variant-numeric:tabular-nums}
+.score-num small{margin-left:.15em;font-size:.24em;letter-spacing:0;color:var(--muted)}
+.spectrum{position:relative;padding-top:38px}
+.spec-bar{position:relative;display:grid;grid-template-columns:40fr 20fr 20fr 20fr;gap:3px;height:14px}
+.spec-bar i{position:relative;overflow:hidden;border-radius:3px;background:var(--track)}
+.spec-bar b{position:absolute;top:0;bottom:0;left:0;width:0;background:var(--fg);transition:width .5s linear}
+.spec-bar i:nth-child(2) b{transition-delay:.5s}
+.spec-bar i:nth-child(3) b{transition-delay:.75s}
+.spec-bar i:nth-child(4) b{transition-delay:1s}
+.spec-bar u{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,var(--orange) 0 5px,transparent 5px 9px);box-shadow:inset 0 0 0 1.5px var(--orange);transform-origin:left center;animation:grow .8s 1.2s var(--ease-out) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.flagpin{position:absolute;display:flex;flex-direction:column;align-items:center;transform:translateX(-50%);font:700 12px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.flagpin.to-left{align-items:flex-end;transform:translateX(calc(-100% + 1px))}
+.flagpin.to-right{align-items:flex-start;transform:translateX(-1px)}
+.flagpin span{padding:6px 9px;border-radius:999px}
+.flagpin::after,.flagpin.below::before{content:"";width:2px;height:8px}
+.flagpin.above{top:0;color:var(--bg)}
+.flagpin.above span{background:var(--fg)}
+.flagpin.above::after{background:var(--fg)}
+.flagpin.below{top:56px;color:var(--accent-text)}
+.flagpin.below::after{display:none}
+.flagpin.below::before{background:var(--orange)}
+.flagpin.below span{box-shadow:inset 0 0 0 1.5px var(--orange)}
+.spec-labels{display:grid;grid-template-columns:40fr 20fr 20fr 20fr;gap:3px;margin-top:46px;font:700 11px/1.2 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.spec-labels span.is-you{color:var(--fg)}
+.score-sum{margin:0;font:500 17px/1.5 var(--f-body);color:var(--fg)}
+.note{margin:0;padding:14px 16px;border-radius:10px;background:var(--hl);font:400 15px/1.5 var(--f-body);color:var(--fg)}
+.gapcard{display:grid;gap:12px;padding:18px;border:1.5px solid var(--chip-line);border-radius:12px;background:var(--chip)}
+.gapcard h3{margin:0;font:700 19px/1.25 var(--f-display);color:var(--fg)}
+.gapcard p{margin:0;font:400 16px/1.5 var(--f-body);color:var(--body)}
+.gbar{display:grid;gap:6px}
+.gbar-top{display:flex;justify-content:space-between;gap:10px;font:600 14px/1.3 var(--f-body);color:var(--fg)}
+.gbar-top b{font-variant-numeric:tabular-nums}
+.track{height:10px;border-radius:5px;background:var(--track);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:inherit;background:var(--fg);transition:width 1.1s var(--ease-out)}
+.track i.hot{background:var(--orange)}
+.how{border-top:1px solid var(--line);padding-top:12px}
+.how summary{min-height:44px;display:flex;align-items:center;font:700 13px/1.2 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--fg);cursor:pointer}
+.how p{margin:4px 0 0;font:400 15px/1.55 var(--f-body);color:var(--muted)}
+.pillars{display:grid}
+.pillar{display:grid;gap:9px;padding:18px 0;border-top:1px solid var(--line)}
+.pillar:last-child{border-bottom:1px solid var(--line)}
+.p-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.p-name{font:700 19px/1.2 var(--f-display);color:var(--fg)}
+.p-score{margin-left:auto;font:800 26px/1 var(--f-display);color:var(--fg);font-variant-numeric:tabular-nums}
+.status{padding:5px 8px;border-radius:999px;font:700 10.5px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase}
+.status.strong{background:var(--fg);color:var(--bg)}
+.status.solid{box-shadow:inset 0 0 0 1.5px var(--fg);color:var(--fg)}
+.status.patchy{box-shadow:inset 0 0 0 1.5px var(--orange);color:var(--accent-text)}
+.status.weak{background:var(--orange);color:var(--ink)}
+.p-meta{margin:0;font:500 13px/1.4 var(--f-body);color:var(--muted)}
+.p-find{margin:0;font:600 16px/1.45 var(--f-body);color:var(--fg)}
+.p-why{margin:0;font:400 15px/1.5 var(--f-body);color:var(--muted)}
+.p-why b{color:var(--fg)}
+.fixes{display:grid;gap:12px}
+.fix{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:18px 18px 18px 16px;border-radius:12px;background:var(--soft)}
+.fix-n{min-width:28px;font:800 46px/.8 var(--f-display);letter-spacing:-.04em;color:var(--orange)}
+.fix-body{display:grid;gap:8px;min-width:0}
+.fix-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;font:700 11px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fix-pts{padding:5px 8px;border-radius:999px;background:var(--fg);color:var(--bg)}
+.fix h3{margin:0;font:700 19px/1.25 var(--f-display);letter-spacing:-.01em;color:var(--fg)}
+.fix p{margin:0;font:400 16px/1.55 var(--f-body);color:var(--body)}
+.fix p b{color:var(--fg)}
+.fix .why{font-size:15px;color:var(--muted)}
+.refls{display:grid;gap:12px}
+.refl{display:grid;gap:4px;padding:18px;border:1.5px solid var(--chip-line);border-radius:12px;background:var(--chip)}
+.refl-l{margin:0;font:700 11px/1.3 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.refl-t{margin:0;font:600 18px/1.35 var(--f-display);color:var(--fg);overflow-wrap:anywhere}
+.refl-but{display:flex;align-items:center;gap:10px;margin:10px 0 8px;font:700 11px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+.refl-but::before,.refl-but::after{content:"";flex:1;height:1px;background:var(--line)}
+.refl-but span{padding:5px 10px;border-radius:999px;background:var(--hl)}
+.refl.is-good .refl-but{color:var(--fg)}
+.refl-note{margin:10px 0 0;font:400 15px/1.5 var(--f-body);color:var(--muted)}
+.sharecard{margin:0;max-width:100%;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--ink);box-shadow:var(--shadow)}
+.sharecard img{display:block;width:100%;height:100%;object-fit:cover}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row.one{grid-template-columns:1fr}
+.row .btn{padding:0 12px;letter-spacing:.1em}
+.copybox{width:100%;min-height:100px;padding:12px 14px;border:1.5px solid var(--chip-line);border-radius:8px;background:var(--chip);color:var(--fg);font:500 15px/1.45 var(--f-body);resize:none}
+.end{gap:6px;padding-top:8px}
+
+/* Thanks */
+.thanks{gap:20px}
+.thanks h1{margin:2px 0 0;font:800 clamp(36px,10.4vw,54px)/1.03 var(--f-display);letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+.thanks h1 em{font-style:normal;color:var(--paper)}
+.recap{display:grid;gap:16px;padding:20px;border-radius:16px;background:var(--paper);color:var(--ink);box-shadow:0 24px 60px rgba(10,10,10,.22)}
+.recap-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px}
+.recap-score{font:800 56px/.9 var(--f-display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.recap-score small{margin-left:3px;font-size:.32em;letter-spacing:0;color:var(--ink-faint)}
+.recap-arch{padding:7px 12px;border-radius:999px;background:var(--orange);font:700 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase}
+.recap-pills{display:grid;gap:9px}
+.rp{display:grid;grid-template-columns:8.6em minmax(0,1fr) 2em;align-items:center;gap:10px;font:600 14px/1.2 var(--f-body)}
+.rp i{position:relative;height:8px;border-radius:4px;background:var(--ink-soft);overflow:hidden}
+.rp i::after{content:"";position:absolute;top:0;bottom:0;left:0;width:var(--w,0%);border-radius:inherit;background:var(--ink)}
+.rp b{text-align:right;font-variant-numeric:tabular-nums}
+.recap-l{margin:4px 0 0;font:700 11px/1.2 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.todo{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.todo-b{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 12px;border:1.5px solid var(--ink-soft);border-radius:10px;background:transparent;color:var(--ink);font:600 15px/1.35 var(--f-body);text-align:left;cursor:pointer;transition:border-color .2s}
+.todo-box{display:grid;place-items:center;width:24px;height:24px;border:2px solid var(--ink);border-radius:6px;transition:background-color .25s}
+.todo-box svg{width:14px;height:14px}
+.todo-box path{fill:none;stroke:var(--paper);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset .3s var(--ease-out)}
+.todo-b[aria-pressed="true"]{border-color:var(--ink)}
+.todo-b[aria-pressed="true"] .todo-box{background:var(--ink)}
+.todo-b[aria-pressed="true"] .todo-box path{stroke-dashoffset:0}
+.todo-b[aria-pressed="true"] .t{color:var(--ink-faint);text-decoration:line-through}
+.todo-b em{font:700 12px/1 var(--f-body);font-style:normal;color:var(--orange-deep)}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;max-width:calc(100% - 32px);padding:12px 18px;border-radius:999px;background:var(--fg);color:var(--bg);font:600 14px/1.35 var(--f-body);text-align:center;opacity:0;pointer-events:none;transform:translate(-50%,16px);transition:opacity .25s,transform .35s var(--ease-pop)}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:600px){.app{padding-block:12px 64px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important}
+}
+</style>
+</head>
+<body class="is-orange">
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <span class="kf" aria-hidden="true"><b>KF<svg viewBox="0 0 26 10"><path d="M0 5H6L8 1L11 9L13 5H26"/></svg></b></span>
+      <span class="brand-name">Signal Audit</span>
+    </div>
+    <span class="count" id="count"></span>
+  </header>
+  <div class="progress" id="progress" aria-hidden="true" hidden>
+    <span class="seg"><i></i></span><span class="seg"><i></i></span><span class="seg"><i></i></span><span class="seg"><i></i></span><span class="seg"><i></i></span>
+  </div>
+  <main class="stage" id="stage"></main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  'use strict';
+
+  const reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  // Inside a Claude viewer, plain downloads are blocked, so saving goes through the downloads capability.
+  const inViewer = !!(window.claude && typeof window.claude.use === 'function');
+  const downloadsReady = inViewer ? window.claude.use('downloads').catch(() => null) : Promise.resolve(null);
+
+  /* ---------- Content ---------- */
+
+  // The 12 "known for" options. `lex` lists the words that signal each one, used to read
+  // customers' words and the headline.
+  const PRIORITIES = [
+    { id: 'quality', label: 'Quality & craft', mid: 'quality and craft', lex: ['quality', 'high-quality', 'craft', 'crafted', 'craftsmanship', 'polished', 'polish', 'refined', 'detail', 'details', 'detailed', 'thoughtful', 'well-made', 'well-built', 'well-designed', 'premium', 'meticulous', 'solid', 'sturdy'] },
+    { id: 'results', label: 'Proven results', mid: 'proven results', lex: ['results', 'result', 'roi', 'revenue', 'growth', 'grow', 'conversion', 'conversions', 'convert', 'pipeline', 'sales', 'leads', 'outcomes', 'outcome', 'proven', 'effective', 'effectiveness', 'impact', 'impactful', 'performance', 'profit', 'profitable', 'retention', 'win', 'wins', 'winning', 'money', 'measurable', 'increase', 'boost', 'double', 'triple'] },
+    { id: 'expertise', label: 'Expertise', mid: 'expertise', lex: ['expert', 'experts', 'expertise', 'specialist', 'specialists', 'knowledgeable', 'knowledge', 'authority', 'experienced', 'insight', 'insights', 'insightful', 'advanced', 'professional', 'pros', 'smart', 'clever', 'deep', 'rigorous', 'scientific', 'data-driven', 'sophisticated', 'thorough'] },
+    { id: 'innovation', label: 'Innovation', mid: 'innovation', lex: ['innovative', 'innovation', 'innovate', 'new', 'novel', 'modern', 'cutting-edge', 'future', 'futuristic', 'next-gen', 'next-generation', 'pioneering', 'pioneer', 'ai', 'ai-powered', 'ai-first', 'breakthrough', 'revolutionary', 'unique', 'fresh', 'game-changing', 'game-changer', 'disruptive', 'ahead'] },
+    { id: 'design', label: 'Design', mid: 'design', lex: ['design', 'designed', 'beautiful', 'beautifully', 'beauty', 'sleek', 'clean', 'elegant', 'gorgeous', 'stylish', 'aesthetic', 'pretty', 'slick', 'minimal', 'minimalist', 'lovely', 'ui', 'interface', 'visual', 'visually', 'crisp', 'polished'] },
+    { id: 'value', label: 'Value', mid: 'value', lex: ['value', 'affordable', 'cheap', 'cheaper', 'price', 'priced', 'pricing', 'free', 'cost', 'costs', 'budget', 'worth', 'inexpensive', 'bargain', 'economical', 'savings', 'low-cost', 'value-for-money', 'reasonable', 'fair-price'] },
+    { id: 'speed', label: 'Speed & ease', mid: 'speed and ease', lex: ['easy', 'easier', 'ease', 'simple', 'simpler', 'simplicity', 'fast', 'faster', 'quick', 'quicker', 'quickly', 'speed', 'speedy', 'seamless', 'effortless', 'intuitive', 'straightforward', 'instant', 'instantly', 'minutes', 'painless', 'user-friendly', 'hassle-free', 'frictionless', 'no-code', 'lightweight', 'smooth', 'snappy', 'time-saving', 'saves-time', 'efficient', 'efficiency', 'automated', 'automatic', 'automation', 'convenient', 'handy'] },
+    { id: 'trust', label: 'Trust', mid: 'trust', lex: ['trust', 'trusted', 'trustworthy', 'reliable', 'reliability', 'secure', 'security', 'safe', 'safety', 'dependable', 'stable', 'stability', 'uptime', 'compliant', 'compliance', 'soc2', 'gdpr', 'privacy', 'consistent', 'robust', 'enterprise', 'enterprise-grade', 'established', 'credible', 'legit', 'proven'] },
+    { id: 'personality', label: 'Personality', mid: 'personality', lex: ['fun', 'funny', 'playful', 'witty', 'quirky', 'friendly', 'human', 'cheeky', 'bold', 'cool', 'refreshing', 'personality', 'irreverent', 'charming', 'delightful', 'weird', 'warm', 'approachable', 'relatable', 'down-to-earth', 'likeable', 'vibe', 'vibes'] },
+    { id: 'values', label: 'Values & ethics', mid: 'values and ethics', lex: ['ethical', 'ethics', 'sustainable', 'sustainability', 'green', 'honest', 'honesty', 'transparent', 'transparency', 'fair', 'mission', 'purpose', 'values', 'responsible', 'inclusive', 'open-source', 'privacy-first', 'independent', 'b-corp', 'carbon', 'principled', 'integrity'] },
+    { id: 'community', label: 'Community', mid: 'community', lex: ['community', 'communities', 'together', 'belong', 'belonging', 'members', 'network', 'connected', 'connection', 'social', 'tribe', 'collaborative', 'collaboration', 'collaborate', 'shared', 'family', 'movement', 'ecosystem'] },
+    { id: 'service', label: 'Service', mid: 'service', lex: ['support', 'supportive', 'service', 'helpful', 'responsive', 'caring', 'attentive', 'onboarding', 'white-glove', 'partner', 'partnership', 'personal', 'personalised', 'personalized', 'hands-on', 'customer-success', 'available', 'accommodating', 'patient'] },
+  ];
+  const P = {};
+  PRIORITIES.forEach((p) => { P[p.id] = p; });
+  const NONE = { id: 'none', label: 'Nothing specific', mid: 'nothing specific' };
+
+  const PILLARS = [
+    { id: 'pos', num: '01', name: 'Positioning', def: "What you're known for, in one sentence.", why: 'It decides what buyers file you under in the first five seconds.', weight: 0.25 },
+    { id: 'psy', num: '02', name: 'Psychology', def: 'Why people choose you over anyone else.', why: 'It decides whether buyers feel understood, or just informed.', weight: 0.2 },
+    { id: 'cre', num: '03', name: 'Creative', def: "What makes that idea stick in someone's head.", why: "It decides whether they remember you when they're ready to buy.", weight: 0.15 },
+    { id: 'gro', num: '04', name: 'Growth', def: 'How that turns into customers.', why: 'It decides whether a strong message turns into pipeline, or just impressions.', weight: 0.15 },
+    { id: 'dist', num: '05', name: 'Distinctiveness', def: 'Whether your actual words hold up.', why: "It's the evidence: whether your words do what you think they do.", weight: 0.25 },
+  ];
+  const PILL = {};
+  PILLARS.forEach((p) => { PILL[p.id] = p; });
+
+  const SCALES = {
+    freq: ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+    agree: ['Strongly disagree', 'Disagree', 'Not sure', 'Agree', 'Strongly agree'],
+    tests: ['Never', 'Once a year', 'Every quarter', 'Every month', 'Every week'],
+  };
+  const SINGLE = {
+    q2: { title: (c) => `How often does your marketing lead with ${c.p1mid}?`, help: 'Think homepage, ads, onboarding emails and sales decks.' },
+    q3: { title: () => 'I can say what makes us different in one sentence, without “easy”, “powerful” or “all-in-one”.', help: 'How much do you agree?' },
+    q6: { title: () => 'How often do you test new messaging?', help: 'Headlines, ads, onboarding emails, your pricing page.' },
+  };
+  const MATRIX = {
+    q4: ['I know the moment that sends a team looking for a tool like ours.', "Our copy uses customers' own words, from calls, reviews and support tickets.", "I know the #1 reason teams choose us, and it isn't price."],
+    q5: ['Cover our logo and people would still know an ad or screenshot is ours.', 'We sound the same across our site, product, emails and social.', 'Customers repeat a phrase of ours back to us.'],
+    q7: ['I know which message brings in our best-fit customers.', 'Our ads, landing pages and onboarding all tell the same story.'],
+  };
+  const T1 = [{ t: "No, it's only true of us", v: 100 }, { t: 'Not without real changes', v: 70 }, { t: 'With a small tweak', v: 35 }, { t: 'Yes, word for word', v: 0 }];
+  const T2 = [{ t: 'Yes, spot on', v: 100 }, { t: 'Partly', v: 50 }, { t: 'Not really', v: 0 }];
+
+  const ARCH = {
+    clear: { name: 'Clear Signal', line: 'Customers can tell you apart. Your job now is amplifying it, not reinventing it.', cost: 'Your main risk is drift. New pages, new hires and new campaigns slowly sand the edge off.' },
+    faint: { name: 'Faint Signal', line: "Your difference is real and partly landing, but it's not consistent enough to stick yet.", cost: 'Buyers who meet you once get it. Buyers who meet you across three channels get mixed messages, and recall leaks away.' },
+    echo: { name: 'Echo', line: "You're doing the work, but your message echoes your category, so customers default to price or the bigger name.", cost: 'Every ad you run partly sells your category instead of you, so you pay to educate buyers who then compare you on price.' },
+    static: { name: 'Static', line: "There's a real signal in there, buried under noise. Most founders start here, and it's where small fixes move the needle most.", cost: "Buyers comparing tabs can't see what's different, so you end up competing on price and familiarity." },
+  };
+  const BANDS = [{ id: 'static', min: 0, short: 'Static' }, { id: 'echo', min: 40, short: 'Echo' }, { id: 'faint', min: 60, short: 'Faint' }, { id: 'clear', min: 80, short: 'Clear' }];
+
+  // Category clichés. Variants share a root so "seamless" and "seamlessly" count once.
+  const CLICHES = ['all-in-one', 'seamless', 'seamlessly', 'effortless', 'effortlessly', 'powerful', 'robust', 'innovative', 'cutting-edge', 'next-gen', 'next-generation', 'revolutionary', 'revolutionise', 'revolutionize', 'game-changing', 'game-changer', 'best-in-class', 'world-class', 'industry-leading', 'unlock', 'unleash', 'empower', 'supercharge', 'streamline', 'transform', 'elevate', 'reimagine', 'reimagined', 'the future of', 'simple', 'simply', 'easy', 'easily', 'intuitive', 'smarter', 'solution', 'solutions', 'platform', 'in one place', 'everything you need', 'end-to-end', 'at scale', 'ai-powered', '10x', 'next level', 'hassle-free', 'frictionless', 'scalable', 'one-stop', 'modern'];
+  const CLICHE_ROOT = { seamlessly: 'seamless', effortlessly: 'effortless', 'next-generation': 'next-gen', revolutionise: 'revolutionary', revolutionize: 'revolutionary', 'game-changer': 'game-changing', reimagined: 'reimagine', simply: 'simple', easily: 'easy', solutions: 'solution' };
+
+  // Every scored answer, the fix it unlocks and why it matters.
+  const ITEMS = [
+    { id: 'pos_lead', pillar: 'pos', short: (c) => `leading with ${c.p1mid}`, fix: (c) => ({ title: `Lead with ${c.p1mid} wherever first impressions happen`, act: `Rewrite the first line of your homepage, your best-performing ad and your first onboarding email so each one opens with ${c.p1mid}. Check it lands in the first eight words.`, why: `You told us ${c.p1mid} is what you want to be known for. If it isn't the first thing people see, they'll file you under whatever is, usually a feature list or your price.` }) },
+    { id: 'pos_sentence', pillar: 'pos', short: () => 'saying your difference in one sentence', fix: (c) => ({ title: 'Write your difference in one sentence, without the category words', act: `Fill in this line: “For [specific team] who [specific moment], ${c.brand} is the only [category] that [specific outcome], because [how it works].” Keep “easy”, “powerful” and “all-in-one” out until it works without them.`, why: "If you can't say it in one sentence, your homepage can't either, and buyers comparing five tabs won't do that work for you." }) },
+    { id: 'psy_trigger', pillar: 'psy', short: () => 'knowing the moment teams start looking', fix: () => ({ title: 'Name the moment that sends teams looking', act: 'Ask your last five customers what was happening the week they started looking for a tool like yours. Put the most common answer in your headline or subhead.', why: 'Teams buy software at a breaking point. Copy that names that moment reads like it was written for them.' }) },
+    { id: 'psy_voc', pillar: 'psy', short: () => "using customers' own words", fix: () => ({ title: "Swap your words for your customers' words", act: 'Pull 20 phrases from sales calls, reviews and support tickets. Replace your three most-used marketing adjectives with the phrases that come up most often.', why: 'Buyers search, compare and recommend in their own language. Matching it is the fastest way to sound like the obvious fit.' }) },
+    { id: 'psy_reason', pillar: 'psy', short: () => 'knowing why you win', fix: (c) => ({ title: 'Find out why you really win', act: `Ask your last ten new customers why they chose you over ${c.comp}. Lead your homepage with the answer that comes up most. If it's price, ask one more “why”.`, why: "If you don't know why you win, you can't say it on purpose, and buyers fall back on comparing price and features." }) },
+    { id: 'cre_recognise', pillar: 'cre', short: () => 'being recognisable without your logo', fix: () => ({ title: 'Own one asset nobody else in your category uses', act: 'Pick one thing, such as a colour, a recurring phrase or an illustration style, and put it on every screenshot, ad and email for the next 90 days.', why: 'Recognition comes from repeating something distinctive. Without it, every impression starts from zero.' }) },
+    { id: 'cre_voice', pillar: 'cre', short: () => 'a consistent voice', fix: () => ({ title: 'Write your voice down, then apply it to the product', act: 'Write a one-page voice guide with three traits, words you use, words you never use and one before-and-after example. Apply it to your product UI and onboarding emails first.', why: 'When your site sounds confident and your product sounds like a manual, users feel the switch right when they are deciding whether to stay.' }) },
+    { id: 'cre_phrase', pillar: 'cre', short: () => 'a line customers repeat', fix: () => ({ title: 'Give people a line worth repeating', act: 'Turn your one-sentence difference into a line of three to six words. Use it on your homepage, in your demo opener and in your email signature.', why: "Customers who can repeat your idea can recommend you. If they can't put you into words, word of mouth stalls." }) },
+    { id: 'gro_test', pillar: 'gro', short: () => 'testing your messaging', fix: () => ({ title: 'Test one message a month', act: 'Run one headline test a month on your highest-traffic page or ad set, judged on a single number such as trial starts or demo bookings.', why: 'Untested messaging is an opinion. A monthly test turns it into evidence you can scale.' }) },
+    { id: 'gro_best', pillar: 'gro', short: () => 'knowing which message brings your best customers', fix: () => ({ title: 'Find the message that brings your best customers', act: 'List your best-fit customers from the last two quarters and trace their first touch. Find the ad, page or post that brought them in, then put more budget and attention behind that message.', why: 'Not all sign-ups are equal. The message that attracts your best-fit customers is the one worth amplifying.' }) },
+    { id: 'gro_story', pillar: 'gro', short: () => 'one story from ad to onboarding', fix: () => ({ title: 'Tell one story from ad to onboarding', act: 'Put your top ad, its landing page and your first onboarding email side by side. Wherever the promise changes, rewrite the later step to match the first.', why: 'Every mismatch between ad, page and product is a reason to bounce. One story carries the click through to activation.' }) },
+    { id: 'dist_swap', pillar: 'dist', short: () => 'a headline only you could run', fix: (c) => ({ title: `Make your headline impossible for ${c.comp} to run`, act: `${c.cliches.length ? `Cut ${quoteList(c.cliches)}. Replace ${c.cliches.length > 1 ? 'them' : 'it'}` : 'Replace the general claim'} with something only ${c.brand} can claim, such as a specific outcome, a number or how it works. Then put ${c.comp}'s name on it again. If it still works, keep going.`, why: `If ${c.comp} could run your headline tomorrow, it describes your category instead of you, and buyers end up choosing on price or familiarity.` }) },
+    { id: 'dist_gap', pillar: 'dist', short: () => 'customers seeing what you want them to see', fix: (c) => ({ title: 'Close the gap between how you want to be seen and how you are seen', act: `Customers say ${quoteList(c.words)}. Either lean into what they already see, or make ${c.p1mid} visible in the product and the copy until they start saying it back.`, why: "Positioning lives in customers' heads. When their words and yours don't match, your marketing is fighting your reputation." }) },
+    { id: 'dist_clash', pillar: 'dist', short: (c) => `leading your headline with ${c.p1mid}`, fix: (c) => ({ title: `Make your headline lead with ${c.p1mid}`, act: c.lead && c.lead !== 'none' ? `Your headline leads with ${P[c.lead].mid}. Rewrite it so ${c.p1mid} is the first idea, and move ${P[c.lead].mid} into the subhead as proof.` : `Your headline doesn't lead with anything specific. Rewrite it so ${c.p1mid} is the first idea a visitor reads.`, why: "Your headline is the one line most visitors actually read. Whatever it leads with is what you'll be known for, whether you meant it or not." }) },
+  ];
+  const COUNT = {};
+  ITEMS.forEach((it) => { COUNT[it.pillar] = (COUNT[it.pillar] || 0) + 1; });
+  const TIE = ['pos', 'dist', 'psy', 'cre', 'gro'];
+
+  // The whole run, in order: Priority (q1), Measurement (q2-q7), Input (q8-q10), Test (q11-q13).
+  const FLOW = [
+    { kind: 'intro' },
+    { kind: 'rank', id: 'q1', pillar: 'pos' },
+    { kind: 'single', id: 'q2', pillar: 'pos', scale: 'freq' },
+    { kind: 'single', id: 'q3', pillar: 'pos', scale: 'agree' },
+    { kind: 'section', pillar: 'psy' },
+    { kind: 'matrix', id: 'q4', pillar: 'psy' },
+    { kind: 'section', pillar: 'cre' },
+    { kind: 'matrix', id: 'q5', pillar: 'cre' },
+    { kind: 'section', pillar: 'gro' },
+    { kind: 'single', id: 'q6', pillar: 'gro', scale: 'tests' },
+    { kind: 'matrix', id: 'q7', pillar: 'gro' },
+    { kind: 'section', pillar: 'dist' },
+    { kind: 'names', id: 'q8', pillar: 'dist' },
+    { kind: 'headline', id: 'q9', pillar: 'dist' },
+    { kind: 'words', id: 'q10', pillar: 'dist' },
+    { kind: 'swap', id: 'q11', pillar: 'dist' },
+    { kind: 'gap', id: 'q12', pillar: 'dist' },
+    { kind: 'clash', id: 'q13', pillar: 'dist' },
+    { kind: 'loading' },
+    { kind: 'results' },
+    { kind: 'thanks' },
+  ];
+  let qCount = 0;
+  FLOW.forEach((s) => { if (s.id) s.qn = ++qCount; });
+  const TOTAL_Q = qCount;
+  const AT = (kind) => FLOW.findIndex((s) => s.kind === kind);
+
+  /* ---------- State ---------- */
+
+  const blank = () => ({ q1: [], q2: null, q3: null, q4: [null, null, null], q5: [null, null, null], q6: null, q7: [null, null], brand: '', comp: '', headline: '', words: ['', '', ''], q11: null, q12: null, q13: null });
+  let S = blank();
+  let cur = 0;
+  let trail = [];
+  let R = null;
+  let cardBlob = null;
+  let cardUrl = '';
+
+  /* ---------- Helpers ---------- */
+
+  const stage = document.getElementById('stage');
+  const countEl = document.getElementById('count');
+  const progressEl = document.getElementById('progress');
+  const segs = Array.from(progressEl.querySelectorAll('.seg i'));
+  const toastEl = document.getElementById('toast');
+  const qs = (sel, root) => (root || document).querySelector(sel);
+  const qsa = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+  const esc = (v) => String(v).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const escRe = (v) => v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  function el(html) { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; }
+  function quoteList(arr) {
+    const q = arr.filter(Boolean).map((w) => `“${w}”`);
+    if (q.length < 2) return q.join('');
+    return `${q.slice(0, -1).join(', ')} and ${q[q.length - 1]}`;
+  }
+  const TICK = '<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>';
+  const CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M5 12.5l4.2 4.2L19 7"/></svg>';
+
+  function ctx() {
+    const p1 = P[S.q1[0]] || PRIORITIES[0];
+    return { p1, p1mid: p1.mid, brand: S.brand.trim() || 'your product', comp: S.comp.trim() || 'your competitor', words: S.words.map((w) => w.trim()), lead: S.q13, cliches: clichesIn(S.headline) };
+  }
+
+  let toastTimer = 0;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('is-on'), 2800);
+  }
+
+  /* ---------- Reading words ---------- */
+
+  function tokens(text) {
+    return String(text || '').toLowerCase().replace(/[’‘]/g, "'").split(/[^a-z0-9']+/).map((t) => t.replace(/^'+|'+$/g, '').replace(/'s$/, '')).filter(Boolean);
+  }
+  function stem(w) {
+    if (w.length <= 4) return w;
+    return w.replace(/ies$/, 'y').replace(/(ingly|edly|ness|ment|ings|ing|ers|er|ed|ly|es|s)$/, '').replace(/e$/, '');
+  }
+  const LEX = PRIORITIES.map((p) => ({
+    id: p.id,
+    singles: new Set(p.lex.filter((w) => !/[\s-]/.test(w)).map(stem)),
+    phrases: p.lex.filter((w) => /[\s-]/.test(w)).map((w) => ` ${w.replace(/-/g, ' ')} `),
+  }));
+  function prioritiesIn(text) {
+    const toks = tokens(text);
+    const stems = toks.map(stem);
+    const padded = ` ${toks.join(' ')} `;
+    return LEX.filter((L) => stems.some((t) => L.singles.has(t)) || L.phrases.some((ph) => padded.includes(ph))).map((L) => L.id);
+  }
+  function clichesIn(text) {
+    const padded = ` ${tokens(text).join(' ')} `;
+    const seen = new Set();
+    const found = [];
+    CLICHES.forEach((c) => {
+      const at = padded.indexOf(` ${c.replace(/-/g, ' ')} `);
+      if (at < 0) return;
+      const root = CLICHE_ROOT[c] || c;
+      if (seen.has(root)) return;
+      seen.add(root);
+      found.push([at, c]);
+    });
+    return found.sort((a, b) => a[0] - b[0]).map((f) => f[1]);
+  }
+  function wordRanges(text, phrase, cls, rep) {
+    const out = [];
+    const pat = phrase.split(/[\s-]+/).map(escRe).join('[\\s\\-]+');
+    const re = new RegExp(`(^|[^a-z0-9])(${pat})(?=[^a-z0-9]|$)`, 'gi');
+    let m;
+    while ((m = re.exec(text))) {
+      const st = m.index + m[1].length;
+      out.push({ st, en: st + m[2].length, cls, rep });
+    }
+    return out;
+  }
+  function hasName(text, name) { return !!name && wordRanges(text, name, 'x').length > 0; }
+  // The headline with your name swapped for the competitor's and clichés underlined.
+  function markHeadline(text, brand, comp) {
+    let ranges = brand ? wordRanges(text, brand, 'swap', comp) : [];
+    CLICHES.forEach((c) => { ranges = ranges.concat(wordRanges(text, c, 'buzz')); });
+    ranges.sort((a, b) => a.st - b.st || (a.cls === 'swap' ? -1 : 1));
+    let out = '';
+    let pos = 0;
+    ranges.forEach((r) => {
+      if (r.st < pos) return;
+      out += esc(text.slice(pos, r.st)) + `<mark class="${r.cls}">${esc(r.rep != null ? r.rep : text.slice(r.st, r.en))}</mark>`;
+      pos = r.en;
+    });
+    return out + esc(text.slice(pos));
+  }
+  function perception(top3, words) {
+    return words.map((w) => {
+      const hits = prioritiesIn(w);
+      const match = top3.find((id) => hits.includes(id)) || null;
+      return { word: w.trim(), match, other: match ? null : hits[0] || null };
+    });
+  }
+
+  /* ---------- Scoring ---------- */
+
+  const bandOf = (n) => BANDS.reduce((b, x) => (n >= x.min ? x.id : b), 'static');
+  function pillarScores(sc) {
+    const out = {};
+    PILLARS.forEach((p) => {
+      const items = ITEMS.filter((it) => it.pillar === p.id);
+      out[p.id] = items.reduce((a, it) => a + sc[it.id], 0) / items.length;
+    });
+    return out;
+  }
+  const weighted = (pill) => PILLARS.reduce((a, p) => a + p.weight * pill[p.id], 0);
+  // Evidence beats self-rating: if your words score under 40, you can't rank above Echo.
+  const capBand = (band, dist) => (dist < 40 && (band === 'faint' || band === 'clear') ? 'echo' : band);
+
+  function computeResults() {
+    const v = (i) => (i == null ? 0 : i * 25);
+    const sc = {
+      pos_lead: v(S.q2), pos_sentence: v(S.q3),
+      psy_trigger: v(S.q4[0]), psy_voc: v(S.q4[1]), psy_reason: v(S.q4[2]),
+      cre_recognise: v(S.q5[0]), cre_voice: v(S.q5[1]), cre_phrase: v(S.q5[2]),
+      gro_test: v(S.q6), gro_best: v(S.q7[0]), gro_story: v(S.q7[1]),
+    };
+    const cliches = clichesIn(S.headline);
+    const swapBase = T1[S.q11 == null ? 3 : S.q11].v;
+    sc.dist_swap = Math.max(0, swapBase - Math.min(30, cliches.length * 10));
+    const per = perception(S.q1, S.words);
+    const matches = per.filter((p) => p.match).length;
+    sc.dist_gap = Math.round(([0, 40, 75, 100][matches] + T2[S.q12 == null ? 2 : S.q12].v) / 2);
+    const lead = S.q13;
+    sc.dist_clash = lead === S.q1[0] ? 100 : S.q1.indexOf(lead) > 0 ? 60 : lead === 'none' || lead == null ? 0 : 20;
+
+    const pill = pillarScores(sc);
+    const overall = Math.round(weighted(pill));
+    const rawBand = bandOf(overall);
+    const band = capBand(rawBand, pill.dist);
+    const selfAvg = Math.round((pill.pos + pill.psy + pill.cre + pill.gro) / 4);
+    const dist = Math.round(pill.dist);
+
+    const top = ITEMS.map((it) => ({ it, score: sc[it.id], impact: (PILL[it.pillar].weight * (100 - sc[it.id])) / COUNT[it.pillar] }))
+      .filter((f) => f.impact > 0.05)
+      .sort((a, b) => b.impact - a.impact || TIE.indexOf(a.it.pillar) - TIE.indexOf(b.it.pillar))
+      .slice(0, 3);
+    const sc2 = Object.assign({}, sc);
+    top.forEach((f) => { sc2[f.it.id] = 100; });
+    const pill2 = pillarScores(sc2);
+    const projected = Math.min(100, Math.round(weighted(pill2)));
+    const projBand = capBand(bandOf(projected), pill2.dist);
+
+    // Whole points per fix that add up exactly to the projected gain.
+    const gain = projected - overall;
+    const pts = top.map((f) => Math.floor(f.impact));
+    let rem = gain - pts.reduce((a, b) => a + b, 0);
+    const byFrac = top.map((f, i) => [f.impact - Math.floor(f.impact), i]).sort((a, b) => b[0] - a[0]);
+    for (let k = 0; rem > 0 && byFrac.length; k = (k + 1) % byFrac.length, rem--) pts[byFrac[k][1]]++;
+    for (let k = 0; rem < 0 && byFrac.length; k = (k + 1) % byFrac.length, rem++) pts[byFrac[byFrac.length - 1 - k][1]] = Math.max(0, pts[byFrac[byFrac.length - 1 - k][1]] - 1);
+    top.forEach((f, i) => { f.pts = pts[i]; });
+
+    return { sc, pill, overall, rawBand, band, capped: band !== rawBand, selfAvg, dist, gap: selfAvg - dist, top, projected, projBand, cliches, per, matches, swapBase };
+  }
+
+  /* ---------- Navigation ---------- */
+
+  let advTimer = 0;
+  function cancelAdvance() { if (advTimer) { clearTimeout(advTimer); advTimer = 0; } }
+  function scheduleAdvance(ms) {
+    cancelAdvance();
+    advTimer = setTimeout(() => { advTimer = 0; next(); }, reduceMotion ? Math.min(ms, 200) : ms);
+  }
+  function next() { go(cur + 1, 1); }
+  function back() { if (trail.length) go(trail.pop(), -1, true); }
+  function go(to, dir, skipTrail) {
+    if (!FLOW[to]) return;
+    cancelAdvance();
+    if (!skipTrail) trail.push(cur);
+    cur = to;
+    mount(dir);
+  }
+  function mount(dir) {
+    const step = FLOW[cur];
+    const screen = RENDER[step.kind](step);
+    screen.classList.add('screen');
+    const old = stage.querySelector('.screen:not(.leaving)');
+    chrome(step);
+    if (old) {
+      if (reduceMotion) old.remove();
+      else {
+        old.classList.add('leaving', dir < 0 ? 'out-back' : 'out-fwd');
+        setTimeout(() => old.remove(), 280);
+      }
+    }
+    stage.appendChild(screen);
+    if (old && !reduceMotion) {
+      screen.classList.add(dir < 0 ? 'in-back' : 'in-fwd');
+      // A double tap on the last screen's button shouldn't land on whatever replaces it.
+      screen.style.pointerEvents = 'none';
+      setTimeout(() => { screen.style.pointerEvents = ''; }, 200);
+    }
+    window.scrollTo(0, 0);
+    const h = qs('[data-focus]', screen);
+    if (h && old) h.focus({ preventScroll: true });
+    if (screen._after) screen._after();
+  }
+  function chrome(step) {
+    const orange = step.kind === 'intro' || step.kind === 'section' || step.kind === 'thanks';
+    document.body.classList.toggle('is-orange', orange);
+    const showProgress = !!step.qn || step.kind === 'section';
+    progressEl.hidden = !showProgress;
+    countEl.textContent = step.qn ? `${step.qn} / ${TOTAL_Q}` : '';
+    if (!showProgress) return;
+    PILLARS.forEach((p, i) => {
+      const inPillar = FLOW.map((s, k) => [s, k]).filter(([s]) => s.qn && s.pillar === p.id);
+      const done = inPillar.filter(([, k]) => k < cur).length;
+      segs[i].style.width = `${(done / inPillar.length) * 100}%`;
+    });
+  }
+
+  stage.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]');
+    if (!b || b.disabled) return;
+    if (b.dataset.act === 'back') back();
+    else if (b.dataset.act === 'next') next();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey || (e.target.closest && e.target.closest('input, textarea'))) return;
+    const n = parseInt(e.key, 10);
+    if (!(n >= 1 && n <= 9)) return;
+    const opt = qs(`.screen:not(.leaving) .opts .opt[data-v="${n - 1}"]`, stage);
+    if (opt) { e.preventDefault(); opt.click(); }
+  });
+
+  /* ---------- Shared pieces ---------- */
+
+  function head(step, title, help) {
+    const p = PILL[step.pillar];
+    return `<button type="button" class="back" data-act="back">Back</button>
+      <p class="eyebrow">${p.num} · ${esc(p.name)}</p>
+      <h1 class="q" data-focus tabindex="-1">${title}</h1>
+      ${help ? `<p class="help">${help}</p>` : ''}`;
+  }
+  function optionsHtml(labels, selected) {
+    return `<div class="opts stagger">${labels.map((t, i) => `<button type="button" class="opt${selected === i ? ' is-on' : ''}" data-v="${i}" aria-pressed="${selected === i}" style="--i:${i}"><span class="key" aria-hidden="true">${i + 1}</span><span>${esc(t)}</span>${TICK}</button>`).join('')}</div>`;
+  }
+  function wireOptions(s, key) {
+    const opts = qsa('.opt', s);
+    opts.forEach((b) => b.addEventListener('click', () => {
+      S[key] = +b.dataset.v;
+      opts.forEach((o) => { const on = o === b; o.classList.toggle('is-on', on); o.setAttribute('aria-pressed', String(on)); });
+      scheduleAdvance(420);
+    }));
+  }
+  function bad(input, msg) {
+    const err = qs(`#${input.id}-err`);
+    if (err) err.textContent = msg;
+    input.setAttribute('aria-invalid', 'true');
+    input.classList.remove('is-bad');
+    void input.offsetWidth;
+    input.classList.add('is-bad');
+  }
+  function clearErr(input) {
+    const err = qs(`#${input.id}-err`);
+    if (err) err.textContent = '';
+    input.removeAttribute('aria-invalid');
+    input.classList.remove('is-bad');
+  }
+  function bringIntoView(node) {
+    const r = node.getBoundingClientRect();
+    if (r.bottom > window.innerHeight - 24) node.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+  function rng(seed) {
+    let a = seed >>> 0;
+    return () => { a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  }
+  const f2 = (n) => Math.round(n * 100) / 100;
+  // The KF pulse (flat, spike up, dip, back to flat), k times its logo size, starting at (x0, b).
+  function pulseC(x0, b, k) {
+    return `C${f2(x0 + 3 * k)} ${b} ${f2(x0 + 4.5 * k)} ${f2(b - 9 * k)} ${f2(x0 + 6 * k)} ${f2(b - 18 * k)} C${f2(x0 + 7.5 * k)} ${f2(b - 9 * k)} ${f2(x0 + 9 * k)} ${f2(b + 11 * k)} ${f2(x0 + 12.5 * k)} ${f2(b + 19 * k)} C${f2(x0 + 14 * k)} ${f2(b + 11 * k)} ${f2(x0 + 15.5 * k)} ${f2(b + 4 * k)} ${f2(x0 + 22 * k)} ${b}`;
+  }
+  function noiseD(rand, x0, x1, b, amp, step) {
+    let d = '';
+    for (let x = x0; x <= x1 + 0.001; x += step) d += `${d ? ' L' : 'M'}${f2(x)} ${f2(b + (rand() * 2 - 1) * amp)}`;
+    return d;
+  }
+  // Each archetype's waveform: Static is noise with a buried pulse, Echo repeats the same small pulse,
+  // Faint Signal has one pulse over light noise, Clear Signal is a single clean pulse.
+  function waveSpec(band) {
+    const b = 52;
+    if (band === 'clear') return [{ role: 'signal', d: `M0 ${b} H134 ${pulseC(134, b, 2.2)} H320` }];
+    if (band === 'faint') return [{ role: 'noise', d: noiseD(rng(23), 0, 320, b, 3.2, 8) }, { role: 'signal', d: `M138 ${b} ${pulseC(138, b, 1.3)}`, delay: 0.35 }];
+    if (band === 'echo') {
+      return [{ role: 'noise', d: `M0 ${b} H320` }].concat([28, 88, 148, 208, 268].map((x, i) => ({ role: 'signal', d: `M${x} ${b} ${pulseC(x, b, 1)}`, op: [1, 0.72, 0.52, 0.36, 0.24][i], delay: 0.15 + i * 0.12 })));
+    }
+    return [{ role: 'noise', d: noiseD(rng(7), 0, 320, b, 15, 5) }, { role: 'signal', d: `M146 ${b} ${pulseC(146, b, 1.6)}`, op: 0.3, delay: 0.4 }];
+  }
+  function waveSvg(band, cls) {
+    return `<svg class="wave draw ${cls}" viewBox="0 0 320 100" aria-hidden="true">${waveSpec(band).map((w) => `<path class="w-${w.role}" pathLength="1" d="${w.d}" style="--d:${(w.delay || 0) + 0.1}s${w.op != null ? `;opacity:${w.op}` : ''}"/>`).join('')}</svg>`;
+  }
+  function countUp(node, to, ms) {
+    if (reduceMotion) { node.textContent = to; return; }
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / ms);
+      node.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    node.textContent = '0';
+    requestAnimationFrame(tick);
+  }
+  function fillBars(root) {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      qsa('[data-w]', root).forEach((i) => { i.style.width = `${i.dataset.w}%`; });
+    }));
+  }
+
+  /* ---------- Screens ---------- */
+
+  const RENDER = {
+    intro() {
+      const s = el(`<section class="intro">
+        <span class="pill-ink">For SaaS founders</span>
+        <h1 data-focus tabindex="-1">See where your SaaS blends in, and how to <em>stand out.</em></h1>
+        <p class="lede">In 5 minutes you'll test your positioning, messaging and homepage headline against the brand you want to be. You'll leave with your Signal Score, your archetype and the 3 fixes that matter most.</p>
+        <div class="start">
+          <button type="button" class="cta" data-start>Start the audit</button>
+          <p class="meta"><span>5 minutes</span><span>13 questions</span><span>No sign-up</span></p>
+        </div>
+        <figure class="preview" aria-label="Example result: a Signal Score of 64 out of 100, Faint Signal, rising to 82 with three fixes">
+          <span class="preview-tag">Example result</span>
+          <div class="pv-top"><span>Signal Score</span><span class="pv-chip">Faint Signal</span></div>
+          <p class="pv-num"><span data-count="64">64</span><small>/100</small></p>
+          ${waveSvg('faint', 'on-paper')}
+          <div class="pv-spec"><i></i><i></i><i class="is-you"></i><i></i><span class="pv-dot" style="left:64%"></span><span class="pv-dot next" style="left:82%"></span></div>
+          <div class="pv-legend"><span>You: 64</span><span>With 3 fixes: 82</span></div>
+        </figure>
+      </section>`);
+      qs('[data-start]', s).addEventListener('click', () => go(1, 1));
+      s._after = () => countUp(qs('[data-count]', s), 64, 1400);
+      return s;
+    },
+
+    rank(step) {
+      const s = el(`<section>${head(step, 'What do you want your SaaS to be known for?', 'Tap your top 3, in order. Everything after this gets measured against them.')}
+        <div class="chips stagger" role="group" aria-label="Your top 3, in order">${PRIORITIES.map((p, i) => `<button type="button" class="chip" data-id="${p.id}" aria-pressed="false" style="--i:${i}"><span>${esc(p.label)}</span><span class="rank" aria-hidden="true"></span></button>`).join('')}</div>
+        <p class="pickline" aria-live="polite"></p>
+        <button type="button" class="btn btn-primary btn-block" data-act="next">Continue</button>
+      </section>`);
+      const chips = qsa('.chip', s);
+      const line = qs('.pickline', s);
+      const nextBtn = qs('[data-act="next"]', s);
+      const paint = () => {
+        chips.forEach((c) => {
+          const r = S.q1.indexOf(c.dataset.id);
+          c.classList.toggle('is-on', r > -1);
+          c.setAttribute('aria-pressed', String(r > -1));
+          c.setAttribute('aria-label', r > -1 ? `${P[c.dataset.id].label}, pick ${r + 1}` : P[c.dataset.id].label);
+          qs('.rank', c).textContent = r > -1 ? r + 1 : '';
+        });
+        const n = S.q1.length;
+        line.textContent = n === 3 ? 'Locked in. Tap one to swap it out.' : `${n} of 3 picked`;
+        nextBtn.disabled = n !== 3;
+      };
+      chips.forEach((c) => c.addEventListener('click', () => {
+        cancelAdvance();
+        const id = c.dataset.id;
+        const at = S.q1.indexOf(id);
+        if (at > -1) S.q1.splice(at, 1);
+        else if (S.q1.length < 3) S.q1.push(id);
+        else {
+          line.textContent = "You've picked 3. Tap one of them to swap it out.";
+          line.classList.remove('nudge'); void line.offsetWidth; line.classList.add('nudge');
+          return;
+        }
+        paint();
+        if (S.q1.length === 3 && at === -1) scheduleAdvance(800);
+      }));
+      paint();
+      return s;
+    },
+
+    single(step) {
+      const q = SINGLE[step.id];
+      const s = el(`<section>${head(step, esc(q.title(ctx())), esc(q.help))}${optionsHtml(SCALES[step.scale], S[step.id])}</section>`);
+      wireOptions(s, step.id);
+      return s;
+    },
+
+    matrix(step) {
+      const rows = MATRIX[step.id];
+      const vals = S[step.id];
+      const s = el(`<section>${head(step, 'How true are these for you?', 'Rate each one. The more honest you are, the more useful your results.')}
+        <div class="matrix stagger">${rows.map((t, r) => `<div class="mrow${vals[r] != null ? ' is-done' : ''}" data-r="${r}" style="--i:${r}">
+          <p class="mrow-t" id="${step.id}-${r}">${esc(t)}</p>
+          <div class="dots" role="group" aria-labelledby="${step.id}-${r}">${[0, 1, 2, 3, 4].map((i) => `<button type="button" class="dot${vals[r] === i ? ' is-on' : ''}" data-i="${i}" aria-pressed="${vals[r] === i}" aria-label="${i + 1}, ${SCALES.agree[i]}">${i + 1}</button>`).join('')}</div>
+          <div class="ends" aria-hidden="true"><span>Strongly disagree</span><span>Strongly agree</span></div>
+        </div>`).join('')}</div>
+        <button type="button" class="btn btn-primary btn-block" data-act="next"${vals.every((v) => v != null) ? '' : ' disabled'}>Continue</button>
+      </section>`);
+      const nextBtn = qs('[data-act="next"]', s);
+      const rowsEls = qsa('.mrow', s);
+      rowsEls.forEach((row) => {
+        const r = +row.dataset.r;
+        const dots = qsa('.dot', row);
+        dots.forEach((d) => d.addEventListener('click', () => {
+          const wasComplete = vals.every((v) => v != null);
+          const firstAnswer = vals[r] == null;
+          vals[r] = +d.dataset.i;
+          dots.forEach((o) => { const on = o === d; o.classList.toggle('is-on', on); o.setAttribute('aria-pressed', String(on)); });
+          row.classList.add('is-done');
+          const complete = vals.every((v) => v != null);
+          nextBtn.disabled = !complete;
+          if (complete && !wasComplete) scheduleAdvance(650);
+          else if (firstAnswer) {
+            const nextRow = rowsEls.find((x) => vals[+x.dataset.r] == null);
+            if (nextRow) bringIntoView(nextRow);
+          }
+        }));
+      });
+      return s;
+    },
+
+    names(step) {
+      const s = el(`<section>${head(step, 'Who are you up against?', "We'll use these to put your headline to the test.")}
+        <form class="form" novalidate>
+          <div class="field"><label for="f-brand">Your product</label><input id="f-brand" class="input" maxlength="40" autocomplete="organization" placeholder="e.g. Acme" value="${esc(S.brand)}" aria-describedby="f-brand-err"><p class="err" id="f-brand-err" aria-live="polite"></p></div>
+          <div class="field"><label for="f-comp">Your closest competitor</label><input id="f-comp" class="input" maxlength="40" autocomplete="off" placeholder="The one you lose deals to" value="${esc(S.comp)}" aria-describedby="f-comp-err"><p class="err" id="f-comp-err" aria-live="polite"></p></div>
+          <button type="submit" class="btn btn-primary btn-block">Continue</button>
+        </form>
+      </section>`);
+      const brand = qs('#f-brand', s);
+      const comp = qs('#f-comp', s);
+      brand.addEventListener('input', () => { S.brand = brand.value; clearErr(brand); });
+      comp.addEventListener('input', () => { S.comp = comp.value; clearErr(comp); });
+      brand.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); comp.focus(); } });
+      qs('form', s).addEventListener('submit', (e) => {
+        e.preventDefault();
+        const b = S.brand.trim();
+        const c = S.comp.trim();
+        let first = null;
+        if (!b) { bad(brand, "Add your product's name to continue."); first = first || brand; }
+        if (!c) { bad(comp, 'Add the competitor you lose the most deals to.'); first = first || comp; }
+        else if (b && b.toLowerCase() === c.toLowerCase()) { bad(comp, 'Your competitor needs a different name from your product.'); first = first || comp; }
+        if (first) { first.focus(); return; }
+        S.brand = b; S.comp = c;
+        next();
+      });
+      return s;
+    },
+
+    headline(step) {
+      const s = el(`<section>${head(step, "What's your homepage headline?", "Copy it word for word from your site, not how you'd like it to read.")}
+        <form class="form" novalidate>
+          <div class="field">
+            <label for="f-head">Your headline</label>
+            <textarea id="f-head" class="input" rows="3" maxlength="160" placeholder="e.g. The all-in-one platform to manage your projects" aria-describedby="f-head-err f-head-count">${esc(S.headline)}</textarea>
+            <div class="field-foot"><p class="err" id="f-head-err" aria-live="polite"></p><span class="countchars" id="f-head-count">${S.headline.length}/160</span></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Continue</button>
+        </form>
+      </section>`);
+      const box = qs('#f-head', s);
+      const count = qs('#f-head-count', s);
+      const form = qs('form', s);
+      box.addEventListener('input', () => {
+        const flat = box.value.replace(/\s*[\r\n]+\s*/g, ' ');
+        if (flat !== box.value) box.value = flat;
+        S.headline = flat;
+        count.textContent = `${flat.length}/160`;
+        clearErr(box);
+      });
+      box.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        if (form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit', { cancelable: true }));
+      });
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const words = S.headline.trim().split(/\s+/).filter(Boolean);
+        if (!words.length) { bad(box, 'Paste your headline to continue.'); box.focus(); return; }
+        if (words.length < 3) { bad(box, 'That looks short for a headline. Paste the full line, word for word.'); box.focus(); return; }
+        S.headline = S.headline.trim();
+        next();
+      });
+      return s;
+    },
+
+    words(step) {
+      const hints = ['e.g. fast', 'e.g. reliable', 'e.g. pricey'];
+      const s = el(`<section>${head(step, 'Which 3 words do customers actually use about you?', 'Pull them from reviews, sales calls or support tickets. Their words, not your tagline.')}
+        <form class="form" novalidate>
+          ${[0, 1, 2].map((i) => `<div class="field"><label for="f-w${i}">Word ${i + 1}</label><input id="f-w${i}" class="input" maxlength="30" autocomplete="off" autocapitalize="none" placeholder="${hints[i]}" value="${esc(S.words[i])}" aria-describedby="f-w${i}-err"><p class="err" id="f-w${i}-err" aria-live="polite"></p></div>`).join('')}
+          <button type="submit" class="btn btn-primary btn-block">Continue</button>
+        </form>
+      </section>`);
+      const inputs = [0, 1, 2].map((i) => qs(`#f-w${i}`, s));
+      inputs.forEach((inp, i) => {
+        inp.addEventListener('input', () => { S.words[i] = inp.value; clearErr(inp); });
+        if (i < 2) inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); inputs[i + 1].focus(); } });
+      });
+      qs('form', s).addEventListener('submit', (e) => {
+        e.preventDefault();
+        let first = null;
+        const seen = new Set();
+        inputs.forEach((inp, i) => {
+          const v = S.words[i].trim().toLowerCase();
+          if (!v) { bad(inp, 'Add a word here. Even a rough one helps.'); first = first || inp; }
+          else if (seen.has(v)) { bad(inp, "You've used this one already. Try a different word."); first = first || inp; }
+          seen.add(v);
+        });
+        if (first) { first.focus(); return; }
+        S.words = S.words.map((w) => w.trim());
+        next();
+      });
+      return s;
+    },
+
+    swap(step) {
+      const c = ctx();
+      const cl = clichesIn(S.headline);
+      const slug = `${c.comp.toLowerCase().replace(/[^a-z0-9]+/g, '') || 'competitor'}.com`;
+      const named = hasName(S.headline, S.brand.trim());
+      const s = el(`<section>${head(step, `Could ${esc(c.comp)} run your headline tomorrow?`, `Here's your headline on their homepage${named ? ', with their name in place of yours' : ''}.`)}
+        <figure class="mock" aria-label="Your headline shown on ${esc(c.comp)}'s homepage">
+          <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><span class="mock-url">${esc(slug)}</span></div>
+          <div class="mock-body">
+            <div class="mock-nav" aria-hidden="true"><b>${esc(c.comp)}</b><span>Product</span><span>Pricing</span></div>
+            <p class="mock-h">${markHeadline(S.headline, S.brand.trim(), c.comp)}</p>
+            <span class="mock-cta" aria-hidden="true">Start free trial</span>
+          </div>
+        </figure>
+        <p class="flag">${cl.length ? `Category clichés spotted: ${cl.map((w) => `<mark class="buzz">${esc(w)}</mark>`).join(', ')}. Each one costs you points.` : 'No category clichés spotted. Good start.'}</p>
+        ${optionsHtml(T1.map((o) => o.t), S.q11)}
+      </section>`);
+      wireOptions(s, 'q11');
+      return s;
+    },
+
+    gap(step) {
+      const per = perception(S.q1, S.words);
+      const m = per.filter((p) => p.match).length;
+      const hit = new Set(per.map((p) => p.match).filter(Boolean));
+      const s = el(`<section>${head(step, 'Is this how customers really see you?', 'Your top 3, next to the words your customers use.')}
+        <div class="gapgrid">
+          <div class="gcol"><p class="glabel">You want</p>${S.q1.map((id, i) => `<span class="gchip${hit.has(id) ? ' is-match' : ''}"><span><em>${i + 1}</em>${esc(P[id].label)}</span></span>`).join('')}</div>
+          <div class="gcol"><p class="glabel">Customers say</p>${per.map((p) => `<span class="gchip${p.match ? ' is-match' : ''}"><span>“${esc(p.word)}”</span><small>${p.match ? `Matches ${esc(P[p.match].label)}` : p.other ? `Reads as ${esc(P[p.other].label)}` : 'No match'}</small></span>`).join('')}</div>
+        </div>
+        <p class="flag"><b>${m} of 3</b> customer words match what you want to be known for.</p>
+        ${optionsHtml(T2.map((o) => o.t), S.q12)}
+      </section>`);
+      wireOptions(s, 'q12');
+      return s;
+    },
+
+    clash(step) {
+      const p1 = P[S.q1[0]] || PRIORITIES[0];
+      const seenIn = prioritiesIn(S.headline).slice(0, 3);
+      const ids = PRIORITIES.map((p) => p.id).concat('none');
+      const s = el(`<section>${head(step, 'What does your headline actually lead with?', 'Read it like a stranger would. Pick the idea it puts first.')}
+        <div class="clash">
+          <p class="glabel">Your #1</p><p class="clash-p">${esc(p1.label)}</p>
+          <p class="glabel">Your headline</p><p class="clash-h">“${esc(S.headline)}”</p>
+          <p class="flag">${seenIn.length ? `It reads to us like <b>${seenIn.map((id) => esc(P[id].label)).join(', ')}</b>.` : "We couldn't spot a clear priority in it."}</p>
+        </div>
+        <div class="chips stagger" role="group" aria-label="What your headline leads with">${ids.map((id, i) => `<button type="button" class="chip${S.q13 === id ? ' is-on' : ''}${id === 'none' ? ' wide' : ''}" data-id="${id}" aria-pressed="${S.q13 === id}" style="--i:${i}"><span>${esc((P[id] || NONE).label)}</span>${TICK}</button>`).join('')}</div>
+      </section>`);
+      const chips = qsa('.chip', s);
+      chips.forEach((ch) => ch.addEventListener('click', () => {
+        S.q13 = ch.dataset.id;
+        chips.forEach((o) => { const on = o === ch; o.classList.toggle('is-on', on); o.setAttribute('aria-pressed', String(on)); });
+        scheduleAdvance(450);
+      }));
+      return s;
+    },
+
+    section(step) {
+      const p = PILL[step.pillar];
+      const prev = PILLARS[PILLARS.indexOf(p) - 1];
+      const def = p.id === 'dist' ? `${p.def} This is the Signal Test: your own words, checked against everything you've told us so far.` : p.def;
+      return el(`<section class="sec">
+        <button type="button" class="back" data-act="back">Back</button>
+        <span class="pill-ink">${CHECK} ${esc(prev.name)} complete</span>
+        <div class="sec-main">
+          <span class="sec-num" aria-hidden="true">${p.num}</span>
+          <h1 class="sec-name" data-focus tabindex="-1">${esc(p.name)}</h1>
+          <p class="sec-def">${esc(def)}</p>
+        </div>
+        <svg class="sec-pulse" viewBox="0 0 320 70" aria-hidden="true"><path pathLength="1" d="M0 40 H140 ${pulseC(140, 40, 1.5)} H320"/></svg>
+        <button type="button" class="btn btn-ink btn-block" data-act="next">Continue</button>
+      </section>`);
+    },
+
+    loading() {
+      R = computeResults();
+      if (cardUrl) { URL.revokeObjectURL(cardUrl); cardUrl = ''; }
+      cardBlob = null;
+      const c = ctx();
+      const steps = ['Locking in your priorities', 'Scoring your five pillars', `Putting your headline on ${c.comp}'s homepage`, 'Checking for category clichés', "Comparing your words with your customers'", 'Ranking your fixes by impact'];
+      let ecg = 'M0 55';
+      for (let n = 0; n < 8; n++) ecg += ` H${30 + n * 80} ${pulseC(30 + n * 80, 55, 1.15)}`;
+      const s = el(`<section class="load">
+        <h1 data-focus tabindex="-1">Reading your Signal</h1>
+        <svg class="ecg" viewBox="0 0 320 100" aria-hidden="true">
+          <defs><linearGradient id="ecg-fade" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".15" stop-color="#fff"/><stop offset=".85" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="ecg-mask"><rect width="320" height="100" fill="url(#ecg-fade)"/></mask></defs>
+          <g mask="url(#ecg-mask)"><g class="ecg-run"><path d="${ecg} H640"/></g></g>
+        </svg>
+        <ol class="steps">${steps.map((t) => `<li class="step"><span class="tick-box">${CHECK}</span><span>${esc(t)}</span></li>`).join('')}</ol>
+        <p class="pct" aria-hidden="true">0%</p>
+      </section>`);
+      s._after = () => {
+        const items = qsa('.step', s);
+        const pct = qs('.pct', s);
+        const per = reduceMotion ? 420 : 860;
+        let i = 0;
+        const tick = () => {
+          if (FLOW[cur].kind !== 'loading' || !s.isConnected) return;
+          if (i > 0) { items[i - 1].classList.remove('is-active'); items[i - 1].classList.add('is-done'); }
+          if (i < items.length) {
+            items[i].classList.add('is-active');
+            pct.textContent = `${Math.round((i / items.length) * 100)}%`;
+            i++;
+            setTimeout(tick, per);
+          } else {
+            pct.textContent = '100%';
+            setTimeout(() => { if (FLOW[cur].kind === 'loading') go(AT('results'), 1, true); }, 520);
+          }
+        };
+        setTimeout(tick, 260);
+      };
+      return s;
+    },
+
+    results() {
+      const r = R;
+      const c = ctx();
+      const A = ARCH[r.band];
+      const s = el(`<section class="results">
+        <div class="arch">
+          <p class="arch-label">Your Signal archetype</p>
+          <h1 class="arch-name" data-focus tabindex="-1">${A.name}</h1>
+          ${waveSvg(r.band, 'on-orange')}
+          <p class="arch-line">${esc(A.line)}</p>
+          <p class="arch-cost"><b>What it's costing you</b>${esc(A.cost)}</p>
+        </div>
+
+        <div class="block">
+          <p class="label">Your Signal Score</p>
+          <p class="score-num"><span data-count="${r.overall}">${r.overall}</span><small>/100</small></p>
+          ${spectrumHtml(r)}
+          <p class="score-sum">${esc(scoreSentence(r))}</p>
+          ${r.capped ? `<p class="note">${esc(`Your ratings alone would put you at ${ARCH[r.rawBand].name}. Your own words scored ${r.dist}/100 in the Signal Test, and evidence outranks self-rating, so you land at Echo until your words catch up.`)}</p>` : ''}
+          ${gapCardHtml(r)}
+          <details class="how"><summary>How your score works</summary><p>Five pillars make up your score: Positioning (25%), Psychology (20%), Creative (15%), Growth (15%) and Distinctiveness (25%). The first four come from your ratings. Distinctiveness comes from the Signal Test, so it's scored on your actual words. Each category cliché in your headline costs 10 points on the competitor swap, up to 30. Customer words that match your top 3 score higher. If Distinctiveness scores under 40, you can't rank above Echo, however you rated yourself. Static runs from 0 to 39, Echo from 40 to 59, Faint Signal from 60 to 79 and Clear Signal from 80 to 100.</p></details>
+        </div>
+
+        <div class="block">
+          <h2 class="h2">Pillar by pillar</h2>
+          <div class="pillars">${pillarsHtml(r, c)}</div>
+        </div>
+
+        <div class="block">
+          <h2 class="h2">Your top 3 fixes</h2>
+          ${r.top.length ? `<p class="sub">Ordered by how many points each one adds to your score.</p><div class="fixes">${fixesHtml(r, c)}</div>` : '<p class="sub">Nothing on our list is holding you back. Keep your headline, your proof and your voice exactly this sharp as you grow.</p>'}
+        </div>
+
+        <div class="block">
+          <h2 class="h2">In your own words</h2>
+          <div class="refls">${reflectionsHtml(r, c)}</div>
+        </div>
+
+        <div class="block">
+          <h2 class="h2">Your result card</h2>
+          <p class="sub">Share it with your team, or save it for later.</p>
+          <figure class="sharecard"><img alt="Result card: Signal Score ${r.overall} out of 100, ${A.name}." hidden></figure>
+          <div class="row"><button type="button" class="btn btn-primary" data-do="share">Share result</button><button type="button" class="btn btn-line" data-do="save">Save image</button></div>
+          <textarea class="copybox" readonly hidden aria-label="Your result, ready to copy"></textarea>
+        </div>
+
+        <div class="block end">
+          <button type="button" class="btn btn-orange btn-block" data-do="finish">Finish</button>
+          <button type="button" class="btn btn-text" data-do="retake">Retake the audit</button>
+        </div>
+      </section>`);
+
+      const saveBtn = qs('[data-do="save"]', s);
+      if (inViewer) {
+        saveBtn.hidden = true;
+        saveBtn.parentElement.classList.add('one');
+        downloadsReady.then((d) => { if (d && saveBtn.isConnected) { saveBtn.hidden = false; saveBtn.parentElement.classList.remove('one'); } });
+      }
+      qs('[data-do="share"]', s).addEventListener('click', () => shareResult(s));
+      saveBtn.addEventListener('click', saveImage);
+      qs('[data-do="finish"]', s).addEventListener('click', () => go(AT('thanks'), 1));
+      qs('[data-do="retake"]', s).addEventListener('click', retake);
+      s._after = () => {
+        countUp(qs('.score-num [data-count]', s), r.overall, 1300);
+        fillBars(s);
+        buildCard(s);
+      };
+      return s;
+    },
+
+    thanks() {
+      const r = R;
+      const c = ctx();
+      const A = ARCH[r.band];
+      const s = el(`<section class="thanks">
+        <span class="pill-ink">${CHECK} Audit complete</span>
+        <h1 data-focus tabindex="-1">Thanks for completing the <em>Signal Audit.</em></h1>
+        <p class="lede">Here's your breakdown at a glance.${r.top.length ? " Start with fix 1 this week. It's worth the most points." : ''}</p>
+        <div class="recap">
+          <div class="recap-top"><span class="recap-score">${r.overall}<small>/100</small></span><span class="recap-arch">${A.name}</span></div>
+          <div class="recap-pills">${PILLARS.map((p) => { const v = Math.round(r.pill[p.id]); return `<div class="rp"><span>${esc(p.name)}</span><i style="--w:${v}%"></i><b>${v}</b></div>`; }).join('')}</div>
+          ${r.top.length ? `<p class="recap-l">Your ${r.top.length === 1 ? 'fix' : `${r.top.length} fixes`}</p><ul class="todo">${r.top.map((f, i) => `<li><button type="button" class="todo-b" aria-pressed="false"><span class="todo-box">${CHECK}</span><span class="t">${i + 1}. ${esc(f.it.fix(c).title)}</span><em>+${f.pts}</em></button></li>`).join('')}</ul>` : ''}
+        </div>
+        <button type="button" class="btn btn-ink btn-block" data-do="results">See full results</button>
+        <button type="button" class="btn btn-text" data-do="retake">Retake the audit</button>
+      </section>`);
+      qsa('.todo-b', s).forEach((b) => b.addEventListener('click', () => b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'))));
+      qs('[data-do="results"]', s).addEventListener('click', () => go(AT('results'), -1, true));
+      qs('[data-do="retake"]', s).addEventListener('click', retake);
+      return s;
+    },
+  };
+
+  function retake() {
+    cancelAdvance();
+    S = blank();
+    R = null;
+    trail = [0];
+    cur = 1;
+    mount(1);
+  }
+
+  /* ---------- Results pieces ---------- */
+
+  function spectrumHtml(r) {
+    // Labels near either end of the bar hang inwards from their pin so they never get cut off.
+    const side = (n) => (n > 78 ? ' to-left' : n < 22 ? ' to-right' : '');
+    const gain = Math.max(0, r.projected - r.overall);
+    // Each band fills up to your score; the striped part is what the 3 fixes add.
+    const seg = (lo, hi) => {
+      const at = (n) => f2(Math.max(0, Math.min(100, ((n - lo) / (hi - lo)) * 100)));
+      const you = at(r.overall);
+      const to = at(r.projected);
+      return `<i><b data-w="${you}"></b>${to > you ? `<u style="left:${you}%;width:${f2(to - you)}%"></u>` : ''}</i>`;
+    };
+    return `<div class="spectrum" role="img" aria-label="Signal Score ${r.overall} out of 100, in the ${ARCH[r.band].name} band.${gain ? ` About ${r.projected} with your 3 fixes.` : ''}">
+      <span class="flagpin above${side(r.overall)}" style="left:${r.overall}%"><span>You ${r.overall}</span></span>
+      <div class="spec-bar">${[[0, 40], [40, 60], [60, 80], [80, 100]].map(([lo, hi]) => seg(lo, hi)).join('')}</div>
+      ${gain ? `<span class="flagpin below${side(r.projected)}" style="left:${r.projected}%"><span>With fixes ${r.projected}</span></span>` : ''}
+      <div class="spec-labels">${BANDS.map((b) => `<span class="${b.id === r.band ? 'is-you' : ''}">${b.short}</span>`).join('')}</div>
+    </div>`;
+  }
+  function scoreSentence(r) {
+    if (!r.top.length) return 'There is nothing left on our list to fix. Your job now is keeping it this sharp as you grow.';
+    const gain = r.projected - r.overall;
+    if (r.projBand !== r.band) return `The 3 fixes below are worth about ${gain} points. They'd take you from ${ARCH[r.band].name} to ${ARCH[r.projBand].name}.`;
+    return `The 3 fixes below are worth about ${gain} points, taking you to ${r.projected}.`;
+  }
+  function gapCardHtml(r) {
+    let title;
+    let body;
+    if (r.gap >= 20) {
+      title = `Your confidence gap: ${r.gap} points`;
+      body = `You rated how well you deliver at ${r.selfAvg}/100. When we tested your actual words, they scored ${r.dist}/100. That gap is where buyers get lost. The message feels like it's landing, so nobody fixes it.`;
+    } else if (r.gap <= -20) {
+      title = "You're underselling yourself";
+      body = `Your words tested at ${r.dist}/100, higher than the ${r.selfAvg}/100 you gave your own delivery. The raw material is better than you think. The work is making it consistent.`;
+    } else {
+      title = 'Your ratings and your words agree';
+      body = `You rated your delivery ${r.selfAvg}/100 and your words tested at ${r.dist}/100. You know where you stand, which makes the fixes below easier to trust.`;
+    }
+    return `<div class="gapcard">
+      <h3>${esc(title)}</h3>
+      <div class="gbar"><div class="gbar-top"><span>How you rated your delivery</span><b>${r.selfAvg}</b></div><div class="track"><i data-w="${r.selfAvg}"></i></div></div>
+      <div class="gbar"><div class="gbar-top"><span>How your words tested</span><b>${r.dist}</b></div><div class="track"><i class="hot" data-w="${r.dist}"></i></div></div>
+      <p>${esc(body)}</p>
+    </div>`;
+  }
+  function statusOf(v) {
+    if (v >= 80) return ['strong', 'Strong'];
+    if (v >= 60) return ['solid', 'Solid'];
+    if (v >= 40) return ['patchy', 'Patchy'];
+    return ['weak', 'Weak'];
+  }
+  function finding(pid, r, c) {
+    if (pid === 'dist') {
+      const parts = [];
+      if (r.swapBase <= 35) parts.push(`your headline works for ${c.comp} too`);
+      if (r.cliches.length) parts.push(`it uses ${r.cliches.length} category cliché${r.cliches.length > 1 ? 's' : ''}`);
+      if (r.matches < 2) parts.push(`${r.matches} of 3 customer words match your priorities`);
+      if (S.q13 !== S.q1[0]) parts.push(S.q13 === 'none' ? "your headline doesn't lead with anything specific" : `your headline leads with ${P[S.q13].mid}, not ${c.p1mid}`);
+      return parts.length ? `${cap(parts.join('; '))}.` : 'Your words held up in all three tests.';
+    }
+    const items = ITEMS.filter((it) => it.pillar === pid);
+    let low = items[0];
+    items.forEach((it) => { if (r.sc[it.id] < r.sc[low.id]) low = it; });
+    if (r.sc[low.id] >= 100) return "No weak spots here. Keep doing what you're doing.";
+    return `Weakest point: ${low.short(c)}.`;
+  }
+  function pillarsHtml(r, c) {
+    return PILLARS.map((p) => {
+      const v = Math.round(r.pill[p.id]);
+      const [cls, label] = statusOf(v);
+      return `<div class="pillar">
+        <div class="p-head"><span class="p-name">${esc(p.name)}</span><span class="status ${cls}">${label}</span><span class="p-score">${v}</span></div>
+        <div class="track"><i class="${cls === 'weak' || cls === 'patchy' ? 'hot' : ''}" data-w="${v}"></i></div>
+        <p class="p-meta">${Math.round(p.weight * 100)}% of your score · ${esc(p.def)}</p>
+        <p class="p-find">${esc(finding(p.id, r, c))}</p>
+        <p class="p-why"><b>Why it matters:</b> ${esc(p.why)}</p>
+      </div>`;
+    }).join('');
+  }
+  function fixesHtml(r, c) {
+    return r.top.map((f, i) => {
+      const fx = f.it.fix(c);
+      return `<article class="fix">
+        <span class="fix-n" aria-hidden="true">${i + 1}</span>
+        <div class="fix-body">
+          <p class="fix-meta"><span class="fix-pts">${f.pts > 0 ? `+${f.pts} pts` : 'Small gain'}</span><span>${esc(PILL[f.it.pillar].name)}</span></p>
+          <h3>${esc(fx.title)}</h3>
+          <p><b>Do this:</b> ${esc(fx.act)}</p>
+          <p class="why"><b>Why:</b> ${esc(fx.why)}</p>
+        </div>
+      </article>`;
+    }).join('');
+  }
+  function reflectionsHtml(r, c) {
+    const out = [];
+    const p1 = c.p1;
+    if (S.q13 === S.q1[0]) out.push({ good: true, a: ['You said', `${p1.label} is your #1.`], b: ['Your headline', 'Leads with it. Keep it that way.'] });
+    else if (S.q13 === 'none') out.push({ a: ['You said', `${p1.label} is your #1.`], b: ['Your headline', "Doesn't lead with anything specific."] });
+    else out.push({ a: ['You said', `${p1.label} is your #1.`], b: ['Your headline leads with', `${P[S.q13].label}.`] });
+
+    if (r.swapBase <= 35) out.push({ a: ['Your headline says', `“${S.headline}”`], b: [`On ${c.comp}'s homepage`, r.swapBase === 0 ? 'It works word for word.' : 'It works with a small tweak.'] });
+    else if (r.swapBase === 100 && !r.cliches.length) out.push({ good: true, a: ['Your headline says', `“${S.headline}”`], b: [`On ${c.comp}'s homepage`, "It falls apart. That's real positioning."] });
+
+    if (r.cliches.length) out.push({ a: ['Your headline uses', quoteList(r.cliches)], b: ['Buyers read that as', 'Category noise. These words are on so many SaaS homepages that they slide straight past.'] });
+
+    const others = r.per.filter((p) => p.other).slice(0, 2).map((p) => `“${p.word}” reads as ${P[p.other].label}, which isn't in your top 3.`);
+    out.push({
+      good: r.matches === 3,
+      a: ['You want to be known for', S.q1.map((id) => P[id].label).join(', ')],
+      b: ['Your customers say', quoteList(S.words)],
+      note: `${r.matches} of 3 match.${others.length ? ` ${others.join(' ')}` : ''}`,
+    });
+
+    return out.map((x) => `<div class="refl${x.good ? ' is-good' : ''}">
+      <p class="refl-l">${esc(x.a[0])}</p><p class="refl-t">${esc(x.a[1])}</p>
+      <p class="refl-but"><span>${x.good ? 'And' : 'But'}</span></p>
+      <p class="refl-l">${esc(x.b[0])}</p><p class="refl-t">${esc(x.b[1])}</p>
+      ${x.note ? `<p class="refl-note">${esc(x.note)}</p>` : ''}
+    </div>`).join('');
+  }
+
+  /* ---------- Share card ---------- */
+
+  function spaced(x, text, px, py, font, color, gap) {
+    x.font = font;
+    x.fillStyle = color;
+    let cx = px;
+    for (const ch of text) { x.fillText(ch, cx, py); cx += x.measureText(ch).width + gap; }
+  }
+  function wrapText(x, text, px, py, maxW, lh, maxLines) {
+    let lines = [];
+    let line = '';
+    text.split(' ').forEach((w) => {
+      const t = line ? `${line} ${w}` : w;
+      if (line && x.measureText(t).width > maxW) { lines.push(line); line = w; } else line = t;
+    });
+    if (line) lines.push(line);
+    if (lines.length > maxLines) {
+      lines = lines.slice(0, maxLines);
+      lines[maxLines - 1] = `${lines[maxLines - 1].replace(/\s+\S*$/, '')}…`;
+    }
+    lines.forEach((l, i) => x.fillText(l, px, py + i * lh));
+  }
+  async function drawCard(r) {
+    if (document.fonts && document.fonts.load) {
+      try { await Promise.all(['800 200px Poppins', '700 40px Poppins', '400 38px "DM Sans"', '700 28px "DM Sans"'].map((f) => document.fonts.load(f))); } catch (e) { /* system fonts stand in */ }
+    }
+    const W = 1080;
+    const H = 1350;
+    const cv = document.createElement('canvas');
+    cv.width = W;
+    cv.height = H;
+    const x = cv.getContext('2d');
+    const A = ARCH[r.band];
+    x.fillStyle = '#0A0A0A';
+    x.fillRect(0, 0, W, H);
+    x.fillStyle = '#FFFFFF';
+    x.beginPath();
+    x.arc(132, 132, 56, 0, Math.PI * 2);
+    x.fill();
+    x.fillStyle = '#0A0A0A';
+    x.textAlign = 'center';
+    x.font = '700 38px Poppins, Arial, sans-serif';
+    x.fillText('KF', 132, 134);
+    x.save();
+    x.translate(113, 144);
+    x.scale(1.45, 1.45);
+    x.strokeStyle = '#FF4D00';
+    x.lineWidth = 1.8;
+    x.lineCap = 'round';
+    x.lineJoin = 'round';
+    x.stroke(new Path2D('M0 5H6L8 1L11 9L13 5H26'));
+    x.restore();
+    x.textAlign = 'left';
+    spaced(x, 'SIGNAL AUDIT', 214, 144, '700 30px "DM Sans", Arial, sans-serif', '#FFFFFF', 6);
+    spaced(x, 'MY SAAS SIGNAL SCORE', 96, 318, '700 30px "DM Sans", Arial, sans-serif', '#FF4D00', 5);
+    x.fillStyle = '#FFFFFF';
+    x.font = '800 300px Poppins, Arial, sans-serif';
+    const num = String(r.overall);
+    x.fillText(num, 84, 590);
+    const nw = x.measureText(num).width;
+    x.font = '700 70px Poppins, Arial, sans-serif';
+    x.fillStyle = 'rgba(255,255,255,.45)';
+    x.fillText('/100', 84 + nw + 18, 590);
+    x.fillStyle = '#FFFFFF';
+    x.font = '800 104px Poppins, Arial, sans-serif';
+    x.fillText(A.name, 88, 742);
+    x.save();
+    x.translate(96, 752);
+    x.scale(888 / 320, 888 / 320);
+    x.lineCap = 'round';
+    x.lineJoin = 'round';
+    waveSpec(r.band).forEach((w) => {
+      const sig = w.role === 'signal';
+      x.globalAlpha = sig ? (w.op != null ? w.op : 1) : 0.34;
+      x.strokeStyle = sig ? '#FF4D00' : '#FFFFFF';
+      x.lineWidth = sig ? 2.6 : 1.4;
+      x.shadowColor = 'rgba(255,77,0,.55)';
+      x.shadowBlur = sig ? 10 : 0;
+      x.stroke(new Path2D(w.d));
+    });
+    x.restore();
+    x.globalAlpha = 1;
+    x.fillStyle = 'rgba(255,255,255,.8)';
+    x.font = '400 36px "DM Sans", Arial, sans-serif';
+    wrapText(x, A.line, 96, 1096, 888, 50, 3);
+    spaced(x, 'TAKE THE SIGNAL AUDIT', 96, 1290, '700 28px "DM Sans", Arial, sans-serif', '#FF4D00', 5);
+    return cv;
+  }
+  async function buildCard(s) {
+    const img = qs('.sharecard img', s);
+    try {
+      const cv = await drawCard(R);
+      cardBlob = await new Promise((res) => cv.toBlob(res, 'image/png'));
+      if (!cardBlob) throw new Error('Card image failed');
+      if (cardUrl) URL.revokeObjectURL(cardUrl);
+      cardUrl = URL.createObjectURL(cardBlob);
+      img.src = cardUrl;
+      img.hidden = false;
+    } catch (e) {
+      qs('.sharecard', s).hidden = true;
+    }
+  }
+  async function shareResult(s) {
+    const A = ARCH[R.band];
+    const text = `My SaaS scored ${R.overall}/100 on the Signal Audit and came out as ${A.name}. ${A.line}`;
+    if (!inViewer && navigator.share) {
+      try {
+        const file = cardBlob && typeof File === 'function' ? new File([cardBlob], 'signal-audit-result.png', { type: 'image/png' }) : null;
+        if (file && navigator.canShare && navigator.canShare({ files: [file] })) await navigator.share({ files: [file], title: 'My Signal Audit result', text });
+        else await navigator.share({ title: 'My Signal Audit result', text });
+        return;
+      } catch (e) {
+        if (e && e.name === 'AbortError') return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(text);
+      toast('Result copied. Paste it anywhere.');
+    } catch (e) {
+      const box = qs('.copybox', s);
+      box.value = text;
+      box.hidden = false;
+      box.focus();
+      box.select();
+      toast('Select the text below to copy it.');
+    }
+  }
+  async function saveImage() {
+    if (!cardBlob) { toast('Your card is still being made. Try again in a moment.'); return; }
+    if (inViewer) {
+      const d = await downloadsReady;
+      if (!d) { toast('Saving is not available here. Take a screenshot of the card instead.'); return; }
+      try {
+        await d.save({ filename: 'signal-audit-result.png', data: cardBlob });
+        toast('Saved');
+      } catch (e) {
+        if (e && e.code === 'declined') return;
+        toast(e && e.code === 'rate_limited' ? 'One moment, then try again.' : "Couldn't save it here. Take a screenshot of the card instead.");
+      }
+      return;
+    }
+    const a = document.createElement('a');
+    a.href = cardUrl || URL.createObjectURL(cardBlob);
+    a.download = 'signal-audit-result.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    toast('Saved');
+  }
+
+  /* ---------- Start ---------- */
+
+  mount(1);
+})();
+</script>
+</body>
+</html>
