@@ -563,6 +563,15 @@ h2.case-h2 em{font-style:italic}
 @media(max-width:1024px){.case-layout{grid-template-columns:minmax(0,1fr)}.case-sidebar{position:static}.meta-strip{flex-wrap:wrap}.meta-item{flex:1 1 50%;border-bottom:1px solid var(--border)}}
 @media(max-width:1024px){.wrap{padding:0 24px}nav .wrap{padding:0 24px}.nav-right{gap:14px}.nav-links button.nav-signal{font-size:10.5px;padding:9px 14px;letter-spacing:.06em;gap:6px;white-space:nowrap}.services-rows{grid-template-columns:1fr;gap:48px}.svc{grid-template-columns:110px 1fr;gap:18px}.svc-extra{padding:28px 24px}.nl-grid{grid-template-columns:1fr;gap:44px}.nl-form{flex-direction:column}.case-hero2{min-height:60vh}.hero2-content{padding-top:110px;padding-bottom:40px}.post-wrap{padding:56px 24px 80px}.tile-grid{grid-template-columns:1fr 1fr;gap:8px}.case-row{margin-bottom:72px}.proj-grid2{grid-template-columns:1fr;gap:72px}.proj-grid2 .case-row:nth-child(even){margin-top:0}.case-row-media{aspect-ratio:4/3}.row-chips{top:12px;left:12px}.chip{padding:6px 10px;font-size:10px}.results-grid{grid-template-columns:1fr}.footer-flex{flex-direction:column;align-items:flex-start;gap:40px}.f-right{align-items:flex-start;text-align:left}.footer-flex-stack{align-items:center;text-align:center;gap:40px}.footer-flex-stack .f-right{align-items:center;text-align:center}.script-block{padding:24px}.script-line{font-size:16px}}
 @media(max-width:480px){.tile-grid{grid-template-columns:1fr}}
+/* PHONE HERO (portrait, 640px and narrower): its own pattern laid out for the tall screen, a torch that
+   moves without a cursor, and the silver line's shadow scaled to its size. Laptops and tablets are unchanged. */
+.hero-pattern-phone{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;mix-blend-mode:soft-light}
+@media (max-width:640px) and (max-aspect-ratio:1/1){
+  .hero-pattern{display:none}
+  .hero-pattern-phone{display:block}
+  .hero-spotlight{background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.22),rgba(255,255,255,0) 70%)}
+  .hb3-shine{text-shadow:.5px .5px 0 rgba(224,224,224,.7),1px 1px 0 rgba(206,206,206,.6),1.5px 1.5px 0 rgba(188,188,188,.5),2px 2px 0 rgba(170,170,170,.4),2.5px 3px 5px rgba(255,255,255,.5)}
+}
 </style>
 
 <!-- Analytics (GA4) -->
@@ -608,6 +617,19 @@ gtag('config', 'G-BK9KMW79VY', { send_page_view: false });
 <div id="p-home" class="page">
 
   <section id="hero">
+    <svg class="hero-pattern-phone" viewBox="0 0 390 844" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <path id="pulseMarkM" pathLength="1" d="M0 30 H24 C27 30 28.5 21 30 12 C31.5 21 33 41 36.5 49 C38 41 39.5 34 46 30 H70" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </defs>
+      <!-- Phone layout. The words take the middle of the screen, so the marks sit in the open bands above and below
+           them. Positions scale with the screen, so they keep their clearance on any phone. -->
+      <g transform="translate(-20,30) scale(2.8) rotate(-4)" opacity=".5"><use class="hp-m" href="#pulseMarkM" style="--d:.08s"/></g>
+      <g transform="translate(196,20) scale(2) rotate(3)" opacity=".45"><use class="hp-m" href="#pulseMarkM" style="--d:.14s"/></g>
+      <g transform="translate(286,112) scale(1.1)" opacity=".4"><use class="hp-m" href="#pulseMarkM" style="--d:.22s"/></g>
+      <g transform="translate(-16,672) scale(2.2) rotate(2)" opacity=".5"><use class="hp-m" href="#pulseMarkM" style="--d:.66s"/></g>
+      <g transform="translate(150,668) scale(1.7) rotate(-3)" opacity=".45"><use class="hp-m" href="#pulseMarkM" style="--d:.74s"/></g>
+      <g transform="translate(262,664) scale(1.1)" opacity=".4"><use class="hp-m" href="#pulseMarkM" style="--d:.8s"/></g>
+    </svg>
     <svg class="hero-pattern" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <path id="pulseMark" pathLength="1" d="M0 30 H24 C27 30 28.5 21 30 12 C31.5 21 33 41 36.5 49 C38 41 39.5 34 46 30 H70" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1225,10 +1247,10 @@ function initHeroReveal() {
 }
 initHeroReveal();
 
-// Cursor-reactive spotlight across the hero.
+// Cursor-reactive spotlight across the hero. Phones have no cursor, so they get initHeroTorch instead.
 function initHeroSpotlight() {
   const hero = document.getElementById('hero');
-  if (!hero) return;
+  if (!hero || window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
   hero.addEventListener('pointermove', (e) => {
     const r = hero.getBoundingClientRect();
     hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
@@ -1286,6 +1308,49 @@ function initHeroFloat() {
   kick();
 }
 initHeroFloat();
+
+// Phones have no cursor, so the laptop torch never appears there. This one lights up on its own: it drifts
+// slowly across the hero, jumps to wherever a finger rests, and drifts on from there once the finger lifts.
+function initHeroTorch() {
+  const hero = document.getElementById('hero');
+  if (!hero || !window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  hero.classList.add('spot-on');
+  let x = 50, y = 40, tx = 50, ty = 40, touching = false, live = true, raf = 0, t0 = 0;
+  const paint = () => {
+    hero.style.setProperty('--mx', x.toFixed(2) + '%');
+    hero.style.setProperty('--my', y.toFixed(2) + '%');
+  };
+  const toHero = (e) => {
+    const r = hero.getBoundingClientRect();
+    return [(e.clientX - r.left) / r.width * 100, (e.clientY - r.top) / r.height * 100];
+  };
+  function frame(now) {
+    raf = 0;
+    if (!t0) t0 = now;
+    if (!touching) {
+      const s = (now - t0) / 1000;
+      tx = 50 + 30 * Math.sin(2 * Math.PI * s / 10);
+      ty = 40 + 20 * Math.sin(2 * Math.PI * s / 14 + 1.3);
+    }
+    const k = touching ? 0.3 : 0.04;
+    x += (tx - x) * k;
+    y += (ty - y) * k;
+    paint();
+    if (live) raf = requestAnimationFrame(frame);
+  }
+  hero.addEventListener('pointerdown', (e) => { touching = true; [tx, ty] = toHero(e); });
+  hero.addEventListener('pointermove', (e) => { if (touching) [tx, ty] = toHero(e); });
+  const release = () => { touching = false; };
+  window.addEventListener('pointerup', release);
+  window.addEventListener('pointercancel', release);
+  // Only animate while the hero is on screen.
+  new IntersectionObserver(([entry]) => {
+    live = entry.isIntersecting;
+    if (live && !raf) { t0 = 0; raf = requestAnimationFrame(frame); }
+  }).observe(hero);
+}
+initHeroTorch();
 
 // Two reusable scroll-interactivity primitives (a mixture of "B":
 // scroll-scrubbed staggered reveal, and "D": scroll-velocity kinetic
